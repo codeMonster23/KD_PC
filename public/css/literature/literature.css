@@ -1,0 +1,797 @@
+.topBanner {
+  height: 174px;
+  padding-top: 144px;
+  background: #4A2803 url(../../images/literature/lbanner.jpg) no-repeat center;
+}
+.topBanner .searchBox {
+  width: 864px;
+  margin: 0 auto;
+  height: 122px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+}
+.topBanner .searchBox .nav {
+  margin-left: 17px;
+  padding-top: 17px;
+  margin-bottom: 5px;
+}
+.topBanner .searchBox .nav a {
+  float: left;
+  width: 66px;
+  text-align: center;
+  line-height: 29px;
+  height: 34px;
+  font-size: 14px;
+  color: #ffffff;
+}
+.topBanner .searchBox .nav a.cur {
+  color: #dd1b1b;
+  background: url(../../images/literature/licon2.png) no-repeat center;
+}
+.topBanner .searchBox .nav .line {
+  float: left;
+  width: 0;
+  height: 29px;
+  border-left: 1px solid #A2B7A1;
+  margin: 0 11px;
+}
+.topBanner .searchBox .searchArea {
+  margin-left: 17px;
+  position: relative;
+  z-index: 101;
+}
+.topBanner .searchBox .searchArea .searchWrap {
+  margin-right: 25px;
+  height: 50px;
+}
+.topBanner .searchBox .searchArea .searchWrap .select {
+  width: 101px;
+  height: 50px;
+  background: #E5E5E5 url(../../images/literature/licon1.png) no-repeat 75px center;
+  cursor: pointer;
+}
+.topBanner .searchBox .searchArea .searchWrap .select p {
+  line-height: 50px;
+  padding-left: 20px;
+  font-size: 14px;
+}
+.topBanner .searchBox .searchArea .searchWrap .select ul {
+  width: 99px;
+  background-color: #fff;
+  border: 1px solid #E5E5E5;
+  border-top: none;
+}
+.topBanner .searchBox .searchArea .searchWrap .select ul li {
+  color: #313131;
+  font-size: 14px;
+  padding-left: 20px;
+  line-height: 34px;
+}
+.topBanner .searchBox .searchArea .searchWrap input {
+  float: left;
+  padding: 15px;
+  width: 519px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  border: none;
+}
+.topBanner .searchBox .searchArea .searchWrap .btn {
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #DC1B1B;
+}
+.topBanner .searchBox .searchArea .sbtn {
+  color: #ffffff;
+  line-height: 50px;
+}
+.ctab {
+  height: 50px;
+  border-bottom: 1px solid #E7E7E7;
+}
+.ctab .wrap {
+  width: 786px;
+  padding-left: 78px;
+  margin: 0 auto;
+}
+.ctab .wrap a {
+  float: left;
+  width: 96px;
+  text-align: center;
+  height: 49px;
+  line-height: 49px;
+  color: #313131;
+  font-size: 18px;
+}
+.ctab .wrap .mid {
+  margin: 0 213px;
+}
+.ctab .wrap .cur {
+  color: #dd1b1b;
+  background: url(../../images/literature/licon3.png) no-repeat center bottom;
+}
+.ctabc {
+  padding-top: 16px;
+  width: 920px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0 auto;
+}
+.ctabc .ul1 {
+  overflow: hidden;
+}
+.ctabc .ul1 li {
+  float: left;
+  width: 124px;
+  margin-right: 30px;
+  margin-left: 30px;
+  padding-bottom: 25px;
+  overflow: hidden;
+  height: 182px;
+}
+.ctabc .ul1 li a {
+  display: block;
+  color: #333333;
+}
+.ctabc .ul1 li a img {
+  display: block;
+  width: 124px;
+  height: 124px;
+}
+.ctabc .ul1 li a p {
+  line-height: 58px;
+  text-align: center;
+  font-size: 16px;
+}
+.ctabc .into {
+  display: block;
+  margin: -20px auto 40px;
+  width: 298px;
+  height: 56px;
+  line-height: 56px;
+  text-align: center;
+  font-size: 20px;
+  color: #dd1b1b;
+  border: 1px solid #DC1B1B;
+  border-radius: 28px;
+  background-color: #FBEFE9;
+  overflow: hidden;
+}
+.resultWrap {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+.resultWrap .rl {
+  width: 900px;
+  margin-right: 20px;
+}
+.resultWrap .rl .tops {
+  height: 27px;
+  margin-bottom: 7px;
+}
+.resultWrap .rl .tops p {
+  float: left;
+  line-height: 27px;
+  font-size: 16px;
+}
+.resultWrap .rl .tops p span {
+  color: #dd1b1b;
+  margin-right: 5px;
+}
+.resultWrap .rl .tops p i {
+  font-size: 12px;
+  color: #808080;
+}
+.resultWrap .rl .tops div {
+  color: #808080;
+}
+.resultWrap .rl .tops div a {
+  float: right;
+  width: 66px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  color: #808080;
+  border: 1px solid #E7E7E7;
+  border-radius: 12px;
+  margin-left: 11px;
+}
+.resultWrap .rl .tops div span {
+  line-height: 27px;
+}
+.resultWrap .rl .redLine {
+  border-top: 2px solid #DC1B1B;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+}
+.resultWrap .rl .filtrate {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: #FFE1E1;
+}
+.resultWrap .rl .filtrate .ti {
+  float: left;
+  color: #4D4D4D;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  width: 46px;
+  padding-left: 10px;
+}
+.resultWrap .rl .filtrate .itemm {
+  float: left;
+  position: relative;
+  padding-left: 34px;
+  width: 80px;
+  color: #4d4d4d;
+  font-size: 14px;
+  line-height: 40px;
+  background: url(../../images/literature/licon5.png) no-repeat 75px center;
+  cursor: pointer;
+}
+.resultWrap .rl .filtrate .itemm .see2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 34px;
+  width: 80px;
+  color: #ffffff;
+  background: #DC1B1B url(../../images/literature/licon4.gif) no-repeat center bottom;
+  z-index: 100;
+}
+.resultWrap .rl .filtrate .itemm .see2 img {
+  margin-left: 12px;
+}
+.resultWrap .rl .filtrate .line1 {
+  float: left;
+  width: 0;
+  font-size: 0;
+  margin-top: 9px;
+  height: 22px;
+  border-left: 1px solid #F6B9B9;
+  border-right: 1px solid #FFF;
+}
+.resultWrap .rl .filtrate .itemm.long {
+  background: url(../../images/literature/licon5.png) no-repeat 102px center;
+}
+.resultWrap .rl .pop2Wrap {
+  position: relative;
+}
+.resultWrap .rl .pop2Wrap .close1 {
+  right: 10px;
+  top: 10px;
+  width: 13px;
+  height: 13px;
+  background: url(../../images/literature/licon28.gif) no-repeat center;
+  z-index: 100;
+  display: none;
+}
+.resultWrap .rl .pop2Wrap .pop2 {
+  background: #fff;
+  width: 874px;
+  padding: 20px 12px 0px;
+  border: 1px solid #DC1B1B;
+  position: relative;
+  margin-top: -1px;
+  display: none;
+}
+.resultWrap .rl .pop2Wrap .pop2 .close1 {
+  right: 10px;
+  top: 10px;
+  width: 13px;
+  height: 13px;
+}
+.resultWrap .rl .pop2Wrap .pop2 .classes {
+  float: left;
+  height: 18px;
+  line-height: 18px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  *white-space: nowrap;
+}
+.resultWrap .rl .pop2Wrap .pop2 .classes span {
+  color: #999999;
+}
+.resultWrap .rl .pop2Wrap .pop2 .classes .wrapT {
+  position: relative;
+  color: #4D4D4D;
+}
+.resultWrap .rl .pop2Wrap .pop2 .classes a {
+  padding: 3px;
+  color: #4D4D4D;
+  cursor: pointer;
+}
+.resultWrap .rl .pop2Wrap .pop2 .classes .soil {
+  color: #fff;
+  background: #BE9F53;
+}
+.resultWrap .rl .pop2Wrap .pop2 .classes .hint {
+  position: absolute;
+  top: -30px;
+  *top: -28px;
+  height: 30px;
+  z-index: 900;
+}
+.resultWrap .rl .pop2Wrap .pop2 .classes .hint b {
+  display: block;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  background: #FBEFE9;
+  color: #ca0000;
+  border: 1px solid #DC1B1B;
+}
+.resultWrap .rl .pop2Wrap .pop2 .classes .hint i {
+  position: absolute;
+  bottom: 0px;
+  width: 9px;
+  height: 5px;
+  background: url(../../images/literature/licon7.png) no-repeat;
+}
+.resultWrap .rl .pop2Wrap .pop2 .cb {
+  font-size: 16px;
+  color: #8798a5;
+  cursor: pointer;
+}
+.resultWrap .rl .pop2Wrap .pop2 .bc {
+  font-size: 16px;
+  color: #8798a5;
+  cursor: pointer;
+}
+.resultWrap .rl .pop2Wrap .pop2 .ad {
+  display: none;
+}
+.resultWrap .rl .px {
+  height: 45px;
+  background: #F4F4F4;
+  border-bottom: 1px solid #E5E5E5;
+}
+.resultWrap .rl .px .ti {
+  float: left;
+  color: #4D4D4D;
+  font-weight: bold;
+  height: 45px;
+  line-height: 45px;
+  width: 46px;
+  padding-left: 10px;
+}
+.resultWrap .rl .px a {
+  float: left;
+  padding: 0 21px;
+  margin-top: 8px;
+  line-height: 27px;
+  color: #808080;
+  background-color: #ffffff;
+  border: 1px solid #D8D8D8;
+  margin-right: 9px;
+}
+.resultWrap .rl .px a.cur {
+  background-color: #DC1B1B;
+  border-color: #DC1B1B;
+  color: #ffffff;
+}
+.resultWrap .rl .px span {
+  margin-right: 30px;
+  font-size: 12px;
+  line-height: 45px;
+  color: #808080;
+}
+.resultWrap .rl .px span i {
+  color: #dd1b1b;
+  padding: 0 5px;
+}
+.resultWrap .rl #periodPx {
+  border-top: 2px solid #DC1B1B;
+}
+.resultWrap .rl .bpx {
+  border-top: 2px solid #DC1B1B;
+}
+.resultWrap .rl .listWrap {
+  margin-bottom: 20px;
+}
+.resultWrap .rl .listWrap .item {
+  padding: 0 30px 20px;
+  border-bottom: 1px solid #E5E5E5;
+}
+.resultWrap .rl .listWrap .item h2 {
+  line-height: 57px;
+  font-size: 16px;
+  height: 57px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.resultWrap .rl .listWrap .item h2 a {
+  display: inline-block;
+  vertical-align: middle;
+  color: #333333;
+  font-weight: bold;
+}
+.resultWrap .rl .listWrap .item h2 a .cRed {
+  color: #e7452f;
+}
+.resultWrap .rl .listWrap .item .article-status {
+  display: inline-block;
+  vertical-align: middle;
+  height: 20px;
+  line-height: 20px;
+  margin: 0 5px;
+  padding: 0 11px;
+  font-weight: normal;
+  background-color: #feecee;
+  border-radius: 2px;
+  border: solid 1px #f1455d;
+  font-family: 'SimSun';
+  font-size: 12px;
+  color: #e60e2c;
+  text-align: center;
+}
+.resultWrap .rl .listWrap .item p {
+  color: #666666;
+  font-size: 14px;
+}
+.resultWrap .rl .listWrap .item .p1 {
+  line-height: 14px;
+  color: #159c77;
+  margin-bottom: 10px;
+}
+.resultWrap .rl .listWrap .item .p1 .publishName {
+  color: #159c77;
+}
+.resultWrap .rl .listWrap .item .p2 {
+  line-height: 25px;
+}
+.resultWrap .rl .listWrap .item .p2 .cRed {
+  color: #e7452f;
+}
+.resultWrap .rl .listWrap .item .p2 .readMore {
+  color: #159c77;
+}
+.resultWrap .rl .listWrap .item .tag {
+  margin-top: 10px;
+  height: 14px;
+  font-size: 14px;
+  color: #e7452f;
+  height: 18px;
+  overflow: hidden;
+}
+.resultWrap .rl .listWrap .item .tag span {
+  color: #e7452f;
+  font-size: 14px;
+  margin: 0 8px;
+}
+.resultWrap .rl .listWrap .item .tag span span {
+  margin: 0;
+}
+.resultWrap .rl .listWrap .item .tag a {
+  color: #e7452f;
+}
+.resultWrap .rl .listWrap .item .pics {
+  margin: 15px 0 20px;
+  height: 120px;
+  display: none;
+}
+.resultWrap .rl .listWrap .item .pics a {
+  margin-right: 12px;
+  float: left;
+  width: 187px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.resultWrap .rl .listWrap .item .pics img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.resultWrap .rl .rpage {
+  padding: 50px 0;
+  text-align: center;
+  font-size: 14px;
+}
+.resultWrap .rl .rpage a {
+  background: #F4F4F4;
+  border: 1px solid #D8D8D8;
+  color: #666666;
+  margin-right: 10px;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+.resultWrap .rl .rpage span {
+  margin-right: 10px;
+}
+.resultWrap .rl .rpage .spec_padding {
+  padding: 10px 20px;
+}
+.resultWrap .rl .rpage .current {
+  background: #DC1B1B;
+  color: #fff;
+  margin-right: 10px;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #DC1B1B;
+}
+.resultWrap .rr {
+  width: 278px;
+  background-color: #F4F4F4;
+  border: 1px solid #E4E4E4;
+}
+.resultWrap .rr .s {
+  margin-bottom: 5px;
+}
+.resultWrap .rr .s h1 {
+  height: 44px;
+  line-height: 44px;
+  border-bottom: 3px solid #E64A3C;
+  font-size: 16px;
+  margin: 0 12px;
+}
+.resultWrap .rr .s h1 a {
+  font-weight: normal;
+  font-size: 14px;
+  color: #188eee;
+}
+.resultWrap .rr .s1 ul {
+  padding-top: 16px;
+  padding-left: 8px;
+}
+.resultWrap .rr .s1 ul li {
+  float: left;
+  text-align: center;
+  width: 125px;
+  height: 189px;
+  margin-right: 8px;
+  margin-bottom: 13px;
+  border: 1px solid #F4F4F4;
+}
+.resultWrap .rr .s1 ul li:hover {
+  border-color: #ff8a00;
+  background-color: #fdeae0;
+}
+.resultWrap .rr .s1 ul li img {
+  display: block;
+  width: 106px;
+  height: 150px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  margin: 9px auto 0;
+}
+.resultWrap .rr .s1 ul li p {
+  height: 34px;
+  line-height: 34px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.resultWrap .rr .s1 ul li p a {
+  color: #000000;
+}
+.resultWrap .rr .s2 .wrap {
+  padding-top: 16px;
+  padding-left: 12px;
+}
+.resultWrap .rr .s2 .wrap a {
+  display: block;
+  margin-bottom: 20px;
+  color: #000000;
+}
+.resultWrap .rr .s2 .wrap a img {
+  width: 254px;
+  height: 113px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+.resultWrap .rr .s2 .wrap a p {
+  margin-top: 8px;
+  line-height: 20px;
+  font-size: 14px;
+  padding-right: 10px;
+}
+.resultWrap .rr .s3 .wrap {
+  padding-left: 12px;
+}
+.resultWrap .rr .s3 .wrap .item {
+  padding: 16px 0 5px;
+}
+.resultWrap .rr .s3 .wrap .item .img {
+  margin-right: 15px;
+}
+.resultWrap .rr .s3 .wrap .item .img img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+.resultWrap .rr .s3 .wrap .item .info {
+  width: 170px;
+}
+.resultWrap .rr .s3 .wrap .item .info .p1 {
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 30px;
+  font-size: 16px;
+}
+.resultWrap .rr .s3 .wrap .item .info .p1 a {
+  color: #1E1E1E;
+}
+.resultWrap .rr .s3 .wrap .item .info .p2 {
+  line-height: 20px;
+  color: #696969;
+  max-height: 40px;
+  overflow: hidden;
+}
+.resultWrap .rr .s4 .wrap {
+  padding-top: 16px;
+  padding-left: 12px;
+}
+.resultWrap .rr .s4 .wrap a {
+  display: block;
+  margin-bottom: 20px;
+  color: #000000;
+}
+.resultWrap .rr .s4 .wrap a img {
+  width: 254px;
+  height: 161px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+.resultWrap .rr .s4 .wrap a p {
+  margin-top: 12px;
+  line-height: 20px;
+  font-size: 14px;
+  padding-right: 10px;
+}
+.sbanner {
+  height: 246px;
+  background: url(../../images/literature/sbanner.jpg) no-repeat center;
+}
+.searching {
+  width: 670px;
+  margin: 25px auto 42px;
+}
+.searching .item {
+  margin-bottom: 22px;
+}
+.searching .item label {
+  float: left;
+  width: 93px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  color: #1474c6;
+}
+.searching .item input {
+  float: left;
+  width: 561px;
+  height: 20px;
+  line-height: 20px;
+  padding: 7px;
+  border: 1px solid #D8D8D8;
+  background-color: #FAFAFA;
+  font-size: 14px;
+}
+.searching .item .inputWrap {
+  float: left;
+  margin-bottom: -20px;
+}
+.searching .item .inputWrap .row {
+  height: 36px;
+  margin-bottom: 20px;
+}
+.searching .item .inputWrap .row .keys {
+  float: left;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  width: 62px;
+  font-size: 14px;
+  color: #333333;
+  background-color: #FBEFE9;
+  border: 1px solid #EADAD1;
+}
+.searching .item .inputWrap .row input {
+  width: 498px;
+  border-left: none;
+}
+.searching .item .yearwrap {
+  float: left;
+  height: 36px;
+  width: 577px;
+  font-size: 14px;
+  position: relative;
+}
+.searching .item .yearwrap .fromwrap,
+.searching .item .yearwrap .towrap {
+  float: left;
+  position: relative;
+  width: 288px;
+  line-height: 36px;
+}
+.searching .item .yearwrap i {
+  width: 55px;
+  text-align: center;
+}
+.searching .item .yearwrap .p {
+  float: right;
+  position: relative;
+  width: 230px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #D8D8D8;
+  background-color: #FAFAFA;
+  text-indent: 80px;
+  cursor: pointer;
+}
+.searching .item .yearwrap .p b {
+  font-weight: normal;
+}
+.searching .item .yearwrap .p span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  height: 34px;
+  background: url(../../images/literature/licon8.gif) no-repeat;
+}
+.searching .item .yearwrap .p:hover span {
+  background: url(../../images/literature/licon8c.gif) no-repeat;
+}
+.searching .item .yearwrap .clickp span {
+  background: url(../../images/literature/licon8c.gif) no-repeat;
+}
+.searching .item .yearwrap ul {
+  display: none;
+  position: absolute;
+  width: 230px;
+  border: 1px solid #D8D8D8;
+  left: 56px;
+  top: 35px;
+  background-color: #ffffff;
+  cursor: pointer;
+  height: 190px;
+  overflow-y: scroll;
+}
+.searching .item .yearwrap ul li {
+  text-indent: 80px;
+  line-height: 30px;
+}
+.searching .btn {
+  margin: 53px 0 43px 199px;
+}
+.searching .btn a {
+  float: left;
+  width: 168px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid #FABABA;
+}
+.searching .btn .a1 {
+  margin-right: 24px;
+  color: #ffffff;
+  background-color: #DC1B1B;
+  border-color: #DC1B1B;
+}
+.searching .btn .a2 {
+  background-color: #FBEFE9;
+  color: #dd1b1b;
+}
+.blank {
+  height: 550px;
+  background: #fff url(../../images/kdAccounts/blank.png) no-repeat center 118px;
+}
+/*# sourceMappingURL=literature.css.map */

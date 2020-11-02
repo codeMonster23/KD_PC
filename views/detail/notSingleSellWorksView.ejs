@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/details.css"/>
+</head>
+
+<body bgcolor="#ebebeb">
+<%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+<div class="notSingleSell">
+    <div class="notSingleSell-works">
+        <a class="notSingleSell-img" href="javascript:;">
+            <img src="<%= viewModel.data.collection.coverpic %>" width="236" height="132" alt="">
+        </a>
+        <div class="notSingleSell-info">
+            <div class="notSingleSell-title"><a href="javascript:;"
+                                                title="<%= viewModel.data.collection.title %>"><%= viewModel.data.collection.title %></a>
+            </div>
+            <div class="notSingleSell-intro"><%= viewModel.data.collection.intromemo %></div>
+            <div class="notSingleSell-org">
+                <a href="" target="_blank"><img src="<%= viewModel.data.collection.logopic %>" width="20" height="20"
+                                                alt=""><%= viewModel.data.collection.orgname %></a>
+            </div>
+        </div>
+    </div>
+    <div class="notSingleSell-tip">该内容属于以下微刊且不能单独购买，请选购包含此内容的微刊之后阅读。</div>
+    <% if(viewModel.data.mircbookList && viewModel.data.mircbookList.length > 0){ %>
+    <div class="microBook-wrap">
+        <% for(var i = 0;i < viewModel.data.mircbookList.length;i++){ %>
+        <div class="notSingleSell-microbook">
+            <a class="notSingleSell-microbook-img" href="/detail/microBookDetail?id=<%= viewModel.data.mircbookList[i].id %>" target="_blank">
+                <img src="<%= viewModel.data.mircbookList[i].coverpic %>" width="733" height="327" alt="">
+            </a>
+            <div class="notSingleSell-microbook-title">
+                <a href="/detail/microBookDetail?id=<%= viewModel.data.mircbookList[i].id %>" title="<%= viewModel.data.mircbookList[i].title %>" target="_blank"><%= viewModel.data.mircbookList[i].title %></a>
+            </div>
+            <div class="notSingleSell-microbook-info clearfix">
+                <span class="notSingleSell-microbook-status left">已更新（<%= viewModel.data.mircbookList[i].viewcount %>
+                    ）</span>
+                <div class="notSingleSell-microbook-info-r right">
+                    <span class="notSingleSell-microbook-price">￥<i><%= viewModel.data.mircbookList[i].realprice %></i></span>
+                    <a class="notSingleSell-btn-more"
+                       href="/detail/microBookDetail?id=<%= viewModel.data.mircbookList[i].id %>" target="_blank">查看详情</a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <% } %>
+</div>
+<%- include('../layouts/footerLayout', {}) %>
+</body>
+
+</html>

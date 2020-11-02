@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css" />
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery.mousewheel-3.0.6.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery.mCustomScrollbar.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <div class="modal transfermodal">
+        <a href="javascrpt:;" class="close"></a>
+        <!--<h1 class="mtit">转移至收藏夹</h1>-->
+        <div class="transbox">
+            <div class="scrollWrap">
+                <% for(var i = 0;i < viewModel.data.length;i++){ %>
+                    <div class="item" data-selected="0" data-group-id="<%= viewModel.data[i].groupid %>">
+                        <%= viewModel.data[i].title %><span class="icon"></span></div>
+                    <% } %>
+            </div>
+            <div class="create">
+                <a href="javascript:;" class="btn">+新建收藏夹</a>
+                <div class="creatbox">
+                    <input maxlength="15" type="text" name="" id="" value="" />
+                    <a href="javascript:;" class="a1">创建</a>
+                    <a href="javascript:;" class="a2">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="btn">
+                <a href="javascript:;" class="sure left">确定</a>
+                <a href="javascript:;" class="cancel right">取消</a>
+            </div>
+        </div>
+        <!--<div class="tips">创建成功</div>-->
+    </div>
+    <div style="display: none;">
+        <input type="hidden" id="foreignKeyId" value="<%=viewModel.id%>">
+        <input type="hidden" id="isList" value="<%=viewModel.isList%>">
+        <input type="hidden" id="typeId" value="<%=viewModel.typeId%>">
+        <input type="hidden" id="foreignkeyId" value="<%=viewModel.foreignkeyId%>">
+        <input type="hidden" id="foreignName" value="<%=viewModel.foreignName%>">
+        <input type="hidden" id="isPersonalCenter" value="<%=viewModel.isPersonalCenter%>">
+    </div>
+    <script>
+        'use strict'
+
+        // 新建收藏夹
+        function createFolder(name, createBoxIndex, cb) {
+            var url = encodeURI('/pc/createFolder?name=' + name);
+            $.ajax({
+                url: url,
+                dataType: "json",
+                type: "GET",
+                success: function(response) {
+                    layer.close(createBoxIndex);
+                    if (response.code == 0) {
+                        cb(response);
+                    } else if (response.code == -1) {
+                        layer.msg(response.msg)
+                    } else {
+                        console.log('请检查新建收藏夹名接口！')
+                    }
+                },
+                error: function(error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        }
+
+        // 转移至收藏夹
+        function moveToFolder(folderId, docId, moveToFolderIndex) {
+            var url = encodeURI('/pc/moveToFolder?groupId=' + folderId + '&collectId=' + docId);
+            var isList = $('#isList').val();
+            $.ajax({
+                url: url,
+                dataType: "json",
+                type: "GET",
+                success: function(response) {
+                    layer.close(moveToFolderIndex);
+                    if (response.code == 0) {
+                        layer.msg('转移成功！');                  
+                        parent.location = '/pc/collected?isList=' + isList;
+                    } else {
+                        layer.msg(response.msg)
+                    }
+                },
+                error: function(error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        }
+        // 直接收藏到收藏夹
+        function addToFolder(folderId, typeId, foreignkeyId,foreignName,moveToFolderIndex) {
+            var url = encodeURI('/pc/addToFolder?groupId=' + folderId + '&typeId=' + typeId+ '&foreignkeyId=' + foreignkeyId+ '&foreignName=' + foreignName);
+            
+            $.ajax({
+                url: url,
+                dataType: "json",
+                type: "GET",
+                success: function(response) {
+                    layer.close(moveToFolderIndex);
+                    if (response.code == 0) {
+                        layer.close(moveToFolderIndex);
+                        var addToFolderIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                        parent.layer.close(addToFolderIndex); 
+                        parent.layer.msg('收藏成功');                   
+                        var target = parent.$('.collectA');
+                        target.addClass('collected');
+                        target.attr('data-is-collected', '1');
+                    } else {
+                        layer.msg(response.msg)
+                    }
+                },
+                error: function(error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        }
+        // 选中需要转移的收藏夹
+        $(".scrollWrap .item").click(function() {
+                $(".scrollWrap .item").removeClass('cur').attr('data-selected', 0);
+                $(this).addClass('cur').attr('data-selected', 1);
+            })
+            //滚动条
+        $(window).load(function() {
+            $(".scrollWrap").mCustomScrollbar();
+        });
+        // 新建收藏夹
+        $(".create .btn").click(function() {
+                $(this).hide().siblings().show();
+            })
+            // 确认创建收藏夹
+        $(".creatbox .a1").click(function() {
+            var $this = $(this);
+            var createBoxIndex = layer.load(1, {
+                shade: [0.1, '#fff'] //0.1透明度的白色背景
+            });
+            var name = $(this).siblings('input').val().trim();
+            if (name != '' && name.length > 0) {
+                createFolder(name, createBoxIndex, function(res) {
+                    $this.siblings('input').val('');
+                    layer.msg('收藏夹创建成功！');
+
+                    $this.parent().hide().siblings().show();
+                    var folderStr = '<div class="item" data-selected=0 data-group-id="' + res.data.groupId + '">' + res.data.title + '<span class="icon"></span></div>';
+                    $('#mCSB_1_container').append(folderStr);
+                    // 选中需要转移的收藏夹
+                    $(".scrollWrap .item").unbind('click').click(function() {
+                        $(".scrollWrap .item").removeClass('cur').attr('data-selected', 0);
+                        $(this).addClass('cur').attr('data-selected', 1);
+                    })
+                })
+            }
+        })
+        // 取消创建收藏夹
+        $(".creatbox .a2").click(function() {
+            $(this).parent().hide().siblings().show()
+        })
+
+        // 点击确定
+        $('.btn .sure').click(function() {
+            var typeId = $('#typeId').val();
+            var foreignkeyId = $('#foreignkeyId').val();
+            var foreignName = $('#foreignName').val();
+            var isPersonalCenter = $('#isPersonalCenter').val();
+            var items = $('.scrollWrap .item');
+            var groupId = '';
+            var id = $('#foreignKeyId').val();
+            for (var i = 0; i < items.length; i++) {
+                if (items.eq(i).attr('data-selected') == 1) {
+                    groupId = items.eq(i).attr('data-group-id');
+                }
+            }
+            if (groupId != '') {
+                var moveToFolderIndex = layer.load(1, {
+                    shade: [0.1, '#fff'] //0.1透明度的白色背景
+                });
+                if(parseInt(isPersonalCenter)===0){
+                    // 非个人中心直接收藏到收藏夹                        
+                    addToFolder(groupId, typeId, foreignkeyId,foreignName, moveToFolderIndex);
+                }else{
+                    // 个人中心
+                    moveToFolder(groupId, id, moveToFolderIndex);
+                }
+            }
+        })
+        // 点击取消
+        $('.btn .cancel').click(function() {
+            var addToFolderIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
+            parent.layer.close(addToFolderIndex); 
+        })
+    </script>
+</body>
+
+</html>

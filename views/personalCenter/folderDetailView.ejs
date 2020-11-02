@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css"/>
+    <script src="/js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+<%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+<div class="personalMain clearfix">
+    <%- include('../layouts/personal/menuLayout', {current:1,active:1}) %>
+    <div class="contentWrap">
+        <h1 class="sc">
+            <span><a href="/pc/collected">我的收藏</a></span> <i class="s-d-name">&gt; <i
+                        id="folderName"><%= viewModel.data.group.title %></i></i>
+        </h1>
+        <div class="collectWrap">
+            <!--收藏夹名称编辑-->
+            <div class="filename" data-group-id="<%= viewModel.groupId %>">
+                <div class="fileleft">
+                    <div class="showname">
+                        <span class="name"><%= viewModel.data.group.title %></span>
+                        <a href="javascript:;" class="edit"></a>
+                        <a href="javascript:;" class="del"></a>
+                    </div>
+                    <div class="editname">
+                        <input maxlength="15" type="text" name="" id="" value="<%= viewModel.data.group.title %>"/>
+                        <a id="modifyName" href="javascript:;" class="sure">确定</a>
+                        <a href="javascript:;" class="cancel">取消</a>
+                    </div>
+
+                </div>
+                <div class="fileright">
+                    <a href="javascript:;" class="refresh"></a>
+                    <span class="time"><%= ejsFunctions.dateFormatBySetting(viewModel.data.group.addtime, 'YYYY-MM-DD') %></span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="select left">
+                    <p data-type="-1">全部</p>
+                    <ul>
+                        <li data-type="-1">全部</li>
+                        <li data-type="0">作品</li>
+                        <li data-type="1">微刊</li>
+                        <li data-type="4">期刊</li>
+                        <li data-type="5">图书</li>
+                        <li data-type="7">书单</li>
+                        <li data-type="2">朗读</li>
+                        <li data-type="3">典言</li>
+                        <li data-type="6">文献</li>
+                    </ul>
+                </div>
+                <div class="control">
+                    <a href="javascript:;" class="ba ba2">批量管理</a>
+                    <div class="tools">
+                        <a href="javascript:;" class="a a1">删除</a>
+                        <a href="javascript:;" class="a a2">移至收藏夹</a>
+                        <a href="javascript:;" class="checkbox">全选</a>
+                    </div>
+                </div>
+
+            </div>
+            <!--大图-->
+            <div class="tabarea t1" style="display:block;">
+                <div id="boxlist" class="boxlist clearfix">
+                    <% for(var i = 0, list = viewModel.data.list; i < list.length; i++){ %>
+                    <% if(list[i].typeid == 100){ %>
+                    <!--收藏夹-->
+                    <div class="box" data-group-id="<%= list[i].foreignkeyid %>">
+                        <div class="frame">
+                            <a href="javascript:;" class="img type1"><img src="/images/personal/p-colletc-file.png"></a>
+                            <div data-group-id="<%= list[i].foreignkeyid %>" class="widget">
+                                <a href="javascript:;" class="edit left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name">
+                            <a href="javascript:;">
+                                <%= list[i].foreignname %>
+                            </a>
+                        </p>
+                        <div class="editbox">
+                            <input type="text" class="colorGrey" value="<%= list[i].foreignname %>"/>
+                            <a href="javascript:;" class="sure"></a>
+                            <a href="javascript:;" class="cancel"></a>
+                        </div>
+                    </div>
+                    <% }else if(list[i].typeid == 0){ %>
+                    <!--作品-->
+                    <div class="box" data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                         data-collect-id="<%= list[i].collectid %>">
+                        <div class="frame">
+                            <a target="_blank"
+                               href="/detail/workDetail/<%= list[i].foreignkeyid %><%= list[i].mediatype %>"
+                               class="img type2">
+                                <img src="<%= list[i].coverpic %>">
+                                <% if(list[i].mediatype == 1){ %>
+                                <!--图文-->
+                                <i class="icon icon1"></i>
+                                <% }else if(list[i].mediatype == 2){ %>
+                                <!---音频-->
+                                <i class="icon icon2"></i>
+                                <% }else if(list[i].mediatype == 3){ %>
+                                <!--视频-->
+                                <i class="icon icon4"></i>
+                                <% }else if(list[i].mediatype == 4){ %>
+                                <!--图集-->
+                                <i class="icon icon3"></i>
+                                <% } %>
+                            </a>
+                            <div data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                                 data-collect-id="<%= list[i].collectid %>" class="widget">
+                                <a href="javascript:;" class="zy left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name">
+                            <a target="_blank"
+                               href="/detail/workDetail/<%= list[i].foreignkeyid %><%= list[i].mediatype %>">
+                                <%= list[i].foreignname %>
+                            </a>
+                        </p>
+                        <a href="javascript:;" class="shadow"></a>
+                    </div>
+                    <% }else if(list[i].typeid == 1){ %>
+                    <!--微刊-->
+                    <div class="box" data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                         data-collect-id="<%= list[i].collectid %>">
+                        <div class="frame">
+                            <a target="_blank" href="/detail/microBookDetail?id=<%= list[i].foreignkeyid %>"
+                               class="img type2"><img src="<%= list[i].coverpic %>"></a>
+                            <div data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                                 data-collect-id="<%= list[i].collectid %>" class="widget">
+                                <a href="javascript:;" class="zy left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name">
+                            <a target="_blank" href="/detail/microBookDetail?id=<%= list[i].foreignkeyid %>">
+                                <%= list[i].foreignname %>
+                            </a>
+                        </p>
+                        <a href="javascript:;" class="shadow"></a>
+                    </div>
+                    <% }else if(list[i].typeid == 2){ %>
+                    <!--朗读-->
+                    <div class="box" data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                         data-collect-id="<%= list[i].collectid %>">
+                        <div class="frame">
+                            <a href="#" class="img type5"><img src="/images/indexImages/temp/temp.jpg"></a>
+                            <div data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                                 data-collect-id="<%= list[i].collectid %>" class="widget">
+                                <a href="javascript:;" class="zy left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name"><a href="#">朗读</a></p>
+                        <a href="javascript:;" class="shadow"></a>
+                    </div>
+                    <% }else if(list[i].typeid == 3){ %>
+                    <!--典言-->
+                    <div class="box" data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                         data-collect-id="<%= list[i].collectid %>">
+                        <div class="frame">
+                            <a href="#" class="img type5"><img src="<%= list[i].coverpic %>"></a>
+                            <div data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                                 data-collect-id="<%= list[i].collectid %>" class="widget">
+                                <a href="javascript:;" class="zy left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name"><a href="#">典言</a></p>
+                        <a href="javascript:;" class="shadow"></a>
+                    </div>
+                    <% }else if(list[i].typeid == 4){ %>
+                    <!--期刊-->
+                    <div class="box" data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                         data-collect-id="<%= list[i].collectid %>">
+                        <div class="frame">
+                            <a target="_blank" href="/detail/singlePeriodDetail/<%= list[i].foreignkeyid %>"
+                               class="img type3"><img src="<%= list[i].coverpic %>"></a>
+                            <div data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                                 data-collect-id="<%= list[i].collectid %>" class="widget">
+                                <a href="javascript:;" class="zy left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name">
+                            <a target="_blank" href="/detail/singlePeriodDetail/<%= list[i].foreignkeyid %>">
+                                <%= list[i].foreignname %>
+                            </a>
+                        </p>
+                        <a href="javascript:;" class="shadow"></a>
+                    </div>
+                    <% }else if(list[i].typeid == 5){ %>
+                    <!--图书-->
+                    <div class="box" data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                         data-collect-id="<%= list[i].collectid %>">
+                        <div class="frame">
+                            <a target="_blank" href="/detail/bookDetail/<%= list[i].foreignkeyid %>"
+                               class="img type3"><img src="<%= list[i].coverpic %>"></a>
+                            <div data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                                 data-collect-id="<%= list[i].collectid %>" class="widget">
+                                <a href="javascript:;" class="zy left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name">
+                            <a target="_blank" href="/detail/singlePeriodDetail/<%= list[i].foreignkeyid %>">
+                                <%= list[i].foreignname %>
+                            </a>
+                        </p>
+                        <a href="javascript:;" class="shadow"></a>
+                    </div>
+                    <% }else if(list[i].typeid == 6){
+                        var arr = list[i].foreignkeyid.split('#');
+                        var dbType = arr[0];
+                        var filename = arr[1];
+                    %>
+                    <!--文献-->
+                    <div class="box" data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                         data-collect-id="<%= list[i].collectid %>">
+                        <div class="frame">
+                            <a target="_blank"
+                               href="/literature/literatureDetail?filename=<%= filename %>&dbType=<%= dbType %>"
+                               class="img type4"><img src="/images/personal/p-colletc-icon6.jpg"></a>
+                            <div data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                                 data-collect-id="<%= list[i].collectid %>" class="widget">
+                                <a href="javascript:;" class="zy left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name">
+                            <a target="_blank" href="#">
+                                <%= list[i].foreignname %>
+                            </a>
+                        </p>
+                        <a href="javascript:;" class="shadow"></a>
+                    </div>
+                    <% }else if(list[i].typeid == 7){ %>
+                    <!--书单-->
+                    <div class="box" data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                         data-collect-id="<%= list[i].collectid %>">
+                        <div class="frame">
+                            <a target="_blank" href="" class="img type2">
+                                <img src="<%= list[i].coverpic %>">
+                                <i class="icon icon5"></i>
+                            </a>
+                            <div data-foreignkey-id="<%= list[i].foreignkeyid %>"
+                                 data-collect-id="<%= list[i].collectid %>" class="widget">
+                                <a href="javascript:;" class="zy left"></a>
+                                <a href="javascript:;" class="del left"></a>
+                            </div>
+                        </div>
+                        <p class="name">
+                            <a target="_blank" href="">
+                                <%= list[i].foreignname %>
+                            </a>
+                        </p>
+                        <a href="javascript:;" class="shadow"></a>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+                <% if(viewModel.data.total >= 20){ %>
+                <a data-type="-1" href="javascript:;" class="loadingMore">点击加载更多</a>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <input type="hidden" value="<%= viewModel.groupId %>" id="groupId">
+</div>
+<%- include('../layouts/footerLayout', {}) %>
+<script>
+    'use strict'
+
+
+    var textword = $(".select p");
+    var droplist = $(".select ul");
+    var changetext = $(".select ul li");
+    var time = 300;
+
+    var listDom = $('#boxlist');
+    var bBox = $('#boxlist .box');
+    var tBox = $('#tablist .box');
+    var tabDom = $('#tablist');
+    var tablistBoxWrap = $('#tablistBoxWrap');
+
+    var floatArea = $('.sc');
+    var loadingMore = $('.loadingMore');
+
+    var batchManage = $(".control .ba2");
+    var groupId = $('#groupId').val();
+
+
+    textword.unbind("click").click(function (e) {
+        droplist.hide();
+        if ($(this).siblings(droplist).css("display") == "none") {
+            $(this).siblings(droplist).slideDown("fast");
+            // $(this).parent().addClass(toggleclass);
+        } else {
+            $(this).siblings(droplist).slideUp("fast");
+            // $(this).parent().removeClass(toggleclass)
+        }
+        e.stopPropagation();
+    });
+
+    // 下拉类分类筛选
+    changetext.click(function () {
+        // 批量管理还原
+        var text = batchManage.text();
+        loadingMore.show();
+        batchManage.text("批量管理");
+        $(".control .tools").hide();
+
+        var txt = $(this).text();
+        var type = $(this).attr('data-type');
+        $(this).parent().siblings(textword).html(txt);
+        $(this).parent().siblings(textword).attr('data-type', type);
+        droplist.hide();
+        // textword.parent().removeClass(toggleclass)
+        listDom.html('');
+        loadingMore.attr('data-type', type);
+        if (type == -1) { // 全部
+            getAllDetailData(1, groupId);
+        } else {
+            getSingleDetailData(1, type, groupId);
+        }
+
+    });
+
+    // 批量删除
+    $('.tools .a1').click(function () {
+
+        var collectIdStr = '';
+        $('.boxlist .box').each(function () {
+            var collectId = $(this).attr('data-collect-id');
+            if (collectId > 0 && $(this).attr('data-selected') == 1) {
+                collectIdStr += collectId + ',';
+            }
+        })
+        if (collectIdStr != '') {
+            collectIdStr = collectIdStr.substring(0, collectIdStr.length - 1);
+            var deleteIndex = layer.open({
+                type: 1,
+                title: ['确认批量删除', 'height: 36px; line-height: 36px; padding-left: 15px; color: #ffffff; font-size: 16px; font-weight: normal; background-color: #E64A3C;'],
+                skin: 'delmodal', //加上边框
+                area: ['420px', '240px'], //宽高
+                content: '<div class="text"><p><strong>确认删除吗？</strong></p><p>删除后将不可恢复，请谨慎操作</p></div>',
+                btn: ['确认', '取消'],
+                yes: function () {
+                    var url = encodeURI('/pc/deleteDoc?collectIds=' + collectIdStr);
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        type: "GET",
+                        success: function (response) {
+                            // layer.close(deleteFolderIndex);
+                            if (response.code == 0) {
+                                layer.close(deleteIndex);
+                                layer.msg('批量删除成功！');
+                                location.reload();
+                            } else {
+                                layer.msg(response.msg)
+                            }
+                        },
+                        error: function (error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+                },
+                btn2: function () {
+                    layer.close(deleteIndex);
+                },
+                btnAlign: 'c'
+            });
+        } else {
+            layer.msg('请先选择需要操作的文件！');
+        }
+    })
+
+    // 批量转移
+    $('.tools .a2').click(function () {
+
+        var collectIdStr = '';
+        $('.boxlist .box').each(function () {
+            var collectId = $(this).attr('data-collect-id');
+            if (collectId > 0 && $(this).attr('data-selected') == 1) {
+                collectIdStr += collectId + ',';
+            }
+        })
+        if (collectIdStr != '') {
+            collectIdStr = collectIdStr.substring(0, collectIdStr.length - 1);
+            layer.open({
+                type: 2,
+                title: ['转移至收藏夹', 'height: 42px; line-height: 42px; padding-left: 15px; color: #ffffff; font-size: 16px; font-weight: normal;background-color: #E64A3C; color:#fff;'],
+                shade: 0.8,
+                area: ['430px', '540px'],
+                content: '/pc/transfer?id=' + collectIdStr
+            });
+        } else {
+            layer.msg('请先选择需要操作的文件！');
+        }
+
+
+    })
+
+    $(document).click(function () {
+        droplist.hide();
+        // textword.parent().removeClass(toggleclass)
+    });
+    PromptToggle($(".editbox input"), "请输入收藏夹名称", "colorGrey")
+    //列表大图切换
+    $(".showtab a").click(function () {
+        var index = $(".showtab a").index(this)
+        $(this).addClass("cur").siblings().removeClass("cur")
+        $(".tabarea").eq(index).show().siblings(".tabarea").hide()
+    })
+
+
+    //批量管理操作
+    batchManage.click(function () {
+        var text = $(this).text()
+        if (text == "批量管理") {
+            loadingMore.hide();
+            $(this).text("取消管理");
+            $(".control .tools").show();
+            $(".boxlist .box .shadow").show();
+            $('.box .doc').addClass('select');
+            // 点选大图单个文件
+            $(".box .shadow").bind('click', function () {
+                var index = $(".box .shadow").index($(this));
+                $(this).toggleClass("cur");
+                $(".box .doc").eq(index).toggleClass("checked");
+                if ($(this).hasClass("cur")) {
+                    $(this).parents('.box').attr('data-selected', 1);
+                    $(".box .doc").eq(index).parents('.box').attr('data-selected', 1);
+                } else {
+                    $(this).parents('.box').attr('data-selected', 0);
+                    $(".box .doc").eq(index).parents('.box').attr('data-selected', 0);
+                }
+            })
+            // 点选列表单个文件
+            $(".box .doc").bind('click', function () {
+                var index = $(".box .doc").index($(this));
+                $(this).toggleClass("checked");
+                $(".box .shadow").eq(index).toggleClass("cur");
+                if ($(this).hasClass("checked")) {
+                    $(this).parents('.box').attr('data-selected', 1);
+                    $(".box .shadow").eq(index).parents('.box').attr('data-selected', 1);
+                } else {
+                    $(this).parents('.box').attr('data-selected', 0);
+                    $(".box .shadow").eq(index).parents('.box').attr('data-selected', 0);
+                }
+            });
+        } else {
+            if ($('#boxlist .box').length >= 20) {
+                loadingMore.show();
+            }
+
+            $(this).text("批量管理");
+            $(".control .tools").hide();
+            $(".boxlist .box .shadow").hide();
+            $('.box .doc').removeClass('select checked');
+            $(".box .shadow").removeClass("cur");
+
+            // 点选大图单个文件
+            $(".box .shadow").unbind('click');
+            // 点选列表单个文件
+            $(".box .doc").unbind('click');
+        }
+    })
+    //全选
+    $(".control .tools .checkbox").click(function () {
+        $(this).toggleClass("checked");
+        if ($(this).hasClass("checked")) {
+            $(".box .shadow").addClass("cur");
+            bBox.attr('data-selected', 1);
+            $(".box .doc").addClass("checked");
+            tBox.attr('data-selected', 1);
+        } else {
+            $(".box .shadow").removeClass("cur");
+            bBox.attr('data-selected', 0);
+            $(".box .doc").removeClass("checked");
+            tBox.attr('data-selected', 0);
+        }
+    })
+
+
+    // ---------------------------------------------------------------------
+
+
+    $(document).scroll(function () {
+        if ($(this).scrollTop() >= 100) {
+            floatArea.addClass('floatArea');
+        } else {
+            floatArea.removeClass('floatArea');
+        }
+    })
+    // getCollectedCounts();
+    edit();
+
+    // 获取收藏详情页的所有数据
+    function getAllDetailData(pageNum, groupId) {
+        var url = encodeURI('/pc/folderDetail?pageNum=' + pageNum + '&isAsync=1&groupId=' + groupId);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                if (response.code == 0) {
+                    var list = response.data.list;
+                    var str = '';
+                    var listStr = '';
+                    if (list && list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            if (list[i].typeid == 100) {
+                                // 收藏夹
+                                str += '<div class="box" data-group-id="' + list[i].foreignkeyid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a href="javascript:;" class="img type1"><img src="/images/personal/p-colletc-file.png"></a>' +
+                                    '                               <div data-group-id="' + list[i].foreignkeyid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="edit left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a href="javascript:;">' + list[i].foreignname + '</a></p>' +
+                                    '                           <div class="editbox">' +
+                                    '                               <input type="text" class="colorGrey" value="请输入收藏夹名称" />' +
+                                    '                               <a href="javascript:;" class="sure"></a>' +
+                                    '                               <a href="javascript:;" class="cancel"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>';
+                                listStr += '<div class="box" data-group-id="' + list[i].foreignkeyid + '">' +
+                                    '                        <div class="file">' +
+                                    '                            <a href="#" class="name">' + list[i].foreignname + '</a>' +
+                                    '                            <div class="editbox">' +
+                                    '                                <input type="text" class="colorGrey" value="请输入收藏夹名称"/>' +
+                                    '                                <a href="javascript:;" class="sure"></a>' +
+                                    '                                <a href="javascript:;" class="cancel"></a>' +
+                                    '                            </div>' +
+                                    '                        </div>' +
+                                    '                        <span class="sort">收藏夹</span>' +
+                                    '                        <div data-group-id="' + list[i].foreignkeyid + '" class="widget">' +
+                                    '                            <a href="javascript:;" class="edit"></a>' +
+                                    '                            <a href="javascript:;" class="del"></a>' +
+                                    '                        </div>' +
+                                    '                    </div>';
+                            } else if (list[i].typeid == 0) {
+                                // 作品
+                                var subStr = '';
+                                if (list[i].mediatype == 1) {
+                                    //图文
+                                    subStr = '<i class="icon icon1"></i>';
+                                } else if (list[i].mediatype == 2) {
+                                    // 音频
+                                    subStr = '<i class="icon icon2"></i>';
+                                } else if (list[i].mediatype == 3) {
+                                    // 视频
+                                    subStr = '<i class="icon icon4"></i>';
+                                } else if (list[i].mediatype == 4) {
+                                    // 图集
+                                    subStr = '<i class="icon icon3"></i>';
+                                }
+
+                                str += '<div class="box" data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/workDetail/' + list[i].foreignkeyid.toString() + list[i].mediatype + '" class="img type2">' +
+                                    '                               <img src="' + list[i].coverpic + '">' + subStr + '</a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/workDetail/' + list[i].foreignkeyid.toString() + list[i].mediatype + '">' + list[i].foreignname + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            } else if (list[i].typeid == 1) {
+                                // 微刊
+                                str += '<div class="box" data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/microBookDetail?id=' + list[i].foreignkeyid + '" class="img type2"><img src="' + list[i].coverpic + '"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/microBookDetail?id=' + list[i].foreignkeyid + '">' + list[i].foreignname + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            } else if (list[i].typeid == 2) {
+                                // 朗读
+                                str += '<div class="box" data-group-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a href="#" class="img type5"><img src="/images/indexImages/temp/temp.jpg"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a href="#">朗读</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            } else if (list[i].typeid == 3) {
+                                // 典言
+                                str += '<div class="box" data-group-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a href="#" class="img type5"><img src="' + list[i].coverpic + '"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a href="#">典言</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            } else if (list[i].typeid == 4) {
+                                // 期刊
+                                str += '<div class="box" data-group-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/singlePeriodDetail/' + list[i].foreignkeyid + '" class="img type3"><img src="' + list[i].coverpic + '"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/singlePeriodDetail/' + list[i].foreignkeyid + '">' + list[i].foreignname + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            } else if (list[i].typeid == 5) {
+                                // 图书
+                                str += '<div class="box" data-group-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/singlePeriodDetail/' + list[i].foreignkeyid + '" class="img type3"><img src="' + list[i].coverpic + '"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/singlePeriodDetail/' + list[i].foreignkeyid + '">' + list[i].foreignname + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            } else if (list[i].typeid == 6) {
+                                // 文献
+                                var arr = list[i].foreignkeyid.split('#');
+                                var dbType = arr[0];
+                                var filename = arr[1];
+                                str += '<div class="box" data-group-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '<a target="_blank" href="/literature/literatureDetail?filename=' + filename + '&dbType=' + dbType + '" class="img type4">' +
+                                    '    <img src="/images/personal/p-colletc-icon6.jpg">' +
+                                    '</a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/literature/literatureDetail?filename=' + filename + '&dbType=' + dbType + '">' + list[i].foreignname + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            } else if (list[i].typeid == 7) {
+                                // 书单
+                                str += '<div class="box" data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/workDetail/' + list[i].foreignkeyid.toString() + list[i].mediatype + '" class="img type2">' +
+                                    '                               <img src="' + list[i].coverpic + '"><i class="icon icon5"></i></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].foreignkeyid + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/workDetail/' + list[i].foreignkeyid.toString() + list[i].mediatype + '">' + list[i].foreignname + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                        }
+                        listDom.append(str); // 大图
+                        if (list.length < 20) {
+                            loadingMore.hide();
+                        } else {
+                            loadingMore.show();
+                        }
+                        edit();
+                    } else {
+                        loadingMore.html('没有更多数据了！');
+                    }
+                } else {
+                    console.log('请检查获取收藏详情的所有数据接口！');
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 获取收藏的分类数据，包括作品、文献、期刊、典言、朗读等(大图)
+    function getSingleDetailData(pageNum, type, groupId) {
+        var url = encodeURI('/pc/folderCollected?pageNum=' + pageNum + '&type=' + type + '&groupId=' + groupId);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                console.log('response:', response)
+                if (response.code == 0) {
+                    var list = response.data.list;
+                    var str = '';
+                    if (list && list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            if (type == 0) {
+                                // 作品
+                                var subStr = '';
+                                if (list[i].mediatype == 1) {
+                                    //图文
+                                    subStr = '<i class="icon icon1"></i>';
+                                }
+                                else if (list[i].mediatype == 2) {
+                                    // 音频
+                                    subStr = '<i class="icon icon2"></i>';
+                                }
+                                else if (list[i].mediatype == 3) {
+                                    // 视频
+                                    subStr = '<i class="icon icon4"></i>';
+                                }
+                                else if (list[i].mediatype == 4) {
+                                    // 图集
+                                    subStr = '<i class="icon icon3"></i>';
+                                }
+
+                                str += '<div class="box" data-group-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/workDetail/' + list[i].id.toString() + list[i].mediatype + '" class="img type2">' +
+                                    '                               <img src="' + list[i].coverpic + '">' + subStr + '</a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/workDetail/' + list[i].id.toString() + list[i].mediatype + '">' + list[i].title + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                            else if (type == 1) {
+                                // 微刊
+                                str += '<div class="box" data-group-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/microBookDetail?id=' + list[i].id + '" class="img type2"><img src="' + list[i].coverpic + '"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/microBookDetail?id=' + list[i].id + '">' + list[i].title + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                            else if (type == 2) {
+                                // 朗读
+                                str += '<div class="box" data-group-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a href="#" class="img type5"><img src="/images/indexImages/temp/temp.jpg"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a href="#">朗读</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                            else if (type == 3) {
+                                // 典言
+                                str += '<div class="box" data-group-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a href="#" class="img type5"><img src="' + list[i].coverpic + '"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a href="#">典言</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                            else if (type == 4) {
+                                // 期刊
+                                str += '<div class="box" data-group-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/singlePeriodDetail/' + list[i].id + '" class="img type3"><img src="' + list[i].coverpic + '"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/singlePeriodDetail/' + list[i].id + '">' + list[i].title + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                            else if (type == 5) {
+                                // 图书
+                                str += '<div class="box" data-group-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/detail/singlePeriodDetail/' + list[i].id + '" class="img type3"><img src="' + list[i].coverpic + '"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/detail/singlePeriodDetail/' + list[i].id + '">' + list[i].title + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                            else if (type == 6) {
+                                // 文献
+                                // var arr = list[i].id.split('#');
+                                // var dbType = arr[0];
+                                // var filename = arr[1];
+                                str += '<div class="box" data-group-id="' + list[i].thname + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="/literature/literatureDetail?filename=' + list[i].thname + '&dbType=' + list[i].code + '" class="img type4"><img src="/images/personal/p-colletc-icon6.jpg"></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].thname + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="/literature/literatureDetail?filename=' + list[i].thname + '&dbType=' + list[i].code + '">' + list[i].title + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                            else if (type == 7) {
+                                // 书单
+                                str += '<div class="box" data-group-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '">' +
+                                    '                               <div class="frame">' +
+                                    '                               <a target="_blank" href="" class="img type2">' +
+                                    '                               <img src="' + list[i].coverpic + '"><i class="icon icon2"></i></a>' +
+                                    '                               <div data-foreignkey-id="' + list[i].id + '" data-collect-id="' + list[i].collectid + '" class="widget">' +
+                                    '                               <a href="javascript:;" class="zy left"></a>' +
+                                    '                               <a href="javascript:;" class="del left"></a>' +
+                                    '                               </div>' +
+                                    '                               </div>' +
+                                    '                               <p class="name"><a target="_blank" href="">' + list[i].title + '</a></p>' +
+                                    '                           <a href="javascript:;" class="shadow"></a>' +
+                                    '                               </div>';
+                            }
+                        }
+
+                        listDom.append(str); // 大图
+
+                        if (list.length < 20) {
+                            loadingMore.hide();
+                        } else {
+                            loadingMore.show();
+                        }
+                    } else {
+                        loadingMore.html('没有更多数据了！');
+                    }
+                    edit();
+                } else {
+                    console.log('请检查搜索文献列表接口！');
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 修改收藏夹名
+    function modifyFolderName(folderId, title, pointer, modifyFolderIndex) {
+        var url = encodeURI('/pc/modifyFolderName?groupId=' + folderId + '&title=' + title);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(modifyFolderIndex);
+                if (response.code == 0) {
+                    layer.msg('收藏夹名修改成功！');
+                    pointer.parent().hide();
+                    pointer.parent().siblings('.showname').show().children('.name').text(title);
+                    $('#folderName').html(title);
+                } else {
+                    layer.msg(response.msg)
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 删除收藏夹
+    function deleteFolder(folderId) {
+        var deleteIndex = layer.open({
+            type: 1,
+            title: ['确认删除', 'height: 36px; line-height: 36px; padding-left: 15px; color: #ffffff; font-size: 16px; font-weight: normal; background-color: #E64A3C;'],
+            skin: 'delmodal', //加上边框
+            area: ['420px', '240px'], //宽高
+            content: '<div class="text"><p><strong>确认删除吗？</strong></p><p>收藏夹内的作品将一并删除</p></div>',
+            btn: ['确认', '取消'],
+            yes: function () {
+                var url = encodeURI('/pc/deleteFolder?groupId=' + folderId);
+                $.ajax({
+                    url: url,
+                    dataType: "json",
+                    type: "GET",
+                    success: function (response) {
+                        // layer.close(deleteFolderIndex);
+                        if (response.code == 0) {
+                            layer.close(deleteIndex);
+                            layer.msg('收藏夹删除成功！');
+                            location.href = '/pc/collected';
+                        } else {
+                            layer.msg(response.msg)
+                        }
+                    },
+                    error: function (error) {
+                        //请求出错处理
+                        console.log(error);
+                    }
+                });
+            },
+            btn2: function () {
+                layer.close(deleteIndex);
+            },
+            btnAlign: 'c'
+        });
+    }
+
+    // 删除收藏文件
+    function deleteDoc(docId, pointer) {
+        var deleteIndex = layer.open({
+            type: 1,
+            title: ['确认删除', 'height: 36px; line-height: 36px; padding-left: 15px; color: #ffffff; font-size: 16px; font-weight: normal; background-color: #E64A3C;'],
+            skin: 'delmodal', //加上边框
+            area: ['420px', '240px'], //宽高
+            content: '<div class="text"><p><strong>确认删除吗？</strong></p><p>删除后将不可恢复，请谨慎操作</p></div>',
+            btn: ['确认', '取消'],
+            yes: function () {
+                var url = encodeURI('/pc/deleteDoc?collectIds=' + docId);
+                $.ajax({
+                    url: url,
+                    dataType: "json",
+                    type: "GET",
+                    success: function (response) {
+                        // layer.close(deleteFolderIndex);
+                        if (response.code == 0) {
+                            layer.close(deleteIndex);
+                            layer.msg('收藏文件删除成功！');
+                            pointer.parents('.box').remove();
+                        } else {
+                            layer.msg(response.msg)
+                        }
+                    },
+                    error: function (error) {
+                        //请求出错处理
+                        console.log(error);
+                    }
+                });
+            },
+            btn2: function () {
+                layer.close(deleteIndex);
+            },
+            btnAlign: 'c'
+        });
+    }
+
+    // 加载更多
+    loadingMore.click(function () {
+        var count = $('#boxlist .box').length;
+        var pageNum = count / 20 + 1;
+        var type = $(this).attr('data-type');
+        if (type == -1) {
+            getAllDetailData(pageNum, groupId);
+        } else {
+            getSingleDetailData(pageNum, type, groupId);
+        }
+    })
+
+
+    // 编辑收藏夹事件
+    function edit() {
+        var oldName = '';
+        var newName = '';
+        // 编辑事件
+        $(" .edit").unbind('click').bind('click', function () {
+            oldName = $(this).siblings('.name').text();
+            $(this).parent('.showname').hide();
+            $(this).parent().siblings('.editname').show().children('input').val(oldName).select();
+        })
+
+        // 取消编辑事件
+        $(".cancel").unbind('click').bind('click', function () {
+            $(this).parent('.editname').hide();
+            $(this).parent().siblings('.showname').show();
+        })
+
+        // 失去焦点
+        $('.editname input').unbind('blur').bind('blur', function () {
+            var $this = $(this);
+            var groupId = $this.parents('.filename').attr('data-group-id');
+            newName = $this.val().trim();
+            if (newName != '' && newName != oldName) {
+                // 修改收藏夹名
+                var modifyFolderIndex = layer.load(1, {
+                    shade: [0.1, '#fff'] //0.1透明度的白色背景
+                });
+                modifyFolderName(groupId, newName, $this, modifyFolderIndex);
+            } else {
+                $this.parent().hide()
+                $this.parent().siblings(".showname").show();
+            }
+        })
+
+        // 确认修改
+        $('#modifyName').unbind('click').bind('click', function () {
+            var $this = $(this);
+            var groupId = $this.parents('.filename').attr('data-group-id');
+            newName = $this.siblings('input').val().trim();
+            if (newName != '' && newName != oldName) {
+                // 修改收藏夹名
+                var modifyFolderIndex = layer.load(1, {
+                    shade: [0.1, '#fff'] //0.1透明度的白色背景
+                });
+                modifyFolderName(groupId, newName, $this, modifyFolderIndex);
+            } else {
+                // 取消修改收藏夹名称
+                $this.parent().hide()
+                $this.parent().siblings(".showname").show();
+            }
+        })
+
+        // 删除文件夹 删除文件
+        $('.showname .del,.box .del').unbind('click').bind('click', function (e) {
+            var e = e || window.event;
+            e.stopPropagation();
+            e.cancelBubble = true;
+            var $this = $(this);
+            var folderId = $(this).parents('.filename').attr('data-group-id');
+            var docId = $(this).parents('.box').attr('data-collect-id');
+            if (folderId && folderId != 'undefined') {
+                deleteFolder(folderId);
+            } else if (docId && docId != 'undefined') {
+                deleteDoc(docId, $this);
+            }
+        })
+
+        // 文件转移到文件夹
+        $('.widget .zy').unbind('click').bind('click', function () {
+            var id = $(this).parent().attr('data-collect-id');
+            layer.open({
+                type: 2,
+                title: ['转移至收藏夹', 'height: 42px; line-height: 42px; padding-left: 15px; color: #ffffff; font-size: 16px; font-weight: normal;background-color: #E64A3C; color:#fff;'],
+                shade: 0.8,
+                area: ['430px', '540px'],
+                content: '/pc/transfer?id=' + id
+            });
+        })
+
+    }
+</script>
+</body>
+
+</html>

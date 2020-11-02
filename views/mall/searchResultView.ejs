@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/mall/header-and-footer.css" />
+        <link rel="stylesheet" type="text/css" href="/css/mall/mall.css" />
+</head>
+
+<body>
+    <%- include('../layouts/mall/navLayout', {current: null,sublogo:false,enterControl:1}) %>
+        <div class="searchResult-container">
+            <div class="searchResult-title"><strong>“魔法”</strong> 的检索结果如下</div>
+            <div class="searchResult-main">
+                <div class="searchResult-header">
+                    <div class="searchResult-tab clearfix">
+                        <div class="searchResult-tab-item active">全 部<span>( <i></i> )</span></div>
+                        <div class="searchResult-tab-item">期 刊<span>( <i></i> )</div>
+                    <div class="searchResult-tab-item">图 书<span>( <i></i> )</div>
+                </div>
+            </div>
+            <div class="searchResult-body">
+                <!-- 全部 -->
+                <div class="searchResult-content searchResult-all">
+                    <!-- 期刊12条 -->
+                    <div class="searchResult-panel">
+                        <div class="searchResult-panel-header clearfix">
+                            <span class="searchResult-panel-title">期刊</span>
+                            <a class="searchResult-panel-more" href="#">查看更多 ></a>
+                        </div>
+                        <div class="searchResult-items clearfix"></div>
+                    </div>
+                    <!-- 图书12条 -->
+                    <div class="searchResult-panel">
+                        <div class="searchResult-panel-header clearfix">
+                            <span class="searchResult-panel-title">图书</span>
+                            <a class="searchResult-panel-more" href="#">查看更多 ></a>
+                        </div>
+                        <div class="searchResult-items clearfix"></div>
+                    </div>
+                </div>
+                <!-- 期刊30条 -->
+                <div class="searchResult-content searchResult-maga">
+                    <div class="searchResult-sort">
+                        排序：
+                        <span class="searchResult-sort-item active" data-sort="viewcount">热度</span>
+                        <span class="searchResult-sort-item" data-sort="lastestupdatetime">最新</span>
+                    </div>
+                    <div class="searchResult-items clearfix"></div>
+                    <div class="mall-pages mall-pages-maga"></div>
+                </div>
+                <!-- 图书30条 -->
+                <div class="searchResult-content searchResult-book">
+                    <div class="searchResult-sort">
+                        排序：
+                        <span class="searchResult-sort-item active" data-sort="viewcount">热度</span>
+                        <span class="searchResult-sort-item" data-sort="AddTime">最新</span>
+                    </div>
+                    <div class="searchResult-items clearfix"></div>
+                    <div class="mall-pages mall-pages-book"></div>
+                </div>
+                <div class="searchResult-content noResult"></div>
+            </div>
+        </div>
+        </div>
+        <%- include('../layouts/footerLayout') %>
+            <script src="/js/plugin/jquery.methods.js"></script>
+            <script>
+                var kw = $.kd.getparams("kw");
+                var resultTitle = $('.searchResult-title strong');
+                var resultContent = $('.searchResult-content');
+                var resultHeader = $('.searchResult-header');
+                var resultAllMaga = resultContent.eq(0).find('.searchResult-panel').eq(0).find('.searchResult-items');
+                var resultAllBook = resultContent.eq(0).find('.searchResult-panel').eq(1).find('.searchResult-items');
+                var resultMaga = resultContent.eq(1).find('.searchResult-items');
+                var resultBook = resultContent.eq(2).find('.searchResult-items');
+                var mallPages = $('.mall-pages');
+                var mallMagaPages = $('.mall-pages-maga');
+                var mallBookPages = $('.mall-pages-book');
+                var sortItem = $('.searchResult-sort-item');
+                var tabItem = $('.searchResult-tab-item');
+                var more = $('.searchResult-panel-more');
+                var resultPanel = $('.searchResult-panel');
+                var totalNum = 0;
+                var magaLimit = 30;
+                var bookLimit = 30;
+                resultTitle.html('"' + kw + '"');
+                getBooklist(resultAllBook, 12, kw, null, null, true);
+                getMagalist(resultAllMaga, 12, kw, null, null, true);
+
+                function getBooklist(pointer, limit, keyword, sort, pageNum, flag) {
+                    var url = '/mall/getCateBookList';
+                    var limit = limit || 12;
+                    var keyword = keyword || '';
+                    var sort = sort || 'viewcount';
+                    var pageNum = pageNum || 1;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {
+                            limit: limit,
+                            kd: keyword,
+                            sort: sort, // 热门viewcount 最新 AddTime 
+                            pageNum: pageNum
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.code == 0) {
+                                var data = response.data;
+                                var bookTotal = data.booklist.total;
+                                if (flag) {
+                                    totalNum += bookTotal;
+                                    tabItem.eq(0).find('i').html(totalNum);
+                                }
+                                if (data.booklist && data.booklist.list.length > 0) {
+                                    var booklist = data.booklist.list;
+                                    var booklistStr = '';
+                                    var bookAuthor = '';
+                                    for (var i = 0; i < booklist.length; i++) {
+                                        if (booklist[i].author.indexOf('#') != -1) {
+                                            bookAuthor = booklist[i].author.split('#').join(' ');
+                                        } else {
+                                            bookAuthor = booklist[i].author;
+                                        }
+                                        booklistStr += '<div class="searchResult-item">' +
+                                            '<a class="searchResult-item-img" href="/detail/bookDetail/' + booklist[i].code + '" title="' + booklist[i].title + '" target="_blank">' +
+                                            '<img src="' + booklist[i].coverpic + '" width="141" height="189" alt="">' +
+                                            '</a>' +
+                                            '<p class="searchResult-item-title"><a href="/detail/bookDetail/' + booklist[i].code + '" title="' + booklist[i].title + '" target="_blank">' + booklist[i].title + '</a></p>' +
+                                            '<p class="searchResult-item-author">' + bookAuthor + ' 著</p>' +
+                                            '</div>'
+                                    }
+                                    pointer.html(booklistStr);
+                                    tabItem.eq(2).find('i').html(bookTotal);
+                                    var pageBookStr = $.kd.outputPager(bookTotal, limit, 5, pageNum);
+                                    mallBookPages.html(pageBookStr);
+                                    tabItem.eq(0).show();
+                                    tabItem.eq(2).show();
+                                    resultAllBook.show();
+                                    resultPanel.eq(1).show();
+                                }
+                            }
+                        }
+                    });
+                }
+
+                function getMagalist(pointer, limit, keyword, sort, pageNum, flag) {
+                    var url = '/mall/getCateMagaList';
+                    var limit = limit || 12;
+                    var keyword = keyword || '';
+                    var sort = sort || 'viewcount';
+                    var pageNum = pageNum || 1;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {
+                            limit: limit,
+                            kd: keyword,
+                            sort: sort, // 热门viewcount 最新 lastestupdatetime 
+                            pageNum: pageNum
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.code == 0) {
+                                var data = response.data;
+                                var magaTotal = data.magalist.total;
+                                if (flag) {
+                                    totalNum += magaTotal;
+                                    tabItem.eq(0).find('i').html(totalNum);
+                                }
+                                if (data.magalist && data.magalist.list.length > 0) {
+                                    var magalist = data.magalist.list;
+                                    var magalistStr = '';
+                                    for (var i = 0; i < magalist.length; i++) {
+                                        var singlePeriodId = magalist[i].code + magalist[i].lastestyear + magalist[i].lastestperiod;
+                                        magalistStr += '<div class="searchResult-item">' +
+                                            '<a class="searchResult-item-img" href="/detail/singlePeriodDetail/' + singlePeriodId + '" title="' + magalist[i].name + '" target="_blank">' +
+                                            '<img src="' + magalist[i].coverpic + '" width="141" height="189" alt="">' +
+                                            '</a>' +
+                                            '<p class="searchResult-item-title"><a href="/detail/singlePeriodDetail/' + singlePeriodId + '" title="' + magalist[i].name + '" target="_blank">' + magalist[i].name + '</a></p>' +
+                                            '<p class="searchResult-item-time">更新至' + magalist[i].lastestyear + '年' + magalist[i].lastestperiod + '期</p>' +
+                                            '</div>';
+                                    }
+                                    pointer.html(magalistStr);
+                                    tabItem.eq(1).find('i').html(magaTotal);
+                                    var pageMagaStr = $.kd.outputPager(magaTotal, limit, 5, pageNum);
+                                    mallMagaPages.html(pageMagaStr);
+                                    tabItem.eq(0).show();
+                                    tabItem.eq(1).show();
+                                    resultAllMaga.show();
+                                    resultPanel.eq(0).show();
+                                }
+                            }
+                        }
+                    });
+                }
+                tabItem.on('click', function() {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var index = $(this).index();
+                    resultContent.eq(index).show().siblings().hide();
+                    if (index == 1) {
+                        getMagalist(resultMaga, magaLimit, kw);
+                    } else if (index == 2) {
+                        getBooklist(resultBook, bookLimit, kw);
+                    }
+                });
+                sortItem.on('click', function() {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var sort = $(this).attr('data-sort');
+                    if ($(this).parents().hasClass('searchResult-maga')) {
+                        getMagalist(resultMaga, magaLimit, kw, sort);
+                    } else {
+                        getBooklist(resultBook, bookLimit, kw, sort);
+                    }
+                });
+                mallPages.on('click', 'a', function() {
+                    var pageNum = $(this).attr('data-page');
+                    var sort = $(this).parent().siblings('.searchResult-sort').find('.searchResult-sort-item.active').attr('data-sort');
+                    if ($(this).parent().hasClass('mall-pages-maga')) {
+                        getMagalist(resultMaga, magaLimit, kw, sort, pageNum);
+                    } else {
+                        getBooklist(resultBook, bookLimit, kw, sort, pageNum);
+                    }
+                });
+                more.on('click', function() {
+                    var index = $(this).parents('.searchResult-panel').index();
+                    tabItem.eq(index + 1).addClass('active').siblings().removeClass('active');
+                    resultContent.eq(index + 1).show().siblings().hide();
+                    if (index == 0) {
+                        getMagalist(resultMaga, magaLimit, kw);
+                    } else if (index == 1) {
+                        getBooklist(resultBook, bookLimit, kw);
+                    }
+                });
+                setTimeout(function() {
+                    if (totalNum == 0) {
+                        resultHeader.hide();
+                        $('.noResult').show();
+                    }
+                }, 2000);
+            </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/search/search.css" />
+        <script src="/js/plugin/jquery.methods.js"></script>
+        <script src="/js/search/kdh.js"></script>
+</head>
+
+<body>
+    <%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+        <%- include('../layouts/search/subnavLayout.ejs', {current: 5}) %>
+            <div class="search-main">
+                <div class="kdhWrap w1200Auto clearfix">
+                    <div class="listWrap left">
+                        <div class="list clearfix">
+                        </div>
+                        <div id="sp-page" class="sp-page"></div>
+                    </div>
+                    <div class="aside right">
+                        <div class="module wk">
+                            <h1>相关微刊</h1>
+                            <ul class="list"></ul>
+                        </div>
+                        <div class="module works">
+                            <h1>相关作品</h1>
+                            <ul class="list"></ul>
+                        </div>
+                        <div class="module period">
+                            <h1>相关期刊</h1>
+                            <ul class="list clearfix"></ul>
+                        </div>
+                        <div class="module book">
+                            <h1>相关图书</h1>
+                            <ul class="list clearfix"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../layouts/footerLayout', {}) %>
+                <input type="hidden" value="<%=viewModel.user.name%>" id="username">
+
+</body>
+
+</html>

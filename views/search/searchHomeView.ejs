@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+        <link rel="stylesheet" type="text/css" href="/css/search/search.css" />
+        <script src="/js/plugin/jquery.methods.js"></script>
+        <script src="/js/search/index.js"></script>
+        <style>
+            .search{
+                display: block ;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+        <%- include('../layouts/search/subnavLayout', {current: 0}) %>
+            <div class="search-main">
+                <div class="section s1">
+                    <div class="title">
+                        <h1>微刊<i></i>个</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/search/microbook?kd='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"></div>
+                </div>
+                <div class="section s2">
+                    <div class="title">
+                        <h1>图文作品<i></i>个</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/search/works?mediatype=2&kd='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"></div>
+                </div>
+                <div class="section s3">
+                    <div class="title">
+                        <h1>视频作品<i>0</i>个</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/search/works?mediatype=4&kd='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"></div>
+                </div>
+                <div class="section s4">
+                    <div class="title">
+                        <h1>音频作品<i>0</i>个</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/search/works?mediatype=3&kd='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"> </div>
+                </div>
+                <div class="section s5">
+                    <div class="title">
+                        <h1>图集作品<i>0</i>个</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/search/works?mediatype=5&kd='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"></div>
+                </div>
+                <div class="section s6">
+                    <div class="title">
+                        <h1>文献<i>0</i>个</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/literature/literatureResult?topic='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"></div>
+                </div>
+                <div class="section s7">
+                    <div class="title">
+                        <h1>期刊<i>0</i>种</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/search/period?kd='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"></div>
+                </div>
+                <div class="section s8">
+                    <div class="title">
+                        <h1>图书<i>0</i>本</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/search/book?kd='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"></div>
+                </div>
+                <div class="section s9">
+                    <div class="title">
+                        <h1>万选号<i>0</i>个</h1>
+                        <a href="<%= ejsFunctions.encodeURL('/search/kdh?kd='+kd) %>" class="more">查看更多> </a>
+                    </div>
+                    <div class="ul clearfix"></div>
+                </div>
+            </div>
+            <%- include('../layouts/footerLayout', {}) %>
+</body>
+
+</html>

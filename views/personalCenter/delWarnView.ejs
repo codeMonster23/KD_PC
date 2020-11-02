@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css"/>
+    <script src="/js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body bgcolor="#F4F4F4">
+    <div class="modal delmodal">
+        <a href="javascrpt:;" class="close"></a>
+    	<h1 class="mtit">确认删除</h1>
+    	<div class="text">
+    		<p><strong>确认删除吗？</strong></p>
+    		<!--删除文件-->
+    		<p>删除后将不可恢复，请谨慎操作</p>
+    		<!--删除收藏夹
+    		 <p>删除收藏加后，收藏夹内的作品将一并删除</p>   
+    		-->
+    		<!--清空浏览历史
+    		    <p><strong>确定清空浏览历史记录吗？</strong></p>
+    		<p>删除后将不可恢复，请谨慎操作</p>
+    		-->
+    	</div>
+    	<div class="bottom">
+    		<div class="btn">
+    			<a href="javascript:;" class="sure left">确定</a>
+    			<a href="javascript:;" class="cancel right">取消</a>
+    		</div>
+    	</div>
+    </div>
+<script>
+   'use strict'
+   $.divselect($(".select p"),$(".select ul"),$(".select ul li"));
+   PromptToggle($(".editbox input"),"请输入收藏夹名称","colorGrey")
+   //列表大图切换
+   $(".showtab a").click(function(){
+       var index=$(".showtab a").index(this)
+       $(this).addClass("cur").siblings().removeClass("cur")
+       $(".tabarea").eq(index).show().siblings(".tabarea").hide()
+       console.log(index)
+   })
+   
+   //编辑收藏夹名称
+   $(".widget .edit").click(function(){
+$(this).parents(".box").find(".name").hide().siblings(".editbox").show()
+   })
+   $(".editbox .cancel").click(function(){
+       $(this).parent().hide().siblings(".name").show()
+   })
+   //批量管理操作
+   $(".sc .ba2").click(function(){
+       var text=$(this).text()
+       if(text=="批量管理"){
+           $(this).text("取消管理");
+           $(".sc .tools").show();
+           $(".boxlist .box .shadow").show();
+       }
+       else{
+           $(this).text("批量管理");
+           $(".sc .tools").hide();
+           $(".boxlist .box .shadow").hide();
+       }
+   })
+   //全选
+   $(".sc .tools .checkbox").click(function(){
+       $(this).toggleClass("checked")
+     if($(this).hasClass("checked")){
+        $(".box .shadow").addClass("cur") 
+     }
+     else{$(".box .shadow").removeClass("cur") }
+   })
+   //选择
+   $(".box .shadow").click(function(){
+       $(this).toggleClass("cur")
+   })
+   //列表选中
+   $(".box .doc").click(function(){
+       $(this).toggleClass("checked")
+   })
+</script>
+</body>
+</html>

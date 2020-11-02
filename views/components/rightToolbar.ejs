@@ -1,0 +1,101 @@
+<div class="layer-feedback-content">
+    <div class="item clearfix">
+        <label>反馈内容：</label>
+        <div class="textWrap">
+            <textarea id="feedbackInput"></textarea>
+            <span class="count"><i>0</i>/200</span>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <label>联系方式：</label>
+        <div class="inputWrap">
+            <input id="contactInput" type="text" placeholder="请留下您的联系方式（手机号、QQ、邮箱）">
+        </div>
+    </div>
+</div>
+<div class="rightToolbar">
+    <div class="item mobile">
+        <div class="icon"></div>
+        <div class="text">手机访问</div>
+        <div class="qrcode"><img src="/images/common/toolbar-qrcode.png" alt=""></div>
+    </div>
+    <div class="item feedback">
+        <div class="icon"></div>
+        <div class="text">意见反馈</div>
+    </div>
+    <div class="item goTop">
+        <div class="icon"></div>
+        <div class="text">返回顶部</div>
+    </div>
+</div>
+<input type="hidden" value="<%= viewModel.user.name %>" id="username">
+<script>
+    (function () {
+        var username = $('#username').val();
+
+        // 返回顶部
+        $('.rightToolbar .goTop').on('click',function () {
+            $('html,body').animate({scrollTop:0},800);
+        });
+
+        // 反馈文本域输入限制字数
+        $('#feedbackInput').on("keyup", function() {
+            numChange($(this), ".layer-feedback .textWrap i", 200);
+        });
+
+        function numChange(inputSelector, wordCountSelector, maxWord) {
+            $(inputSelector).attr("maxlength", maxWord);
+            var txtval = $.trim($(inputSelector).val());
+            var strLen = txtval.length;
+            if (strLen > maxWord - 10) {
+                $(wordCountSelector).css("color", "red");
+                if (strLen > maxWord) {
+                    $(inputSelector).val(txtval.substr(0, maxWord))
+                }
+            } else {
+                txtval = txtval.replace(/\n/gi, "")
+                $(wordCountSelector).css("color", "");
+            }
+            $(wordCountSelector).html(strLen);
+        }
+        // 反馈建议提交
+        $('.rightToolbar .feedback').on('click',function () {
+            layer.open({
+                type: 1,
+                title: '欢迎提出您的宝贵建议',
+                skin: 'layer-feedback',
+                area: ['629px', '425px'],
+                shadeClose: true,
+                btn: ['提交', '取消'],
+                btnAlign: 'c',
+                content: $('.layer-feedback-content'),
+                yes: function (index, layero) {
+                    var feedbackText = $('#feedbackInput').val().trim();
+                    var contactText = $('#contactInput').val().trim();
+                    if (feedbackText.length == 0) {
+                        layer.msg("请输入反馈内容!");
+                        return;
+                    }
+                    if (contactText.length == 0) {
+                        layer.msg("请输入联系方式!");
+                        return;
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/common/submitFeedback",
+                        data: {
+                            content: feedbackText,
+                            connect: contactText
+                        },
+                        success: function (response) {
+                            if(response.code == 0) {
+                                layer.msg("提交成功!");
+                            }
+                            layer.close(index);
+                        }
+                    });
+                }
+            });
+        });
+    })()
+</script>

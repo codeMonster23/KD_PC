@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+       <link rel="stylesheet" type="text/css" href="css/literature.css"/>
+        <script src="js/jQuery-v1.11.1.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+		<title>文献库</title>
+      
+	</head>
+	<body>
+	   <!--header-->
+	   <div class="pheader">
+	   	 <div class="phwrap">
+	   	 	<div class="hl left">
+	   	 	 <a href="#">首页</a><a href="#">发现</a><a href="#">作品</a><a href="#">微刊</a><a href="#">看典号</a><a href="#" class="cur">文献库</a><a href="#">书刊商城</a><a href="#">客户端</a>  	
+	   	 	</div>
+	   	    <div class="hr right">
+             <a href="#">注册</a>
+             <div class="line"></div>
+             <a href="#">登录</a>
+             <div class="search right">
+               <input type="" name="" id="" value="" />
+               <a href="javascript:;" class="btn"></a>
+             </div>
+           </div>
+	   
+	   	 </div>
+	   </div> 
+	   <div class="topBanner">
+	   	 <div class="searchBox">
+	   	 	<div class="nav clearfix">
+	   	 	 <a href="javascript:;" class="cur">全部</a>	
+	   	 	 <div class="line"></div>
+	   	 	 <a href="javascript:;">文艺库</a>   
+             <div class="line"></div>
+             <a href="javascript:;">文化库</a>  
+             <div class="line"></div>
+             <a href="javascript:;">科普库</a>  
+	   	 	</div>
+	   	    <div class="searchArea clearfix">
+	   	    	<div class="searchWrap left clearfix">
+	   	    		<div class="select left">
+	   	    			<p>全　部</p>
+	   	    		</div>
+	   	    		<input type="text" id="" value="" />
+	   	    		<a href="javascript:;" class="left btn">搜索</a>
+	   	    	</div>
+	   	        <a href="javascript:;" class="sbtn">高级搜索</a>
+	   	    </div> 
+	   	 </div>
+	   </div>
+	   <div class="ctab">
+	   	 <div class="wrap">
+	   	 	<a href="javascript:;" class="cur">文艺库</a>
+	   	 	<a href="javascript:;" class="mid">文化库</a>
+	   	 	<a href="javascript:;">科普库</a>
+	   	 </div>
+	   </div>    
+	   <div class="ctabc">
+	       <ul class="ul1 clearfix">
+	       	<li>
+	       	    <a href="#">
+	       	        <img src="images/literature/lpic1.png"/>
+	       	        <p>文艺理论</p>
+	       	    </a>
+	       	</li>
+	       	<li>
+                <a href="#">
+                    <img src="images/literature/lpic2.png"/>
+                    <p>诗歌、韵文</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/literature/lpic3.png"/>
+                    <p>戏剧文学</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/literature/lpic4.png"/>
+                    <p>小说</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/literature/lpic5.png"/>
+                    <p>散文</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/literature/lpic6.png"/>
+                    <p>杂著</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/literature/lpic7.png"/>
+                    <p>民间文学</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/literature/lpic8.png"/>
+                    <p>儿童文学</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/literature/lpic9.png"/>
+                    <p>少数民族文学</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/literature/lpic10.png"/>
+                    <p>报告文学</p>
+                </a>
+            </li>
+	       </ul>	
+	       <a href="#" class="into">进入文艺库</a>
+	   </div>
+	       
+	   <!--footer-->
+	   <div class="pfooter">
+	   	 <p>数字出版：《中国学术期刊（光盘版）》电子杂志社有限公司</p>
+	   	 <p>京ICP证040431号 互联网出版许可证 新出网证(京)字271号 北京市公安局海淀分局 备案号11010802020460</p>
+	   </div>
+	   <script>
+	      $.divselect($(".select p"),$(".select ul"),$(".select ul li")); 
+	      $(".nav a").click(function(){
+	          $(this).addClass("cur").siblings().removeClass("cur")
+	      })
+	   </script>
+	</body>
+</html>

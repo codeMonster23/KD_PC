@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title>充值</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css" />
+    <link rel="stylesheet" type="text/css" href="css/pay.css" />
+    <script src="js/jQuery-v1.11.1.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="width1200pxAuto clearfix">
+            <div class="header-l left clearfix">
+                <a href="https://www.cnki.net/" title="中国知网首页" target="_blank">中国知网首页</a>
+                <a href="https://zwwh.cnki.net/" title="知网文化" target="_blank">知网文化</a>
+                <a href="https://mall.cnki.net/index.aspx" title="CNKI书刊超市" target="_blank">CNKI书刊超市</a>
+                <a href="http://wiki.cnki.com.cn/" title="知网百科" target="_blank">知网百科</a>
+                <a href="https://bianke.cnki.net/" title="CNKI大成编客" target="_blank">CNKI大成编客</a>
+                <a href="http://www.cnki.com.cn/index.htm" title="知网空间" target="_blank">知网空间</a>
+            </div>
+            <div class="header-r right clearfix">
+                <div class="username left">欢迎 15676568787</div>
+                <a class="quit left" href="javascript:;">退出</a>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="width1200pxAuto clearfix">
+            <div class="logoWrap left clearfix">
+                <a class="logo" href="https://www.cnki.net/" title="中国知网首页" target="_blank"><img src="images/cnki_logo2.png" alt=""></a>
+                <span class="line"></span>
+                <a class="sublogo" href="" title="" target="_blank">充值中心</a>
+            </div>
+            <a class="btn-invoice right" href="https://vipcard.cnki.net/ec/czzx/czgg/fapiao.html" target="_blank"><img src="images/btn1.png" alt=""></a>
+        </div>
+    </div>
+    <div class="container recharge-alipay">
+        <!-- 充值方式 -->
+        <div class="recharge-method">
+            <div class="recharge-method-title">请选择充值方式：</div>
+            <div class="recharge-method-body clearfix">
+                <div class="recharge-method-item active">
+                    <img src="images/icon1.png" alt="">
+                    <span>支付宝</span>
+                    <i class="select-icon"></i>
+                </div>
+                <div class="recharge-method-item">
+                    <img src="images/icon2.png" alt="">
+                    <span>微信支付</span>
+                    <i class="select-icon"></i>
+                </div>
+                <div class="recharge-method-item">
+                    <img src="images/icon3.png" alt="">
+                    <span>银联支付</span>
+                    <i class="select-icon"></i>
+                </div>
+                <div class="recharge-method-item">
+                    <img src="images/icon4.png" alt="">
+                    <span>会员卡</span>
+                    <i class="select-icon"></i>
+                </div>
+                <div class="recharge-method-item">
+                    <img src="images/icon5.png" alt="">
+                    <span>银行电汇</span>
+                    <i class="select-icon"></i>
+                </div>
+                <div class="recharge-method-item">
+                    <img src="images/icon6.png" alt="">
+                    <span>邮局汇款</span>
+                    <i class="select-icon"></i>
+                </div>
+            </div>
+        </div>
+        <!-- 充值金额 -->
+        <div class="recharge-money">
+            <div class="recharge-money-title">请选择充值金额：</div>
+            <div class="recharge-money-body clearfix">
+                <div class="recharge-money-item">
+                    <div>10元<i class="select-icon"></i></div>
+                </div>
+                <div class="recharge-money-item">
+                    <div>30元<i class="select-icon"></i></div>
+                </div>
+                <div class="recharge-money-item active">
+                    <div>50元<i class="select-icon"></i></div>
+                </div>
+                <div class="recharge-money-item">
+                    <div>
+                        100元
+                        <p>赠20券</p>
+                        <i class="select-icon"></i>
+                    </div>
+                </div>
+                <div class="recharge-money-item">
+                    <div>
+                        200元
+                        <p>赠50券</p>
+                        <i class="select-icon"></i>
+                    </div>
+                </div>
+                <div class="recharge-money-item">
+                    <div>
+                        500元
+                        <p>赠200券</p>
+                        <i class="select-icon"></i>
+                    </div>
+                </div>
+                <div class="recharge-money-item">
+                    <div>
+                        1000元
+                        <p>赠450券</p>
+                        <i class="select-icon"></i>
+                    </div>
+                </div>
+                <div class="recharge-money-item custom-recharge-money">
+                    <div class="other">其他金额><i class="select-icon"></i></div><i></i>
+                    <div class="input">
+                        <input type="text">元
+                        <p>满百赠券</p>
+                        <i class="active-icon"></i>
+                    </div>
+                    <div class="error">请输入0—3000之间</div>
+                </div>
+            </div>
+        </div>
+        <!-- 使用优惠券 -->
+        <div class="privilege coupon">
+            <div class="privilege-title">使用优惠券</div>
+            <div class="privilege-body">
+                <div class="coupon-tab clearfix">
+                    <div class="coupon-tab-item active">可用优惠券<span>(2)</span></div>
+                    <div class="coupon-tab-item">全部优惠券<span>(5)</span></div>
+                </div>
+                <div class="coupon-items">
+                    <!-- 可用优惠券 -->
+                    <div class="coupon-item active">
+                        <p class="coupon-tip">提示：单笔订单仅可使用一张优惠券。系统已为您选择最佳优方案，您也可以自行选择。</p>
+                        <div class="coupon-details">
+                            <div class="coupon-detail-item active">
+                                <span class="radio"></span>
+                                <div class="coupon-detail-text"><span>10元优惠券</span>（满100元可用，有效期至2019-10-30 23:59）</div>
+                            </div>
+                            <div class="coupon-detail-item">
+                                <span class="radio"></span>
+                                <div class="coupon-detail-text"><span>10元优惠券</span>（满100元可用，有效期至2019-10-30 23:59）</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 全部优惠券 -->
+                    <div class="coupon-item coupon-all">
+                        <p class="coupon-tip">提示：此处展示您账户中全部优惠券信息。</p>
+                        <div class="coupon-details">
+                            <div class="coupon-detail-item active">
+                                <span class="icon"></span>
+                                <div class="coupon-detail-text"><span>10元优惠券</span>（满100元可用，有效期至2019-10-30 23:59）</div>
+                            </div>
+                            <div class="coupon-detail-item">
+                                <span class="icon"></span>
+                                <div class="coupon-detail-text"><span>10元优惠券</span>（满100元可用，有效期至2019-10-30 23:59）</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 使用优惠码 -->
+        <div class="privilege promocode">
+            <div class="privilege-title">使用优惠码</div>
+            <div class="privilege-body">
+                <p class="promocode-tip">提示：此处展示您账户中全部优惠券信息。</p>
+                <div class="promocode-detail clearfix">
+                    <span class="promocode-title left">请输入您的优惠码：</span>
+                    <div class="promocode-input left">
+                        <input type="text"> -
+                        <input type="text"> -
+                        <input type="text"> -
+                        <input type="text">
+                    </div>
+                    <a class="promocode-btn-use left" href="javascript:;">使用</a>
+                    <span class="promocode-verify correct left">验证成功</span>
+                    <span class="promocode-verify error left">优惠码错误，请重新输入</span>
+                </div>
+                <p class="promocode-result">优惠码使用成功，已优惠 <span>10</span> 元</p>
+            </div>
+        </div>
+        <div class="settlement">
+            <div class="settlement-money">
+                <span class="discount-money">优惠：<strong>0</strong> 元</span>
+                <span class="total-money">应付总额：<strong>50</strong> 元</span>
+            </div>
+            <a class="btn-next" href="">下一步</a>
+        </div>
+
+        <!-- 温馨提示 -->
+        <div class="recharge-tip">
+            <div class="recharge-tip-title">温馨提示</div>
+            <div class="recharge-tip-body">
+                <p>1、选择充值金额后，点击“下一步”将跳转至订单确认页面； </p>
+                <p>2、赠券有效期：单次充值400元以下金额，赠券有效期为90天；单次充值400元及以上金额，赠券有效期为180天；</p>
+                <p>3、赠券金额自动充入您的会员账户中，系统默认先行扣除赠券部分；</p>
+                <p>4、本金充值后无有效期；</p>
+                <p>5、中国知网会员账户仅限在中国大陆地区使用。</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="width1200pxAuto">
+            <div class="left f1">
+                <div class="cnki_logo">
+                    <a href="https://cnki.net/" target="_blank"><img src="images/cnki_logo.png" alt=""></a>
+                </div>
+                <p class="copyright">
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e13111111010043364isll000000&amp;a=1&amp;pa=0.08881110103584755" target="_blank"><img src="images/copyright2.png" alt=""></a>
+                </p>
+            </div>
+            <div class="left f2">
+                <div class="links">
+                    <a href="/temp/recharge/home" target="_blank" title="充值中心">充值中心</a> |
+                    <a href="https://vipcard.cnki.net/ec/skwd/skwd.htm" target="_blank" title="购买会员卡">购买会员卡</a> |
+                    <a href="https://help.cnki.net/" target="_blank" title="在线咨询">在线咨询</a>
+                </div>
+                <p>出版：《中国学术期刊（光盘版）》电子杂志社有限公司&nbsp;&nbsp;|&nbsp;&nbsp;服务咨询：400-819-9993</p>
+                <p>京ICP证040431号 <a href="https://piccache.cnki.net/index/images/gb/271.jpg" target="_blank">互联网出版许可证 新出网证(京)字271号</a>&nbsp;京公安备案11010802020460号</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var rechargeMethod = $('.recharge-method-item');
+        var rechargeMoney = $('.recharge-money-item');
+        var customRechargeMoney = $('.custom-recharge-money');
+        var customMoneyInput = customRechargeMoney.find('input');
+        var customMoneyErrorTip = customRechargeMoney.find('.error');
+        var couponTabItem = $('.coupon-tab-item');
+        var couponItem = $('.coupon-item');
+        var promocodeInput = $('.promocode-input input');
+        var couponDetailItem = $('.coupon-detail-item');
+        var privilegeTitle = $('.privilege-title');
+        
+        // 选择充值方式
+        rechargeMethod.click(function() {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+        // 选择充值金额
+        rechargeMoney.click(function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            if ($(this).hasClass('custom-recharge-money')) {
+                $(this).find('input').focus();
+            }
+        });
+        // 自定义充值金额输入
+        customMoneyInput.on('keyup', function(e) {
+            var val = $(this).val().trim();
+            var numberVal = Number(val);
+            if (isNaN(numberVal) || !numberVal || numberVal > 3000) {
+                customMoneyErrorTip.show();
+                $(this).focus();
+            } else {
+                customMoneyErrorTip.hide();
+            }
+            if (val.length > 4) {
+                $(this).val(val.substr(0, 4));
+            }
+        });
+
+
+        // 可用和全部优惠券切换
+        couponTabItem.click(function() {
+            var index = $(this).index();
+            $(this).addClass('active').siblings().removeClass('active');
+            couponItem.eq(index).addClass('active').siblings().removeClass('active');
+        });
+
+        // 可用优惠券选择
+        couponDetailItem.click(function() {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+        // 优惠券/码展开收起
+        privilegeTitle.click(function () {
+            if($(this).hasClass('open')){
+                $(this).next('.privilege-body').hide();
+            }else{
+                $(this).next('.privilege-body').show();
+            }
+            $(this).toggleClass('open');  
+        });
+        // 优惠码输入
+        promocodeInput.keyup(function() {
+            var val = $(this).val().trim();
+            if( val.length > 7){
+                $(this).next('input').focus();
+                if($(this).index() == 3){
+                    console.log(111);
+                    $(this).val($(this).val().substr(0,8));
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2838 @@
+.aheader {
+  height: 71px;
+  line-height: 71px;
+  background-color: #424242;
+  color: #ffffff;
+  .ahwrap {
+    width: 1220px;
+    margin: 0 auto;
+    a {
+      color: #ffffff;
+    }
+    .logoimg{
+        float: left;
+        margin-right: 6px;
+         line-height: 0;
+    }
+    .logo {
+      float: left;
+      height: 71px;
+    }
+    .sort {
+      float: left;
+      color: #ffffff;
+      line-height: 50px;
+      font-size: 20px;
+      margin-right: 15px;
+      text-align: center;
+      width: 98px;
+    }
+    .sort-v-line {
+      background:url("/images/literature/v-line.png") no-repeat 2px center;
+    }
+    .select {
+      float: left;
+      margin-right:10px;
+      width: 117px;
+      margin-top: 11px;
+      position: relative;
+      p {
+        padding-top: 8px;
+        line-height: 34px;
+        padding-left: 42px;
+        color: #ffffff;
+        background: url(../../images/literature/lhicon2.png) no-repeat 19px 19px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      &:hover p {
+        background-color: #F1F1F1;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        color: #323232;
+        background-image: url(../../images/literature/lhicon2h.png);
+      }
+      .list {
+        display: none;
+        position: absolute;
+        left: 0px;
+        top: 42px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #F1F1F1;
+        height: 210px;
+        width: 452px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        z-index: 9999;
+        box-shadow: -10px 5px 8px -5px rgba(0,0,0,0.4),10px 5px 8px -5px rgba(0,0,0,0.4);
+        .col {
+          padding-left:1px;
+          padding-right: 1px;
+          height: 210px;
+          border-left: 1px solid #D8D8D8;
+          width: 148px;
+          a {
+            display: block;
+            font-size: 14px;
+            color: #7f7e7e;
+            line-height: 30px;
+            border-radius: 5px;
+            padding-left: 18px;
+            &:hover{
+               background-color: #DEDEDE; 
+               color: #252525;
+            }
+          }
+        }
+        .col:first-child {
+          border-left: none;
+        }
+      }
+      &:hover .list {
+        display: block;
+      }
+    
+    }
+    .select.qk{
+        margin-right: 20px;
+        p{ background-image: url(../../images/literature/lhicon1.png);}
+        &:hover{
+            p{ background-image:url(../../images/literature/lhicon1h.png) ;}
+        }
+    }
+    .search {
+      margin-top: 19px;
+      width: 436px;
+      height: 34px;
+      border-radius: 6px;
+      background-color: #575757;
+      margin-right: 16px;
+      input {
+        float: left;
+        padding: 7px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 6px;
+        width:389px;
+        background-color: transparent;
+        border: none;
+        color: #ffffff;
+      }
+      .btn {
+        float: left;
+        width: 32px;
+        height: 34px;
+        background: url(../../images/literature/icon1.png) no-repeat left center;
+      }
+    }
+    div.right a {
+      float: left;
+      padding: 0 12px;
+      font-size: 14px;
+    }
+    div.right a.boundary {
+      padding: 0;
+    }
+    .dssb {
+      width: 98px;
+      height: 48px;
+      margin-top: 12px;
+      line-height: 48px;
+      position: relative;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      margin-left: 10px;
+      ul {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 48px;
+        width: 98px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: #ffffff;
+        z-index: 9999;
+        box-shadow: -5px 5px 5px -3px rgba(0,0,0,0.5),5px 5px 5px -3px rgba(0,0,0,0.3);
+        li {
+          line-height: 40px;
+          text-align: center;
+          margin: 0 1px 1px;
+          border-radius: 5px;
+          a {
+            float: none;
+            font-size: 14px;
+            color: #808080;
+          }
+          &:hover{
+           background-color: #DEDEDE; 
+          }
+        }
+      }
+    }
+    .dssb:hover {
+      background-color: #ffffff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      a {
+        color: #252525;
+      }
+      ul {
+        display: block;
+        a {
+          color: #808080;
+        }
+        li:hover a{color: #252525;}
+      }
+    }
+  }
+
+}
+
+.picArea {
+  min-width: 1220px;
+  position: relative;
+  height:318px;
+  z-index: 5;
+  .transition {
+    height:318px;
+    position: relative;
+    width: 100%;
+    .slide {
+      height:318px;
+      width: 100%;
+      a {
+        display: block;
+        background-repeat: repeat-x;
+        background-position: center center;
+        height: 318px;
+      }
+      .wy-pic1 {
+        background-image: url(../../images/literature/l-slide-wy1.jpg);
+      }
+      .wy-pic2 {
+        background-image: url(../../images/literature/l-slide-wy2.jpg);
+      }
+      .wy-pic3 {
+        background-image: url(../../images/literature/l-slide-wy3.jpg);
+      }
+      .wh-pic1 {
+        background-image: url(../../images/literature/l-slide-wh1.jpg);
+      }
+      .wh-pic2 {
+        background-image: url(../../images/literature/l-slide-wh2.jpg);
+      }
+      .wh-pic3 {
+        background-image: url(../../images/literature/lslide-wh-3.jpg);
+      }
+      .kp-pic1 {
+        background-image: url(../../images/literature/l-slide-kp1.jpg);
+      }
+      .kp-pic2 {
+        background-image: url(../../images/literature/l-slide-kp2.jpg);
+      }
+      .kp-pic3 {
+        background-image: url(../../images/literature/l-slide-kp3.jpg);
+      }
+    }
+  }
+  .slidePager {
+    position: absolute;
+    left: 50%;
+    z-index: 100;
+    bottom: 14px;
+    transform: translate(-50%, -50%);
+    span {
+      background-image: url(../../images/literature/licon9.png);
+      background-repeat: no-repeat;
+      height: 16px;
+      width: 16px;
+      float: left;
+      text-indent: -999999px;
+      margin-right: 14px;
+      cursor: pointer;
+    }
+    .cycle-pager-active {
+      background-image: url(../../images/literature/licon9c.png);
+    }
+  }
+}
+
+.numWrap {
+  position: absolute;
+  left: 50%;
+  top: 59px;
+  margin-left: 281px;
+  width: 314px;
+  height: 141px;
+  background: url(../../images/literature/bd_numbg.png) no-repeat;
+  z-index: 9999;
+  padding-top: 98px;
+  .item {
+    padding-left: 49px;
+    height: 37px;
+    line-height: 37px;
+    color: #523e22;
+    font-size: 16px;
+    margin-bottom: 6px;
+    strong {
+      margin-right: 7px;
+    }
+    .last {
+      margin-left: 5px;
+    }
+  }
+}
+
+.dataNums {
+  float: left;
+  height: 37px;
+  .dataOne {
+    width: 25px;
+    height: 37px;
+    margin-right: 3px;
+    text-align: center;
+    background: url(../../images/literature/bd_num.gif) no-repeat;
+  }
+  .dataBoc {
+    position: relative;
+    width: 100%;
+    height: 37px;
+    overflow: hidden;
+    .tt {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      span {
+        width: 100%;
+        height: 37px;
+        font: 30px/37px "Microsoft Yahei";
+      }
+    }
+  }
+}
+
+.inrow > li, .inrow span {
+  display: block;
+  float: left;
+}
+
+.navbg {
+  background-color: #ffffff;
+}
+
+.navWrap {
+  padding-top: 30px;
+  width: 1200px;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  .label {
+    width: 86px;
+    height: 101px;
+    background: url(../../images/literature/licon10.png) no-repeat;
+    margin-right: 4px;
+    p {
+      font-weight: bold;
+      font-size: 18px;
+      padding-left: 28px;
+      padding-top: 6px;
+      line-height: 22px;
+      color: #b76650;
+    }
+  }
+  .slabel {
+    margin-top: -10px;
+    height: 61px;
+    width: 84px;
+    background: url(../../images/literature/licon10-1.png) no-repeat;
+    p {
+      padding-left: 20px;
+    }
+  }
+  .items {
+    padding-bottom: 10px;
+    overflow: hidden;
+  }
+  .items a {
+    float: left;
+    width: 121px;
+    height: 48px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 16px;
+    color: #282828;
+    background: url(../../images/literature/licon11.png) no-repeat;
+    margin-right: 2px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    &.last {
+      margin-right: 0;
+    }
+    &.color {
+      color: #007ad6;
+    }
+  }
+
+}
+
+.contain {
+  width: 1200px;
+  margin: 0 auto;
+  background: #ffffff url(../../images/literature/containbg.gif) repeat-y 884px 15px;
+  padding-top: 15px;
+  .cl {
+    width: 884px;
+    h1 {
+      line-height: 36px;
+      text-align: center;
+      font-size: 20px;
+      color: #b76650;
+      padding-bottom: 18px;
+      background: url(../../images/literature/titbg.gif) no-repeat center bottom;
+      margin-bottom: 15px;
+    }
+    .tags {
+      margin: 0 50px 34px;
+      a {
+        float: left;
+        width: 86px;
+        height: 28px;
+        text-align: center;
+        line-height: 28px;
+        font-family: simsun;
+        font-size: 14px;
+        color: #bb6b52;
+        border: 1px solid #F5E8DF;
+        margin-right: 10px;
+        &.cur {
+          background-color: #B66550;
+          border-color: #B66550;
+          color: #ffffff;
+        }
+      }
+    }
+    .list {
+      margin: 0 50px;
+      .item {
+        border-bottom: 1px solid #E4E4E4;
+        padding: 12px 0 20px;
+        h2 {
+          line-height: 37px;
+          font-size: 16px;
+          a {
+            color: #333333;
+            font-weight: bold;
+          }
+        }
+        p {
+          color: #666666;
+          font-size: 14px;
+        }
+        .p1 {
+          line-height: 36px;
+          color: #159c77;
+          .publishName {color: #159c77;}
+        }
+        .p2 {
+          line-height: 25px;
+          .readMore{
+            color: #159c77;
+          }
+        }
+        .tag {
+          margin-top: 10px;
+          height: 14px;
+          font-size: 14px;
+          color: #e7452f;
+          span {
+            color: #e7452f;
+            font-size: 14px;
+            margin: 0 8px;
+            a {
+              color: #e7452f;
+            }
+          }
+        }
+        .pics {
+          margin-top: 8px;
+          img {
+            width: 187px;
+            height: 120px;
+            border-radius: 5px;
+            margin-right: 15px;
+          }
+        }
+
+      }
+    }
+    .more {
+      display: block;
+      text-align: center;
+      color: #159c77;
+      font-size: 16px;
+      line-height: 70px;
+      padding-bottom: 45px;
+    }
+  }
+  .cr {
+    width: 316px;
+    .slogan {
+      margin: 0 19px 15px;
+      width: 277px;
+      height: 119px;
+      background: url(../../images/literature/lewmbg.gif) no-repeat;
+      position: relative;
+      img {
+        position: absolute;
+        width: 82px;
+        height: 81px;
+        padding: 7px;
+        left: 17px;
+        top: 12px;
+        background-color: #ffffff;
+      }
+    }
+    .aside {
+      padding-left: 19px;
+      h1 {
+        height: 47px;
+        line-height: 47px;
+        margin-right: 19px;
+        border-bottom: 3px solid #E64A3C;
+        span {
+          float: left;
+          font-size: 18px;
+        }
+        a {
+          float: right;
+          font-size: 14px;
+          color: #2481f3;
+          font-weight: normal;
+        }
+      }
+
+    }
+    .s1 ul {
+      padding-top: 26px;
+      li {
+        width: 60px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 12px;
+        img {
+          display: block;
+        }
+        p {
+          line-height: 38px;
+          height: 38px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: center;
+          font-family: simsun;
+          a {
+            color: #333333;
+          }
+        }
+      }
+    }
+    .s2 ul {
+      padding-left: 17px;
+      padding-top: 20px;
+      li {
+        float: left;
+        width: 125px;
+        height: 189px;
+        margin-right: 8px;
+        margin-bottom: 13px;
+        border: 1px solid #fff;
+        &:hover{
+          border-color: #ff8a00;
+          background-color: #fdeae0;
+          a{
+            color:#e60000;
+          }
+        }
+        img {
+          display: block;
+          width: 107px;
+          height: 144px;
+          border: 1px solid #d0d0d0;
+          border-radius: 6px;
+          margin: 9px auto 0;
+        }
+        p {
+          line-height: 38px;
+          height: 38px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: center;
+          font-family: simsun;
+          a {
+            color: #333333;
+          }
+        }
+      }
+    }
+    .s3 .ul {
+      padding-top: 16px;
+      padding-bottom: 30px;
+      .li {
+        margin-bottom: 20px;
+        font-family: simsun;
+        .num {
+          width: 14px;
+          height: 15px;
+          color: #ffffff;
+          background-color: #E40201;
+          margin-top: 28px;
+          text-align: center;
+          line-height: 15px;
+          margin-right: 6px;
+          &.bgcolor {
+            background-color: #B66550;
+          }
+        }
+        .img {
+          margin-right: 9px;
+          margin-top: 5px;
+          img {
+            width: 116px;
+            height: 65px;
+          }
+        }
+        .info {
+          width: 126px;
+          p {
+            height: 45px;
+            overflow: hidden;
+            line-height: 22px;
+            font-size: 14px;
+            margin-bottom: 8px;
+            a {
+              color: #000000;
+            }
+            a:hover {
+              color: #E64A3C;
+            }
+          }
+        }
+        .bottom {
+          height: 14px;
+          line-height: 15px;
+          color: #999999;
+          a{
+            color: #999999;
+          }
+          img {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 5px;
+            float: left;
+          }
+          span{ float: left;}
+        }
+      }
+    }
+
+  }
+
+}
+
+//文献频道页
+.labanner {
+  height: 186px;
+}
+
+.labanner-wy {
+  background: #DBA8A7 url(../../images/literature/channel-banner-wy.jpg) no-repeat center;
+}
+
+.labanner-wh {
+  background: #DBA8A7 url(../../images/literature/channel-banner-wh.jpg) no-repeat center;
+}
+
+.labanner-kp {
+  background: #DBA8A7 url(../../images/literature/channel-banner-kp.jpg) no-repeat center;
+}
+
+.lacontent {
+  width: 1200px;
+  margin: 25px auto 0;
+  .cmenu {
+    width: 250px;
+    margin-right: 20px;
+    h1 {
+      font-size: 16px;
+      color: #ffffff;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      background-color: #DC1B1B;
+      a {
+        color: #ffffff;
+      }
+    }
+    .sideMenu {
+      .one {
+        a {
+          color: #808080;
+        }
+        a.cur {
+          color: #dd1b1b;
+        }
+        a:hover {
+          color: #dd1b1b;
+        }
+        .twoWrap {
+          display: none;
+          padding: 10px 0;
+          border-left: 1px solid #E6E6E6;
+          border-right: 1px solid #E6E6E6;
+          .threeWrap {
+            display: none;
+          }
+        }
+      }
+
+    }
+    .firstm {
+      border: 1px solid #FABABA;
+      height: 50px;
+      line-height: 50px;
+      padding-left: 54px;
+      background-color: #FBEFE9;
+      font-size: 16px;
+      background-repeat: no-repeat;
+      background-position: 20px center;
+      margin-top: -1px;
+      cursor: pointer;
+    }
+    .m1 {
+      background-image: url(../../images/literature/menuIcon/wy1.png);
+    }
+    .m2 {
+      background-image: url(../../images/literature/menuIcon/wy2.png);
+    }
+    .m3 {
+      background-image: url(../../images/literature/menuIcon/wy3.png);
+    }
+    .m4 {
+      background-image: url(../../images/literature/menuIcon/wy4.png);
+    }
+    .m5 {
+      background-image: url(../../images/literature/menuIcon/wy5.png);
+    }
+    .m6 {
+      background-image: url(../../images/literature/menuIcon/wy6.png);
+    }
+    .m7 {
+      background-image: url(../../images/literature/menuIcon/wy7.png);
+    }
+    .m8 {
+      background-image: url(../../images/literature/menuIcon/wy8.png);
+    }
+    .m9 {
+      background-image: url(../../images/literature/menuIcon/wy9.png);
+    }
+    .m10 {
+      background-image: url(../../images/literature/menuIcon/wy10.png);
+    }
+    .m11 {
+      background-image: url(../../images/literature/menuIcon/wy11.png);
+    }
+    .m12 {
+      background-image: url(../../images/literature/menuIcon/wy12.png);
+    }
+    .m13 {
+      background-image: url(../../images/literature/menuIcon/wy13.png);
+    }
+    .m14 {
+      background-image: url(../../images/literature/menuIcon/wy14.png);
+    }
+    .m15 {
+      background-image: url(../../images/literature/menuIcon/wy15.png);
+    }
+    .m16 {
+      background-image: url(../../images/literature/menuIcon/wy16.png);
+    }
+    .m17 {
+      background-image: url(../../images/literature/menuIcon/wy17.png);
+    }
+
+    .m-cur1 {
+      background-image: url(../../images/literature/menuIcon/wy-cur1.png);
+      color: #cc0000;
+    }
+    .m-cur2 {
+      background-image: url(../../images/literature/menuIcon/wy-cur2.png);
+      color: #cc0000;
+    }
+    .m-cur3 {
+      background-image: url(../../images/literature/menuIcon/wy-cur3.png);
+      color: #cc0000;
+    }
+    .m-cur4 {
+      background-image: url(../../images/literature/menuIcon/wy-cur4.png);
+      color: #cc0000;
+    }
+    .m-cur5 {
+      background-image: url(../../images/literature/menuIcon/wy-cur5.png);
+      color: #cc0000;
+    }
+    .m-cur6 {
+      background-image: url(../../images/literature/menuIcon/wy-cur6.png);
+      color: #cc0000;
+    }
+    .m-cur7 {
+      background-image: url(../../images/literature/menuIcon/wy-cur7.png);
+      color: #cc0000;
+    }
+    .m-cur8 {
+      background-image: url(../../images/literature/menuIcon/wy-cur8.png);
+      color: #cc0000;
+    }
+    .m-cur9 {
+      background-image: url(../../images/literature/menuIcon/wy-cur9.png);
+      color: #cc0000;
+    }
+    .m-cur10 {
+      background-image: url(../../images/literature/menuIcon/wy-cur10.png);
+      color: #cc0000;
+    }
+    .m-cur11 {
+      background-image: url(../../images/literature/menuIcon/wy-cur11.png);
+      color: #cc0000;
+    }
+    .m-cur12 {
+      background-image: url(../../images/literature/menuIcon/wy-cur12.png);
+      color: #cc0000;
+    }
+    .m-cur13 {
+      background-image: url(../../images/literature/menuIcon/wy-cur13.png);
+      color: #cc0000;
+    }
+    .m-cur14 {
+      background-image: url(../../images/literature/menuIcon/wy-cur14.png);
+      color: #cc0000;
+    }
+    .m-cur15 {
+      background-image: url(../../images/literature/menuIcon/wy-cur15.png);
+      color: #cc0000;
+    }
+    .m-cur16 {
+      background-image: url(../../images/literature/menuIcon/wy-cur16.png);
+      color: #cc0000;
+    }
+    .m-cur17 {
+      background-image: url(../../images/literature/menuIcon/wy-cur17.png);
+      color: #cc0000;
+    }
+
+    .mm1 {
+      background-image: url(../../images/literature/menuIcon/wh1.png);
+    }
+    .mm2 {
+      background-image: url(../../images/literature/menuIcon/wh2.png);
+    }
+    .mm3 {
+      background-image: url(../../images/literature/menuIcon/wh3.png);
+    }
+    .mm4 {
+      background-image: url(../../images/literature/menuIcon/wh4.png);
+    }
+    .mm5 {
+      background-image: url(../../images/literature/menuIcon/wh5.png);
+    }
+    .mm6 {
+      background-image: url(../../images/literature/menuIcon/wh6.png);
+    }
+    .mm7 {
+      background-image: url(../../images/literature/menuIcon/wh7.png);
+    }
+    .mm8 {
+      background-image: url(../../images/literature/menuIcon/wh8.png);
+    }
+    .mm9 {
+      background-image: url(../../images/literature/menuIcon/wh9.png);
+    }
+    .mm10 {
+      background-image: url(../../images/literature/menuIcon/wh10.png);
+    }
+    .mm11 {
+      background-image: url(../../images/literature/menuIcon/wh11.png);
+    }
+
+    .mm-cur1 {
+      background-image: url(../../images/literature/menuIcon/wh-cur1.png);
+      color: #cc0000;
+    }
+    .mm-cur2 {
+      background-image: url(../../images/literature/menuIcon/wh-cur2.png);
+      color: #cc0000;
+    }
+    .mm-cur3 {
+      background-image: url(../../images/literature/menuIcon/wh-cur3.png);
+      color: #cc0000;
+    }
+    .mm-cur4 {
+      background-image: url(../../images/literature/menuIcon/wh-cur4.png);
+      color: #cc0000;
+    }
+    .mm-cur5 {
+      background-image: url(../../images/literature/menuIcon/wh-cur5.png);
+      color: #cc0000;
+    }
+    .mm-cur6 {
+      background-image: url(../../images/literature/menuIcon/wh-cur6.png);
+      color: #cc0000;
+    }
+    .mm-cur7 {
+      background-image: url(../../images/literature/menuIcon/wh-cur7.png);
+      color: #cc0000;
+    }
+    .mm-cur8 {
+      background-image: url(../../images/literature/menuIcon/wh-cur8.png);
+      color: #cc0000;
+    }
+    .mm-cur9 {
+      background-image: url(../../images/literature/menuIcon/wh-cur9.png);
+      color: #cc0000;
+    }
+    .mm-cur10 {
+      background-image: url(../../images/literature/menuIcon/wh-cur10.png);
+      color: #cc0000;
+    }
+    .mm-cur11 {
+      background-image: url(../../images/literature/menuIcon/wh-cur11.png);
+      color: #cc0000;
+    }
+
+    .mmm1 {
+      background-image: url(../../images/literature/menuIcon/kp1.png);
+    }
+    .mmm2 {
+      background-image: url(../../images/literature/menuIcon/kp2.png);
+    }
+    .mmm3 {
+      background-image: url(../../images/literature/menuIcon/kp3.png);
+    }
+    .mmm4 {
+      background-image: url(../../images/literature/menuIcon/kp4.png);
+    }
+    .mmm5 {
+      background-image: url(../../images/literature/menuIcon/kp5.png);
+    }
+    .mmm6 {
+      background-image: url(../../images/literature/menuIcon/kp6.png);
+    }
+    .mmm7 {
+      background-image: url(../../images/literature/menuIcon/kp7.png);
+    }
+    .mmm8 {
+      background-image: url(../../images/literature/menuIcon/kp8.png);
+    }
+    .mmm9 {
+      background-image: url(../../images/literature/menuIcon/kp9.png);
+    }
+
+    .mmm-cur1 {
+      background-image: url(../../images/literature/menuIcon/kp-cur1.png);
+      color: #cc0000;
+    }
+    .mmm-cur2 {
+      background-image: url(../../images/literature/menuIcon/kp-cur2.png);
+      color: #cc0000;
+    }
+    .mmm-cur3 {
+      background-image: url(../../images/literature/menuIcon/kp-cur3.png);
+      color: #cc0000;
+    }
+    .mmm-cur4 {
+      background-image: url(../../images/literature/menuIcon/kp-cur4.png);
+      color: #cc0000;
+    }
+    .mmm-cur5 {
+      background-image: url(../../images/literature/menuIcon/kp-cur5.png);
+      color: #cc0000;
+    }
+    .mmm-cur6 {
+      background-image: url(../../images/literature/menuIcon/kp-cur6.png);
+      color: #cc0000;
+    }
+    .mmm-cur7 {
+      background-image: url(../../images/literature/menuIcon/kp-cur7.png);
+      color: #cc0000;
+    }
+    .mmm-cur8 {
+      background-image: url(../../images/literature/menuIcon/kp-cur8.png);
+      color: #cc0000;
+    }
+    .mmm-cur9 {
+      background-image: url(../../images/literature/menuIcon/kp-cur9.png);
+      color: #cc0000;
+    }
+
+    .pm1 {
+      background-image: url(../../images/literature/menuIcon/period-wy1.png);
+    }
+    .pm2 {
+      background-image: url(../../images/literature/menuIcon/period-wy2.png);
+    }
+    .pm3 {
+      background-image: url(../../images/literature/menuIcon/period-wy3.png);
+    }
+    .pm4 {
+      background-image: url(../../images/literature/menuIcon/period-wy4.png);
+    }
+    .pm5 {
+      background-image: url(../../images/literature/menuIcon/period-wy5.png);
+    }
+    .pm6 {
+      background-image: url(../../images/literature/menuIcon/period-wy6.png);
+    }
+    .pm7 {
+      background-image: url(../../images/literature/menuIcon/period-wy7.png);
+    }
+    .pm8 {
+      background-image: url(../../images/literature/menuIcon/period-wy8.png);
+    }
+    .pm9 {
+      background-image: url(../../images/literature/menuIcon/period-wy9.png);
+    }
+    .pm10 {
+      background-image: url(../../images/literature/menuIcon/period-wy10.png);
+    }
+    .pm11 {
+      background-image: url(../../images/literature/menuIcon/period-wy11.png);
+    }
+    .pm12 {
+      background-image: url(../../images/literature/menuIcon/period-wy12.png);
+    }
+    .pm13 {
+      background-image: url(../../images/literature/menuIcon/period-wy13.png);
+    }
+    .pm14 {
+      background-image: url(../../images/literature/menuIcon/period-wy14.png);
+    }
+    .pm15 {
+      background-image: url(../../images/literature/menuIcon/period-wy15.png);
+    }
+    .pm16 {
+      background-image: url(../../images/literature/menuIcon/period-wy16.png);
+    }
+
+    .pm-cur1 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur1.png);
+      color: #cc0000;
+    }
+    .pm-cur2 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur2.png);
+      color: #cc0000;
+    }
+    .pm-cur3 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur3.png);
+      color: #cc0000;
+    }
+    .pm-cur4 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur4.png);
+      color: #cc0000;
+    }
+    .pm-cur5 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur5.png);
+      color: #cc0000;
+    }
+    .pm-cur6 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur6.png);
+      color: #cc0000;
+    }
+    .pm-cur7 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur7.png);
+      color: #cc0000;
+    }
+    .pm-cur8 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur8.png);
+      color: #cc0000;
+    }
+    .pm-cur9 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur9.png);
+      color: #cc0000;
+    }
+    .pm-cur10 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur10.png);
+      color: #cc0000;
+    }
+    .pm-cur11 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur11.png);
+      color: #cc0000;
+    }
+    .pm-cur12 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur12.png);
+      color: #cc0000;
+    }
+    .pm-cur13 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur13.png);
+      color: #cc0000;
+    }
+    .pm-cur14 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur14.png);
+      color: #cc0000;
+    }
+    .pm-cur15 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur15.png);
+      color: #cc0000;
+    }
+    .pm-cur16 {
+      background-image: url(../../images/literature/menuIcon/period-wy-cur16.png);
+      color: #cc0000;
+    }
+
+    .pmm1 {
+      background-image: url(../../images/literature/menuIcon/period-wh1.png);
+    }
+    .pmm2 {
+      background-image: url(../../images/literature/menuIcon/period-wh2.png);
+    }
+    .pmm3 {
+      background-image: url(../../images/literature/menuIcon/period-wh3.png);
+    }
+    .pmm4 {
+      background-image: url(../../images/literature/menuIcon/period-wh4.png);
+    }
+    .pmm5 {
+      background-image: url(../../images/literature/menuIcon/period-wh5.png);
+    }
+    .pmm6 {
+      background-image: url(../../images/literature/menuIcon/period-wh6.png);
+    }
+    .pmm7 {
+      background-image: url(../../images/literature/menuIcon/period-wh7.png);
+    }
+    .pmm8 {
+      background-image: url(../../images/literature/menuIcon/period-wh8.png);
+    }
+    .pmm9 {
+      background-image: url(../../images/literature/menuIcon/period-wh9.png);
+    }
+    .pmm10 {
+      background-image: url(../../images/literature/menuIcon/period-wh10.png);
+    }
+    .pmm11 {
+      background-image: url(../../images/literature/menuIcon/period-wh11.png);
+    }
+    .pmm12 {
+      background-image: url(../../images/literature/menuIcon/period-wh12.png);
+    }
+    .pmm13 {
+      background-image: url(../../images/literature/menuIcon/period-wh13.png);
+    }
+    .pmm14 {
+      background-image: url(../../images/literature/menuIcon/period-wh14.png);
+    }
+    .pmm15 {
+      background-image: url(../../images/literature/menuIcon/period-wh15.png);
+    }
+    .pmm16 {
+      background-image: url(../../images/literature/menuIcon/period-wh16.png);
+    }
+    .pmm17 {
+      background-image: url(../../images/literature/menuIcon/period-wh17.png);
+    }
+    .pmm18 {
+      background-image: url(../../images/literature/menuIcon/period-wh18.png);
+    }
+    .pmm19 {
+      background-image: url(../../images/literature/menuIcon/period-wh19.png);
+    }
+    .pmm20 {
+      background-image: url(../../images/literature/menuIcon/period-wh20.png);
+    }
+    .pmm21 {
+      background-image: url(../../images/literature/menuIcon/period-wh21.png);
+    }
+    .pmm22 {
+      background-image: url(../../images/literature/menuIcon/period-wh22.png);
+    }
+    .pmm23 {
+      background-image: url(../../images/literature/menuIcon/period-wh23.png);
+    }
+    .pmm24 {
+      background-image: url(../../images/literature/menuIcon/period-wh24.png);
+    }
+    .pmm25 {
+      background-image: url(../../images/literature/menuIcon/period-wh25.png);
+    }
+    .pmm26 {
+      background-image: url(../../images/literature/menuIcon/period-wh26.png);
+    }
+    .pmm27 {
+      background-image: url(../../images/literature/menuIcon/period-wh27.png);
+    }
+    .pmm28 {
+      background-image: url(../../images/literature/menuIcon/period-wh28.png);
+    }
+
+    .pmm-cur1 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur1.png);
+      color: #cc0000;
+    }
+    .pmm-cur2 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur2.png);
+      color: #cc0000;
+    }
+    .pmm-cur3 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur3.png);
+      color: #cc0000;
+    }
+    .pmm-cur4 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur4.png);
+      color: #cc0000;
+    }
+    .pmm-cur5 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur5.png);
+      color: #cc0000;
+    }
+    .pmm-cur6 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur6.png);
+      color: #cc0000;
+    }
+    .pmm-cur7 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur7.png);
+      color: #cc0000;
+    }
+    .pmm-cur8 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur8.png);
+      color: #cc0000;
+    }
+    .pmm-cur9 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur9.png);
+      color: #cc0000;
+    }
+    .pmm-cur10 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur10.png);
+      color: #cc0000;
+    }
+    .pmm-cur11 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur11.png);
+      color: #cc0000;
+    }
+    .pmm-cur12 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur12.png);
+      color: #cc0000;
+    }
+    .pmm-cur13 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur13.png);
+      color: #cc0000;
+    }
+    .pmm-cur14 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur14.png);
+      color: #cc0000;
+    }
+    .pmm-cur15 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur15.png);
+      color: #cc0000;
+    }
+    .pmm-cur16 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur16.png);
+      color: #cc0000;
+    }
+    .pmm-cur17 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur17.png);
+      color: #cc0000;
+    }
+    .pmm-cur18 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur18.png);
+      color: #cc0000;
+    }
+    .pmm-cur19 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur19.png);
+      color: #cc0000;
+    }
+    .pmm-cur20 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur20.png);
+      color: #cc0000;
+    }
+    .pmm-cur21 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur21.png);
+      color: #cc0000;
+    }
+    .pmm-cur22 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur22.png);
+      color: #cc0000;
+    }
+    .pmm-cur23 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur23.png);
+      color: #cc0000;
+    }
+    .pmm-cur24 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur24.png);
+      color: #cc0000;
+    }
+    .pmm-cur25 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur25.png);
+      color: #cc0000;
+    }
+    .pmm-cur26 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur26.png);
+      color: #cc0000;
+    }
+    .pmm-cur27 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur27.png);
+      color: #cc0000;
+    }
+    .pmm-cur28 {
+      background-image: url(../../images/literature/menuIcon/period-wh-cur28.png);
+      color: #cc0000;
+    }
+
+    .pmmm1 {
+      background-image: url(../../images/literature/menuIcon/period-kp1.png);
+    }
+    .pmmm2 {
+      background-image: url(../../images/literature/menuIcon/period-kp2.png);
+    }
+    .pmmm3 {
+      background-image: url(../../images/literature/menuIcon/period-kp3.png);
+    }
+    .pmmm4 {
+      background-image: url(../../images/literature/menuIcon/period-kp4.png);
+    }
+    .pmmm5 {
+      background-image: url(../../images/literature/menuIcon/period-kp5.png);
+    }
+    .pmmm6 {
+      background-image: url(../../images/literature/menuIcon/period-kp6.png);
+    }
+    .pmmm7 {
+      background-image: url(../../images/literature/menuIcon/period-kp7.png);
+    }
+    .pmmm8 {
+      background-image: url(../../images/literature/menuIcon/period-kp8.png);
+    }
+    .pmmm9 {
+      background-image: url(../../images/literature/menuIcon/period-kp9.png);
+    }
+    .pmmm10 {
+      background-image: url(../../images/literature/menuIcon/period-kp10.png);
+    }
+    .pmmm11 {
+      background-image: url(../../images/literature/menuIcon/period-kp11.png);
+    }
+    .pmmm12 {
+      background-image: url(../../images/literature/menuIcon/period-kp12.png);
+    }
+    .pmmm13 {
+      background-image: url(../../images/literature/menuIcon/period-kp13.png);
+    }
+    .pmmm14 {
+      background-image: url(../../images/literature/menuIcon/period-kp14.png);
+    }
+    .pmmm15 {
+      background-image: url(../../images/literature/menuIcon/period-kp15.png);
+    }
+    .pmmm16 {
+      background-image: url(../../images/literature/menuIcon/period-kp16.png);
+    }
+
+    .pmmm-cur1 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur1.png);
+      color: #cc0000;
+    }
+    .pmmm-cur2 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur2.png);
+      color: #cc0000;
+    }
+    .pmmm-cur3 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur3.png);
+      color: #cc0000;
+    }
+    .pmmm-cur4 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur4.png);
+      color: #cc0000;
+    }
+    .pmmm-cur5 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur5.png);
+      color: #cc0000;
+    }
+    .pmmm-cur6 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur6.png);
+      color: #cc0000;
+    }
+    .pmmm-cur7 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur7.png);
+      color: #cc0000;
+    }
+    .pmmm-cur8 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur8.png);
+      color: #cc0000;
+    }
+    .pmmm-cur9 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur9.png);
+      color: #cc0000;
+    }
+    .pmmm-cur10 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur10.png);
+      color: #cc0000;
+    }
+    .pmmm-cur11 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur11.png);
+      color: #cc0000;
+    }
+    .pmmm-cur12 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur12.png);
+      color: #cc0000;
+    }
+    .pmmm-cur13 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur13.png);
+      color: #cc0000;
+    }
+    .pmmm-cur14 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur14.png);
+      color: #cc0000;
+    }
+    .pmmm-cur15 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur15.png);
+      color: #cc0000;
+    }
+    .pmmm-cur16 {
+      background-image: url(../../images/literature/menuIcon/period-kp-cur16.png);
+      color: #cc0000;
+    }
+    .subm {
+      padding: 2px 0px 2px 55px;
+      .sa {
+        display: block;
+        padding-left: 23px;
+        font-size: 14px;
+        color: #333333;
+        line-height: 30px;
+        cursor: pointer;
+      }
+      .fa {
+        background: url(../../images/literature/nav-icon18.png) no-repeat left center;
+      }
+      .cur {
+        color: #dd1b1b;
+      }
+      .ca {
+        padding-left: 43px;
+        line-height: 30px;
+        a {
+          color: #808080;
+        }
+      }
+    }
+  }
+}
+
+.rl {
+  width: 930px;
+  .tit {
+    margin-top: 5px;
+    height: 50px;
+    line-height: 50px;
+    color: #808080;
+    span {
+      font-size: 16px;
+      color: #dd1b1b;
+    }
+  }
+  .advancedSearchMargin {
+    margin-bottom: -40px;
+  }
+  .tops {
+    height: 27px;
+    margin-bottom: 7px;
+    position: relative;
+    .tab {
+      position: absolute;
+      left: 0px;
+      bottom: -7px;
+      height: 40px;
+      li {
+        float: left;
+        width: 135px;
+        margin-right: 5px;
+        font-size: 14px;
+        a {
+          display: block;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          color: #333333;
+          background-color: #E5E5E5;
+        }
+        a.cur {
+          background-color: #DC1B1B;
+          color: #ffffff;
+          font-weight: bold;
+        }
+      }
+    }
+    p {
+      float: left;
+      line-height: 27px;
+      font-size: 16px;
+      color: #808080;
+      span.name {
+        color: #dd1b1b;
+        margin-right: 5px;
+      }
+      span.number {
+      }
+      i {
+        font-size: 12px;
+        color: #808080;
+      }
+      a {
+        color: #808080;
+      }
+    }
+    div {
+      color: #808080;
+      a {
+        float: right;
+        width: 66px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        color: #808080;
+        border: 1px solid #E7E7E7;
+        border-radius: 12px;
+        margin-left: 11px;
+      }
+      span {
+        line-height: 27px;
+      }
+    }
+  }
+  .filtrate {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background-color: #FFE1E1;
+    border-top: 2px solid #DC1B1B;
+    .ti {
+      float: left;
+      color: #4D4D4D;
+      font-weight: bold;
+      height: 40px;
+      line-height: 40px;
+      width: 46px;
+      padding-left: 10px;
+    }
+    .itemm {
+      float: left;
+      position: relative;
+      padding-left: 34px;
+      width: 80px;
+      color: #4d4d4d;
+      font-size: 14px;
+      line-height: 40px;
+      background: url(../../images/literature/licon5.png) no-repeat 75px center;
+      cursor: pointer;
+      .see2 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-left: 34px;
+        width: 80px;
+        color: #ffffff;
+        background: #DC1B1B url(../../images/literature/licon4.gif) no-repeat center bottom;
+        z-index: 100;
+        img {
+          margin-left: 12px;
+        }
+      }
+    }
+    .line1 {
+      float: left;
+      width: 0;
+      font-size: 0;
+      margin-top: 9px;
+      height: 22px;
+      border-left: 1px solid #F6B9B9;
+      border-right: 1px solid #FFF;
+    }
+    .itemm.long {
+      background: url(../../images/literature/licon5.png) no-repeat 102px center;
+    }
+  }
+  .pop2 {
+    background: #fff;
+    width: 874px;
+    padding: 20px 12px 0px;
+    border: 1px solid #DC1B1B;
+    position: relative;
+    margin-top: -1px;
+    .close1 {
+      right: 10px;
+      top: 10px;
+      width: 13px;
+      height: 13px;
+    }
+    .classes {
+      float: left;
+      height: 18px;
+      line-height: 18px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      *white-space: nowrap;
+      span {
+        color: #999999;
+      }
+      .wrapT {
+        position: relative;
+        color: #4D4D4D;
+      }
+      a {
+        padding: 3px;
+        color: #4D4D4D;
+        cursor: pointer;
+      }
+      .soil {
+        color: #fff;
+        background: #BE9F53;
+      }
+      .hint {
+        position: absolute;
+        top: -30px;
+        *top: -28px;
+        height: 30px;
+        z-index: 900;
+        b {
+          display: block;
+          text-align: center;
+          height: 24px;
+          line-height: 24px;
+          background: #FBEFE9;
+          color: #ca0000;
+          border: 1px solid #DC1B1B;
+        }
+        i {
+          position: absolute;
+          bottom: 0px;
+          width: 9px;
+          height: 5px;
+          background: url(../../images/literature/licon7.png) no-repeat;
+        }
+      }
+    }
+  }
+  .px {
+    height: 45px;
+    background: #F4F4F4;
+    border-bottom: 1px solid #E5E5E5;
+    .ti {
+      float: left;
+      color: #4D4D4D;
+      font-weight: bold;
+      height: 45px;
+      line-height: 45px;
+      width: 46px;
+      padding-left: 10px;
+    }
+    a {
+      float: left;
+      padding: 0 21px;
+      margin-top: 8px;
+      line-height: 27px;
+      color: #808080;
+      background-color: #ffffff;
+      border: 1px solid #D8D8D8;
+      margin-right: 9px;
+      &.cur {
+        background-color: #DC1B1B;
+        border-color: #DC1B1B;
+        color: #ffffff;
+      }
+    
+    }
+    .pxr{ margin-right: 4px; font-size: 18px; color: #D8D8D8; margin-top: 11px;
+        a{ color: #252525; float: none; padding: 0; padding: 0 10px; font-size: 14px; border: none; background-color: transparent; margin: 0;}
+        a.cur{ color: #DC1B1B;}
+      }
+    span {
+      margin-right: 30px;
+      font-size: 12px;
+      line-height: 45px;
+      color: #808080;
+      i {
+        color: #dd1b1b;
+        padding: 0 5px;
+      }
+    }
+    .spo {
+      line-height: 46px;
+      color: #cccccc;
+      span {
+        color: #333333;
+        margin-right: 0;
+      }
+      a {
+        float: none;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        margin: 0 10px;
+        color: #808080;
+      }
+      a.cur {
+        color: #dd1b1b;
+        background-color: transparent;
+      }
+
+    }
+
+  }
+  .bpx {
+    border-top: 2px solid #DC1B1B;
+  }
+  .listWrap {
+    margin-bottom: 20px;
+    .item {
+      padding: 0 30px 20px;
+      border-bottom: 1px solid #E5E5E5;
+      h2 {
+        line-height: 57px;
+        font-size: 16px;
+        a {
+          color: #333333;
+          display: inline-block;
+          vertical-align: middle;
+          font-weight: bold;
+        }
+      }
+      .article-status{
+        display: inline-block;
+        vertical-align: middle;
+        height: 20px;
+        line-height: 20px;
+        margin: 0 5px;
+        padding: 0 11px;
+        font-weight: normal;
+        background-color: #feecee;
+        border-radius: 2px;
+        border: solid 1px #f1455d;
+        font-family: 'SimSun';
+        font-size: 12px;
+        color: #e60e2c;
+        text-align: center;
+    }
+      p {
+        color: #666666;
+        font-size: 14px;
+      }
+      .p1 {
+        line-height: 14px;
+        color: #159c77;
+        margin-bottom: 10px;
+        a {
+          color: #159c77;
+        }
+      }
+      .p2 {
+        line-height: 25px;
+        // max-height: 75px;
+        // overflow: hidden;
+        .readMore{
+          color: #159c77;
+        }
+      }
+      .tag {
+        margin-top: 10px;
+        height: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 14px;
+        color: #e7452f;
+        span {
+          color: #e7452f;
+          font-size: 14px;
+          margin: 0 8px;
+          a {
+            color: #e7452f;
+          }
+        }
+      }
+      .pics {
+        margin: 15px 0 20px;
+        height: 120px;
+        a {
+          margin-right: 12px;
+          float: left;
+          width: 187px;
+          height: 120px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 4px;
+        }
+        img {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+    }
+  }
+  .rpage {
+    padding: 50px 0;
+    text-align: center;
+    font-size: 14px;
+    a {
+      background: #F4F4F4;
+      border: 1px solid #D8D8D8;
+      color: #666666;
+      margin-right: 10px;
+      padding: 10px 15px;
+      text-decoration: none;
+    }
+    span {
+      margin-right: 10px;
+    }
+    .spec_padding {
+      padding: 10px 20px;
+    }
+    .current {
+      background: #DC1B1B;
+      color: #fff;
+      margin-right: 10px;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      border: 1px solid #DC1B1B;
+    }
+  }
+  .mlist {
+    border-top: 2px solid #DC1B1B;
+    padding-top: 30px;
+    padding-left: 27px;
+    li {
+      float: left;
+      width: 150px;
+      margin-right: 30px;
+      margin-bottom: 10px;
+      img {
+        display: block;
+        border-radius: 6px;
+        width: 150px;
+        height: 200px;
+      }
+      p {
+        line-height: 42px;
+        height: 42px;
+        text-align: center;
+        font-size: 14px;
+        a {
+          color: #000000;
+        }
+      }
+      .p2 {
+        line-height: 12px;
+        text-align: center;
+        padding-top: 0;
+        color: #666666;
+        font-family: simsun;
+        font-size:12px;
+      }
+    }
+
+  }
+  .rmlist {
+    padding-left: 8px;
+    li {
+      margin-right: 33px;
+    }
+    li:nth-child(5n) {
+      margin-right: 0;
+    }
+
+  }
+  #period {
+    border-top: none;
+  }
+}
+
+.rr {
+  width: 278px;
+  background-color: #F4F4F4;
+  border: 1px solid #E4E4E4;
+  .s {
+    margin-bottom: 5px;
+    h1 {
+      height: 44px;
+      line-height: 44px;
+      border-bottom: 3px solid #E64A3C;
+      font-size: 16px;
+      margin: 0 12px;
+      a {
+        font-weight: normal;
+        font-size: 14px;
+        color: #188eee;
+      }
+    }
+  }
+  .s1 ul {
+    padding-top: 16px;
+    padding-left: 25px;
+    li {
+      float: left;
+      width: 106px;
+      text-align: center;
+      margin-right: 16px;
+      margin-bottom: 10px;
+      img {
+        display: block;
+        border-radius: 6px;
+        width: 106px;
+        height: 150px;
+      }
+      p {
+        height: 34px;
+        line-height: 34px;
+        a {
+          color: #000000;
+        }
+      }
+    }
+  }
+  .s2 .wrap {
+    padding-top: 16px;
+    padding-left: 12px;
+    a {
+      display: block;
+      margin-bottom: 20px;
+      img {
+        width: 254px;
+        height: 113px;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+  .s3 .wrap {
+    padding-left: 12px;
+    .item {
+      padding: 16px 0 5px;
+      .img {
+        margin-right: 15px;
+        img {
+          border-radius: 50%;
+          width: 70px;
+          height: 70px;
+        }
+      }
+      .info {
+        width: 170px;
+        .p1 {
+          height: 30px;
+          line-height: 30px;
+          font-size: 16px;
+          a {
+            color: #1E1E1E;
+          }
+        }
+        .p2 {
+          line-height: 20px;
+          color: #696969;
+        }
+      }
+    }
+  }
+  .s4 ul {
+    padding-top: 16px;
+    padding-left: 12px;
+    li {
+      width: 254px;
+      img {
+        display: block;
+        width: 254px;
+        height: 160px;
+        border-radius: 5px;
+      }
+      p {
+        line-height: 48px;
+        font-size: 14px;
+        a {
+          color: #333333;
+        }
+      }
+    }
+
+  }
+}
+
+.resultWrap .rl {
+  width: 900px;
+  margin-right: 20px;
+}
+
+.resultWrap {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+
+//高级搜索
+.searchBanner {
+  height: 186px;
+  background: #E0A3A3 url(../../images/literature/labanner1.png) no-repeat center;
+}
+
+.dSearching {
+  width: 763px;
+  margin-top: 75px;
+  .tab {
+    margin-bottom: 44px;
+    height: 41px;
+    border-bottom: 1px solid #DC1B1B;
+    padding-left: 93px;
+    a {
+      float: left;
+      width: 126px;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      color: #dd1b1b;
+      background-color: #FBEFE9;
+      border: 1px solid #FABABA;
+      border-bottom: none;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      margin-right: 7px;
+    }
+    a.cur {
+      color: #ffffff;
+      border-color: #DC1B1B;
+      background-color: #DC1B1B;
+    }
+  }
+  .tabc {
+    display: none;
+    .widthitem .inputWrap .row .keys {
+      width: 76px;
+    }
+    .widthitem .inputWrap .row input {
+      width: 484px;
+    }
+
+  }
+
+}
+
+//文章页
+.articelWrap {
+  width: 1200px;
+  margin: 27px auto 78px;
+  .al {
+    width: 882px;
+    margin-right: 6px;
+    .atop {
+      padding: 32px 49px 46px;
+      background-color: #ffffff;
+      position: relative;
+      border: 1px solid #D7D6D6;
+      border-top: 4px solid #F0455C;
+      box-shadow: 3px 3px 6px rgba(216, 215, 215, 1);
+      font-family: simsun;
+      margin-bottom: 22px;
+      .logo {
+        position: absolute;
+        width: 46px;
+        height: 53px;
+        background: url(../../images/literature/licon22.gif) no-repeat;
+        top: -4px;
+        left: -1px;
+      }
+      .title {
+        font-weight: normal;
+        font-family: "微软雅黑";
+        font-size: 26px;
+        color: #262626;
+        text-align: center;
+        line-height: 48px;
+        .article-status{
+          display: inline-block;
+          vertical-align: middle;
+          height: 22px;
+          line-height: 22px;
+          padding: 0 10px;
+          margin-top: -2px;
+          background-color: #feecee;
+          border-radius: 2px;
+          border: solid 1px #f1455d;
+          font-size: 14px;
+          color: #e60e2c;
+          text-align: center;
+        }
+        .article-status-grey{
+          border-color: #999;
+          background-color: #f6f6f6;
+          color:#424242;
+        }
+      }
+      .author {
+        text-align: center;
+        line-height: 48px;
+        font-size: 14px;
+        span {
+          color: #1361CA;
+          margin: 0 5px;
+        }
+      }
+      .paragraph {
+        font-size: 14px;
+        color: #373737;
+        line-height: 32px;
+        text-indent: 2em;
+        margin-bottom: 22px;
+        text-align: justify;
+        span {
+          color: #8A8A8A;
+        }
+      }
+      .sliderBox {
+        width: 676px;
+        margin: 0 auto;
+        height: 148px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 30px;
+        .prev {
+          position: absolute;
+          left: -30px;
+          top: 30px;
+          width: 20px;
+          height: 121px;
+          background: url(../../images/literature/licon23prev.gif) no-repeat;
+          cursor: pointer;
+        }
+        .next {
+          position: absolute;
+          right: -23px;
+          top: 30px;
+          width: 20px;
+          height: 121px;
+          background: url(../../images/literature/licon23next.gif) no-repeat;
+          cursor: pointer;
+        }
+        ul li {
+          float: left;
+          width: 162px;
+          margin-right: 7px;
+          margin-bottom: 25px;
+          .img {
+            display: block;
+            padding: 11px;
+            border: 1px solid #d0d0d0;
+            span {
+              position: relative;
+              display: block;
+              width: 140px;
+              height: 102px;
+              overflow: hidden;
+            }
+            img {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+          p {
+            line-height: 26px;
+            text-align: center;
+            a {
+              color: #a2a2a2;
+            }
+          }
+        }
+      }
+      .handler {
+        position: relative;
+        margin: 30px auto 15px;
+        cursor: pointer;
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 11px;
+        width: 162px;
+        height: 42px;
+      }
+      .btn-satatement{
+        margin: 0;
+        width: 160px;
+        height: 40px;
+        line-height: 40px;
+        background-color: #4cafea;
+        border: solid 1px #1194e2;
+        border-radius:2px;
+        font-family: SimSun;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+      }
+      .btn-pdfdownload{
+        margin: 0;
+        width: 160px;
+        height: 40px;
+        line-height: 40px;
+        background-color: #48b96e;
+        border: solid 1px #35b18a;
+        border-radius:2px;
+        font-family: SimSun;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+      }
+      .ewm {
+        margin-top: 8px;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        .pop {
+          display: none;
+          position: absolute;
+          top: 25px;
+          left: -36px;
+          width: 232px;
+          height: 245px;
+          background: url(../../images/literature/licon29.png) no-repeat center;
+          z-index: 10;
+          canvas {
+            //margin-left:35px; // 文献库详情页面需要去掉
+            border: 2px solid #F4AF7F;
+          }
+          p {
+            padding-top: 27px;
+            padding-bottom:10px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 20px;
+            font-family: "微软雅黑";
+          }
+          img {
+            width: 32px;
+            height: 32px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-16px;
+            margin-top:-1px;
+          }
+        }
+
+      }
+      .ewm:hover .pop {
+        display: block;
+      }
+      .operate {
+        height: 24px;
+        line-height: 24px;
+        margin-left: 318px;
+        position: relative;
+        color: #D2D2D2;
+        font-size: 16px;
+        margin-bottom: 25px;
+        a {
+          color: #3c3c3c;
+          padding: 5px 0 5px 25px;
+          font-size: 14px;
+        }
+        .collect {
+          background: url(../../images/literature/licon25.gif) no-repeat left center;
+        }
+        .collected {
+          background: url(../../images/literature/licon25c.gif) no-repeat left center;
+        }
+        .collect.click {
+          background-image: url(../../images/literature/licon25c.gif);
+        }
+        .share {
+          background: url(../../images/literature/licon26.gif) no-repeat left center;
+        }
+        .share.click {
+          background-image: url(../../images/literature/licon26c.gif);
+        }
+        .sharebox {
+          display: none;
+          position: absolute;
+          left: 165px;
+          top: -2px;
+          width: 300px;
+          a {
+            padding: 0;
+            margin-right: 5px;
+            float: left;
+            background-color: #d4ecff;
+          }
+        }
+      }
+      .similar {
+        h2 {
+          height: 35px;
+          line-height: 35px;
+          background-color: #EEF5FE;
+          font-size: 16px;
+          padding-left: 18px;
+          background-color: #EEF5FE;
+          border-left: 2px solid #5E65C7;
+          margin-bottom: 17px;
+        }
+        p {
+          //height: 39px;
+          line-height: 30px;
+          padding: 5px 0;
+          font-size: 14px;
+          color: #656565;
+          border-bottom: 1px solid #F4F4F4;
+          a {
+            color: #2b72c9;
+            margin: 0 0px 0 5px;
+          }
+          .cbs {
+            color: #656565;
+          }
+          a:hover {
+            color: #ff5901;
+          }
+        }
+
+      }
+    }
+    .abottom {
+      background-color: #ffffff;
+      position: relative;
+      border: 1px solid #D7D6D6;
+      border-top: 4px solid #F0455C;
+      box-shadow: 3px 3px 6px rgba(216, 215, 215, 1);
+      padding-left: 40px;
+      padding-bottom: 30px;
+      h3 {
+        height: 49px;
+        border-bottom: 1px solid #DBDBDB;
+        margin-right: 42px;
+        margin-bottom: 35px;
+        span {
+          float: left;
+          line-height: 47px;
+          border-bottom: 2px solid #FE9A44;
+          font-size: 20px;
+        }
+        a {
+          float: right;
+          color: #1965dc;
+          font-size: 14px;
+          line-height: 30px;
+          margin-top: 18px;
+          font-weight: normal;
+        }
+      }
+      ul li {
+        float: left;
+        width: 178px;
+        margin-right: 27px;
+        .img img {
+          display: block;
+          width: 178px;
+          height: 100px;
+          border-radius: 6px;
+        }
+        .p1 {
+          line-height: 35px;
+          font-size: 14px;
+          height: 35px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          a {
+            color: #2f2a25;
+          }
+        }
+        .p2 {
+          height: 18px;
+          line-height: 18px;
+          color: #32A888;
+          a{
+            color: #32A888;
+          }
+          img {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            margin-right: 5px;
+            float: left;
+          }
+          span{ float: left;}
+        }
+      }
+
+    }
+  }
+  .ar {
+    font-family: simsun;
+    width: 310px;
+    border: 1px solid #D7D6D6;
+    border-top: 4px solid #F0455C;
+    box-shadow: 3px 3px 6px rgba(216, 215, 215, 1);
+    background-color: #ffffff;
+    .box1 {
+      position: relative;
+      padding: 28px 45px 15px;
+      background: #F7F9FD;
+      border-bottom: 1px solid #E7EEF9;
+      .logo {
+        position: absolute;
+        left: 0px;
+        top: -4px;
+        width: 67px;
+        text-align: center;
+        height: 23px;
+        line-height: 23px;
+        font-size: 14px;
+        color: #ffffff;
+        background-color: #F0455C;
+        border-radius: 4px;
+      }
+      .img {
+        display: block;
+        width: 202px;
+        height: 268px;
+        padding: 7px;
+        background-color: #ffffff;
+        border: 1px solid #E1E1E1;
+        margin-bottom: 13px;
+        img {
+          display: block;
+          width: 202px;
+          height: 268px;
+        }
+      }
+      .p1 {
+        line-height: 26px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        a {
+          color: #2850b8;
+        }
+      }
+      .p2 {
+        text-align: center;
+        line-height: 26px;
+        font-size: 14px;
+      }
+    }
+    .box2 {
+      padding-top: 15px;
+      padding-left: 26px;
+      h1 {
+        padding-left: 13px;
+        margin-right: 30px;
+        height: 20px;
+        line-height: 20px;
+        margin-bottom: 25px;
+        border-left: 5px solid #F0455C;
+        span {
+          float: left;
+          font-size: 16px;
+        }
+        a {
+          float: right;
+          font-weight: normal;
+          color: #1965dc;
+          font-size: 12px;
+        }
+      }
+      ul li {
+        float: left;
+        width: 125px;
+        /* height: 189px; */
+        margin-right: 8px;
+        margin-bottom: 16px;
+        border: 1px solid #fff;
+        &:hover{
+          border-color: #ff8a00;
+          background-color: #fdeae0;
+        }
+        img {
+          display: block;
+          width: 106px;
+          height: 150px;
+          border-radius: 6px;
+          border: 1px solid #d0d0d0;
+          border-radius: 6px;
+          margin: 9px auto 0;
+        }
+        p {
+          line-height: 38px;
+          height: 38px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: center;
+          a {
+            color: #000000;
+          }
+        }
+        .pp {
+          height: 20px;
+          line-height: 12px;
+          text-align: center;
+          padding-top: 0;
+          color: #666666;
+        }
+      }
+    }
+
+  }
+}
+
+//文章下载
+.mainbg {
+  background: #D2EDFE url(../../images/literature/dlbg.jpg) no-repeat center top;
+  padding: 67px 0 184px;
+  .main {
+    width: 858px;
+    border: 1px solid #C7C7C7;
+    border-top: 2px solid #E64A3C;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 6px rgba(216, 215, 215, 1);
+    .ml {
+      width: 531px;
+      padding: 0 34px 33px;
+      h1 {
+        padding-top: 49px;
+        padding-left: 95px;
+        padding-bottom: 11px;
+        border-bottom: 1px solid #EEEEEE;
+        background: url(../../images/literature/licon27.gif) no-repeat 52px 49px;
+        line-height: 32px;
+        font-weight: normal;
+        font-size: 20px;
+      }
+      .info {
+        padding-top: 30px;
+        padding-bottom: 49px;
+        border-bottom: 1px solid #EEEEEE;
+        padding-left: 21px;
+        line-height: 32px;
+        font-size: 16px;
+        .p3 {color: #a6a6a6;
+          height: 44px;
+          line-height: 44px;
+          text-align: center;
+          font-size: 12px;
+          margin-bottom: -31px;
+        }
+        p span {
+          margin-left: 12px;
+        }
+        .color {
+          color: #cc0000;
+        }
+        .btn {
+          display: block;
+          width: 179px;
+          height: 46px;
+          text-align: center;
+          line-height: 46px;
+          border-radius: 5px;
+          color: #ffffff;
+          font-size: 18px;
+          background-color: #FF3035;
+          margin: 30px auto 0;
+        }
+      }
+      .tips {
+        padding-left: 20px;
+        color: #686868;
+        font-family: simsun;
+        h2 {
+          margin-top: 16px;
+          line-height: 30px;
+          font-size: 12px;
+        }
+        p {
+          line-height: 30px;
+        }
+      }
+    }
+    .mr {
+      width: 259px;
+      background-color: #F5F5F5;
+      padding-top: 28px;
+      padding-bottom: 23px;
+      .section1 {
+        padding-left: 38px;
+        font-size: 14px;
+        line-height: 32px;
+        margin-bottom: 40px;
+        .color {
+          color: #cc0000;
+        }
+      }
+      .section2 {
+        margin: 0 23px 26px;
+        h1 {
+          height: 0;
+          text-align: center;
+          border-top: 1px solid #C9C9C9;
+          font-size: 14px;
+          line-height: 14px;
+          margin-bottom: 20px;
+          span {
+            position: relative;
+            top: -8px;
+            padding: 0 15px;
+            background-color: #F5F5F5;
+          }
+        }
+        .ways {
+          width: calc(100% + 11px);
+          a {
+            float: left;
+            width: 98px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            font-weight: bold;
+            font-family: simsun;
+            border: 1px solid #ffffff;
+            border-radius: 18px;
+            margin-right: 10px;
+            margin-bottom: 18px;
+            img {
+              margin-right: 4px;
+              vertical-align: middle;
+            }
+          }
+          .a1 {
+            border-color: #3D7039;
+            color: #3BB038;
+          }
+          .a2 {
+            border-color: #558FAD;
+            color: #3C88FD;
+          }
+          .a3 {
+            border-color: #3D7471;
+            color: #3D7471;
+          }
+          .a4 {
+            border-color: #B6896D;
+            color: #886047;
+          }
+        }
+        .link {
+          text-align: center;
+          line-height: 32px;
+          margin-bottom: 16px;
+          font-size: 14px;
+          a {
+            color: #e82912;
+            margin-right: 10px;
+          }
+        }
+      }
+      .section3 {
+        margin: 0 28px;
+        border-top: 1px solid #DFDFDF;
+        padding-top: 20px;
+        .relevance {
+          display: block;
+          height: 43px;
+          text-align: center;
+          line-height: 43px;
+          border: 1px solid #E72912;
+          border-radius: 21px;
+          color: #E72912;
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        p {
+          line-height: 22px;
+          text-align: justify;
+        }
+      }
+      .section4-title{
+        position: relative;
+        width: 198px;
+        border-bottom: 1px solid #cacaca;
+        margin: 0 auto;
+        span{
+          position: absolute;
+          left: 50%;
+          margin-left: -43px;
+          top: -16px;
+          width: 86px;
+          font-family: 'MicrosoftYaHei';
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 32px;
+          color: #000000;
+          text-align: center;
+          background: #F5F5F5;
+        }
+      }
+      .section4-btn{
+        display: block;
+        width: 172px;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 35px;
+        margin: 24px auto 18px;
+        background: #fffadc url(../../images/literature/l-vip3.png) 7px center no-repeat;      
+        border-radius: 20px;
+        border: solid 1px #b67b53;
+        font-family: 'MicrosoftYaHei';
+        font-size: 14px;
+        color: #a93f03;
+      }
+    }
+
+  }
+  .main599 {
+    width: 599px;}
+}
+// 机构账号关联弹框 
+.layer-relevance{
+  border-top: 2px solid #e74b3c;
+  font-family: 'MicrosoftYaHei';
+}
+.layer-relevance-left{
+  width: 440px;
+  margin-left: 28px;
+  margin-top: 40px;
+  border-right: 1px solid #e7e7e7;  
+}
+.layer-relevance-title{
+  position: relative;
+  padding-left: 13px;
+  padding-bottom: 18px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #333333;
+}
+.layer-relevance-title::before{
+  content:'';
+  position: absolute;
+  left:0;
+  top: 4px;
+  width: 4px;
+	height: 14px;
+	background-color: #e74b3c;
+	border-radius: 2px;
+}
+.layer-relevance-body p{
+	font-size: 14px;
+	line-height: 26px;
+	color: #333333;
+}
+.layer-relevance .relevance-tip {
+  margin-top: 5px;
+}
+.layer-relevance .relevance-tip p{
+	font-size: 12px;  
+	line-height: 24px;
+	color: #999999;
+}
+.layer-relevance .download-title{
+  margin:68px 0 20px 35px;
+  font-size: 16px;
+	font-weight: bold;
+	line-height: 30px;
+	color: #e74b3c;
+}
+.layer-relevance .download-body {
+	width: 144px;
+  height: 144px;
+  margin-left: 23px;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 15px 0px 
+		rgba(6, 0, 1, 0.15);
+	border-radius: 2px;
+	border: solid 1px #eeeeee;
+}
+.layer-relevance .qrcode{
+  display: block;
+  width: 138px;
+  height: 138px;
+  margin: 3px;
+}
+.layer-relevance .layui-layer-close{
+  right: 0;
+  top: 0;
+  width: 12px;
+  height: 11px;
+  background: url(../../images/literature/licon31.png) no-repeat;
+}
+.layer-relevance .layui-layer-close:hover{
+  background: url(../../images/literature/licon31.png) no-repeat;  
+}
+.layer-relevance-btns{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width: 100%;
+	height: 62px;
+  background: #eaeaea;
+  text-align: center;
+}
+.layer-relevance-btns a{
+  display: inline-block;
+  width: 142px;
+  height: 36px;
+  line-height: 36px;
+  margin: 13px 10px 0;
+  border-radius: 4px;
+  background-color: #fe3f3c;
+  font-family: 'MicrosoftYaHei';
+	font-size: 18px;
+	color: #ffffff;
+}
+.layer-relevance-btns .btn-cancel{
+  background-color: #a6a6a6;
+}
+.vip-guidebar{
+  width: 782px;
+  height: 52px;
+  margin-bottom: 30px;
+  background: #2b1e38 url(../../images/literature/l-vip1.png) left top no-repeat;    
+  font-family: 'MicrosoftYaHei';
+}
+.vip-guidebar .text{
+  float: left;
+  line-height: 52px;  
+  padding-left: 120px;
+	font-size: 16px;
+	color: #ffffff;
+}
+.vip-guidebar .btn-open {
+  float: right;
+	width: 112px;
+  height: 30px;
+	line-height: 30px;
+  padding-left: 14px;
+  margin-top: 11px;  
+  margin-right: 16px;  
+  border-radius: 15px;
+	font-size: 16px;
+  color: #742a00;
+  background: #f4c972 url(../../images/literature/l-vip2.png) 88px center no-repeat;      
+}

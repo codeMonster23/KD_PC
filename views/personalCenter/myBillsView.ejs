@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/plugin/jquery.methods.js"></script>
+        <script src="/moment/moment.js"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:2,active:5}) %>
+                <div class="contentWrap billsWrap">
+                    <h1 class="zd"><span>我的账单</span><a href="/personalCenter/invoiceInfo" class="fp">发票索取</a></h1>
+                    <div class="billBlock">
+                        <div class="tools">
+                            <div class="tabs left">
+                                <a href="javascript:;" class="cur">充值记录</a>
+                                <a href="javascript:;">消费记录</a>
+                            </div>
+                        </div>
+                        <!--充值记录-->
+                        <div class="tabc rechargeRecord" style="display: block;">
+                            <div class="handle clearfix">
+                                <!--<div class="select">
+                        <p>全部</p>
+                        <ul>
+                            <li>全部</li>
+                            <li>支付宝</li>
+                            <li>微信支付</li>
+                            <li>银联在线</li>
+                        </ul>
+                    </div>-->
+                            </div>
+                            <table class="table" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <th>序号</th>
+                                    <th>订单编号</th>
+                                    <th>充值方式</th>
+                                    <th>充值金额</th>
+                                    <th>赠券金额</th>
+                                    <th class="last">充值时间</th>
+                                </tr>
+                                <% for(var i=0;i<viewModel.data.rechargeRecordList.length;i++){ %>
+                                    <tr class="showItem">
+                                        <% if(i<9){ %>
+                                            <td>0
+                                                <%= i+1 %>
+                                            </td>
+                                            <% } else{ %>
+                                                <td>
+                                                    <%= i+1 %>
+                                                </td>
+                                                <% } %>
+                                                    <td>
+                                                        <% if (viewModel.data.rechargeRecordList[i].rechargeOrderID) {%>
+                                                            <%= viewModel.data.rechargeRecordList[i].rechargeOrderID %>
+                                                                <%}else{%>
+                                                                    <%= viewModel.data.rechargeRecordList[i].cardNum %>
+                                                                        <%}%>
+                                                    </td>
+                                                    <td>
+                                                        <% if (viewModel.data.rechargeRecordList[i].rechargeType=="alipay") {%>
+                                                            支付宝支付
+                                                            <%}%>
+                                                                <% if (viewModel.data.rechargeRecordList[i].rechargeType=="wechat") {%>
+                                                                    微信支付
+                                                                    <%}%>
+                                                                        <% if (viewModel.data.rechargeRecordList[i].rechargeType=="unionpay") {%>
+                                                                            银联支付
+                                                                            <%}%>
+                                                                                <% if (viewModel.data.rechargeRecordList[i].rechargeType=="cnkicard") {%>
+                                                                                    知网卡支付
+                                                                                    <%}%>
+                                                    </td>
+                                                    <td>
+                                                        <% if (viewModel.data.rechargeRecordList[i].amout) {%>
+                                                            <%= ejsFunctions.returnFloat( viewModel.data.rechargeRecordList[i].amout) %>元
+                                                                <%}else{%>
+                                                                    0.00元
+                                                                    <%}%>
+                                                    </td>
+                                                    <td>
+                                                        <% if (viewModel.data.rechargeRecordList[i].amoutTicket) {%>
+                                                            <%= ejsFunctions.returnFloat( viewModel.data.rechargeRecordList[i].amoutTicket) %>元
+                                                                <%}else{%>
+                                                                    0.00元
+                                                                    <%}%>
+                                                    </td>
+                                                    <td class="last">
+                                                        <% var arr = ejsFunctions.arrayParseByT(viewModel.data.rechargeRecordList[i].rechargeDate) %>
+                                                            <%= arr[0] %>
+                                                                <%= ejsFunctions.sliceTime(arr[1])%>
+                                                    </td>
+                                    </tr>
+                                    <% } %>
+                            </table>
+                            <div class="rechargePage sp-page">
+
+                            </div>
+                        </div>
+                        <div class="tabc consumeRecord">
+                            <div class="handle clearfix">
+                                <!--<div class="searchWrap">
+                            <input type="text" id="searchInput" value="请输入订单内容"  class="colorGrey" autocomplete="off"/>  
+                            <a href="javascript:;" class="btn" id="sbtn"></a>
+                        </div>-->
+                            </div>
+                            <table class="table" border="0" cellspacing="0" cellpadding="0">
+
+                            </table>
+                            <div class="consumePage sp-page">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+                PromptToggle($(".searchWrap input"), "请输入订单内容", "colorGrey")
+                $.divselect($(".select p"), $(".select ul"), $(".select ul li"), "click");
+
+                //选项卡
+                TableTransition($(".tabs a"), $(".tabc"), "click", "cur")
+                    //ajax获取消费记录
+                getConsumeRcord(1)
+
+                function getConsumeRcord(pageNum) {
+                    var pageNum = pageNum || 1;
+                    var crUrl = encodeURI('/personalCenter/myBillsConsumeRecord?pageSize=15&pageNum=' + pageNum);
+                    $.ajax({
+                        url: crUrl,
+                        dataType: "json",
+                        type: "get",
+                        success: function(response) {
+                            //console.log(response.reslist.total)
+                            if (response.reslist.errorcode == 1) {
+                                if (response.reslist.total > 0) {
+                                    var list = response.reslist.rows;
+                                    //console.log(list.length)
+                                    var str = '';
+                                    var headStr = '<tr><th width="73">序号</th><th width="186">订单编号</th><th width="252">订单内容</th><th width="106">支付金额</th><th width="116">类型</th><th width="156" class="last">支付时间</th></tr> '
+                                    for (var i = 0; i < list.length; i++) {
+                                        var type = list[i].productType;
+                                        var typeName = '';
+                                        //根据类型显示对应文字
+                                        if (type == 1) {
+                                            typeName = '期刊单期'
+                                        }
+                                        if (type == 2) {
+                                            typeName = '期刊单年'
+                                        }
+                                        if (type == 3) {
+                                            typeName = '期刊所有年'
+                                        }
+                                        if (type == 5) {
+                                            typeName = '图书'
+                                        }
+                                        if (type == 9) {
+                                            typeName = '文献'
+                                        }
+                                        if (type == 17) {
+                                            typeName = '作品'
+                                        }
+                                        if (type == 18) {
+                                            typeName = '微刊'
+                                        }
+                                        if (type == 19) {
+                                            typeName = '会员'
+                                        }
+                                        //判断序号
+                                        if (i < 9) {
+                                            if (pageNum == 1) {
+                                                str += '<tr class="items"><td>0' + (i + 1 + (pageNum - 1) * 15) + '</td><td>' + list[i].orderSn + '</td><td>' + list[i].productTitle + '</td><td>' + returnFloat(list[i].price) + '元</td><td>' + typeName + '</td><td>' + moment(list[i].addTime).format('YYYY-MM-DD HH:mm') + '</td></tr>'
+                                            }
+                                            if (pageNum > 1) {
+                                                str += '<tr class="items"><td>' + (i + 1 + (pageNum - 1) * 15) + '</td><td>' + list[i].orderSn + '</td><td>' + list[i].productTitle + '</td><td>' + returnFloat(list[i].price) + '元</td><td>' + typeName + '</td><td>' + moment(list[i].addTime).format('YYYY-MM-DD HH:mm') + '</td></tr>'
+                                            }
+                                        }
+                                        if (i == 9 || i > 9) {
+
+                                            str += '<tr class="items"><td>' + (i + 1 + (pageNum - 1) * 15) + '</td><td>' + list[i].orderSn + '</td><td>' + list[i].productTitle + '</td><td>' + returnFloat(list[i].price) + '元</td><td>' + typeName + '</td><td>' + moment(list[i].addTime).format('YYYY-MM-DD HH:mm') + '</td></tr>'
+
+                                        }
+
+                                    }
+                                    $(".consumeRecord .table").html(headStr + str);
+                                    // 页码
+                                    var pageStr = $.kd.outputPager(response.reslist.total, 15, 5, pageNum);
+                                    $(".consumePage").html(pageStr);
+                                    $(".table tr:even").find("td").addClass("bg")
+                                        // 绑定页码
+                                    $('.consumePage a').click(function() {
+                                        var pageNum = $(this).attr('data-page');
+                                        getConsumeRcord(pageNum);
+                                        // 回顶部
+                                        $('body,html').animate({
+                                            scrollTop: 0
+                                        }, 300);
+                                    })
+                                }
+
+                            } else {
+                                cosole.log('请检查获取消费记录借口！');
+                            }
+
+                        },
+                        error: function(error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    })
+                }
+                //搜索消费记录
+                // $("#sbtn").click(function(){
+                //     var titKeyword=$('#searchInput').val().trim();
+                //     if(titKeyword.length>0 && titKeyword!='请输入订单内容'){
+                //        showSearchResult(titKeyword,1)
+                //        
+                //     }
+                // })
+                // function showSearchResult(titKeyword,pageNum){
+                //       var pageNum = pageNum || 1; 
+                //       var titKeyword =titKeyword ||''
+                //       var srUrl=encodeURI('/personalCenter/myBillsConsumeRecord?pageSize=10&pageNum=' + pageNum+'&titKeyword='+titKeyword);
+                //       $.ajax({
+                //           url:srUrl,
+                //           dataType:"json",
+                //           type:"get",
+                //           success: function (response){
+                //               console.log(response)
+                //           },
+                //          error: function (error) {
+                //              //请求出错处理
+                //              console.log(error);
+                //          }
+                //       })
+                //     }
+                //充值页面自定义页码
+                function rechargePage(repageNum) {
+                    var rechargeRecordTotal = $(".rechargeRecord table .showItem").length;
+                    var repageNum = repageNum || 1;
+                    console.log(rechargeRecordTotal)
+                        // 页码
+                    var repageStr = $.kd.outputPager(rechargeRecordTotal, 15, 5, repageNum);
+                    $(".rechargePage").html(repageStr);
+                    $(".showItem").hide();
+                    for (var i = (repageNum - 1) * 15; i < (repageNum - 1) * 15 + 15; i++) {
+                        $(".showItem").eq(i).show();
+                    }
+                }
+                rechargePage(1)
+                $(".rechargePage").on("click", "a", function() {
+                        var repageNum = $(this).attr("data-page")
+                        rechargePage(repageNum)
+                            // 回顶部
+                        $('body,html').animate({
+                            scrollTop: 0
+                        }, 300);
+                    })
+                    //表格隔行变色
+                $(".table tr:even").find("td").addClass("bg")
+                    //消费记录页面处理金额强制显示两位小数
+                function returnFloat(value) {
+                    var value = Math.round(parseFloat(value) * 100) / 100;
+                    var s = value.toString().split(".");
+                    if (s.length == 1) {
+                        value = value.toString() + ".00";
+                        return value;
+                    }
+                    if (s.length > 1) {
+                        if (s[1].length < 2) {
+                            value = value.toString() + "0";
+                        }
+                        return value;
+                    }
+                }
+            </script>
+</body>
+
+</html>

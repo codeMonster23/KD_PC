@@ -1,0 +1,595 @@
+﻿[
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20101",
+        "ztName": "生命起源"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20102",
+        "ztName": "细胞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20103",
+        "ztName": "病毒"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20104",
+        "ztName": "遗传基因"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20105",
+        "ztName": "古生物"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20106",
+        "ztName": "微生物"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20107",
+        "ztName": "植物大观"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20108",
+        "ztName": "动物乐园"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20109",
+        "ztName": "水生生物"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2010A",
+        "ztName": "昆虫世界"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2010B",
+        "ztName": "人类奥秘"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2010C",
+        "ztName": "奇幻生物世界"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "TN201",
+    "ztName": "生命奥秘"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20201",
+        "ztName": "地球知识"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20202",
+        "ztName": "环境大气"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20203",
+        "ztName": "地质矿产"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20204",
+        "ztName": "冰川海洋"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20205",
+        "ztName": "河流湖泊"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20206",
+        "ztName": "南极北极"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20207",
+        "ztName": "森林沙漠"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20208",
+        "ztName": "高原山地"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20209",
+        "ztName": "草原湿地"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2020A",
+        "ztName": "自然灾害"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2020B",
+        "ztName": "科学考察"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2020C",
+        "ztName": "文物考古"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "TN202",
+    "ztName": "地球故事"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20301",
+        "ztName": "数学"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20302",
+        "ztName": "物理"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20303",
+        "ztName": "化学"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "TN203",
+    "ztName": "万物之理"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20401",
+        "ztName": "宇宙奥秘"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20402",
+        "ztName": "航空航天"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "TN204",
+    "ztName": "星宇迷尘"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20501",
+        "ztName": "武器装备"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20502",
+        "ztName": "舰艇"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20503",
+        "ztName": "军用飞机"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20504",
+        "ztName": "战术技术"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20507",
+        "ztName": "训练演习"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20505",
+        "ztName": "军事人物"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20506",
+        "ztName": "战争史话"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "TN205",
+    "ztName": "军事大观"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20601",
+        "ztName": "汽车"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20602",
+        "ztName": "铁路"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20603",
+        "ztName": "船舶"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20604",
+        "ztName": "数码电子"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20605",
+        "ztName": "影像技术"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20606",
+        "ztName": "计算机"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20607",
+        "ztName": "电讯"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20608",
+        "ztName": "自动化"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20609",
+        "ztName": "测绘"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060A",
+        "ztName": "电力"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060B",
+        "ztName": "机械"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060C",
+        "ztName": "食品"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060D",
+        "ztName": "纺织"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060E",
+        "ztName": "化工"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060F",
+        "ztName": "冶金"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060H",
+        "ztName": "能源"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060I",
+        "ztName": "环保"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2060J",
+        "ztName": "材料"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "TN206",
+    "ztName": "科技之光"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20701",
+        "ztName": "农机"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "TN2070201",
+            "ztName": "农作物"
+          },
+          {
+            "grade": 3,
+            "ztCode": "TN2070202",
+            "ztName": "蔬菜园"
+          },
+          {
+            "grade": 3,
+            "ztCode": "TN2070203",
+            "ztName": "瓜果林"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "TN20702",
+        "ztName": "种植"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "TN2070301",
+            "ztName": "畜类"
+          },
+          {
+            "grade": 3,
+            "ztCode": "TN2070302",
+            "ztName": "禽类"
+          },
+          {
+            "grade": 3,
+            "ztCode": "TN2070303",
+            "ztName": "水产"
+          },
+          {
+            "grade": 3,
+            "ztCode": "TN2070304",
+            "ztName": "蚕桑"
+          },
+          {
+            "grade": 3,
+            "ztCode": "TN2070305",
+            "ztName": "养蜂及益虫饲"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "TN20703",
+        "ztName": "养殖"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20704",
+        "ztName": "花卉"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20705",
+        "ztName": "林业"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20706",
+        "ztName": "贮藏加工"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "TN207",
+    "ztName": "农业广角"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20801",
+        "ztName": "语言"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20802",
+        "ztName": "民族"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20803",
+        "ztName": "宗教哲学"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20804",
+        "ztName": "政治法律"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20805",
+        "ztName": "历史"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20806",
+        "ztName": "建筑"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20807",
+        "ztName": "民俗文化"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20808",
+        "ztName": "地理风物"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN20809",
+        "ztName": "军情博览"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "TN2080A",
+        "ztName": "五花八门"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "TN208",
+    "ztName": "社科视野"
+  },
+  {
+    "childlist": [
+    ],
+    "grade": 1,
+    "ztCode": "TN209",
+    "ztName": "科学探秘"
+  }
+]

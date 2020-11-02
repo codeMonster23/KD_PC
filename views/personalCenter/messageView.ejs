@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <div class="messageMenu">
+                <h1>消息中心</h1>
+                <a href="javascript:;" class="sort icon1 cur">全部消息</a>
+                <a href="javascript:;" class="sort icon2">推荐消息</a>
+                <a href="javascript:;" class="sort icon3">订阅消息</a>
+                <a href="javascript:;" class="sort icon4">系统通知</a>
+            </div>
+            <div class="messageWrap">
+                <h1><span>全部消息<i>（共15条）</i></span></h1>
+                <div class="messageList">
+                    <% for (var i=0;i<2;i++){ %>
+                        <div class="li style1">
+                            <a href="javascript:;" class="del"></a>
+                            <p class="p1">推荐消息</p>
+                            <p class="p2">最新优质作品《夏至时光》知网文化邀您一起阅读， 文章以“血糖平衡的调节”和“细胞呼吸”为主线。</p>
+                            <p class="time">2019/11/13&nbsp;&nbsp;&nbsp;08:06:25</p>
+                        </div>
+                        <div class="li style2">
+                            <a href="javascript:;" class="del"></a>
+                            <p class="p1">订阅消息</p>
+                            <p class="p2">您订阅的微刊《学习力与学生发展》更新了一篇作品《儿童创造力的培养》，快去看看吧！您订阅的微刊《学习力与学生发 展》更新了一篇作品《儿童创造力的培养》，快去看看吧！您订阅的微刊《学习力与学生发展》更新了一篇作品《儿童创造力的培养》，快去看看吧！您订阅的微刊《学习力与学生发展》更新了一篇作品《儿童创造力的培养》，快去看看吧！
+                            </p>
+                            <p class="time">2019/11/13&nbsp;&nbsp;&nbsp;08:06:25</p>
+                        </div>
+                        <div class="li style3">
+                            <a href="javascript:;" class="del"></a>
+                            <p class="p1">系统消息</p>
+                            <p class="p2">第一届知网文化活动开始了，快去体验吧！<a href="#">点击此处，参与活动</a></p>
+                            <p class="time">2019/11/13&nbsp;&nbsp;&nbsp;08:06:25</p>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="sp-page">
+                    <span class="current">1</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">2</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">3</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">4</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">5</a>
+                    <a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">6</a><span>...</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">下一页</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">尾页</a>
+                </div>
+                <!--消息为空-->
+                <div class="messageEmpty" style="display: none;">暂无消息</div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+                //左侧选项卡
+                $(".sort").click(function() {
+                    $(this).addClass("cur").siblings().removeClass("cur")
+                })
+            </script>
+</body>
+
+</html>

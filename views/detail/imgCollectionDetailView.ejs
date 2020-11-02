@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/details.css"/>
+    <script src="/js/jquery.SuperSlide.2.1.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/wordLimit.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/moment/moment.js"></script>
+    <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/lib/layui/layui.js"></script>
+    <script src="/underscore/underscore.js"></script>
+</head>
+
+<body>
+<%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+<div class="topBlock">
+    <div class="topcenter">
+        <!--<div class="route"><a href="/">首页</a> > <a href="<%= '/works?mediatype=' + viewModel.data.collection.mediatype %>">图集作品</a> > <%= viewModel.data.collection.title %></div>-->
+        <div class="route">
+            <a href="/">首页</a>
+            <% if(viewModel.platformcatename && viewModel.platformcatename.length > 0){ var first = ejsFunctions.workCodeParseToCoord(viewModel.platformcatename[0].code) %>
+            >
+            <a href="/works?mediatype=<%= viewModel.data.collection.mediatype %>&positionX=<%= first.x %>&classifyId=<%= viewModel.platformcatename[0].code %>">
+                <%= viewModel.platformcatename[0].name %>
+            </a>
+            <% } %>
+            <% if(viewModel.platformcatename && viewModel.platformcatename.length > 0){ var second = ejsFunctions.workCodeParseToCoord(viewModel.platformcatename[1].code) %>
+            >
+            <a href="/works?mediatype=<%= viewModel.data.collection.mediatype %>&positionX=<%= second.x %>&positionY=<%= second.y %>&classifyId=<%= viewModel.platformcatename[1].code %>">
+                <%= viewModel.platformcatename[1].name %>
+            </a>
+            <% } %>
+            <!--有三级菜单-->
+            <% if(viewModel.platformcatename.length == 3) { %>
+            <% if(true){ var third = ejsFunctions.workCodeParseToCoord(viewModel.platformcatename[2].code) %>
+            >
+            <a href="/works?mediatype=<%= viewModel.data.collection.mediatype %>&positionX=<%= third.x %>&positionY=<%= third.y %>&positionZ=<%= third.z %>&classifyId=<%= viewModel.platformcatename[2].code %>">
+                <%= viewModel.platformcatename[2].name %>
+            </a>
+            <% } %>
+            <% } %>
+        </div>
+        <div class="info ipic">
+
+            <!--未登录-->
+            <% if(viewModel.user.name == null){ %>
+            <!--作品免费  设置为试听、试看、试读-->
+            <%if(viewModel.data.collection.isfree == 1 || viewModel.hasViewRight==1){%><%}else{%>
+            <!--作品收费-->
+            <!--参加促销免费-->
+            <% if(viewModel.data.shopprice && viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime-viewModel.data.shopprice.currenttime>0){%><%}else{%>
+            <!--不参加促销免费-->
+            <!--参加促销活动 显示促销价-->
+            <% if(viewModel.data.shopprice && viewModel.data.shopprice.issale == 1 && viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime>0){%>
+            <div class="player-cover tpl1Wrapper-img-collection"></div>
+            <div class="tpl1Wrapper tpl1Wrapper-img-collection" id="tpl1Wrapper">
+                <div class="imgpoptip" style="display: block">
+                    <div class="close"></div>
+                    <p class="p2">购买后即可观看</p>
+                    <div class="countdown">限时特惠：剩余<i class="timeLeft1" data-start-time="<%=viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime%>" ><%=ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime)%></i></div>
+                    <script>
+                        // 限时促销倒计时
+                        var timeLeft1 = $('.timeLeft1');
+                        var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                        var timer1 = setInterval(timeToDate, 1000);
+                        function timeToDate() {
+                            startTime1 = startTime1-1000;
+                            if(startTime1>0){
+                                let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                let second = parseInt(startTime1 / 1000 % 60);
+                                timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                            }
+                            else {
+                                clearInterval(timer1);
+                            }
+
+                        }
+                    </script>
+                    <div class="price"><span class="nowprice">￥<%=viewModel.data.shopprice.saleprice%></span><span class="oldprice">原价：￥ <%=viewModel.data.collection.realprice%></span></div>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.workId + '&title=' + viewModel.data.collection.title + '&mediaType=' + viewModel.mediatype) + '&coverPic=' + viewModel.data.collection.coverpic %>" class="btn-buy">立即支付</a>
+                    <%if(viewModel.data.shopprice && viewModel.data.shopprice.memberisfree==1){%>
+                    <a target="_blank" class="vip-tip" href="/personalCenter/vip">开通VIP会员，该作品专享免费>></a>
+                    <%}else if(viewModel.data.shopprice && viewModel.data.shopprice.memberisdiscount==1 && viewModel.data.shopprice.memberdiscountprice<viewModel.data.shopprice.price){%>
+                    <a target="_blank" class="vip-tip" href="/personalCenter/vip">开通VIP会员，该作品尊享<%=viewModel.data.shopprice.memberdiscount*10%>折特惠>></a>
+                    <%}%>
+                </div>
+            </div>
+            <%}else{%>
+            <div class="player-cover tpl1Wrapper-img-collection"></div>
+            <!--不参加促销活动  显示原价-->
+            <div class="tpl1Wrapper tpl1Wrapper-img-collection" id="tpl1Wrapper">
+                <!--原价-->
+                <div class="imgpoptip" style="display: block;">
+                    <div class="close"></div>
+                    <p class="p2">购买后即可观看</p>
+
+                    <p class="p3">价格：<%= viewModel.data.collection.realprice %>元</p>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now" href="javascript:;" class="btn">立即购买</a>
+                    <script>
+                        $('#buy-now').click(function() {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <%}else{%>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.workId + '&title=' + viewModel.data.collection.title + '&mediaType=' + viewModel.data.collection.mediatype + '&coverPic=' + viewModel.data.collection.coverpic) %>" class="btn btn-buy">立即购买</a>
+                    <%}%>
+                    <%if(viewModel.data.shopprice && viewModel.data.shopprice.memberisfree==1){%>
+                    <a target="_blank" class="vip-tip" href="/personalCenter/vip">开通VIP会员，该作品专享免费>></a>
+                    <%}else if(viewModel.data.shopprice && viewModel.data.shopprice.memberisdiscount==1){%>
+                    <a target="_blank" class="vip-tip" href="/personalCenter/vip">开通VIP会员，该作品尊享<%=viewModel.data.shopprice.memberdiscount*10%>折特惠>></a>
+                    <%}%>
+                </div>
+            </div>
+            <%}%>
+            <%}%>
+            <%}%>
+            <!--已登录-->
+            <% }else{ %>
+            <!--已登录-->
+            <!--isbuy: 0 无权限 1已购权限 2会员免费权限 3 活动免费权限  会员和活动免费都可能过期-->
+            <!--作品免费 或者已购  设置为试听、试看、试读-->
+            <%if(viewModel.data.collection.isfree == 1 || viewModel.data.collection.isbuy == 1 || viewModel.hasViewRight==1){%><%}else{%>
+            <!--作品收费-->
+            <!--会员-->
+            <% if(viewModel.isVip == true || viewModel.isVip == 'true'){ %>
+            <!-- 支持会员优惠 -->
+            <%if(viewModel.data.shopprice &&　((viewModel.data.shopprice.memberisdiscount==1 && viewModel.data.shopprice.memberdiscountendtime-viewModel.data.shopprice.currenttime>0) || viewModel.data.shopprice.memberisfree==1)){%>
+            <!--会员免费-->
+            <%if(viewModel.data.shopprice.memberisfree==1){%><%}else{%>
+            <!--会员不免费-->
+            <!--参加促销免费-->
+            <% if(viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime-viewModel.data.shopprice.currenttime>0){%><%}else{%>
+            <!--不参加促销免费-->
+            <!--参加促销活动 对比促销价和会员折扣取最小值-->
+            <% if(viewModel.data.shopprice.issale == 1 && viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime>0){%>
+            <div class="player-cover tpl1Wrapper-img-collection"></div>
+            <div class="tpl1Wrapper tpl1Wrapper-img-collection" id="tpl1Wrapper">
+                <div class="imgpoptip" style="display: block">
+                    <div class="close"></div>
+                    <p class="p2">购买后即可观看</p>
+                    <%if(viewModel.data.shopprice.memberdiscountprice<=viewModel.data.shopprice.price){%>
+                    <p class="p3">
+                        <img class="vip-icon-discount" src="/images/details/deicon44.png" alt="">
+                        <span class="nowprice">￥<%=viewModel.data.shopprice.memberdiscountprice%></span>
+                    </p>
+                    <p class="oldprice">原价：￥ <%=viewModel.data.collection.realprice%></p>
+                    <%}else{%>
+                    <div class="countdown">限时特惠：剩余<i class="timeLeft1" data-start-time="<%=viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime%>" ><%=ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime)%></i></div>
+                    <script>
+                        // 限时促销倒计时
+                        var timeLeft1 = $('.timeLeft1');
+                        var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                        var timer1 = setInterval(timeToDate, 1000);
+                        function timeToDate() {
+                            startTime1 = startTime1-1000;
+                            if(startTime1>0){
+                                let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                let second = parseInt(startTime1 / 1000 % 60);
+                                timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                            }
+                            else {
+                                clearInterval(timer1);
+                            }
+
+                        }
+                    </script>
+                    <div class="price"><span class="nowprice">￥ <%=viewModel.data.shopprice.saleprice%></span><span class="oldprice">原价：￥ <%=viewModel.data.collection.realprice%></span></div>
+                    <%}%>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now" href="javascript:;" class="btn-buy">立即支付</a>
+                    <script>
+                        $('#buy-now').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.workId + '&title=' + viewModel.data.collection.title + '&mediaType=' + viewModel.mediatype) + '&coverPic=' + viewModel.data.collection.coverpic %>"
+                       class="btn-buy">立即支付</a>
+                    <% } %>
+                </div>
+            </div>
+            <%}else{%>
+            <div class="player-cover tpl1Wrapper-img-collection"></div>
+            <!--不参加促销活动  显示会员折扣价-->
+            <div class="tpl1Wrapper tpl1Wrapper-img-collection" id="tpl1Wrapper">
+                <!-- 会员折扣 -->
+                <div class="imgpoptip" style="display: block">
+                    <div class="close"></div>
+                    <p class="p2">购买后即可观看</p>
+                    <p class="p3">
+                        <img class="vip-icon-discount" src="/images/details/deicon44.png" alt="">
+                        <span class="nowprice">￥<%=viewModel.data.shopprice.memberdiscountprice%></span>
+                    </p>
+                    <p class="oldprice">原价：￥ <%=viewModel.data.collection.realprice%></p>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now" href="javascript:;" class="btn-buy">立即支付</a>
+                    <script>
+                        $('#buy-now').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.workId + '&title=' + viewModel.data.collection.title + '&mediaType=' + viewModel.mediatype) + '&coverPic=' + viewModel.data.collection.coverpic %>"
+                       class="btn-buy">立即支付</a>
+                    <% } %>
+                </div>
+            </div>
+            <%}%>
+            <%}%>
+            <%}%>
+            <%}else {%>
+            <!--不支持会员优惠-->
+            <!--参加促销免费-->
+            <% if(viewModel.data.shopprice && viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime-viewModel.data.shopprice.currenttime>0){%><%}else{%>
+            <!--不参加促销免费-->
+            <!--参加促销活动 显示促销价-->
+            <% if(viewModel.data.shopprice && viewModel.data.shopprice.issale == 1 && viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime>0){%>
+            <div class="player-cover tpl1Wrapper-img-collection"></div>
+            <div class="tpl1Wrapper tpl1Wrapper-img-collection" id="tpl1Wrapper">
+                <div class="imgpoptip" style="display: block">
+                    <div class="close"></div>
+                    <p class="p2">购买后即可观看</p>
+                    <div class="countdown">限时特惠：剩余<i class="timeLeft1" data-start-time="<%=viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime%>" ><%=ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime)%></i></div>
+                    <script>
+                        // 限时促销倒计时
+                        var timeLeft1 = $('.timeLeft1');
+                        var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                        var timer1 = setInterval(timeToDate, 1000);
+                        function timeToDate() {
+                            startTime1 = startTime1-1000;
+                            if(startTime1>0){
+                                let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                let second = parseInt(startTime1 / 1000 % 60);
+                                timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                            }
+                            else {
+                                clearInterval(timer1);
+                            }
+
+                        }
+                    </script>
+                    <div class="price"><span class="nowprice">￥ <%=viewModel.data.shopprice.saleprice%></span><span class="oldprice">原价：￥ <%=viewModel.data.collection.realprice%></span></div>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now" href="javascript:;" class="btn-buy">立即支付</a>
+                    <script>
+                        $('#buy-now').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.workId + '&title=' + viewModel.data.collection.title + '&mediaType=' + viewModel.mediatype) + '&coverPic=' + viewModel.data.collection.coverpic %>"
+                       class="btn-buy">立即支付</a>
+                    <% } %>
+                </div>
+            </div>
+            <%}else{%>
+            <div class="player-cover tpl1Wrapper-img-collection"></div>
+            <!--不参加促销活动  显示原价-->
+            <div class="tpl1Wrapper tpl1Wrapper-img-collection" id="tpl1Wrapper">
+                <div class="imgpoptip" style="display: block">
+                    <div class="close"></div>
+                    <p class="p2">购买后即可观看</p>
+                    <div class="price"><span class="nowprice">￥ <%=viewModel.data.collection.realprice%></span></div>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now" href="javascript:;" class="btn-buy">立即支付</a>
+                    <script>
+                        $('#buy-now').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.workId + '&title=' + viewModel.data.collection.title + '&mediaType=' + viewModel.mediatype) + '&coverPic=' + viewModel.data.collection.coverpic %>"
+                       class="btn-buy">立即支付</a>
+                    <% } %>
+                </div>
+            </div>
+            <%}%>
+            <%}%>
+            <%}%>
+            <% }else{ %>
+            <!--非会员-->
+            <!--参加促销免费-->
+            <% if(viewModel.data.shopprice && viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime-viewModel.data.shopprice.currenttime>0){%><%}else{%>
+            <!--不参加促销免费-->
+            <!--参加促销活动 显示促销价 如果支持会员优惠 且会员免费 显示广告条-->
+            <% if(viewModel.data.shopprice && viewModel.data.shopprice.issale == 1 && viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime>0){%>
+            <div class="player-cover tpl1Wrapper-img-collection"></div>
+            <div class="tpl1Wrapper tpl1Wrapper-img-collection" id="tpl1Wrapper">
+                <div class="imgpoptip" style="display: block">
+                    <div class="close"></div>
+                    <p class="p2">购买后即可观看</p>
+                    <div class="countdown">限时特惠：剩余<i class="timeLeft1" data-start-time="<%=viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime%>" ><%=ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime)%></i></div>
+                    <script>
+                        // 限时促销倒计时
+                        var timeLeft1 = $('.timeLeft1');
+                        var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                        var timer1 = setInterval(timeToDate, 1000);
+                        function timeToDate() {
+                            startTime1 = startTime1-1000;
+                            if(startTime1>0){
+                                let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                let second = parseInt(startTime1 / 1000 % 60);
+                                timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                            }
+                            else {
+                                clearInterval(timer1);
+                            }
+
+                        }
+                    </script>
+                    <p class="p3"><span class="nowprice">￥ <%=viewModel.data.shopprice.saleprice%></span><span class="oldprice">原价：￥ <%=viewModel.data.collection.realprice%></span></p>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now" href="javascript:;" class="btn-buy">立即支付</a>
+                    <script>
+                        $('#buy-now').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.workId + '&title=' + viewModel.data.collection.title + '&mediaType=' + viewModel.mediatype) + '&coverPic=' + viewModel.data.collection.coverpic %>"
+                       class="btn-buy">立即支付</a>
+                    <% } %>
+                    <%if(viewModel.data.shopprice && viewModel.data.shopprice.memberisfree==1){%>
+                    <a target="_blank" class="vip-tip" href="/personalCenter/vip">开通VIP会员，该作品专享免费>></a>
+                    <%}else if(viewModel.data.shopprice.memberisdiscount==1 && viewModel.data.shopprice.memberdiscountprice<viewModel.data.shopprice.price){%>
+                    <a target="_blank" class="vip-tip" href="/personalCenter/vip">开通VIP会员，该作品尊享<%=viewModel.data.shopprice.memberdiscount*10%>折特惠>></a>
+                    <%}%>
+                </div>
+            </div>
+            <%}else{%>
+            <div class="player-cover tpl1Wrapper-img-collection"></div>
+            <!--不参加促销活动  显示原价 如果支持会员优惠  显示广告条-->
+            <div class="tpl1Wrapper tpl1Wrapper-img-collection" id="tpl1Wrapper">
+                <div class="imgpoptip" style="display: block;">
+                    <div class="close"></div>
+                    <p class="p2">购买后即可观看</p>
+                    <p class="p3">价格：
+                        <%= viewModel.data.collection.realprice %>元</p>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now" href="javascript:;" class="btn-buy">立即购买</a>
+                    <script>
+                        $('#buy-now').click(function() {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <%}else{%>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.workId + '&title=' + viewModel.data.collection.title + '&mediaType=' + viewModel.data.collection.mediatype + '&coverPic=' + viewModel.data.collection.coverpic) %>" class="btn btn-buy">立即购买</a>
+                    <%}%>
+                    <%if(viewModel.data.shopprice && viewModel.data.shopprice.memberisfree==1){%>
+                    <a target="_blank" class="vip-tip" href="/personalCenter/vip">开通VIP会员，该作品专享免费>></a>
+                    <%}else if(viewModel.data.shopprice && viewModel.data.shopprice.memberisdiscount==1){%>
+                    <a target="_blank" class="vip-tip" href="/personalCenter/vip">开通VIP会员，该作品尊享<%=viewModel.data.shopprice.memberdiscount*10%>折特惠>></a>
+                    <%}%>
+                </div>
+            </div>
+            <%}%>
+            <%}%>
+            <% } %>
+            <%}%>
+            <% } %>
+
+            <div class="play clearfix">
+                <div class="box left">
+                    <a><img src="<%= viewModel.data.collection.coverpic %>"><a target="_blank"
+                                                                               href="<%= '/detail/imgPreview?id=' + viewModel.data.collection.id %>"
+                                                                               class="icon1"></a>
+                        <i class="icon2"></i></a>
+                </div>
+                <div class="picScroll-top">
+                    <a href="javascript:;" class="prev"></a>
+                    <a href="javascript:;" class="next"></a>
+                    <div class="bd">
+                        <ul id="listUl" class="picList" data-work-id="<%= viewModel.workId %>"
+                            data-image-url="<%= addr.imgServerAddr %>"></ul>
+                        <script>
+
+                            // 获取图集图片
+                            $(function () {
+                                var listUl = $('#listUl');
+                                var workId = listUl.attr('data-work-id');
+                                // var imgAddr = listUl.attr('data-image-url');
+                                $.ajax({
+                                    url: "/detail/imgPreview?isAsync=1&id=" + workId,
+                                    dataType: "json", //返回格式
+                                    type: "GET",
+                                    success: function (response) {
+                                        // console.log(response)
+                                        if (response.code == 0) {
+                                            var liStr = '';
+                                            var picList = response.data.piclist;
+                                            for (var i = 0; i < picList.length; i++) {
+                                                for (var j = 0; j < picList[i].CollectionPicList.length; j++) {
+                                                    liStr += '<li><a target="_blank" href="/detail/imgPreview?id=<%= viewModel.data.collection.id  %>"><img src="' + picList[i].CollectionPicList[j].CollectionPicUrl + '"></a></li>';
+                                                }
+                                            }
+                                            listUl.append(liStr);
+                                        } else {
+                                            console.log('请检查图集详情接口！');
+                                        }
+                                        // 绑定上下滚动事件
+                                        jQuery(".picScroll-top").slide({
+                                            mainCell: ".bd ul",
+                                            autoPage: true,
+                                            effect: "topLoop",
+                                            autoPlay: false,
+                                            vis: 4,
+                                            trigger: "click"
+                                        });
+                                        // 绑定点击切换主窗口图片
+                                        // $('#listUl li').click(function () {
+                                        //     $('.play .box img').attr('src', $(this).children('a').children('img').attr('src'));
+                                        // })
+
+                                    },
+                                    error: function (error) {
+                                        //请求出错处理
+                                        console.log(error);
+                                    }
+                                });
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="intro">
+                <%if((viewModel.isVip==true || viewModel.isVip=='true') && viewModel.data.shopprice && viewModel.data.shopprice.memberisfree==1){%>
+                <!-- 会员免费 -->
+                <h1 class="clearfix">
+                    <img class="vip-icon-free" src="/images/details/deicon45.png" alt="" style="display:block">
+                    <span class="tit"><%= viewModel.data.collection.title %></span><span class="right name">
+                                <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.collection.orgid %>">
+                                    <img width="20" height="20" src="<%= viewModel.data.collection.logopic %>" align="absmiddle"/><%= viewModel.data.collection.orgname %></a></span>
+                </h1>
+                <%}else if(viewModel.data.shopprice && viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime>viewModel.data.shopprice.currenttime){%>
+                <!-- 促销免费 -->
+                <h1 class="clearfix" style="display:block">
+                    <div class="activity-free">限时免费
+                        <div class="countdown">限时免费：剩余<i data-start-time="<%=viewModel.data.shopprice.freeendtime-viewModel.data.shopprice.currenttime%>" class="timeLeft"><%=ejsFunctions.timeToDate(viewModel.data.shopprice.freeendtime-viewModel.data.shopprice.currenttime)%></i></div>
+                    </div>
+                    <span class="tit"><%= viewModel.data.collection.title %></span><span class="right name"><a
+                                target="_blank" href="/kdh/home?orgid=<%= viewModel.data.collection.orgid %>"><img width="20"
+                                                                                                                   height="20"
+                                                                                                                   src="<%= viewModel.data.collection.logopic %>"
+                                                                                                                   align="absmiddle"><%= viewModel.data.collection.orgname %></a></span>
+                </h1>
+                <script>
+                    $('.activity-free').hover(function() {
+                        $(this).find('.countdown').toggle();
+                    });
+                    // 限时免费倒计时
+                    var timeLeft = $('.timeLeft');
+                    var startTime = parseInt(timeLeft.attr('data-start-time'));
+                    var timer = setInterval(timeToDate, 1000);
+                    function timeToDate() {
+                        startTime = startTime-1000;
+                        if(startTime>0){
+                            let day = parseInt(startTime / 1000 / 60 / 60 / 24);
+                            let hour = parseInt(startTime / 1000 / 60 / 60 % 24);
+                            let minute = parseInt(startTime / 1000 / 60 % 60);
+                            let second = parseInt(startTime / 1000 % 60);
+                            timeLeft.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                        }
+                        else {
+                            clearInterval(timer);
+                        }
+
+                    }
+                </script>
+                <%}else{%>
+                <h1 class="clearfix">
+                    <span class="tit"><%= viewModel.data.collection.title %></span><span class="right name">
+                                <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.collection.orgid %>">
+                                    <img width="20" height="20" src="<%= viewModel.data.collection.logopic %>" align="absmiddle"/><%= viewModel.data.collection.orgname %></a></span>
+                </h1>
+                <%}%>
+
+                <div class="bottom">
+                    <div class="left">
+                        <span><%= viewModel.data.collection.author %>&nbsp;&nbsp;<!--2017/12/18--></span><span><img
+                                    src="/images/details/deicon5.png" align="absmiddle">
+                            <% for(var j = 0, keywords = ejsFunctions.arrayParseByBlank(viewModel.data.collection.keywords);j < keywords.length;j++){ %>
+                            <%= keywords[j] %>&nbsp;
+                            <% } %>
+                        </span>
+                    </div>
+                    <div class="right">
+                        <a href="javascript:;" class="bshare right"></a>
+                        <%- include('../components/share', {type:1, org: viewModel.data.collection.orgname, title: viewModel.data.collection.title, style:'top:-39px;right:-16px;', author: viewModel.data.collection.orgname}) %>
+                        <script>
+                            // 点击下拉分享
+                            $('.bshare').click(function (e) {
+                                var e = window.event || e;
+                                e.stopPropagation();
+                                e.cancelBubble = true;
+                                var type = $(this).attr('data-type');
+                                if (type == 0) {
+                                    $('.bdsharebuttonbox').hide();
+                                    $(this).attr('data-type', 1);
+                                } else {
+                                    $('.bdsharebuttonbox').show();
+                                    $(this).attr('data-type', 0);
+                                }
+                            });
+                            $('body').click(function () {
+                                $('.bdsharebuttonbox').hide();
+                                $('.bshare').attr('data-type', 1);
+                            })
+                        </script>
+                        <a data-is-collected="<%= viewModel.data.collection.iscollect %>" id="collectA"
+                           href="javascript:;"
+                           class="collectA bcollect right <% if(viewModel.data.collection.iscollect == 1){ %>collected<% } %>"></a>
+                        <span class="right">播放：<%= viewModel.data.collection.viewcount %>次</span>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dcont clearfix">
+    <!--左侧内容-->
+    <div class="dcl left">
+        <div class="article">
+            <% if(viewModel.data.collection.mediatype == 2){ %>
+            <h1>音频简介</h1>
+            <% } %>
+            <% if(viewModel.data.collection.mediatype == 3){ %>
+            <h1>视频简介</h1>
+            <% } %>
+            <% if(viewModel.data.collection.mediatype == 4){ %>
+            <h1>图集简介</h1>
+            <% } %>
+            <%- viewModel.data.collection.content %>
+            <div id="commentAnchor"></div>
+        </div>
+        <% if(viewModel.data.collection.booksku && viewModel.data.collection.booksku != ''){ %>
+        <div class="relatedBookWrap">
+            <div class="relatedBook clearfix">
+                <a class="relatedBook-img"
+                   href="/detail/bookDetail/<%= viewModel.data.collection.booksku %>" title="<%= viewModel.data.collection.booktitle %>"
+                   target="_blank">
+                    <img width="95px" height="138px" src="<%= viewModel.data.collection.bookimg %>" alt="">
+                </a>
+                <div class="relatedBook-info">
+                    <div class="relatedBook-title">
+                        <a target="_blank"
+                           href="/detail/bookDetail/<%= viewModel.data.collection.booksku %>"
+                           title="<%= viewModel.data.collection.booktitle %>">
+                            <%= viewModel.data.collection.booktitle %>
+                        </a>
+                    </div>
+                    <div class="relatedBook-author">
+                        <%= viewModel.data.collection.bookAuthor %> 著
+                    </div>
+                    <div class="relatedBook-Publisher">
+                        <%= viewModel.data.collection.bookpublisher %>
+                    </div>
+                </div>
+                <div class="relatedBook-btns">
+                    <a target="_blank" class="relatedBook-btn-read"
+                       href="/detail/bookDetail/<%= viewModel.data.collection.booksku %>"></a>
+                    <a data-title="<%= viewModel.data.collection.booktitle %>" data-periodical-code="<%= viewModel.data.collection.booksku %>" data-is-collected=""
+                       id="periodical-collect" class="relatedBook-btn-collect" href="javascript:;"></a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <div class="commentBox">
+            <div id="comment" class="tabc pl">
+                <div class="write clearfix">
+                    <img src="/images/indexImages/bg4.jpg" class="avatar"/>
+                    <div class="textarea" style="width: 547px;">
+                        <textarea maxlength="400" id="commentInput" class="colorGrey">说两句吧...</textarea>
+                        <span class="count"><i>0</i>/400</span>
+                        <a href="javascript:; " class="tj" id="commentBtn">提交</a>
+                        <div class="tip">请您登录后发表评论  <a href="/temp/userCenter/login">登录</a> | <a href="/temp/userCenter/register">注册</a></div>
+                        <div class="comment-addimg">
+                            <div id="comment-addimg-btn" class="comment-addimg-btn">图片（
+                                <span id="current-num" classs="currentnum">0</span>/
+                                <span class="totalnum">9</span>）
+                                <input type="file" id="files" multiple="multiple" name="files" style="display: none;">
+                            </div>
+                            <div class="popover" style="display: none;">
+                                <a class="popover-close" href="javascript:;"></a>
+                                <div class="img-items clearfix">
+                                    <!--<div class="img-item">-->
+                                    <!--<img src="http://via.placeholder.com/75x75" alt="">-->
+                                    <!--<a class="img-close" href="jabascript:;"> </a>-->
+                                    <!--</div>-->
+                                    <div id="add-img-item" class="img-item">
+                                        <a href="javascript:;"><img src="/images/details/deicon35.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            PromptToggle($(".textarea textarea"), "说两句吧...", "colorGrey")
+                            wordLimit($(".textarea textarea"), 400)
+                            $(".textarea textarea").keyup(function () {
+                                var counts = $(this).val().length
+                                $(".textarea .count i").text(counts);
+                            })
+                        </script>
+                    </div>
+                </div>
+                <div class="showArea">
+                    <div class="content">
+                        <h1>全部评论</h1>
+                        <% if(typeof viewModel.data.commentlist != 'undefined' && viewModel.data.commentlist) { %>
+                        <% for(var i = 0, list = viewModel.data.commentlist.list;i < list.length;i++) { %>
+                        <div class="block" data-comment-id="<%= viewModel.data.commentlist.list[i].id %>">
+                            <div class="bc clearfix">
+                                <img class="avatar" src="<%= viewModel.data.commentlist.list[i].avatar %>">
+                                <div class="details " style="width:580px;">
+                                    <div class="top">
+                                        <p class="name">
+                                            <%= ejsFunctions.encryptEmailOrPhone(viewModel.data.commentlist.list[i].nickname) %>
+                                        </p>
+                                        <p class="text">
+                                            <%= viewModel.data.commentlist.list[i].memo %>
+                                        </p>
+                                        <%
+                                            var picInfo = viewModel.data.commentlist.list[i].picinfo;
+                                        if(picInfo && picInfo.length > 0){
+                                            picInfo = JSON.parse(picInfo);
+                                        %>
+                                        <div id="comment-imgs" class="imgWrap" style="display: block;">
+                                            <% for(let j = 0;j < picInfo.length;j++) { %>
+                                            <img src="<%= picInfo[j].url %>" alt="">
+                                            <% } %>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <div class="bottom clearfix">
+                                        <span class="time"> <%= ejsFunctions.dateFormat(viewModel.data.commentlist.list[i].addtime) %></span>
+                                        <div class="action">
+                                            <a data-id="<%= viewModel.data.commentlist.list[i].id %>" data-is-praised=""
+                                               href="javascript:;" class="zan">
+                                                <%= viewModel.data.commentlist.list[i].agreecount %>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧内容-->
+    <div class="drl left">
+        <% if(viewModel.data.mircbookList && viewModel.data.mircbookList.length > 0){ %>
+        <div class="aside">
+            <h1>微刊推荐</h1>
+            <ul class="list1">
+                <% for(var i = 0, list = viewModel.data.mircbookList;i < list.length;i++){ %>
+                <li>
+                    <a target="_blank" href="<%= '/detail/microBookDetail/?id=' + viewModel.data.mircbookList[i].id %>"><img
+                                src="<%= list[i].coverpic %>"></a>
+                    <p>
+                        <a target="_blank"
+                           href="<%= '/detail/microBookDetail/?id=' + viewModel.data.mircbookList[i].id %>">
+                            <%= list[i].title %>
+                        </a>
+                    </p>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% } %>
+        <% if(viewModel.data.collection.periodicalcode){ %>
+        <div class="aside">
+            <h1>期刊推荐</h1>
+            <dl>
+                <dt><a target="_blank"
+                       href="/detail/singlePeriodDetail/<%= viewModel.data.collection.periodicalcode %>"><img
+                                src="<%= viewModel.data.collection.periodicalimage %>"></a></dt>
+                <dd class="tit">
+                    <a target="_blank" href="/detail/singlePeriodDetail/<%= viewModel.data.collection.periodicalcode %>"
+                       class="periodicalName">
+                        <%= viewModel.data.collection.periodicaltitle %>
+                    </a>
+                    <%= viewModel.data.collection.periodicalname %>
+                </dd>
+                <dd>
+                    <p>主办：
+                        <%= viewModel.data.collection.periodicalorg %>
+                    </p>
+                    <p>周期：
+                        <%= viewModel.data.collection.periodicalperiod %>
+                    </p>
+                    <!--<p>收录：<%= viewModel.data.collection.periodicaltime %> </p>-->
+                </dd>
+                <dd><a target="_blank" href="/detail/singlePeriodDetail/<%= viewModel.data.collection.periodicalcode %>"
+                       class="btn">阅读本刊</a></dd>
+            </dl>
+        </div>
+        <% } %>
+        <% if(viewModel.data.recommendlist && viewModel.data.recommendlist.length > 0){ %>
+        <div class="aside">
+            <h1>作品推荐</h1>
+            <ul class="list1">
+                <% for(var i = 0, list = viewModel.data.recommendlist;i < list.length;i++){ %>
+                <li>
+                    <a target="_blank"
+                       href="<%= '/detail/workDetail/' + list[i].id.toString() + list[i].mediatype %>"><img
+                                src="<%= list[i].coverpic %>"></a>
+                    <p>
+                        <a target="_blank"
+                           href="<%= '/detail/workDetail/' + list[i].id.toString() + list[i].mediatype %>">
+                            <%= list[i].title %>
+                        </a>
+                    </p>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% } %>
+
+    </div>
+    <!--小工具-->
+    <!--<div class="tools">-->
+    <!--<a href="javascript:;" class="a1"></a>-->
+    <!--<a href="javascript:;" class="a2"></a>-->
+    <!--<a href="javascript:;" class="a3"></a>-->
+    <!--</div>-->
+</div>
+
+
+<%- include('../layouts/footerLayout', {}) %>
+<div style="display: none;">
+    <input type="hidden" value="<%= viewModel.user.name %>" id="username">
+    <input type="hidden" value="<%= viewModel.workId %>" id="workId">
+    <input type="hidden" value="<%= viewModel.user.isOrg %>" id="isOrg">
+    <input type="hidden" value="<%= viewModel.isPurchased %>" id="isPurchased">
+    <input type="hidden" value="<%= viewModel.data.collection.isfree %>" id="isFree">
+</div>
+<div class="layer-verifyphone-content">
+    <div class="item clearfix">
+        <label>手机号码</label>
+        <div class="item-content">
+            <div class="inputWrap">
+                <input id="bindPhoneNum" type="text" placeholder="请输入手机号">
+                <i></i>
+            </div>
+        </div>
+    </div>
+    <div class="item clearfix">
+        <label>验证码</label>
+        <div class="item-content">
+            <div class="inputWrap captchaInputWrap">
+                <input id="captcha" type="text" placeholder="请输入验证码">
+                <i></i>
+            </div>
+            <a id="sendCaptcha" class="btn-send status1" href="javascript:;">获取短信验证码</a>
+        </div>
+    </div>
+    <!--<div class="tip">请输入验证码</div>-->
+</div>
+
+<script>
+    $('#tpl1Wrapper .close').click(function(){
+        $(this).parents('#tpl1Wrapper').hide();
+    })
+    // 付费提示
+    // 付费提示
+    // if ($('#isPurchased').val() == 0 && $('#isFree').val() == 0) {
+    //     $('#tpl1Wrapper').css('display', 'block');
+    // } else {
+    //     $('#tpl1Wrapper').css('display', 'none');
+    // }
+    $('.player-cover').click(function(){
+        if($('#tpl1Wrapper')){
+            $('#tpl1Wrapper').show();
+        }
+        // $(this).hide();
+    })
+    $(window).resize(function () {
+        $('#layui-layer1').css('left', $(document).width() / 2 - 195)
+    })
+
+
+    // $.divselect($(".select p"),$(".select ul"),$(".select ul li"));
+
+    $(".picList li").click(function () {
+        $(this).addClass("click").siblings().removeClass("click")
+    })
+    //点赞
+    $(".bc .part1 .zan").click(function () {
+        $(this).toggleClass("click")
+    })
+    //最后的评论没有边框
+    $(".showArea .block:last").css("border-bottom-width", "0px");
+
+    var layer = '';
+    layui.use('layer', function () {
+        layer = layui.layer;
+    });
+    // 评分
+    var score = 0;
+    layui.use(['rate'], function () {
+        var rate = layui.rate;
+        rate.render({
+            elem: '#rate',
+            value: 0,
+            text: true,
+            setText: function (value) {
+                this.span.text(value + "分");
+                score = value;
+            }
+        })
+    });
+
+    var commentBtn = $('#commentBtn');
+    var commentInput = $('#commentInput');
+    var username = $('#username').val();
+    var isOrg = $('#isOrg').val();
+    var workId = $('#workId').val();
+    var phoneNumInput = $('#bindPhoneNum');
+    var sendCaptcha = $('#sendCaptcha');
+    var isRegistered = 1;
+    var repeatTime = 60; // 短信重发时间间隔
+    var captcha = $('#captcha');
+
+    /********************************************* 评论相关 ************************************/
+    var commentImgTag = document.getElementById('comment-imgs');
+    if (commentImgTag) {
+        var viewer = new Viewer(document.getElementById('comment-imgs'));
+    }
+    // 光标定位到评论框
+    commentInput.focus(function(){
+        if (isOrg == 'true') {
+            layer.msg("当前为机构账号，不支持此操作，请登录个人账号进行相关个性化操作");
+            $(this).blur();
+        }
+    })
+    // 未登录提示 请登陆后发表评论 登录 | 注册
+    var isCommitComment = false;
+    if (username == '' || username == 'undefined') {
+        $('.textarea .tip').show();
+        commentInput.prop('disabled',true);
+    }else{
+        commentBtn.addClass('active');
+        isCommitComment = true;
+    }
+    // 评论提交按钮置灰
+    // commentInput.keyup(function () {
+    //     var commentText = commentInput.val();
+    //     if(commentText.length>0){
+    //         commentBtn.addClass('active');
+    //         isCommitComment = true;
+    //     }
+    // });
+    // 点击提交评论按钮
+    commentBtn.click(function () {
+        if(!isCommitComment) return;
+        if (isOrg == 'true') {
+            layer.msg("当前为机构账号，不支持此操作，请登录个人账号进行相关个性化操作");
+            return;
+        }
+        if (username == '' || username == 'undefined') {
+            layer.msg("请登录后评论");
+            return;
+        }
+        // 获取评论文字
+        var commentText = commentInput.val();
+        if (commentText.trim().length == 0 || commentText.trim() == '说两句吧...') {
+            layer.msg("请输入评论内容!");
+            return;
+        }
+        // 获取评论图片
+        var imgs = $('.img-items .isImg img');
+        var picinfo = [];
+        if (imgs && imgs.length > 0) {
+            for (var m = 0; m < imgs.length; m++) {
+                (function (m) {
+                    var tempObj = new Object();
+                    tempObj.sort = m;
+                    tempObj.url = imgs.eq(m).attr('src');
+                    picinfo.push(tempObj);
+                })(m)
+            }
+            picinfo = JSON.stringify(picinfo);
+        }
+
+        // 查询用户是否绑定手机
+        $.ajax({
+            url: '/personalCenter/menuInfo',
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                if (response.code == 0) {
+                    if (typeof response.data.user.phonenumber == 'undefined' || response.data.user.phonenumber == '') {
+                        // 手机号码为空，提示用户绑定手机号
+                        var bindPhoneIndex = layer.open({
+                            type: 1,
+                            closeBtn: false,
+                            title: '发表评论需验证手机号',
+                            skin: 'layer-verifyphone',
+                            area: ['400px', '225px'],
+                            shadeClose: true,
+                            btn: ['确定', '取消'],
+                            btnAlign: 'c',
+                            content: $('.layer-verifyphone-content'),
+                            yes: function (index, layero) {
+                                if (isRegistered == 0) {
+                                    var phoneNum = phoneNumInput.val().trim();
+                                    var captchaValue = captcha.val();
+                                    var bindPhoneUrl = '/personalCenter/updatePhone?phonenumber=' + phoneNum + '&captcha=' + captchaValue;
+                                    if (captchaValue == '') {
+                                        layer.msg('请输入验证码！');
+                                    } else {
+                                        var loadingIndex = layer.load(1, {
+                                            shade: [0.1, '#fff'] //0.1透明度的白色背景
+                                        });
+                                        $.ajax({
+                                            url: bindPhoneUrl,
+                                            dataType: "json",
+                                            type: "get",
+                                            success: function (response) {
+                                                layer.close(loadingIndex);
+                                                if (response.errorCode == 0) {
+                                                    layer.msg('手机号绑定成功！');
+                                                    layer.close(bindPhoneIndex);
+                                                    // 提交评论
+                                                    submitComment(commentText, picinfo);
+                                                } else if (response.errorCode == -1) {
+                                                    layer.msg('验证码错误！');
+                                                } else {
+                                                    layer.msg('绑定失败！');
+                                                }
+                                            },
+                                            error: function (error) {
+                                                //请求出错处理
+                                                console.log(error);
+                                            }
+                                        });
+                                    }
+
+                                } else {
+                                    layer.msg('手机号码错误或已注册！');
+                                }
+                            }
+                        });
+                    } else {
+                        // 提交评论
+                        submitComment(commentText, picinfo);
+                    }
+                } else {
+                    console.log('请检查收藏或者取消收藏方法接口！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+
+
+    });
+
+    // 提交评论
+    function submitComment(commentText, picinfo) {
+        var url = '/common/commentSubmit/' + workId;
+        $.ajax({
+            type: "get",
+            url: url,
+            data: {
+                content: commentText,
+                score: score,
+                typeid: 0,
+                picinfo: picinfo
+            },
+            dataType: "json",
+            beforeSend: function () {
+                loadingLayer = layer.load(2, {
+                    shade: [0.6, '#fff']
+                });
+            },
+            success: function (response) {
+                if (response.code == 0) {
+                    commentInput.val('');
+                    $('.commentBox .textarea .count i').text(0);
+                    layer.msg("提交成功，等待审核后显示！");
+                }
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                if (loadingLayer != undefined && loadingLayer != null) {
+                    layer.close(loadingLayer);
+                }
+                popover.find('.isImg').remove();
+                popover.hide();
+                $('#current-num').html(0);
+            }
+
+        });
+    }
+
+    // 验证手机号是否可绑定
+    phoneNumInput.blur(function () {
+        var errorDom = $(this).parents('.item');
+        var phoneNum = phoneNumInput.val().trim();
+        if (verifyPhoneNum(phoneNum) == -1) {
+            errorDom.addClass('error');
+            sendCaptcha.removeClass('status2').addClass('status1');
+        } else if (verifyPhoneNum(phoneNum) == 0) {
+            errorDom.addClass('error');
+            sendCaptcha.removeClass('status2').addClass('status1');
+        } else {
+            var verifyPhoneNumUrl = '/temp/userCenter/verifyPhoneNum?phoneNum=' + phoneNum;
+            errorDom.removeClass('error').addClass('correct')
+            $.ajax({
+                url: verifyPhoneNumUrl,
+                dataType: "json",
+                type: "get",
+                success: function (response) {
+                    // console.log(response)
+                    if (response.Code == 1) {
+                        isRegistered = 0;
+                        errorDom.removeClass('error').addClass('correct');
+                        sendCaptcha.removeClass('status1').addClass('status2');
+                    } else {
+                        isRegistered = 1;
+                        errorDom.addClass('error');
+                    }
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        }
+    })
+    limitSendCaptcha(repeatTime);
+
+    // 验证码重新发送倒数计时 time为多少秒
+    function countDownTime(repeatTime, node) {
+        var time = repeatTime;
+        var timer = setInterval(function () {
+            if (repeatTime != 0) {
+                node.html('再次发送（' + repeatTime-- + '秒）');
+            } else {
+                clearInterval(timer);
+                node.removeClass('status1').addClass('status2');
+                node.html('重新发送');
+                limitSendCaptcha(time);
+            }
+
+        }, 1000)
+    }
+
+    // 验证码发送后 一分钟后才能再次发送
+    function limitSendCaptcha(repeatTime) {
+        sendCaptcha.click(function () {
+            var $this = $(this);
+            if (isRegistered == 0) {
+                // var errorDom = $(this).parents('.item');
+                var phoneNum = phoneNumInput.val().trim();
+                if (verifyPhoneNum(phoneNum) == 1) {
+                    $(this).removeClass('status2').addClass('status1');
+                    var sendCaptchaUrl = '/temp/userCenter/sendCaptcha?phoneNum=' + phoneNum;
+                    $.ajax({
+                        url: sendCaptchaUrl,
+                        dataType: "json",
+                        type: "get",
+                        success: function (response) {
+                            // console.log(response)
+                            if (response.errorCode == 1) {
+                                // errorDom.html('<span style="color: green;">验证码已发送，请查收短信</span>');
+                                layer.msg('验证码已发送，请查收短信');
+                                $this.unbind('click');
+                                countDownTime(repeatTime, $this);
+                            } else {
+                                // errorDom.html('该手机号获取验证码已达上限，请明天再试。');
+                                layer.msg('该手机号获取验证码已达上限，请明天再试。');
+                            }
+                        },
+                        error: function (error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+                } else {
+                    // 手机号码有误，不发送
+                }
+            }
+
+        })
+    }
+
+    // 验证手机号格式
+    // 返回值 -1 为空，0 格式不正确，1 正确
+    function verifyPhoneNum(phoneNum) {
+        if (!phoneNum) {
+            return -1;
+        } else if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phoneNum))) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    // 添加评论图片
+    $('#comment-addimg-btn,#add-img-item').click(function () {
+        if (isOrg == 'true') {
+            layer.msg("当前为机构账号，不支持此操作，请登录个人账号进行相关个性化操作");
+            return;
+        }
+        // 判断用户是否登录
+        if (username == '' || username == 'undefined') {
+            layer.msg("请先登录！");
+        } else {
+            document.getElementById('files').click();
+        }
+        // document.getElementById('files').click();
+
+        // $('.popover').show();
+    })
+
+    // 上传多张图片
+    var popover = $('.popover');
+    var addImgItem = $('#add-img-item');
+    document.getElementById('files').onchange = function () {
+        var len = popover.find('.isImg').length || 0;
+        // 上传图片数量不超过9张
+        if (len >= 9) {
+            layer.msg('评论只能上传最多9张图片');
+        } else {
+            // 得到一个参考文件列表
+            var files = !!this.files ? this.files : [];
+            // 如果没有选择任何文件,或者没有文件读到就返回
+            console.log('files.length:', files.length, 'len:', len)
+            if (files.length > 0 && window.FileReader) {
+                var formData = new FormData();
+                if (files.length + len > 9) {
+                    layer.msg('最多上传9张图片！')
+                    var tempFiles = [];
+                    for (var k = 0; k < 9 - len; k++) {
+                        tempFiles.push(files[k]);
+                    }
+                    files = tempFiles;
+                }
+                console.log('处理后files.length：', files.length)
+                for (var i = 0; i < files.length; i++) {
+                    if (/^image/.test(files[i].type)) {
+                        // 创建一个新的FileReader的实例
+                        var reader = new FileReader();
+                        // 读取本地文件作为一个DataURL
+                        reader.readAsDataURL(files[i]);
+                        formData.append('img', files[i]);
+                    } else {
+                        layer.msg('只支持图片格式的文件上传！');
+                    }
+                }
+                $.ajax({
+                    url: '/common/uploadImg',
+                    type: 'POST',
+                    contentType: false,
+                    data: formData,
+                    processData: false,
+                    //async:false,             
+                    success: function (response) {
+                        if (response.errorCode == 0) {
+                            $('.popover').show();
+                            var itemStr = ''
+                            for (var i = 0; i < response.data.length; i++) {
+                                itemStr += '<div class="img-item isImg">' +
+                                    '           <img src="' + JSON.parse(response.data[i]).msg + '" alt="">' +
+                                    '           <a class="img-close" href="javascript:;"> </a>' +
+                                    '       </div>';
+                            }
+                            $(itemStr).insertBefore($('#add-img-item'));
+                            if (response.data.length == 9 || popover.find('.isImg').length == 9) {
+                                addImgItem.hide();
+                            }
+                            $('#current-num').html(parseInt($('#current-num').html()) + response.data.length);
+                            // 删除一张图片
+                            $('.img-close').unbind('click').click(function () {
+                                console.log('图片数量',$('#current-num').html())
+                                addImgItem.show();
+                                $('#current-num').html(parseInt($('#current-num').html()) - 1);
+                                $(this).parent().remove();
+                            })
+                        } else {
+                            alert('图片上传失败');
+                        }
+                    },
+                    error: function (error) {
+                        //请求出错处理
+                        console.log(error);
+                    }
+                });
+            } else {
+                alert('浏览器不支持FileReader');
+            }
+        }
+
+
+    }
+
+    // 删除所有图片
+    $('.popover-close').click(function () {
+        $('.popover').find('.isImg').remove();
+        $('#current-num').html(0);
+        addImgItem.show();
+        popover.hide();
+    })
+
+    /********************************************* 评论相关 ************************************/
+    // 点击收藏当前作品
+    $('#collectA').click(function () {
+        var username = $('#username').val();
+        if (username != 'undefined' && username.length > 0) {
+            var id = $('#workId').val();
+            var title = $('.topBlock .topcenter .info .intro h1 .tit').html();
+            var index = layer.load(1, {
+                shade: [0.1, '#fff'] //0.1透明度的白色背景
+            });
+            var isCollected = $(this).attr('data-is-collected');
+            if (parseInt(isCollected) == 0) {
+                getCollectedData(1,0,id,title,index);
+            }else{
+                // 取消收藏
+                collectOrNot(id, 0, isCollected, index, $(this), title);
+            }
+        } else {
+            // layer.msg('请先登录！')
+            var collectionPopLayer = layer.open({
+                title: ['', 'height:0; border-top:3px solid #ee8d6d'],
+                type: 1,
+                area: ['274px', '180px'], //宽高
+                content: $('.collectionPopWrap').html(),
+            });
+            $('.b2').click(function(){
+                layer.close(collectionPopLayer);
+            })
+        }
+    })
+
+    // 点击收藏推荐图书
+    $('#periodical-collect').click(function () {
+        var username = $('#username').val();
+        if (username != 'undefined' && username.length > 0) {
+            var id = $('#periodical-collect').attr('data-periodical-code');
+            var index = layer.load(1, {
+                shade: [0.1, '#fff'] //0.1透明度的白色背景
+            });
+            var isCollected = $(this).attr('data-is-collected');
+            var title = $(this).attr('data-title');
+            collectOrNot(id, 5, isCollected, index, $(this), title);
+        } else {
+            layer.msg('请先登录！')
+        }
+    })
+    // 点赞
+    $('.zan').click(function () {
+        var username = $('#username').val();
+        var $this = $(this);
+        if (username != 'undefined' && username.length > 0) {
+            var id = $this.attr('data-id');
+            var index = layer.load(1, {
+                shade: [0.1, '#fff'] //0.1透明度的白色背景
+            });
+            var isPraised = $this.attr('data-is-praised')
+            // 点赞类型 0:万选阅读号作品 1:看点号作品评论 2书评
+            praiseOrNot(id, 1, $this, index, isPraised);
+        } else {
+            layer.msg('请先登录！')
+        }
+    })
+    // 获取评论是否点赞和期刊是否被收藏
+    $(function () {
+        $('.block').each(function () {
+            var id = $(this).attr('data-comment-id');
+            isPraised(id, 1, $(this));
+        })
+        if ($('#username').val() && $('#username').val() != null) {
+            isCollected($('#periodical-collect').attr('data-periodical-code'), 5, $('#periodical-collect'));
+        }
+    })
+
+    // 收藏或者取消收藏方法
+    function collectOrNot(id, typeId, isCollected, index, pointer, title) {
+        var url = encodeURI('/common/collectOrNot?id=' + id + '&typeId=' + typeId + '&isCollected=' +
+            isCollected + '&title='+ title);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    pointer.toggleClass('collected');
+                    if (response.data.status == 1) {
+                        pointer.attr('data-is-collected', '1');
+                        layer.msg('收藏成功！');
+                    } else if (response.data.status == 0) {
+                        pointer.attr('data-is-collected', '0');
+                        layer.msg('取消收藏成功！');
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response.msg)
+                } else {
+                    console.log('请检查收藏或者取消收藏方法接口！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+    // 获取收藏数据
+    function getCollectedData(pageNum, typeId,foreignkeyId,foreignName,index) {
+        var url = encodeURI('/pc/singleCollected?pageNum=' + pageNum+'&type=-1');
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    layer.open({
+                        type: 2,
+                        title: ['添加到收藏夹', 'height: 42px; line-height: 42px; padding-left: 15px; color: #ffffff; font-size: 16px; font-weight: normal;background-color: #E64A3C; color:#fff;'],
+                        shade: 0.8,
+                        area: ['430px', '540px'],
+                        content:  '/pc/transfer?typeId='+typeId+'&foreignkeyId='+foreignkeyId+'&foreignName='+foreignName+'&isPersonalCenter=0'
+                    });
+                }
+            }
+        });
+    }
+    // 点赞或者取消点赞
+    function praiseOrNot(id, typeId, pointer, index, isPraised) {
+        var url = encodeURI('/common/praiseOrNot?id=' + id + '&typeId=' + typeId + '&isPraised=' +
+            isPraised);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    pointer.toggleClass('click');
+                    if (response.data.status == 0) {
+                        pointer.html(parseInt(pointer.html()) - 1);
+                        pointer.attr('data-is-praised', 0);
+                    } else if (response.data.status == 1) {
+                        pointer.html(parseInt(pointer.html()) + 1);
+                        pointer.attr('data-is-praised', 1);
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response.msg)
+                } else {
+                    console.log('请检查收藏或者取消收藏方法接口！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 判断当前用户是否对评论点过赞
+    function isPraised(id, typeId, pointer) {
+        var url = encodeURI('/common/isPraised?id=' + id + '&typeId=' + typeId);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                if (response.code == 0) {
+                    // 点过赞
+                    if (response.data.status == 1) {
+                        pointer.find('.zan').addClass('click').attr('data-is-praised', 1);
+                    } else if (response.data.status == 0) {
+                        pointer.find('.zan').attr('data-is-praised', 0);
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response)
+                } else {
+                    console.log('获取用户是否点赞失败！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 判断当前用户是否对关联期刊收藏
+    function isCollected(id, typeId, pointer) {
+        var url = encodeURI('/common/isCollected?id=' + id + '&typeId=' + typeId);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                if (response.code == 0) {
+                    if (response.data.isCollect == 1) {
+                        pointer.addClass('collected').attr('data-is-collected', 1);
+                    } else if (response.data.isCollect == 0) {
+                        pointer.attr('data-is-collected', 0);
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response)
+                } else {
+                    console.log('获取用户是否收藏期刊失败！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+</script>
+<%- include('../components/collectionPop', { }) %>
+</body>
+
+</html>

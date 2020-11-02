@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery.enplaceholder.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:2,active:5}) %>
+                <div class="contentWrap">
+                    <div class="invoiceInfo">
+                        <h2>发 票 索 取</h2>
+                        <p class="tip">请如实填写以下信息，星号<span>*</span>为必填项（<span>适用于通过银行卡、支付宝、微信支付充值的用户</span>）</p>
+                        <div class="form">
+                            <div class="box">
+                                <h3><span>充值信息</span></h3>
+                                <div class="item">
+                                    <label>知网用户名</label>
+                                    <span class="username"><%= viewModel.user.name %></span>
+                                </div>
+                                <div class="item-group">
+                                    <div class="items clearfix">
+                                        <div class="item item1">
+                                            <label><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">充值时间</label>
+                                            <input class="layui-input recharge-time" type="text" autocomplete="off" />
+                                        </div>
+                                        <div class="item item2">
+                                            <label><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">充值金额</label>
+                                            <input class="recharge-money" type="text" autocomplete="off" />
+                                        </div>
+                                        <span class="icon icon-add"></span>
+                                        <span class="icon icon-minus"></span>
+                                    </div>
+                                </div>
+                                <p class="box1-tip">详细充值时间在 <a href="http://my.cnki.net/MyCNKI/MyCNKI.htm" target="_blank">我的CNKI</a>  中“用户信息”栏目下的“注册充值信息”中查询</p>
+                                <div class="item">
+                                    <label><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">合计金额</label>
+                                    <input id="invoicePrice" class="total" type="text" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="box">
+                                <h3><span>发票信息</span></h3>
+                                <div class="item">
+                                    <label for=""><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">发票类型</label>
+                                    <div class="type">
+                                        <span data-code="0">个人</span>
+                                        <span data-code="1" class="cur">单位</span>
+                                    </div>
+                                </div>
+                                <div class="company">
+                                    <div class="item">
+                                        <label for=""><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">发票抬头</label>
+                                        <input type="text" name="" id="invoiceTitle" value="" autocomplete="off" />
+                                    </div>
+                                    <div class="item">
+                                        <label for=""><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">纳税人识别号</label>
+                                        <input type="text" name="" id="txtInvoiceNsrsbh" value="" placeholder="请准确填写贵单位纳税人识别号或统一社会信用代码，如无请填写“0”" autocomplete="off" />
+                                    </div>
+                                    <div class="item">
+                                        <label for="">开户银行</label>
+                                        <input type="text" name="" id="txtInvoiceKhyh" value="" autocomplete="off" />
+                                    </div>
+                                    <div class="item">
+                                        <label for="">银行账号</label>
+                                        <input type="text" name="" id="txtInvoiceYhzh" value="" autocomplete="off" />
+                                    </div>
+                                    <div class="item">
+                                        <label for="">注册地址</label>
+                                        <input type="text" name="" id="txtInvoiceZcdz" value="" autocomplete="off" />
+                                    </div>
+                                    <div class="item">
+                                        <label for="">注册电话</label>
+                                        <input type="text" name="" id="txtInvoiceZcdh" value="" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <label for="">发票内容</label>
+                                    <div class="sort">
+                                        <span class="cur">资料检索费<i class="cover"></i></span>
+                                        <span>中国知网卡<i class="cover"></i></span>
+                                        <span>中国知网数据费<i class="cover"></i></span>
+                                        <span>电子图书<i class="cover"></i></span>
+                                    </div>
+                                </div>
+                                <!-- <div class="item">
+                                    <label for="">发票金额</label>
+                                    <span id="invoicePrice" class="amount"><i></i>元</span>
+                                </div> -->
+                            </div>
+                            <div class="box">
+                                <h3><span>寄送信息</span></h3>
+                                <div class="item">
+                                    <label for=""><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">姓名</label>
+                                    <input type="text" name="" id="realName" value="" autocomplete="off" />
+                                </div>
+                                <div class="item">
+                                    <label for=""><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">手机</label>
+                                    <input type="text" name="" id="mobile" value="" autocomplete="off" />
+                                </div>
+                                <div class="item">
+                                    <label for=""><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">邮箱</label>
+                                    <input type="text" name="" id="phone" value="" autocomplete="off" />
+                                </div>
+                                <div class="item">
+                                    <label for="">备注</label>
+                                    <textarea id="remark" placeholder="电子发票将发送至您的手机及电子邮箱。（增值税电子普通发票的法律效力、用途与税务机关监制的增值税普通发票相同）" autocomplete="off"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript:;" class="submit">提交信息</a>
+                    </div>
+                </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+                //radio
+                $(".type span").click(function() {
+                    $(this).addClass("cur").siblings().removeClass("cur")
+                })
+
+                //选择内容
+                $(".sort span").click(function() {
+                        $(this).addClass("cur").siblings().removeClass("cur")
+                    })
+                    //获取选择的发票总金额
+                var amount = sessionStorage.money
+                $('.amount i').text(amount)
+                    //提交发票信息
+                var layer = '';
+                layui.use('layer', function() {
+                    layer = layui.layer;
+                });
+                // 验证手机号格式
+                // 返回值 -1 为空，0 格式不正确，1 正确
+                function verifyPhoneNum(phoneNum) {
+                    if (!phoneNum) {
+                        return -1;
+                    } else if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phoneNum))) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+                }
+                //验证邮箱
+                // 返回值 -1 为空，0 格式不正确，1 正确
+                function verifyEmail(email) {
+                    if (!email) {
+                        return -1;
+                    } else if (!(/^([A-z0-9]{6,18})(\w|\-)+@[A-z0-9]+\.([A-z]{2,3})$/.test(email))) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+                }
+                //个人公司切换
+                $('.type span').click(function() {
+                    if ($(this).text() == '个人') {
+                        $('.company').css('display', 'none')
+                    } else {
+                        $('.company').css('display', 'block')
+                    }
+                })
+                $('.submit').click(function() {
+                    if ($('.type .cur').attr('data-code') == '1') {
+                        var invoiceType = $('.type .cur').attr('data-code');
+                        var rechargeTime = $('.recharge-time').val().trim(); //必填
+                        var rechargeMoney = $('.recharge-money').val().trim(); //必填
+                        var invoiceTitle = $('#invoiceTitle').val().trim(); //必填
+                        var txtInvoiceNsrsbh = $('#txtInvoiceNsrsbh').val().trim(); //必填
+                        var txtInvoiceKhyh = $('#txtInvoiceKhyh').val().trim();
+                        var txtInvoiceYhzh = $('#txtInvoiceYhzh').val().trim();
+                        var txtInvoiceZcdz = $('#txtInvoiceZcdz').val().trim();
+                        var txtInvoiceZcdh = $('#txtInvoiceZcdh').val().trim();
+                        var invoiceContent = $('.sort .cur').text();
+                        var invoicePrice = $('#invoicePrice').val();
+                        var realName = $('#realName').val().trim(); //必填
+                        var mobile = $('#mobile').val().trim(); //必填
+                        var phone = $('#phone').val().trim(); //必填
+                        var remark = $('#remark').val().trim();
+                        var formData = {
+                            invoiceType: invoiceType,
+                            invoiceTitle: invoiceTitle,
+                            txtInvoiceNsrsbh: txtInvoiceNsrsbh,
+                            txtInvoiceKhyh: txtInvoiceKhyh,
+                            txtInvoiceYhzh: txtInvoiceYhzh,
+                            txtInvoiceZcdz: txtInvoiceZcdz,
+                            txtInvoiceZcdh: txtInvoiceZcdh,
+                            invoiceContent: invoiceContent,
+                            invoicePrice: invoicePrice,
+                            realName: realName,
+                            mobile: mobile,
+                            phone: phone,
+                            remark: remark
+                        }
+                        console.log(formData)
+                        if (!rechargeTime ||!rechargeMoney ||!invoiceTitle || !realName || !txtInvoiceNsrsbh || verifyPhoneNum(mobile) == '-1' || verifyEmail(phone) == '-1') {
+                            if (!rechargeTime) {
+                                layer.msg('请填写充值时间！')
+                            } else if (!rechargeMoney) {
+                                layer.msg('请填写充值金额！')
+                            } else if (!invoiceTitle) {
+                                layer.msg('请填写发票抬头！')
+                            } else if (!txtInvoiceNsrsbh) {
+                                layer.msg('请填写纳税人识别号！')
+                            } else if (!realName) {
+                                layer.msg('请填写姓名！')
+                            } else if (verifyPhoneNum(mobile) == '-1') {
+                                layer.msg('请填写手机号！')
+                            } else {
+                                layer.msg('请填写邮箱！')
+                            }
+                        } else if (verifyPhoneNum(mobile) == '0') {
+                            layer.msg('手机号码格式错误')
+                        } else if (verifyEmail(phone) == '0') {
+                            layer.msg('邮箱格式不正确')
+                        } else {
+                            $.ajax({
+                                type: 'post',
+                                url: '/personalCenter/submitInfo',
+                                dataType: "json", //返回格式
+                                data: formData,
+                                success: function(response) {
+                                    console.log(response.code)
+                                    if (response.code == 'E0001') {
+                                        layer.msg('您的信息提交成功！')
+                                        var timer = setTimeout(function() {
+                                            location.href = '/personalCenter/myBills'
+                                        }, 1500)
+                                    }
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+                    } else {
+                        var invoiceType = $('.type .cur').attr('data-code');
+                        var invoiceTitle = '';
+                        var txtInvoiceNsrsbh = '';
+                        var txtInvoiceKhyh = '';
+                        var txtInvoiceYhzh = '';
+                        var txtInvoiceZcdz = '';
+                        var txtInvoiceZcdh = '';
+                        var invoiceContent = $('.sort .cur').text();
+                        var invoicePrice = $('#invoicePrice').val();
+                        var realName = $('#realName').val().trim(); //必填
+                        var mobile = $('#mobile').val().trim(); //必填
+                        var phone = $('#phone').val().trim(); //必填
+                        var remark = $('#remark').val().trim();
+                        var formData = {
+                            invoiceType: invoiceType,
+                            invoiceTitle: invoiceTitle,
+                            txtInvoiceNsrsbh: txtInvoiceNsrsbh,
+                            txtInvoiceKhyh: txtInvoiceKhyh,
+                            txtInvoiceYhzh: txtInvoiceYhzh,
+                            txtInvoiceZcdz: txtInvoiceZcdz,
+                            txtInvoiceZcdh: txtInvoiceZcdh,
+                            invoiceContent: invoiceContent,
+                            invoicePrice: invoicePrice,
+                            realName: realName,
+                            mobile: mobile,
+                            phone: phone,
+                            remark: remark
+                        }
+                        console.log(formData)
+                        if (!realName || verifyPhoneNum(mobile) == '-1' || verifyEmail(phone) == '-1') {
+                            if (!realName) {
+                                layer.msg('请填写姓名！')
+                            } else if (verifyPhoneNum(mobile) == '-1') {
+                                layer.msg('请填写手机号！')
+                            } else {
+                                layer.msg('请填写邮箱！')
+                            }
+                        } else if (verifyPhoneNum(mobile) == '0') {
+                            layer.msg('手机号码格式错误')
+                        } else if (verifyEmail(phone) == '0') {
+                            layer.msg('邮箱格式不正确')
+                        } else {
+                            $.ajax({
+                                type: 'post',
+                                url: '/personalCenter/submitInfo',
+                                dataType: "json", //返回格式
+                                data: formData,
+                                success: function(response) {
+                                    console.log(response.code)
+                                    if (response.code == 'E0001') {
+                                        layer.msg('您的信息提交成功！')
+                                        var timer = setTimeout(function() {
+                                            location.href = '/personalCenter/myBills'
+                                        }, 1500)
+                                    }
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+                    }
+                })
+                // 充值时间和金额输入框增减
+                var iconAdd = $('.invoiceInfo .box .icon-add');
+                var iconMinus = $('.invoiceInfo .box .icon-minus');
+                var itemGroup = $('.invoiceInfo .box .item-group');
+                iconAdd.on('click',function () {
+                    itemGroup.append('<div class="items clearfix">'+
+                                                '<div class="item item1">'+
+                                                    '<label><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">充值时间</label>'+
+                                                    '<input class="layui-input recharge-time" type="text" autocomplete="off" />'+
+                                                '</div>'+
+                                                '<div class="item item2">'+
+                                                    '<label><img src="/images/personal/p-invoice-icon3.gif" align="absmiddle">充值金额</label>'+
+                                                    '<input class="recharge-money" type="text" autocomplete="off" />'+
+                                                '</div>'+
+                                            '</div>');
+                    computeTotal();
+                    initLaydate();
+                });
+                iconMinus.on('click',function () {
+                    var itemsLength = itemGroup.find('.items').length;
+                    if(itemsLength == 1) return;
+                    itemGroup.find('.items:last-child').remove();
+                    computeTotal();
+                    initLaydate();
+                });
+                // 充值金额输入框失去焦点
+                $('.invoiceInfo').on('blur','.item2 input',function () {
+                    computeTotal();
+                });
+                //计算合计金额
+                function computeTotal () {
+                    var rechargeMoneyInput = $('.invoiceInfo .item2 input');
+                    var total = 0;
+                    rechargeMoneyInput.each(function (index,item) {
+                        var rechargeMoneyVal = Number($(item).val().trim());
+                        if(isNaN(rechargeMoneyVal)) return;
+                        total += rechargeMoneyVal;
+                        $('.total').val(total);
+                    });
+                }
+                initLaydate ();
+                function initLaydate () {
+                    layui.use('laydate', function(){
+                        var laydate = layui.laydate;
+                        lay('.recharge-time').each(function(){
+                            laydate.render({
+                                elem: this,
+                                trigger: 'click'
+                            });
+                        });
+                    });
+                }
+                
+                
+            </script>
+</body>
+
+</html>

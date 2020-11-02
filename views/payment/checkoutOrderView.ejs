@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/payment/payment.css"/>
+    <link rel="stylesheet" href="/lib/layui/css/layui.css" media="all">
+    <script src="/lib/layui/layui.js"></script>
+    <!--<script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>-->
+    <!--<script src="/socket.io-client/dist/socket.io.js" type="text/javascript" charset="utf-8"></script>-->
+
+</head>
+
+<body bgcolor="#EBEFF5">
+<%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+<div class="payBg">
+    <div class="payWrap">
+        <% if(viewModel.workInfo.orderType == 19 || viewModel.workInfo.orderType == 20) { %>
+        <!--<div class="orderNum">订单编号：<span>R201910180000001</span></div>-->
+        <% } %>
+
+        <div class="orderInfo clearfix">
+            <% if(viewModel.workInfo.orderType == 17) { %>
+            <!--知网文化作品-->
+            <div class="oil left">
+                <img src="<%= viewModel.workInfo.coverPic %>"/>
+                <div class="name">
+                    <p>
+                        <%= viewModel.workInfo.workTitle %>
+                    </p>
+                    <% if(viewModel.workInfo.mediaType == 1){ %>
+                    <span class="classify">图文</span>
+                    <% }else if(viewModel.workInfo.mediaType == 2){ %>
+                    <span class="classify">音频</span>
+                    <% }else if(viewModel.workInfo.mediaType == 3){ %>
+                    <span class="classify">视频</span>
+                    <% }else if(viewModel.workInfo.mediaType == 4){ %>
+                    <span class="classify">图集</span>
+                    <% } %>
+                </div>
+            </div>
+            <% }else if(viewModel.workInfo.orderType == 1){ %>
+            <!--期刊单期-->
+            <div class="oil left">
+                <img style="width:80px; height:105px;" src="<%= viewModel.workInfo.coverPic %>"/>
+                <div class="name">
+                    <p style="height:40px; width: 480px;">
+                        <%= viewModel.workInfo.workTitle %>
+                    </p>
+                    <p style="color:#a6a6a6; font-size:14px; height:40px; line-height:40px;">
+                        <%= viewModel.workInfo.year %>
+                        年第
+                        <%= viewModel.workInfo.period %>期</p>
+                    <span class="classify">期刊</span>
+                </div>
+            </div>
+            <% }else if(viewModel.workInfo.orderType == 2){ %>
+            <!--期刊年-->
+            <div class="oil left">
+                <img style="width:80px; height:105px;" src="<%= viewModel.workInfo.coverPic %>"/>
+                <div class="name">
+                    <p style="height:40px; width: 480px;">
+                        <%= viewModel.workInfo.workTitle %>
+                    </p>
+                    <p style="color:#a6a6a6; font-size:14px; height:40px; line-height:40px;">全年</p>
+                    <span class="classify">期刊</span>
+                </div>
+            </div>
+            <% }else if(viewModel.workInfo.orderType == 3){ %>
+            <!--全刊-->
+            <div class="oil left">
+                <img src="<%= viewModel.workInfo.coverPic %>"/>
+                <div class="name">
+                    <p>
+                        <%= viewModel.workInfo.workTitle %>
+                    </p>
+                    <% if(viewModel.workInfo.mediatype == 1){ %>
+                    <span class="classify">图文</span>
+                    <% }else if(viewModel.workInfo.mediatype == 2){ %>
+                    <span class="classify">音频</span>
+                    <% }else if(viewModel.workInfo.mediatype == 3){ %>
+                    <span class="classify">视频</span>
+                    <% }else if(viewModel.workInfo.mediatype == 4){ %>
+                    <span class="classify">图集</span>
+                    <% } %>
+                </div>
+            </div>
+            <% }else if(viewModel.workInfo.orderType == 7){ %>
+            <!--图书-->
+            <div class="oil left">
+                <img style="width:80px; height:105px;" src="<%= viewModel.workInfo.coverPic %>"/>
+                <div class="name">
+                    <p style="width: 470px; padding-right:10px; height:60px; margin-bottom:20px;">
+                        <%= viewModel.workInfo.workTitle %>
+                    </p>
+                    <!--<p style="color:#a6a6a6; font-size:14px; height:40px; line-height:40px;"><%= viewModel.workInfo.author %></p>-->
+                    <span class="classify">图书</span>
+                </div>
+            </div>
+            <% }else if(viewModel.workInfo.orderType == 18){ %>
+            <!--微刊-->
+            <div class="oil left">
+                <img src="<%= viewModel.workInfo.coverPic %>"/>
+                <div class="name">
+                    <p>
+                        <%= viewModel.workInfo.workTitle %>
+                    </p>
+                    <span class="classify">微刊</span>
+                </div>
+            </div>
+            <% }else if(viewModel.workInfo.orderType == 19){ %>
+            <!--会员月-->
+            <div class="oil vipOil left">
+                <div class="img left vipImg">
+                    <img src="/images/payment/pay-bgimg.jpg"/>
+                    <p class="text vipIcon">包月会员</p>
+                </div>
+                <div class="name left">
+                    <p class="vipText">知网文化VIP包月会员</p>
+                </div>
+            </div>
+            <% }else if(viewModel.workInfo.orderType == 20){ %>
+            <!--会员年-->
+            <div class="oil vipOil left">
+                <div class="img left vipImg">
+                    <img src="/images/payment/pay-bgimg.jpg"/>
+                    <p class="text vipIcon">包年会员</p>
+                </div>
+                <div class="name left">
+                    <p class="vipText">知网文化VIP包年会员</p>
+                </div>
+            </div>
+            <% } %>
+            <% if(viewModel.workInfo.orderType == 19 || viewModel.workInfo.orderType == 20) { %>
+            <!--月、年会员购买样式不一样-->
+            <div class="oir left">
+                <p class="p2 vipP2">订单金额：<span class="red"><%= viewModel.workInfo.price %></span>元</p>
+            </div>
+            <% }else{ %>
+            <div class="oir left">
+                <!--<p class="p1">订单编号：<span>R201910180000001</span></p>-->
+                <p class="p2" style="margin-top: 37px;">订单金额：<span class="red"><%= viewModel.workInfo.price %></span>元
+                </p>
+            </div>
+            <% } %>
+
+        </div>
+        <div class="payWays">
+            <div id="payTab" class="pay-tab">
+                <% if(viewModel.workInfo.orderType == 19 || viewModel.workInfo.orderType == 20) { %>
+                <!--会员支付不显示余额支付-->
+                <a data-channel="12" href="javascript:;" class="cur" data-request="1">微信支付</a>
+                <a data-channel="13" data-pay-type="4" href="javascript:;">支付宝</a>
+                <a data-channel="0" data-pay-type="3" href="javascript:;">银联在线</a>
+                <% }else{ %>
+                <a data-channel="1" href="javascript:;" class="cur">余额支付</a>
+                <a data-channel="12" data-pay-type="1" href="javascript:;">微信支付</a>
+                <a data-channel="13" data-pay-type="4" href="javascript:;">支付宝</a>
+                <a data-channel="0" data-pay-type="3" href="javascript:;">银联在线</a>
+                <% } %>
+            </div>
+            <% if(viewModel.workInfo.orderType == 19 || viewModel.workInfo.orderType == 20) { %>
+            <!--会员支付不显示余额支付-->
+            <!--微信支付-->
+            <div class="pay-cont wechatpay" style="display: block;">
+                <div class="qcode left">
+                    <img src="<%= viewModel.data.wechatQrcode %>"/>
+                    <p class="text">请使用微信扫一扫<br/>扫描二维码支付</p>
+                </div>
+                <img class="mobile" src="/images/payment/pay-icon5.jpg"/>
+            </div>
+            <!--支付宝-->
+            <div class="pay-cont alipay">
+                <div class="qcode left">
+                    <!--<img src="/images/payment/pay-ewm.jpg"/>-->
+                    <div class="ewmBox">
+                        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"
+                                name="AlipayQR" width="172" height="154"></iframe>
+                    </div>
+                    <p class="text">打开手机支付宝<br/>扫一扫继续付款</p>
+                </div>
+                <img class="mobile" src="/images/payment/pay-icon6.jpg"/>
+                <div class="pcpay">
+                    <p class="tip">您也可以登录电脑版<br/>支付宝进行支付</p>
+                    <a data-pay-type="2" data-type="zfb" href="javascript:;" class="go">去支付</a>
+                </div>
+            </div>
+            <!--银联在线-->
+            <div class="pay-cont unionpay">
+                <div class="tit">
+                    <p class="detail">银联在线平台：无需开通网银用户，卡面有银联标识的银行卡均可通过银联平台进行支付，涵盖借记卡和信用卡等。</p>
+                </div>
+                <div class="ways-area">
+                    <div class="logo"><img src="/images/payment/pay-icon8.gif"></div>
+                    <a data-type="yl" id="unionRecharge" target="_blank"
+                       href="" class="go">去支付</a>
+                </div>
+            </div>
+            <% }else{ %>
+            <!--余额支付-->
+            <div class="pay-cont ye" style="display: block;">
+                <div class="tit">
+                    <p class="detail">您的账户适用金额：<span class="red"><%= viewModel.data.balance.UsableMoney %></span>元 <span
+                                class="tip">（赠券<%= viewModel.data.balance.UsableTicket %>元）</span></p>
+                    <a href="#" class="je">适用金额</a>
+                </div>
+                <div class="ways-area">
+                    <p class="p1">您应支付金额为：<span class="red"><%= viewModel.workInfo.price %> 元</span></p>
+                    <p class="p2">确认支付，系统将从您的账户中扣除
+                        <%= viewModel.workInfo.price %> 元</p>
+                    <p class="p3">
+                        <% if(viewModel.balance.insufficient == 1){ %>
+                        您的账户余额不足！
+                        <% } %>
+                    </p>
+                </div>
+                <% if(viewModel.balance.insufficient == 1){ %>
+                <a target="_blank" id="charge" href="/temp/recharge/home" class="sure">立即充值</a>
+                <% }else{ %>
+                <a id="confirmPay" href="javascript:;" class="sure">确认支付</a>
+                <% } %>
+            </div>
+            <!--微信支付-->
+            <div class="pay-cont wechatpay">
+                <div class="qcode left">
+                    <img src="/images/common/loading.gif"/>
+                    <p class="text">请使用微信扫一扫<br/>扫描二维码支付</p>
+                </div>
+                <img class="mobile" src="/images/payment/pay-icon5.jpg"/>
+            </div>
+            <!--支付宝-->
+            <div class="pay-cont alipay">
+                <div class="qcode left">
+                    <!--<img src="/images/payment/pay-ewm.jpg"/>-->
+                    <div class="ewmBox">
+                        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"
+                                name="AlipayQR" width="172" height="154"></iframe>
+                    </div>
+                    <p class="text">打开手机支付宝<br/>扫一扫继续付款</p>
+                </div>
+                <img class="mobile" src="/images/payment/pay-icon6.jpg"/>
+                <div class="pcpay">
+                    <p class="tip">您也可以登录电脑版<br/>支付宝进行支付</p>
+                    <a data-pay-type="2" data-type="zfb" href="javascript:;" class="go">去支付</a>
+                </div>
+            </div>
+            <!--银联在线-->
+            <div class="pay-cont unionpay">
+                <div class="tit">
+                    <p class="detail">银联在线平台：无需开通网银用户，卡面有银联标识的银行卡均可通过银联平台进行支付，涵盖借记卡和信用卡等。</p>
+                </div>
+                <div class="ways-area">
+                    <div class="logo"><img src="/images/payment/pay-icon8.gif"></div>
+                    <a data-type="yl" id="unionRecharge" target="_blank" href="" class="go">去支付</a>
+                </div>
+            </div>
+            <% } %>
+
+        </div>
+    </div>
+</div>
+<%- include('../layouts/footerLayout', {}) %>
+<div style="display: none;">
+    <input autocomplete="off" type="hidden" id="workId" value="<%= viewModel.workInfo.workId %>"/>
+    <input autocomplete="off" type="hidden" id="mediaType" value="<%= viewModel.workInfo.mediaType %>"/>
+    <input autocomplete="off" type="hidden" id="alipayOrder" value=""/>
+    <input autocomplete="off" type="hidden" id="goalipayOrder" value=""/>
+    <input autocomplete="off" type="hidden" id="unionOrder" value=""/>
+    <% if(viewModel.workInfo.orderType == 19 || viewModel.workInfo.orderType == 20){ %>
+    <input autocomplete="off" type="hidden" id="wechatOrder" value="<%= viewModel.data.wechat.TransactionCode %>"/>
+    <% }else{ %>
+    <input autocomplete="off" type="hidden" id="wechatOrder" value=""/>
+    <% } %>
+    <input autocomplete="off" type="hidden" id="workPrice" value="<%= viewModel.workInfo.price %>"/>
+    <input autocomplete="off" type="hidden" id="orderType" value="<%= viewModel.workInfo.orderType %>"/>
+    <input autocomplete="off" type="hidden" id="year" value="<%= viewModel.workInfo.year %>"/>
+    <input autocomplete="off" type="hidden" id="period" value="<%= viewModel.workInfo.period %>"/>
+</div>
+
+
+<!--<label>聊天内容:</label><br/>-->
+<!--<textarea id="content" style="height: 200px; width:300px;"></textarea>-->
+<!--<br/>-->
+<!--<input  id="sendMsg" type="text"/>-->
+<!--<button id="btn_send">发送</button>-->
+<script type="text/javascript">
+    'use strict'
+
+    // JavaScript Document
+    /* 实现页面的点击或鼠标移动的切换
+     * controlNodes为用户点击的节点
+     * displayNodes为用户点击后切换的部分的节点
+     * mode可选择click或者mouseover两种模式
+     * afterClass为用户点击表头样式
+     * beforeClass为表头未点击样式
+     */
+    function TableTransition(controlNodes, displayNodes, mode, afterClass, beforeClass) {
+        if (mode) {
+            if (mode == "click") {
+                controlNodes.click(function () {
+                    var orderType = $('#orderType').val();
+                    var index = controlNodes.index(this);
+                    channel = controlNodes.eq(index).attr('data-channel'); // 获取支付方式
+                    var hadRequest = controlNodes.eq(index).attr('data-request'); // data-request为1表示已经请求过
+                    var payType = controlNodes.eq(index).attr('data-pay-type');
+                    var period = $('#period').val();
+                    var year = $('#year').val();
+                    var id = $('#workId').val();
+                    var mediaType = $('#mediaType').val();
+                    if (hadRequest != 1 && payType) {
+                        // console.log('channel:', channel, 'hadRequest:', hadRequest, 'payType:', payType, 'orderType:', orderType);
+                        var url = '';
+                        if (orderType == 1 || orderType == 2) {
+                            url = encodeURI('/payment/checkout?ordertype=' + orderType + '&payType=' + payType + '&id=' + workId + '&period=' + period + '&year=' + year);
+                        }
+                        else if (orderType == 17) {
+                            url = encodeURI('/payment/checkout?ordertype=' + orderType + '&payType=' + payType + '&id=' + workId + '&mediaType=' + mediaType);
+                        }
+                        else {
+                            url = encodeURI('/payment/checkout?ordertype=' + orderType + '&payType=' + payType + '&id=' + workId);
+                        }
+
+                        // 支付宝二维码用iframe获取
+                        // if (payType == 2) {
+                        //     var iframeUrl = '/payment/generateAlipayEWM' + location.search;
+                        //     $('.ewmBox iframe').attr('src', iframeUrl);
+                        // }
+                        $.ajax({
+                            url: url,
+                            dataType: "json",
+                            type: "GET",
+                            success: function (response) {
+                                // 设置data-request为1表示已经请求过
+                                console.log(response)
+                                console.log('paytype:',payType)
+                                controlNodes.eq(index).attr('data-request', 1);
+
+                                // 微信
+                                if (payType == 1) {
+                                    console.log(response.TransactionCode)
+                                    if (response.TransactionCode != null) {
+                                        $('.qcode img').attr('src', response.url);
+                                        checkOrderStatus(response.TransactionCode, 'wechat');
+                                    } else {
+                                        // layer.msg('微信二维码生成失败，请刷新页面重试');
+                                    }
+
+                                }
+                                // 支付宝 去支付
+                                else if (payType == 2) {
+                                    var tempwindow = window.open('_blank');
+                                    tempwindow.location = response.alipayCashierUrl;
+                                    $('.alipay').css('display','block');
+                                }
+                                // 银联
+                                else if (payType == 3) {
+                                    $('#unionRecharge').attr('href', response.unionPay.unionPayUrl);
+                                    $('#unionOrder').val(response.unionPay.TransactionCode)
+                                }
+                                else if(payType == 4){
+                                    var iframeUrl = 'https://my.cnki.net/cnkirec/alipay/alipayOrder.aspx?OrderId='+ response.goAlipayOrder+'&Id=kandian&isMiniQR=true';
+                                    $('.ewmBox iframe').attr('src', iframeUrl);
+                                    checkOrderStatus(response.goAlipayOrder, 'alipay');
+                                }
+                            },
+                            error: function (error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+
+                    }
+
+                    // 防止去支付按钮干扰tab切换8*
+                    if($(this).parent().attr('class') != 'pcpay'){
+                        controlNodes.removeClass(afterClass).addClass(beforeClass);
+                        $(this).removeClass(beforeClass).addClass(afterClass);
+                        if (displayNodes) {
+                            displayNodes.css("display", "none");
+                            displayNodes.eq(index).css("display", "block");
+                        }
+                    }
+
+                })
+            }
+        } else {
+        }
+    }
+
+
+    var confirmPay = $('#confirmPay');
+    var workId = $('#workId').val();
+    var mediaType = $('#mediaType').val();
+    var channel = 1; // 取值1（余额）12（微信WEB二维码URL）13（支付宝WEB二维码页面）
+    var orderType = $('#orderType').val();
+    var year = $('#year').val();
+    var period = $('#period').val();
+    TableTransition($(".pay-tab a,.alipay .pcpay a.go"), $(".pay-cont"), "click", "cur");
+    if (orderType == 19 || orderType == 20) {
+        checkOrderStatus($('#wechatOrder').val(), 'wechat');
+    }
+
+    // 确认支付 余额
+    confirmPay.click(function () {
+        var confirmPayUrl = '/payment/confirmPay?id=' + workId + '&channel=' + channel + '&orderType=' + orderType + '&year=' + year + '&period=' + period;
+        $.ajax({
+            url: confirmPayUrl,
+            dataType: "json",
+            type: "get",
+            success: function (response) {
+                if (response.errorCode == 1) {
+                    // orderType 0文献  1期刊单期  2期刊年   7品得书院（图书） 17 知网文化作品  18 知网文化微刊 19月会员 20年会员
+                    // 文献不走此处
+                    if (orderType == 17) {
+                        location.href = '/payment/success?id=' + workId + '&orderType=' + orderType + '&mediatype=' + mediaType;
+                    }
+                    else if (orderType == 1 || orderType == 2) {
+                        location.href = '/payment/success?id=' + workId + year + period + '&orderType=' + orderType;
+                    }
+                    else if (orderType == 19 || orderType == 20) {
+                        // 查询会员到期时间
+                        $.ajax({
+                            type: "get",
+                            url: "/personalCenter/vipDetail",
+                            dataType: "json",
+                            success: function (response) {
+                                if (response.errorcode == 1) {
+                                    // 会员购买成功弹框
+                                    var vipType = '';
+                                    if (orderType == 19) {
+                                        vipType = '包月会员';
+                                    } else if (orderType == 20) {
+                                        vipType = '包年会员';
+                                    }
+                                    layer.open({
+                                        type: 1,
+                                        title: ['提示', 'height: 42px;background-color: #485162;padding-left: 16px;border-top-left-radius: 6px;border-top-right-radius: 6px;color: #ffffff;font-size: 16px;line-height: 42px;font-weight: normal;'],
+                                        skin: 'layui-layer-demo', //样式类名
+                                        closeBtn: 0, //不显示关闭按钮
+                                        anim: 2,
+                                        area: ['480px', '298px'],
+                                        content: '<div class="modal psModal">' +
+                                        '    <div class="mbody">' +
+                                        '    <h2>支付成功</h2>' +
+                                        '    <p class="p4">恭喜您成为知网文化VIP会员！</p>' +
+                                        '    <p class="p5">' + vipType + '<i>' + response.rows.ExpirationTime.substring(0, 10) + '</i>到期</p>' +
+                                        '    </div>' +
+                                        '    <div class="bottom">' +
+                                        '    <div class="btns">' +
+                                        '    <a href="/" class="a4 left">前往首页</a>' +
+                                        '    <a href="/personalCenter/vipRecord" class="a5 right">确定</a>' +
+                                        '    </div>' +
+                                        '    </div>' +
+                                        '    </div>'
+                                    });
+                                }
+                            },
+                            error: function (error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+                    }
+                    else {
+                        location.href = '/payment/success?id=' + workId + '&orderType=' + orderType;
+                    }
+                }
+                // 支付失败
+                else {
+                    layer.open({
+                        type: 1,
+                        title: ['提示', 'height: 42px;background-color: #485162;padding-left: 16px;border-top-left-radius: 6px;border-top-right-radius: 6px;color: #ffffff;font-size: 16px;line-height: 42px;font-weight: normal;'],
+                        skin: 'layui-layer-demo', //样式类名
+                        closeBtn: 0, //不显示关闭按钮
+                        anim: 2,
+                        area: ['560px', '261px'],
+                        content: '<div class="modal m1" style="overflow: hidden;">' +
+                        '    <p class="p3">抱歉，您还没有完成支付！</p>' +
+                        '    <div class="bottom">' +
+                        '    <div class="btns">' +
+                        '    <a id="rePay" href="javascript:;" onclick="window.location.reload();" class="a1">重新支付</a>' +
+                        '    <a href="https://help.cnki.net" class="a3">在线咨询</a>' +
+                        '    </div>' +
+                        '    </div>' +
+                        '    </div>'
+                    });
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    })
+
+    // 查询微信、支付宝支付订单
+
+    var alipayOrder = $('#alipayOrder').val();
+    var wechatOrder = $('#wechatOrder').val();
+    var orderCheckUrl = '';
+    var flag = false;
+    var intervalTime = 10000;
+
+    // 查询订单支付状态
+    function checkOrderStatus(TransactionCode, type) {
+        setTimeout(function () {
+            intervalTime = 2000;
+            orderCheckUrl = '/temp/recharge/orderCheck?id=' + TransactionCode + '&payType=' + type;
+            console.log(orderCheckUrl)
+            $.ajax({
+                url: orderCheckUrl,
+                dataType: "json",
+                type: "get",
+                success: function (response) {
+                    if (response.errorCode == 1) {
+                        // orderType 0文献  1期刊单期  2期刊年   7品得书院（图书） 17 知网文化作品  18 知网文化微刊 19月会员 20年会员
+                        // 文献不走此处
+                        if (orderType == 17) {
+                            location.href = '/payment/success?id=' + workId + '&orderType=' + orderType + '&mediatype=' + mediaType;
+                        }
+                        else if (orderType == 19 || orderType == 20) {
+                            // 查询会员到期时间
+                            $.ajax({
+                                type: "get",
+                                url: "/personalCenter/vipDetail",
+                                dataType: "json",
+                                success: function (response) {
+                                    if (response.errorcode == 1) {
+                                        // 会员购买成功弹框
+                                        var vipType = '';
+                                        if (orderType == 19) {
+                                            vipType = '包月会员';
+                                        } else if (orderType == 20) {
+                                            vipType = '包年会员';
+                                        }
+                                        layer.open({
+                                            type: 1,
+                                            title: ['提示', 'height: 42px;background-color: #485162;padding-left: 16px;border-top-left-radius: 6px;border-top-right-radius: 6px;color: #ffffff;font-size: 16px;line-height: 42px;font-weight: normal;'],
+                                            skin: 'layui-layer-demo', //样式类名
+                                            closeBtn: 0, //不显示关闭按钮
+                                            anim: 2,
+                                            area: ['480px', '298px'],
+                                            content: '<div class="modal psModal">' +
+                                            '    <div class="mbody">' +
+                                            '    <h2>支付成功</h2>' +
+                                            '    <p class="p4">恭喜您成为知网文化VIP会员！</p>' +
+                                            '    <p class="p5">' + vipType + '<i>' + response.rows.ExpirationTime.substring(0, 10) + '</i>到期</p>' +
+                                            '    </div>' +
+                                            '    <div class="bottom">' +
+                                            '    <div class="btns">' +
+                                            '    <a href="/" class="a4 left">前往首页</a>' +
+                                            '    <a href="/personalCenter/vipRecord" class="a5 right">确定</a>' +
+                                            '    </div>' +
+                                            '    </div>' +
+                                            '    </div>'
+                                        });
+                                    }
+                                },
+                                error: function (error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+                        else if (orderType == 1) {
+                            location.href = '/payment/success?id=' + workId + year + period + '&orderType=' + orderType;
+                        }
+                        else {
+                            location.href = '/payment/success?id=' + workId + '&orderType=' + orderType;
+                        }
+                    } else {
+                        checkOrderStatus(TransactionCode, type);
+                    }
+                    // console.log(response)
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        }, intervalTime);
+    }
+
+
+    var layer = '';
+    layui.use('layer', function () {
+        layer = layui.layer;
+    });
+    $('.payWrap .payWays .pay-cont .tit .je').click(function () {
+        layer.open({
+            type: 1,
+            closeBtn: true,
+            title: false,
+            skin: 'layer-instruction',
+            area: ['635px', '307px'],
+            shadeClose: true,
+            content: '<div class="layer-instruction-content">' +
+            '    <div class="layer-instruction-title">适用金额说明</div>' +
+            '    <p>1、适用金额，是指适用于购买当前产品的金额。</p>' +
+            '    <p>2、通过知网文化客户端、PC端在线充值，以及通过中国知网总部正式购买的会员卡充值的金额， 没有适用限制。' +
+            '    </p>' +
+            '    <p> 3、通过各类专用卡、体验卡、试用卡、礼品卡、专业数据库检索卡、机构卡充值的金额，一 般仅适用于购买下载相应产品的单篇文献，不适用于购买知网文化作品、微刊、会员服务、整本期刊、图书等产品。' +
+            '    </p>' +
+            '</div>'
+        });
+    });
+
+    var unionPop = '';
+    // 银联支付 去支付宝收银台
+    $('.go').click(function () {
+        var type = $(this).attr('data-type');
+        unionPop = layer.open({
+            type: 2,
+            title: '',
+            closeBtn: 0,
+            shade: 0.6,
+            area: ['560px', '300px'],
+            content: ['/payment/modal?unionPop=' + unionPop + '&type=' + type, 'no'], //iframe的url
+            resize: false,
+            btnAlign: 'c'
+        });
+    })
+</script>
+
+
+</body>
+
+</html>

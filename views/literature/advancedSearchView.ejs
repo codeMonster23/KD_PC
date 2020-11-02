@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+        <link rel="stylesheet" type="text/css" href="/css/literature/literature.css" />
+</head>
+
+<body>
+    <%- include('../layouts/navLayout', {current: 5, enterControl:0}) %>
+        <div class="sbanner"></div>
+        <form>
+            <div class="searching">
+                <div class="item clearfix">
+                    <label>搜索位置</label>
+                    <div class="inputWrap">
+                        <div class="row clearfix">
+                            <span class="keys">全文</span>
+                            <input name="fullText" maxlength="30" type="text" id="fullText" value="" />
+                        </div>
+                        <div class="row clearfix">
+                            <span class="keys">主题</span>
+                            <input name="topic" maxlength="30" type="text" id="topic" value="" />
+                        </div>
+                        <div class="row clearfix">
+                            <span class="keys">篇名</span>
+                            <input name="title" maxlength="30" type="text" id="title" value="" />
+                        </div>
+                        <div class="row clearfix">
+                            <span class="keys">关键词</span>
+                            <input name="kd" maxlength="30" type="text" id="kd" value="" />
+                        </div>
+                        <div class="row clearfix">
+                            <span class="keys">作者</span>
+                            <input name="ar" maxlength="30" type="text" id="ar" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <label>文献来源</label>
+                    <input name="source" maxlength="30" type="text" id="source" value="" />
+                </div>
+                <div class="item clearfix">
+                    <label>发表时间</label>
+                    <div class="yearwrap">
+                        <div class="fromwrap"><i class="left">从</i>
+                            <p class="p from"><b id="from">不限</b><span class="positionA"></span></p>
+                            <ul class="fromlist">
+                                <li>不限</li>
+                                <li>1915年</li>
+                                <li>1949年</li>
+                                <li>1979年</li>
+                            </ul>
+                        </div>
+                        <div class="towrap"><i class="left">到</i>
+                            <p class="p to"><b id="to">不限</b><span class="positionA"></span></p>
+                            <ul class="tolist positionA">
+                                <li class="ndy">不限</li>
+                                <li>1979年</li>
+                                <li>1949年</li>
+                                <li>1915年</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <label>作者单位</label>
+                    <input name="unit" maxlength="30" type="text" id="unit" value="" />
+                </div>
+                <div class="btn clearfix">
+                    <a id="a1" href="javascript:;" class="a1">确&nbsp;定</a>
+                    <a id="a2" href="javascript:;" class="a2">重置信息</a>
+                    <input type="reset" id="reset" style="display: none">
+                </div>
+            </div>
+        </form>
+        <!--footer-->
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                //下拉列表时间
+                var start = 1980; // 指定开始年份
+                var end = new Date().getFullYear(); // 获取当前年份
+                for (var i = start; i <= end; i++) {
+                    $(".fromlist").append("<li>" + i + "年</li>");
+                    $(".tolist .ndy").after("<li>" + i + "年</li>");
+                }
+                var yearwarpP = $(".yearwrap .p");
+                yearwarpP.click(function() {
+                        $(".yearwrap ul").css({
+                            "display": "none"
+                        });
+                        $(".yearwrap .p").removeClass("clickp");
+                        $(this).parent().find("ul").css("display", "block");
+                        $(this).addClass("clickp");
+                    })
+                    //鼠标点击事件效果
+                $(".yearwrap ul").on("click", "li", function() {
+                    var Text = $(this).text();
+                    $(this).parent("ul").siblings(".p").removeClass("clickp").children("b").text(Text);
+                    $(this).parent("ul").hide();
+                });
+
+                // 提交表单
+                $('#a1').click(function() {
+                    var fullTextValue = $('#fullText').val().trim();
+                    var topicValue = $('#topic').val().trim();
+                    var titleValue = $('#title').val().trim();
+                    var keywordValue = $('#kd').val().trim();
+                    var authorValue = $('#ar').val().trim();
+                    var sourceValue = $('#source').val().trim();
+                    var unitValue = $('#unit').val().trim();
+
+                    // 时间处理
+                    var from = $('#from').html().replace('年', '');
+                    var to = $('#to').html().replace('年', '');
+                    if (from == '不限' && to != '不限') {
+                        from = 1915;
+                    }
+                    if (to == '不限' && from != '不限') {
+                        to = new Date().getFullYear().toString();
+                        to = to.replace('年', '');
+                    }
+                    var publishDate = from + ',' + to;
+                    // 时间处理
+
+                    var url = '/literature/literatureResult?';
+                    if (fullTextValue || topicValue || titleValue || keywordValue || authorValue || sourceValue || unitValue) {
+                        if (fullTextValue) {
+                            url += '&fulltext=' + fullTextValue;
+                        }
+                        if (topicValue) {
+                            url += '&topic=' + topicValue;
+                        }
+                        if (titleValue) {
+                            url += '&title=' + titleValue;
+                        }
+                        if (keywordValue) {
+                            url += '&kd=' + keywordValue;
+                        }
+                        if (authorValue) {
+                            url += '&ar=' + authorValue;
+                        }
+                        if (sourceValue) {
+                            url += '&source=' + sourceValue;
+                        }
+                        if (unitValue) {
+                            url += '&unit=' + unitValue;
+                        }
+                        url = url.indexOf('?&') ? url.replace('?&', '?') : url;
+
+                        if (from == '不限' && to == '不限') {
+                            location.href = encodeURI(url + '&isAdvancedSearch=1');
+                        } else {
+                            location.href = encodeURI(url + '&isAdvancedSearch=1&publishdate=' + publishDate);
+                        }
+                    } else {
+                        // location.href = '#';
+                        alert('请至少设置一项检索条件!');
+                    }
+
+                });
+                // 表单重置
+                $('#a2').click(function() {
+                        $('#reset').click();
+                    })
+                    // 回车 提交
+                    // $(document).bind("keydown", function (e) {
+                    //     if (e.keyCode == 13) {
+                    //         $('#a1').click();
+                    //     }
+                    // })
+            </script>
+</body>
+
+</html>

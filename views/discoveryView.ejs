@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+        <link rel="stylesheet" type="text/css" href="/css/discovery.css" />
+        <script src="/moment/moment.js"></script>
+</head>
+
+<body bgcolor="#EBEFF5">
+    <%- include('./layouts/navLayout', {current: 1, enterControl: 1}) %>
+
+        <div class="banner"></div>
+        <div class="dwrap clearfix">
+            <div class="left dl">
+                <div class="choose">
+                    <div class="select select1 left" data-name="type">
+                        <p data-code="-1">作品类型</p>
+                        <ul>
+                            <li data-code="-1">全部</li>
+                            <li data-code="1">图文</li>
+                            <li data-code="2">音频</li>
+                            <li data-code="3">视频</li>
+                            <li data-code="4">图集</li>
+                        </ul>
+                    </div>
+                    <div class="select select1 left" data-name="subset">
+                        <p data-code="">作品分类</p>
+                        <ul>
+                            <li data-code="">全部</li>
+                            <li data-code="A">文学</li>
+                            <li data-code="B">艺术</li>
+                            <li data-code="C">思想文化</li>
+                            <li data-code="D">人物</li>
+                            <li data-code="E">历史</li>
+                            <li data-code="F">军事</li>
+                            <li data-code="G">法律</li>
+                            <li data-code="H">生活休闲</li>
+                            <li data-code="I">育儿</li>
+                            <li data-code="J">孕产</li>
+                            <li data-code="K">职场</li>
+                            <li data-code="L">财富</li>
+                            <li data-code="M">科普</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="list">
+                    <% for(var i = 0; i < viewModel.data.selectedWorks.length; i++){ %>
+                        <div class="item clearfix">
+                            <a target="_blank" href="<%= '/detail/workDetail/' + viewModel.data.selectedWorks[i].id.toString() + viewModel.data.selectedWorks[i].mediatype %>" class="img left"><img src="<%= viewModel.data.selectedWorks[i].coverpic %>" width="302"
+                                         height="169"><span
+                            class="i<%= viewModel.data.selectedWorks[i].mediatype %>"></span></a>
+                            <div class="info left">
+                                <h1>
+                                    <a target="_blank" href="<%= '/detail/workDetail/' + viewModel.data.selectedWorks[i].id.toString() + viewModel.data.selectedWorks[i].mediatype %>">
+                                        <%= viewModel.data.selectedWorks[i].title %>
+                                    </a>
+                                </h1>
+                                <p>
+                                    <%= viewModel.data.selectedWorks[i].intromemo %>
+                                </p>
+                                <div class="tag clearfix">
+                                    <% for(var j = 0, arr = ejsFunctions.arrayParseByBlank(viewModel.data.selectedWorks[i].keywords);j < arr.length;j++){ %>
+                                        <span><%= arr[j] %></span>
+                                        <% } %>
+                                </div>
+                                <div class="bottom clearfix">
+                                    <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.selectedWorks[i].orgid %>" class="jg left"><img src="<%= viewModel.data.selectedWorks[i].logopic %>"
+                                                         width="22"
+                                                         height="22"
+                                                         align="top"><%= viewModel.data.selectedWorks[i].orgname %>
+                        </a>
+                                    <span class="time right"><%= ejsFunctions.dateFormat(viewModel.data.selectedWorks[i].submittime) %></span>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+                <a href="javascript:void(0)" class="more"><span ref="more">加载更多</span><img
+                    src="images/discovery/dicon5.png"></a>
+
+            </div>
+            <div class="left dr">
+                <div class="box box1">
+                    <h1 class="clearfix"><span class="left">热门分类</span></h1>
+                    <div class="tagbox clearfix">
+                        <a target="_blank" href="/works?classifyId=A03&positionX=0&positionY=2">美文 </a>
+                        <a target="_blank" href="/works?classifyId=A02&positionX=0&positionY=1">小说 </a>
+                        <a target="_blank" href="/works?classifyId=B03&positionX=1&positionY=2">书法 </a>
+
+                        <a target="_blank" href="/works?classifyId=B11&positionX=1&positionY=10">影视 </a>
+                        <a target="_blank" href="/works?classifyId=​C03&positionX=2&positionY=2">民俗文化 </a>
+                        <a target="_blank" href="/works?classifyId=C11&positionX=2&positionY=10">诸子百家 </a>
+
+                        <a target="_blank" href="/works?classifyId=D01&positionX=3&positionY=0">历代帝王 </a>
+                        <a target="_blank" href="/works?classifyId=​E08&positionX=4&positionY=7">历史趣读 </a>
+                        <a target="_blank" href="/works?classifyId=F02&positionX=5&positionY=1">武器舰船 </a>
+
+                        <a target="_blank" href="/works?classifyId=​H02&positionX=7&positionY=1">健康保健 </a>
+                        <a target="_blank" href="/works?classifyId=H08&positionX=7&positionY=7">旅行天下 </a>
+                        <a target="_blank" href="/works?classifyId=H12&positionX=7&positionY=11">宠物世界 </a>
+
+                        <a target="_blank" href="/works?classifyId=I04&positionX=8&positionY=3">早教 </a>
+                        <a target="_blank" href="/works?classifyId=K02&positionX=10&positionY=1">职场礼仪 </a>
+                        <a target="_blank" href="/works?classifyId=M03&positionX=12&positionY=2">宇宙探秘 </a>
+                    </div>
+                </div>
+                <div class="box box2">
+                    <h1 class="clearfix"><span class="left">精选微刊</span><a target="_blank" href="/microbook">更多 ></a></h1>
+                    <div class="wrap">
+                        <% for(var i = 0;i < viewModel.data.microBooks.length;i++){ %>
+                            <a title="<%= viewModel.data.microBooks[i].title %>" target="_blank" href="<%='/detail/microBookDetail?id=' + viewModel.data.microBooks[i].id %>"><img src="<%= viewModel.data.microBooks[i].coverpic %>"><p><%= viewModel.data.microBooks[i].title %></p></a>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="box box4">
+                    <h1 class="clearfix"><span class="left">万选号</span><a target="_blank" href="/kdh">更多 ></a></h1>
+                    <% for(var i = 0; i < 3; i++){ %>
+                        <div class="item clearfix">
+                            <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.organizationList[i].orgid %>" class="img left"><img src="<%= viewModel.data.organizationList[i].logopic %>"></a>
+                            <div class="info left">
+                                <p class="p1">
+                                    <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.organizationList[i].orgid %>">
+                                        <%= viewModel.data.organizationList[i].orgname %>
+                                    </a>
+                                </p>
+                                <p class="p2">
+                                    <%= viewModel.data.organizationList[i].memo %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+                <!-- <div class="ewm">
+            <img src="/images/indexImages/KandianQRCode1.png" width="70" height="70">
+            <div class="text left">
+                <p class="p1">下载知网文化客户端</p>
+                <p class="p2">随时随地发现精彩</p>
+            </div>
+        </div> -->
+            </div>
+
+        </div>
+
+        <%- include('./layouts/footerLayout', {}) %>
+
+            <script>
+                /* 下拉列表***************************************************************** */
+                var time = 100;
+                var select = $('.select');
+                var categorycode = '';
+                var mediatype = -1;
+                for (var i = 0; i < select.length; i++) {
+                    select.eq(i).children('p').unbind('click').bind('click', function(e) {
+                        window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                        $(this).siblings('ul').slideDown(time);
+                    })
+                    select.eq(i).children('ul').children('li').unbind('click').bind('click', function(e) {
+                        window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                        $(this).parent('ul').siblings('p').attr('data-code', $(this).attr('data-code'));
+                        $(this).parent('ul').siblings('p').html($(this).html());
+                        $(this).parent('ul').slideUp(time);
+
+                        for (var j = 0; j < select.length; j++) {
+                            (function(j) {
+                                if (select.eq(j).attr('data-name') == 'type') {
+                                    mediatype = select.eq(j).children('p').attr('data-code');
+                                }
+                                if (select.eq(j).attr('data-name') == 'subset') {
+                                    categorycode = select.eq(j).children('p').attr('data-code');
+                                }
+                            })(j)
+
+                        }
+
+                        var formData = {
+                            categorycode: categorycode,
+                            mediatype: mediatype,
+                            count: 7
+                        };
+
+                        $.ajax({
+                            url: "/discoveryMore",
+                            dataType: "json", //返回格式
+                            data: formData,
+                            type: "POST",
+                            success: function(response) {
+                                //请求成功时处理
+                                $('.more').children('span').html('加载更多');
+                                var list = response.list;
+                                if (list.length > 0) {
+                                    var itemsStr = '';
+                                    for (var i = 0; i < list.length; i++) {
+                                        var spanStr = '';
+                                        var keywords = list[i].keywords;
+                                        if (keywords && keywords.indexOf(' ') != -1) {
+                                            keywords = list[i].keywords.split(' ');
+                                            for (var j = 0; j < keywords.length; j++) {
+                                                spanStr += '<span>' + keywords[j] + '</span>';
+                                            }
+                                        } else {
+                                            spanStr = keywords;
+                                        }
+                                        // 处理链接地址
+                                        var linkA = '/detail/workDetail/' + list[i].id.toString() + list[i].mediatype;
+
+                                        itemsStr += '<div class="item clearfix">' +
+                                            '<a href="' + linkA + '" class="img left">' +
+                                            '<img src="' + list[i].coverpic + '" width="302" height="169">' +
+                                            '<span class="i' + list[i].mediatype + '"></span>' +
+                                            '</a>' +
+                                            '<div class="info left">' +
+                                            '   <h1><a target="_blank" href="' + linkA + '">' + list[i].title + '</a></h1>' +
+                                            '   <p>' + list[i].intromemo + '</p>' +
+                                            '   <div class="tag clearfix">' + spanStr + '</div>' +
+                                            '   <div class="bottom clearfix">' +
+                                            '       <a target="_blank" href="/kdh/home?orgid=' + list[i].orgid + '" class="jg left"><img src="' + list[i].logopic + ' "width="22" height="22" align="top">' + list[i].orgname + '</a>' +
+                                            '       <span class="time right">' + moment(list[i].submittime).format('YYYY-MM-DD HH:mm:ss') + '</span>' +
+                                            '   </div>' +
+                                            '</div>' +
+                                            '</div>'
+                                    }
+                                    // $(vm.$refs.list).append($(itemsStr));
+                                    $('.list').html($(itemsStr));
+                                } else {
+                                    $('.list').html('<div class="blank"><div>');
+                                    $('.more').hide();
+                                    // vm.$refs.more.innerHTML = '没有更多了';
+                                }
+                            },
+                            error: function(error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+
+
+                    })
+                }
+                $(document).click(function() {
+                    select.children('ul').slideUp(time);
+                })
+
+
+                /* 加载更多***************************************************************** */
+
+                var listNode = $('.list');
+                var more = $('.more');
+                var mediatype = $('.select').eq(0).attr('data-code');
+                var categorycode = $('.select').eq(1).attr('data-code');
+
+                more.bind('click', function() {
+                    if (listNode.children('.item').length < 7) { // 默认输出7个
+                        more.children('span').html('没有更多了！');
+                    } else {
+                        more.children('span').html('加载更多');
+                        var formData = {
+                            offset: listNode.children('.item').length,
+                            categorycode: categorycode,
+                            mediatype: mediatype
+                        };
+
+                        $.ajax({
+                            url: "/discoveryMore",
+                            dataType: "json", //返回格式
+                            data: formData,
+                            type: "POST",
+                            success: function(response) {
+                                //请求成功时处理
+                                var list = response.list;
+                                if (list.length > 0) {
+                                    var itemsStr = '';
+                                    for (var i = 0; i < list.length; i++) {
+                                        // 处理关键字
+                                        var spanStr = '';
+                                        var keywords = list[i].keywords;
+                                        if (keywords && keywords.indexOf(' ') != -1) {
+                                            keywords = list[i].keywords.split(' ');
+                                            for (var j = 0; j < keywords.length; j++) {
+                                                spanStr += '<span>' + keywords[j] + '</span>';
+                                            }
+                                        } else {
+                                            spanStr = keywords;
+                                        }
+
+                                        // 处理链接地址
+                                        var linkA = '/detail/workDetail/' + list[i].id.toString() + list[i].mediatype;
+
+
+                                        // 组合数据
+                                        itemsStr += '<div class="item clearfix">' +
+                                            '<a target="_blank" href="' + linkA + '" class="img left">' +
+                                            '<img src="' + list[i].coverpic + '" width="302" height="169">' +
+                                            '<span class="i' + list[i].mediatype + '"></span>' +
+                                            '</a>' +
+                                            '<div class="info left">' +
+                                            '   <h1><a target="_blank" href="' + linkA + '">' + list[i].title + '</a></h1>' +
+                                            '   <p>' + list[i].intromemo + '</p>' +
+                                            '   <div class="tag clearfix">' + spanStr + '</div>' +
+                                            '   <div class="bottom clearfix">' +
+                                            '       <a target="_blank" href="/kdh/home?orgid=' + list[i].orgid + '" class="jg left"><img src="' + list[i].logopic + ' "width="22" height="22" align="top">' + list[i].orgname + '</a>' +
+                                            '       <span class="time right">' + moment(list[i].submittime).format('YYYY-MM-DD HH:mm:ss') + '</span>' +
+                                            '   </div>' +
+                                            '</div>' +
+                                            '</div>'
+                                    }
+                                    listNode.append($(itemsStr));
+                                } else {
+                                    more.children('span').html('没有更多了！');
+                                }
+                            },
+                            error: function(error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+                    }
+                })
+            </script>
+</body>
+
+</html>

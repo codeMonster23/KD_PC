@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/mall/header-and-footer.css" />
+        <link rel="stylesheet" type="text/css" href="/css/mall/mall.css" />
+        <link rel="stylesheet" href="/lib/layui/css/layui.css" media="all">
+</head>
+
+<body>
+    <%- include('../layouts/mall/navLayout', {current: 0,sublogo:true,enterControl:1}) %>
+        <div class="booklist-detail-banner">
+            <div class="booklist-detail-title"></div>
+        </div>
+        <div class="booklist-detail-recommendword">
+            <div class="booklist-recommendword-wrap">
+                <div class="booklist-recommendword-title">— — 推荐语 — —</div>
+                <div class="booklist-recommendword-content"></div>
+            </div>
+        </div>
+        <div class="booklist-main booklist-detail-main">
+            <div class="booklist-detail-numbers">
+                <span class="booklist-works-number">124</span>
+                <span class="booklist-view-number">45</span>
+                <span class="booklist-collect-number">7895</span>
+                <div class="booklist-share">
+                    <span class="booklist-share-text"></span>
+                    <div class="booklist-share-more bdsharebuttonbox">
+                        <a href="#" class="booklist-share-item qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                        <a href="#" class="booklist-share-item weixin" data-cmd="weixin" title="分享到微信"></a>
+                        <a href="#" class="booklist-share-item tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="booklist-detail-items clearfix">
+                <!-- 20条 -->
+                <!-- <div class="booklist-detail-item">
+        <a class="img" href="" title="" target="_blank">
+            <img src="http://via.placeholder.com/172x239" alt="">
+        </a>
+        <p class="title"><a href="" title="标题" target="_blank"></a></p>
+        <p class="author">作者</p>
+    </div> -->
+            </div>
+            <div class="mall-pages"></div>
+        </div>
+        <%- include('../layouts/footerLayout') %>
+            <input type="hidden" value="<%= viewModel.user.name %>" id="username">
+
+            <script src="/js/plugin/jquery.methods.js"></script>
+            <script src="/lib/layui/layui.js"></script>
+            <script>
+                var booklistId = $.kd.getparams("booklistId");
+                var username = $('#username').val();
+                var collect = $('.booklist-collect-number');
+
+                var layer = '';
+                layui.use('layer', function() {
+                    layer = layui.layer;
+                });
+                getBooklistDetail(booklistId);
+
+                function getBooklistDetail(booklistId, pageNum) {
+                    var url = '/mall/getBooklistDetail';
+                    var pageNum = pageNum || 1;
+                    var booklistId = booklistId || '';
+                    var limit = 20;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {
+                            pageNum: pageNum,
+                            limit: limit,
+                            booklistId: booklistId
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.code == 0) {
+                                var total = response.data.detail.total;
+                                var list = response.data.detail.list;
+                                var booklistInfo = response.data.shelf;
+                                if (booklistInfo) {
+                                    $('.booklist-detail-title').html(booklistInfo.shelftitle);
+                                    $('title').html(booklistInfo.shelftitle + '_书单_知网文化');
+                                    if (booklistInfo.shelfmemo) {
+                                        $('.booklist-detail-recommendword').show();
+                                        $('.booklist-recommendword-content').html(booklistInfo.shelfmemo);
+                                    }
+                                    $('.booklist-works-number').html(booklistInfo.detailcount);
+                                    $('.booklist-view-number').html(booklistInfo.viewcount);
+                                    collect.html(booklistInfo.collectcount).attr('data-is-collected', booklistInfo.iscollect);
+                                    if (booklistInfo.iscollect == 1) {
+                                        collect.addClass('active');
+                                    }
+                                    $('.booklist-detail-main').attr('data-id', booklistInfo.shelfid);
+                                    
+                                    setShare(booklistInfo.shelftitle);
+                                }
+                                if (total > 0) {
+                                    var str = '';
+                                    for (var i = 0; i < list.length; i++) {
+                                        str += '<div class="booklist-detail-item">' +
+                                            '<a class="img" href="/detail/bookDetail/' + list[i].code + '" title="' + list[i].title + '" target="_blank">' +
+                                            '<img src="' + list[i].coverpic + '" alt="">' +
+                                            '</a>' +
+                                            '<p class="title"><a href="/detail/bookDetail/' + list[i].code + '" title="' + list[i].title + '" target="_blank">' + list[i].title + '</a></p>' +
+                                            '</div>';
+                                    }
+                                    $('.booklist-detail-items ').html(str);
+                                    var pageStr = $.kd.outputPager(total, limit, 5, pageNum);
+                                    $('.mall-pages').html(pageStr);
+                                }
+                            }
+                        }
+                    });
+                }
+
+                $('.mall-pages').on('click', 'a', function() {
+                    var pageNum = $(this).attr('data-page');
+                    getBooklistDetail(booklistId, pageNum);
+                });
+                // 点击收藏
+                collect.click(function() {
+                    if (username != 'undefined' && username.length > 0) {
+                        var $this = $(this);
+                        var id = $('.booklist-detail-main').attr('data-id');
+                        var index = layer.load(1, {
+                            shade: [0.1, '#fff'] //0.1透明度的白色背景
+                        });
+                        var isCollected = $(this).attr('data-is-collected');
+                        collectOrNot(id, 7, isCollected, index, $this, $('.booklist-detail-title').html());
+                    } else {
+                        // layer.msg('请先登录！')
+                        var collectionPopLayer = layer.open({
+                            title: ['', 'height:0; border-top:3px solid #ee8d6d'],
+                            type: 1,
+                            area: ['274px', '180px'], //宽高
+                            content: $('.collectionPopWrap').html(),
+                        });
+                        $('.b2').click(function(){
+                            layer.close(collectionPopLayer);
+                        })
+                    }
+                });
+
+                // 收藏或者取消收藏方法
+                function collectOrNot(id, typeId, isCollected, index, pointer, title) {
+                    var url = encodeURI('/common/collectOrNot?id=' + id + '&typeId=' + typeId + '&isCollected=' + isCollected + '&title=' + title);
+
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        type: "GET",
+                        success: function(response) {
+                            layer.close(index);
+                            if (response.code == 0) {
+                                layer.close(index);
+                                pointer.toggleClass('active');
+                                if (response.data.status == 1) {
+                                    pointer.attr('data-is-collected', '1');
+                                    pointer.html(parseInt(pointer.html()) + 1);
+                                    layer.msg('收藏成功！');
+                                } else if (response.data.status == 0) {
+                                    pointer.attr('data-is-collected', '0');
+                                    pointer.html(parseInt(pointer.html()) - 1);
+                                    layer.msg('取消收藏成功！');
+                                }
+                            } else if (response.code == -1) {
+                                layer.msg(response.msg)
+                            } else {
+                                console.log('请检查收藏或者取消收藏方法接口！')
+                            }
+                        },
+                        error: function(error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+                }
+                // 分享
+                $(".booklist-share").click(function() {
+                    if ($(".booklist-share-more").is(":visible")) {
+                        $(".booklist-share-more").hide();
+                    } else {
+                        $(".booklist-share-more").show();
+                    }
+                });
+
+                function setShare (title) {
+                    var shareText = '书单《' + title + '》来阅读吧！';
+                    var SetShareUrl = window.location.href;
+                    // 注意要记得设置onBeforeClick事件， 用于获取动态的文章ID
+                    window._bd_share_config = {
+                        common: {
+                            onBeforeClick: SetShareUrl,
+                            bdText: shareText,
+                            bdUrl: SetShareUrl,
+                        },
+                        share: [{
+                            'bdSize': 24
+                        }]
+                    };
+
+                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                }
+                
+            </script>
+            <style>
+                .bd_weixin_popup{
+                    box-sizing: content-box;
+                    padding: 20px;
+                    height:300px !important;
+                }
+                .bd_weixin_popup .bd_weixin_popup_head{
+                    text-align: center;
+                }
+                .bd_weixin_popup .bd_weixin_popup_foot{
+                    text-align: center;
+                }
+                .booklist-share .booklist-share-text{
+                    padding:0;
+                    margin:0;
+                }
+            </style>
+    <%- include('../components/collectionPop', { }) %>
+</body>
+
+</html>

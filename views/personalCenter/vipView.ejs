@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#FFFFFF">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="members">
+            <div class="banner">
+                <div class="w1200">
+                    <% if(viewModel.isVip == 0) { %>
+                        <a href="#s2" class="btn">立即开通</a>
+                        <% }else{ %>
+                            <a href="#s2" class="btn">立即续费</a>
+                            <% } %>
+                </div>
+            </div>
+            <div class="s1">
+                <div class="w1200">
+                    <h1 class="tit">VIP特权</h1>
+                    <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                        <%if(viewModel.data.list[i].id==170){%>
+                            <p class="tip"><%=viewModel.data.list[i].description%></p>
+                        <%}%>
+                    <%}%>
+                    <ul class="clearfix">
+                        <li>
+                            <img src="/images/personal/members-icon1.png" />
+                            <p class="p1">文献</p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==171){%>
+                                <p class="p2"><%=viewModel.data.list[i].description%></p>
+                                <%}%>
+                            <%}%>
+                        </li>
+                        <li>
+                            <img src="/images/personal/members-icon2.png" />
+                            <p class="p1">期刊</p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==172){%>
+                                <p class="p2"><%=viewModel.data.list[i].description%></p>
+                                <%}%>
+                            <%}%>
+                        </li>
+                        <li>
+                            <img src="/images/personal/members-icon3.png" />
+                            <p class="p1">图书</p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==173){%>
+                                <p class="p2"><%=viewModel.data.list[i].description%></p>
+                                <%}%>
+                            <%}%>
+                        </li>
+                        <li>
+                            <img src="/images/personal/members-icon4.png" />
+                            <p class="p1">微刊</p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==174){%>
+                                <p class="p2"><%=viewModel.data.list[i].description%></p>
+                                <%}%>
+                            <%}%>
+                        </li>
+                        <li>
+                            <img src="/images/personal/members-icon5.png" />
+                            <p class="p1">图文</p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==175){%>
+                                <p class="p2"><%=viewModel.data.list[i].description%></p>
+                                <%}%>
+                            <%}%>
+                        </li>
+                        <li>
+                            <img src="/images/personal/members-icon6.png" />
+                            <p class="p1">音频</p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==176){%>
+                                <p class="p2"><%=viewModel.data.list[i].description%></p>
+                                <%}%>
+                            <%}%>
+                        </li>
+                        <li>
+                            <img src="/images/personal/members-icon7.png" />
+                            <p class="p1">视频</p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==177){%>
+                                <p class="p2"><%=viewModel.data.list[i].description%></p>
+                                <%}%>
+                            <%}%>
+                        </li>
+                        <li>
+                            <img src="/images/personal/members-icon8.png" />
+                            <p class="p1">图集</p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==178){%>
+                                <p class="p2"><%=viewModel.data.list[i].description%></p>
+                                <%}%>
+                            <%}%>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+            <div id="s2" class="s2">
+                <div class="w1200">
+                    <h1 class="tit">开通知网文化VIP会员</h1>
+                    <ul class="clearfix">
+                        <li data-vip-type="19" data-vip-price="<%= viewModel.data.list[3].value %>">
+                            <p class="p1">包月会员</p>
+                            <p class="p2"><strong>￥</strong>
+                                <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                    <%if(viewModel.data.list[i].id==179){%>
+                                        <%=viewModel.data.list[i].value%>
+                                    <%}%>
+                                <%}%>
+                            </p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==181){%>
+                                    <%if(viewModel.data.list[i].value==1){%>
+                                        <p class="p3">
+                                            <%=viewModel.data.list[i].description%>
+                                        </p>
+                                    <%}%>
+                                <%}%>
+                            <%}%>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==183){%>
+                                    <%if(viewModel.data.list[i].value==1){%>
+                                        <i><%= viewModel.data.list[i].description %></i>
+                                    <%}%>
+                                <%}%>
+                            <%}%>
+                        </li>
+                        <li data-vip-type="20" data-vip-price="<%= viewModel.data.list[2].value %>" class="click">
+                            <p class="p1">包年会员</p>
+                            <p class="p2"><strong>￥</strong>
+                                <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                    <%if(viewModel.data.list[i].id==180){%>
+                                        <%=viewModel.data.list[i].value%>
+                                    <%}%>
+                                <%}%>
+                            </p>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==182){%>
+                                    <%if(viewModel.data.list[i].value==1){%>
+                                        <p class="p3">
+                                            <%=viewModel.data.list[i].description%>
+                                        </p>
+                                    <%}%>
+                                <%}%>
+                            <%}%>
+                            <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                                <%if(viewModel.data.list[i].id==184){%>
+                                    <%if(viewModel.data.list[i].value==1){%>
+                                        <i><%= viewModel.data.list[i].description %></i>
+                                    <%}%>
+                                <%}%>
+                            <%}%>
+                        </li>
+                    </ul>
+                    <%if(viewModel.user.isOrg == true){%>
+                        <a id="btn-org" href="javascript:;" class="btn">立即开通</a>
+                        <script>
+                            $('#btn-org').click(function() {
+                                layer.msg('当前为机构账号，不支持开通会员，请登录个人账号开通会员');
+                            })
+                        </script>
+                        <%}else{%>
+                            <% if(viewModel.isVip == 0) { %>
+                                <a id="btn" href="javascript:;" class="btn">立即开通</a>
+                                <% }else{ %>
+                                    <a id="btn" href="javascript:;" class="btn">立即续费</a>
+                                    <% } %>
+                                        <%}%>
+                                            <!--<p class="p4">知网文化文献库机构用户成员，绑定机构账号后，包月立减<i>3</i>元。<a href="#">去绑定></a></p>-->
+                </div>
+            </div>
+            <div class="vip-tip">
+                <h2>会员服务说明</h2>
+                <% for(var i = 0; i < viewModel.data.list.length;i++){ %>
+                    <%if(viewModel.data.list[i].id==185){%>
+                    <p class="p2"><%- viewModel.data.list[i].description%></p>
+                    <%}%>
+                <%}%>
+            </div>
+            <!-- <div class="s3">
+                <div class="w1200">
+                    <div class="text">
+                        <h1 class="tit">精彩内容在线畅读</h1>
+                        <p>畅读精选图文、音频、视频、图集、微刊、期刊和图书</p>
+                    </div>
+                </div>
+            </div>
+            <div class="s4">
+                <div class="w1200">
+                    <div class="text">
+                        <h1 class="tit">百万文献下载</h1>
+                        <p>每月下载上限1000篇，超出需另外付费下载</p>
+                    </div>
+                </div>
+            </div>
+            <div class="s5">
+                <div class="w1200">
+                    <div class="text">
+                        <h1 class="tit">会员尊享折扣优惠</h1>
+                        <p>部分商品（音频、视频、图集、微刊、期刊、图书） 5-8 折特惠</p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div style="display: none">
+            <input type="hidden" id="vipYearPrice" value="<%= viewModel.data.list[2].value %>">
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+                var type = 20;
+                var price = $('#vipYearPrice').val();
+                $(".s2 ul li").click(function() {
+                    type = $(this).attr('data-vip-type');
+                    price = $(this).attr('data-vip-price');
+                    $(this).addClass("click").siblings().removeClass("click");
+                })
+
+                $('#btn').click(function() {
+                    var url = '/payment/checkout?ordertype=' + type + '&payType=1';
+                    location.href = url;
+                })
+            </script>
+</body>
+
+</html>

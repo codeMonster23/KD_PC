@@ -1,0 +1,2305 @@
+﻿[
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10101",
+        "ztName": "解读诸子百家"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10102",
+        "ztName": "八荣八耻"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10103",
+        "ztName": "爱国教育"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10104",
+        "ztName": "革命传统教育"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10105",
+        "ztName": "国防教育"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10106",
+        "ztName": "职业道德"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10107",
+        "ztName": "家庭婚姻道德"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10108",
+        "ztName": "社会公德"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10109",
+        "ztName": "网络道德"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10110",
+        "ztName": "学术道德"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10111",
+        "ztName": "个人修养"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10112",
+        "ztName": "社交与礼仪"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10113",
+        "ztName": "人生思考"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN101",
+    "ztName": "修身养性"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10201",
+        "ztName": "华夏传统节日和节令"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10202",
+        "ztName": "华夏神话故事"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10203",
+        "ztName": "华夏民间传说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10204",
+        "ztName": "华夏民间工艺"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10205",
+        "ztName": "华夏古代礼制"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10206",
+        "ztName": "西洋节"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1020701",
+            "ztName": "生育和寿礼"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020702",
+            "ztName": "婚姻"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020703",
+            "ztName": "丧葬"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020704",
+            "ztName": "服饰"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020705",
+            "ztName": "饮食"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020706",
+            "ztName": "居住"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020707",
+            "ztName": "礼仪礼节"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020708",
+            "ztName": "五花八门"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10207",
+        "ztName": "华夏各种风俗"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1020801",
+            "ztName": "安徽省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020802",
+            "ztName": "澳门"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020803",
+            "ztName": "北京市"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020804",
+            "ztName": "重庆市"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020805",
+            "ztName": "福建省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020806",
+            "ztName": "甘肃省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020807",
+            "ztName": "广东省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020808",
+            "ztName": "广西省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020809",
+            "ztName": "贵州省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020810",
+            "ztName": "海南省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020811",
+            "ztName": "河北省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020812",
+            "ztName": "河南省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020813",
+            "ztName": "黑龙江省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020814",
+            "ztName": "湖北省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020815",
+            "ztName": "湖南省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020816",
+            "ztName": "吉林省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020817",
+            "ztName": "江苏省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020818",
+            "ztName": "江西省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020819",
+            "ztName": "辽宁省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020820",
+            "ztName": "内蒙古自治区"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020821",
+            "ztName": "宁夏省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020822",
+            "ztName": "青海省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020823",
+            "ztName": "山东省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020824",
+            "ztName": "山西省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020825",
+            "ztName": "陕西省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020826",
+            "ztName": "上海市"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020827",
+            "ztName": "四川省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020828",
+            "ztName": "台湾省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020829",
+            "ztName": "天津市"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020830",
+            "ztName": "西藏"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020831",
+            "ztName": "香港"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020832",
+            "ztName": "新疆维吾尔自治区"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020833",
+            "ztName": "云南省"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020834",
+            "ztName": "浙江省"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10208",
+        "ztName": "华夏各地风俗"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1020901",
+            "ztName": "阿昌族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020902",
+            "ztName": "白族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020903",
+            "ztName": "保安族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020904",
+            "ztName": "布朗族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020905",
+            "ztName": "布依族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020906",
+            "ztName": "朝鲜族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020907",
+            "ztName": "达斡尔族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020908",
+            "ztName": "傣族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020909",
+            "ztName": "德昂族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020910",
+            "ztName": "东乡族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020911",
+            "ztName": "侗族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020912",
+            "ztName": "独龙族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020913",
+            "ztName": "俄罗斯族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020914",
+            "ztName": "鄂伦春族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020915",
+            "ztName": "鄂温克族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020916",
+            "ztName": "高山族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020917",
+            "ztName": "哈尼族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020918",
+            "ztName": "哈萨克族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020919",
+            "ztName": "汉族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020920",
+            "ztName": "赫哲族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020921",
+            "ztName": "回族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020922",
+            "ztName": "基诺族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020923",
+            "ztName": "京族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020924",
+            "ztName": "景颇族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020925",
+            "ztName": "柯尔克孜族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020926",
+            "ztName": "拉祜族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020927",
+            "ztName": "黎族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020928",
+            "ztName": "傈僳族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020929",
+            "ztName": "珞巴族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020930",
+            "ztName": "满族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020931",
+            "ztName": "毛南族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020932",
+            "ztName": "门巴族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020933",
+            "ztName": "蒙古族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020934",
+            "ztName": "苗族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020935",
+            "ztName": "仫佬族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020936",
+            "ztName": "纳西族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020937",
+            "ztName": "怒族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020938",
+            "ztName": "普米族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020939",
+            "ztName": "羌族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020940",
+            "ztName": "撒拉族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020941",
+            "ztName": "畲族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020942",
+            "ztName": "水族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020943",
+            "ztName": "塔吉克族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020944",
+            "ztName": "塔塔尔族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020945",
+            "ztName": "土家族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020946",
+            "ztName": "土族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020947",
+            "ztName": "佤族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020948",
+            "ztName": "维吾尔族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020949",
+            "ztName": "乌孜别克族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020950",
+            "ztName": "锡伯族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020951",
+            "ztName": "瑶族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020952",
+            "ztName": "彝族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020953",
+            "ztName": "仡佬族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020954",
+            "ztName": "裕固族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020955",
+            "ztName": "藏族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1020956",
+            "ztName": "壮族"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10209",
+        "ztName": "华夏各民族风情"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10210",
+        "ztName": "异国风俗"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN102",
+    "ztName": "民风民俗"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1030101",
+            "ztName": "治安处罚"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030102",
+            "ztName": "交通事故"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030103",
+            "ztName": "教育案件"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030104",
+            "ztName": "医疗纠纷"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030105",
+            "ztName": "劳动争议"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030106",
+            "ztName": "社会保障"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030107",
+            "ztName": "财政税收"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030108",
+            "ztName": "保险纠纷"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030109",
+            "ztName": "农业经济管理"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030110",
+            "ztName": "环境保护"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030111",
+            "ztName": "婚姻家庭"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030112",
+            "ztName": "遗嘱继承"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030113",
+            "ztName": "合同纠纷"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030114",
+            "ztName": "人身伤害"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030115",
+            "ztName": "财产所有权"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030116",
+            "ztName": "房产物业"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030117",
+            "ztName": "债权事务"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030118",
+            "ztName": "消费者权益"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030119",
+            "ztName": "名誉肖像等侵权"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030120",
+            "ztName": "著作权和版权"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030121",
+            "ztName": "专利"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030122",
+            "ztName": "商标"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030123",
+            "ztName": "公司事务"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030124",
+            "ztName": "海商海事"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1030125",
+            "ztName": "刑事案件"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10301",
+        "ztName": "案例大观"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10302",
+        "ztName": "律师事务所"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10303",
+        "ztName": "聘请律师须知"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10304",
+        "ztName": "案情揭秘"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN103",
+    "ztName": "法制纵横"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10401",
+        "ztName": "反腐倡廉"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10402",
+        "ztName": "食品药品监督"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10403",
+        "ztName": "医疗保险改革"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10404",
+        "ztName": "关爱弱势群体"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10405",
+        "ztName": "收入分配"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10406",
+        "ztName": "高考中考"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10407",
+        "ztName": "聚焦就业"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10408",
+        "ztName": "社会治安"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10409",
+        "ztName": "房产物业"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10410",
+        "ztName": "物价评议"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10411",
+        "ztName": "环境保护"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10412",
+        "ztName": "社会和谐"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10413",
+        "ztName": "海外时政"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10414",
+        "ztName": "社会万象"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10415",
+        "ztName": "话说信仰"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN104",
+    "ztName": "百姓焦点"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10501",
+        "ztName": "中华千年"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10502",
+        "ztName": "海外历史"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10503",
+        "ztName": "文物考古"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1050401",
+            "ztName": "时政人物"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050402",
+            "ztName": "军界名人"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050403",
+            "ztName": "财经名流"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050404",
+            "ztName": "科教精英"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050405",
+            "ztName": "体坛骄子"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050406",
+            "ztName": "文艺明星"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050407",
+            "ztName": "芸芸众生"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10504",
+        "ztName": "名人风采"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1050501",
+            "ztName": "佛学文化"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050502",
+            "ztName": "道学文化"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050503",
+            "ztName": "伊斯兰教"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050504",
+            "ztName": "基督教"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1050505",
+            "ztName": "其他宗教"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10505",
+        "ztName": "走近宗教"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN105",
+    "ztName": "历史人文"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10601",
+        "ztName": "职场资讯"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10602",
+        "ztName": "求职指导"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10603",
+        "ztName": "职场宝典"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN106",
+    "ztName": "人才求职"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1070101",
+            "ztName": "围城内外"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070102",
+            "ztName": "婆媳之间"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070103",
+            "ztName": "代际关系"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070104",
+            "ztName": "女性频道"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070105",
+            "ztName": "男性频道"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070106",
+            "ztName": "爱情画廊"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10701",
+        "ztName": "情感天地"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10702",
+        "ztName": "两性话题"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10703",
+        "ztName": "教子有方"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10704",
+        "ztName": "致富之路"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10705",
+        "ztName": "理财之道"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10706",
+        "ztName": "购物指南"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1070701",
+            "ztName": "各国食谱菜谱"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070702",
+            "ztName": "各种用途食谱菜谱"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070703",
+            "ztName": "各种原料食谱菜谱"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070704",
+            "ztName": "主食食谱"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070705",
+            "ztName": "节日食谱菜谱"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070706",
+            "ztName": "凉菜"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070707",
+            "ztName": "火锅菜"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070708",
+            "ztName": "烤箱菜和烧烤菜"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070709",
+            "ztName": "微波炉菜"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070710",
+            "ztName": "地方风味小吃"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070711",
+            "ztName": "魔幻厨房"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070712",
+            "ztName": "饮品"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070713",
+            "ztName": "饮食文化"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10707",
+        "ztName": "饮食文化与厨艺"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1070801",
+            "ztName": "美容屋"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070802",
+            "ztName": "瘦身厅"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070803",
+            "ztName": "珠宝首饰"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070804",
+            "ztName": "服饰流行风"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070805",
+            "ztName": "配饰"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10708",
+        "ztName": "扮靓手册"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1070901",
+            "ztName": "家居装饰"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1070902",
+            "ztName": "家庭园艺"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10709",
+        "ztName": "家居美化"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10710",
+        "ztName": "家具与厨卫"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10711",
+        "ztName": "家庭宠物"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10712",
+        "ztName": "生活常识"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1071301",
+            "ztName": "数字办公"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1071302",
+            "ztName": "数字时尚"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1071303",
+            "ztName": "数字通讯"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1071304",
+            "ztName": "数字家庭"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10713",
+        "ztName": "数字生活"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1071401",
+            "ztName": "车市导航"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1071402",
+            "ztName": "安全驾驶"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1071403",
+            "ztName": "保养维修"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10714",
+        "ztName": "爱车一族"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN107",
+    "ztName": "居家生活"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10801",
+        "ztName": "文林撷英"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10802",
+        "ztName": "新书推荐"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1080301",
+            "ztName": "艺术家"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080302",
+            "ztName": "绘画作品赏析"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080303",
+            "ztName": "书法作品赏析"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080304",
+            "ztName": "雕塑作品赏析"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080305",
+            "ztName": "摄影作品赏析"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10803",
+        "ztName": "美术摄影苑"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1080401",
+            "ztName": "影视介绍"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080402",
+            "ztName": "品评影视"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080403",
+            "ztName": "明星风采"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080404",
+            "ztName": "影坛纪事"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080405",
+            "ztName": "电视天地"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10804",
+        "ztName": "影视圈"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1080501",
+            "ztName": "音乐赏析"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080502",
+            "ztName": "歌坛纪事"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10805",
+        "ztName": "音乐风景线"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10806",
+        "ztName": "舞蹈戏剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10807",
+        "ztName": "动漫游戏"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1080801",
+            "ztName": "华夏各地风光"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080802",
+            "ztName": "国外风光"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080803",
+            "ztName": "各类型风光"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10808",
+        "ztName": "四海风光"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1080901",
+            "ztName": "集邮博览"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080902",
+            "ztName": "海报收藏"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080903",
+            "ztName": "艺术品收藏"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1080904",
+            "ztName": "收藏百科"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10809",
+        "ztName": "家庭收藏"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN108",
+    "ztName": "休闲广场"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1090101",
+            "ztName": "健身课堂"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090102",
+            "ztName": "瑜伽健身"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090103",
+            "ztName": "体坛内外"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090104",
+            "ztName": "星阵营"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090105",
+            "ztName": "健身故事"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10901",
+        "ztName": "健身操和瑜伽"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1090201",
+            "ztName": "足球教室"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090202",
+            "ztName": "足球明星"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090203",
+            "ztName": "赛场回眸"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090204",
+            "ztName": "闲话足球"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10902",
+        "ztName": "足球村"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1090301",
+            "ztName": "篮球教室"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090302",
+            "ztName": "篮球明星"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090303",
+            "ztName": "赛场回眸"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090304",
+            "ztName": "闲话篮球"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10903",
+        "ztName": "篮球场"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1090401",
+            "ztName": "乒乓教室"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090402",
+            "ztName": "乒乓明星"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090403",
+            "ztName": "赛事回眸"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090404",
+            "ztName": "乒乓故事"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10904",
+        "ztName": "乒乓乐园"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10905",
+        "ztName": "羽毛球"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1090601",
+            "ztName": "球技宝典"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090602",
+            "ztName": "网球明星"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090603",
+            "ztName": "赛事回眸"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090604",
+            "ztName": "闲话网球"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10906",
+        "ztName": "网球"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10907",
+        "ztName": "保龄球"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10908",
+        "ztName": "垒球"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1090901",
+            "ztName": "太极世界"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090902",
+            "ztName": "名拳荟萃"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090903",
+            "ztName": "武魂毓秀"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090904",
+            "ztName": "武术比赛"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090905",
+            "ztName": "摔跤"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090906",
+            "ztName": "格斗散打拳击"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1090907",
+            "ztName": "闲话武林"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10909",
+        "ztName": "武术搏击和跆拳道"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10910",
+        "ztName": "自行车"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1091101",
+            "ztName": "游泳健身"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091102",
+            "ztName": "星阵营"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091103",
+            "ztName": "赛事回眸"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091104",
+            "ztName": "游泳故事"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10911",
+        "ztName": "游泳和划船"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1091201",
+            "ztName": "健身房"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091202",
+            "ztName": "星阵营"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091203",
+            "ztName": "赛事回眸"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091204",
+            "ztName": "雪上故事"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10912",
+        "ztName": "滑雪和滑冰"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10913",
+        "ztName": "赛车天地"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10914",
+        "ztName": "登山"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1091501",
+            "ztName": "钓技交流"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091502",
+            "ztName": "钓具课堂"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091503",
+            "ztName": "钓饵探索"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091504",
+            "ztName": "钓界风云"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091505",
+            "ztName": "钓界名人"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091506",
+            "ztName": "钓鱼故事"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10915",
+        "ztName": "钓鱼"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10916",
+        "ztName": "扑克桥牌和麻将"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10917",
+        "ztName": "国际象棋"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1091801",
+            "ztName": "棋艺交流"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091802",
+            "ztName": "楚汉风云"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091803",
+            "ztName": "弈林至尊"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091804",
+            "ztName": "棋人棋事"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10918",
+        "ztName": "中国象棋"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1091901",
+            "ztName": "棋艺道场"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091902",
+            "ztName": "围棋赛场"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091903",
+            "ztName": "风云人物"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1091904",
+            "ztName": "棋场故事"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN10919",
+        "ztName": "围棋"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN10920",
+        "ztName": "五花八门"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN109",
+    "ztName": "体育健身"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1100101",
+            "ztName": "趣味心理测试"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100102",
+            "ztName": "梦里乾坤"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100103",
+            "ztName": "儿童心海导航"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100104",
+            "ztName": "青少年心海导航"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100105",
+            "ztName": "成年人心海导航"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100106",
+            "ztName": "老年人心海导航"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100107",
+            "ztName": "女性心海导航"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100108",
+            "ztName": "男性心海导航"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100109",
+            "ztName": "职场心理"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN11001",
+        "ztName": "心灵解码"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1100201",
+            "ztName": "食物营养"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100202",
+            "ztName": "饮食宜忌"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100203",
+            "ztName": "少年儿童饮食营养"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100204",
+            "ztName": "老年人饮食营养"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100205",
+            "ztName": "女性饮食营养"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN11002",
+        "ztName": "饮食营养"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1100301",
+            "ztName": "名人养生"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100302",
+            "ztName": "运动健身"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100303",
+            "ztName": "老年保健"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100304",
+            "ztName": "妇幼保健"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100305",
+            "ztName": "生活习惯"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100306",
+            "ztName": "性卫生"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100307",
+            "ztName": "计划生育"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN11003",
+        "ztName": "保健之道"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN11004",
+        "ztName": "家庭护理"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1100501",
+            "ztName": "感冒"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100502",
+            "ztName": "乙肝"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100503",
+            "ztName": "脂肪肝"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100504",
+            "ztName": "心脑血管疾病"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100505",
+            "ztName": "糖尿病"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100506",
+            "ztName": "肿瘤"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100507",
+            "ztName": "妇科疾病"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100508",
+            "ztName": "五官疾病"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100509",
+            "ztName": "职业病"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN11005",
+        "ztName": "疾病大观"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "UN11006",
+        "ztName": "药品常识"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1100701",
+            "ztName": "中医养生"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100702",
+            "ztName": "中医按摩"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100703",
+            "ztName": "针灸"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100704",
+            "ztName": "中医药材"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100705",
+            "ztName": "经典名方"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN11007",
+        "ztName": "中医知识"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1100801",
+            "ztName": "各类型人群药膳"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100802",
+            "ztName": "各种用途药膳"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100803",
+            "ztName": "各季药膳"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100804",
+            "ztName": "食物药用"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1100805",
+            "ztName": "实用药酒"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN11008",
+        "ztName": "药膳食疗"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN110",
+    "ztName": "家庭保健"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1110101",
+            "ztName": "内科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110102",
+            "ztName": "外科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110103",
+            "ztName": "妇产科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110104",
+            "ztName": "儿科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110105",
+            "ztName": "肿瘤科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110106",
+            "ztName": "精神病"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110107",
+            "ztName": "皮肤病与性病"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110108",
+            "ztName": "耳鼻喉科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110109",
+            "ztName": "眼科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110110",
+            "ztName": "口腔科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110111",
+            "ztName": "中医"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN11101",
+        "ztName": "名医名片"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "UN1110201",
+            "ztName": "综合医院"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110202",
+            "ztName": "中医院"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110203",
+            "ztName": "疗养院休养所和康复医院"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110204",
+            "ztName": "内科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110205",
+            "ztName": "外科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110206",
+            "ztName": "妇产科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110207",
+            "ztName": "儿科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110208",
+            "ztName": "肿瘤科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110209",
+            "ztName": "精神病"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110210",
+            "ztName": "皮肤病与性病"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110211",
+            "ztName": "耳鼻喉科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110212",
+            "ztName": "眼科"
+          },
+          {
+            "grade": 3,
+            "ztCode": "UN1110213",
+            "ztName": "口腔科"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "UN11102",
+        "ztName": "名院风采"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "UN111",
+    "ztName": "寻医问药"
+  }
+]

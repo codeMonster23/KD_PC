@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:1,active:7}) %>
+                <div class="contentWrap">
+                    <h1 class="ls">
+                        <span>浏览历史</span>
+                        <div class="control">
+                            <a href="javascript:;" class="ba clear">清空记录</a>
+                        </div>
+                    </h1>
+                    <div class="collectWrap historywrap">
+                        <!--大图-->
+                        <div class="tabarea t1" style="display:block;">
+                            <div class="partWrap"></div>
+                            <!-- <div class="part">
+                                <p class="timerecord">2019/11/12 <span>共123条浏览记录</span></p>
+                                <div class="boxlist clearfix">
+                            </div> -->
+                            <a href="javascript:;" class="more"><span>查看更多 </span><img src="/images/personal/p-icon1.gif"/></a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="mask"></div>
+        <div class="modal delmodal">
+            <a href="javascrpt:;" class="close"></a>
+            <h1 class="mtit">确认删除</h1>
+            <div class="text">
+                <p><strong>确定清空浏览历史记录吗？</strong></p>
+                <p>删除后将不可恢复，请谨慎操作</p>
+            </div>
+            <div class="bottom">
+                <div class="btn">
+                    <a href="javascript:;" class="sure left" data-type="">确定</a>
+                    <a href="javascript:;" class="cancel right">取消</a>
+                </div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+        <script>
+            var endtime = $.kd.dateFormat(new Date())+ ' 23:59:59';
+            var starttime = $.kd.dateFormat(new Date().getTime()-30*24*60*60*1000)+ ' 00:00:00';
+            var partDom = $('.personalMain .historywrap .partWrap');
+            var more = $('.more');
+            var delAllBtn = $('.personalMain .control .clear');
+            var delIds = '';
+            getHistory();
+            
+            function getHistory (pageNum) {
+                var pageNum = pageNum || 1;
+                $.ajax({
+                    url: '/pc/getHistory',
+                    dataType: "json",
+                    data: { 
+                        pageNum: pageNum,
+                        starttime: starttime,
+                        endtime: endtime
+                    },
+                    type: "GET",
+                    success: function (response) {
+                        if (response.code == 0) {
+                            var list = response.data.list;
+                            var map = {},result = [];
+                            if (list && list.length > 0) {
+                                // 按照时间分类 result为分类后的结果
+                                for (var i = 0; i < list.length; i++) {
+                                    var item = list[i];
+                                    var date = $.kd.dateFormat(item.addtime);
+                                    if(!map[date]){
+                                        result.push({
+                                            addtime: date,
+                                            data: [item]
+                                        });
+                                        map[date] = item;
+                                    }else{
+                                        for(var j = 0; j < result.length; j++){
+                                            var dj = result[j];
+                                            if(dj.addtime == date){
+                                                dj.data.push(item);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                var partItemDom = partDom.find('.part');
+                                if(pageNum!=1){
+                                    partItemDom.each(function (index,item) {
+                                        var timerecord = $(item).find('.timerecord').text();
+                                        var boxlistDom = $(item).find('.boxlist');
+                                        for (var i = 0; i < result.length; i++) {
+                                            var resultlist = result[i].data;
+                                            var date = result[i].addtime.split('-').join('/');
+                                            var liststr = '';
+                                            for (var j = 0; j < resultlist.length; j++) {
+                                                var item = resultlist[j];
+                                                // ids += list[i].id + ',';
+                                                // 作品（11-图文；12-音频；13视频；14-图集）、2微刊、3期刊、4图书、5文献、6报纸
+                                                var type = 0;
+                                                switch (item.visittype) {
+                                                    case 11:
+                                                        type = '1';
+                                                        break;
+                                                    case 12:
+                                                        type = '2';
+                                                        break;
+                                                    case 13:
+                                                        type = '3';
+                                                        break;
+                                                    case 14:
+                                                        type = '4';
+                                                        break;
+                                                }
+                                                // 作品
+                                                if(item.visittype == 11 || item.visittype == 12 || item.visittype == 13 || item.visittype == 14){
+                                                    liststr += '<div class="box">'+
+                                                                '<div class="frame">'+
+                                                                    '<a href="/detail/workDetail/'+item.foreignkeyid+type+'" target="_blank" class="img type2"><img src="'+item.coverpic+'"><i class="icon icon'+type+'"></i></a>'+
+                                                                    '<div class="widget">'+
+                                                                        '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                                '<p class="name"><a href="/detail/workDetail/'+item.foreignkeyid+type+'" target="_blank">'+item.title+'</a></p>'+
+                                                            '</div>';
+                                                }
+                                                // 微刊
+                                                if(item.visittype == 2){
+                                                    liststr += '<div class="box">'+
+                                                                '<div class="frame">'+
+                                                                    '<a href="/detail/microBookDetail?id='+item.foreignkeyid+'" target="_blank" class="img type2"><img src="'+item.coverpic+'"></a>'+
+                                                                    '<div class="widget">'+
+                                                                        '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                                '<p class="name"><a href="/detail/microBookDetail?id='+item.foreignkeyid+'" target="_blank">'+item.title+'</a></p>'+
+                                                            '</div>';
+                                                }
+                                                // 期刊
+                                                if(item.visittype == 3){
+                                                    liststr += '<div class="box">'+
+                                                                '<div class="frame">'+
+                                                                    '<a href="/singlePeriodDetail/'+item.foreignkeyid+'" target="_blank" class="img type3"><img src="'+item.coverpic+'"></a>'+
+                                                                    '<div class="widget">'+
+                                                                        '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                                '<p class="name"><a href="/singlePeriodDetail/'+item.foreignkeyid+'" target="_blank">'+item.title+'</a></p>'+
+                                                            '</div>';
+                                                }
+                                                // 图书
+                                                if(item.visittype == 4){
+                                                    liststr += '<div class="box">'+
+                                                                '<div class="frame">'+
+                                                                    '<a href="/detail/bookDetail/'+item.foreignkeyid+'" target="_blank" class="img type3"><img src="'+item.coverpic+'"></a>'+
+                                                                    '<div class="widget">'+
+                                                                        '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                                '<p class="name"><a href="/detail/bookDetail/'+item.foreignkeyid+'" target="_blank">'+item.title+'</a></p>'+
+                                                            '</div>';
+                                                }
+                                                // 文献
+                                                if(item.visittype == 5){
+                                                    liststr += '<div class="box">'+
+                                                                '<div class="frame">'+
+                                                                    '<a href="/literature/literatureDetail/'+item.foreignkeyid+'" target="_blank" class="img type4"><img src="'+item.coverpic+'"></a>'+
+                                                                    '<div class="widget">'+
+                                                                        '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                                '<p class="name"><a href="/literature/literatureDetail/'+item.foreignkeyid+'" target="_blank">'+item.title+'</a></p>'+
+                                                            '</div>';
+                                                }
+                                            }
+                                            if(date == timerecord){
+                                                // 如果是之前某一天追加到这一天
+                                                boxlistDom.append(liststr);
+                                                result.splice(i,1);
+                                            }
+                                        }
+                                    });
+                                }
+                                var partstr = '';
+                                for (var i = 0; i < result.length; i++) {
+                                    var resultlist = result[i].data;
+                                    var date = result[i].addtime.split('-').join('/');
+                                    var newliststr = '';
+                                    for (var j = 0; j < resultlist.length; j++) {
+                                        var item = resultlist[j];
+                                        var type = 0;
+                                        switch (item.visittype) {
+                                            case 11:
+                                                type = '1';
+                                                break;
+                                            case 12:
+                                                type = '2';
+                                                break;
+                                            case 13:
+                                                type = '3';
+                                                break;
+                                            case 14:
+                                                type = '4';
+                                                break;
+                                        }
+                                        // 作品
+                                        if(item.visittype == 11 || item.visittype == 12 || item.visittype == 13 || item.visittype == 14){
+                                            newliststr += '<div class="box">'+
+                                                        '<div class="frame">'+
+                                                            '<a href="/detail/workDetail/'+item.foreignkeyid+type+'" target="_blank" class="img type2"><img src="'+item.coverpic+'"><i class="icon icon'+type+'"></i></a>'+
+                                                            '<div class="widget">'+
+                                                                '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                            '</div>'+
+                                                        '</div>'+
+                                                        '<p class="name"><a href="/detail/workDetail/'+item.foreignkeyid+type+'" target="_blank">'+item.title+'</a></p>'+
+                                                    '</div>';
+                                        }
+                                        // 微刊
+                                        if(item.visittype == 2){
+                                            newliststr += '<div class="box">'+
+                                                        '<div class="frame">'+
+                                                            '<a href="/detail/microBookDetail?id='+item.foreignkeyid+'" target="_blank" class="img type2"><img src="'+item.coverpic+'"></a>'+
+                                                            '<div class="widget">'+
+                                                                '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                            '</div>'+
+                                                        '</div>'+
+                                                        '<p class="name"><a href="/detail/microBookDetail?id='+item.foreignkeyid+'" target="_blank">'+item.title+'</a></p>'+
+                                                    '</div>';
+                                        }
+                                        // 期刊
+                                        if(item.visittype == 3){
+                                            newliststr += '<div class="box">'+
+                                                        '<div class="frame">'+
+                                                            '<a href="/singlePeriodDetail/'+item.foreignkeyid+'" target="_blank" class="img type3"><img src="'+item.coverpic+'"></a>'+
+                                                            '<div class="widget">'+
+                                                                '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                            '</div>'+
+                                                        '</div>'+
+                                                        '<p class="name"><a href="/singlePeriodDetail/'+item.foreignkeyid+'" target="_blank">'+item.title+'</a></p>'+
+                                                    '</div>';
+                                        }
+                                        // 图书
+                                        if(item.visittype == 4){
+                                            newliststr += '<div class="box">'+
+                                                        '<div class="frame">'+
+                                                            '<a href="/detail/bookDetail/'+item.foreignkeyid+'" target="_blank" class="img type3"><img src="'+item.coverpic+'"></a>'+
+                                                            '<div class="widget">'+
+                                                                '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                            '</div>'+
+                                                        '</div>'+
+                                                        '<p class="name"><a href="/detail/bookDetail/'+item.foreignkeyid+'" target="_blank">'+item.title+'</a></p>'+
+                                                    '</div>';
+                                        }
+                                        // 文献
+                                        if(item.visittype == 5){
+                                            newliststr += '<div class="box">'+
+                                                        '<div class="frame">'+
+                                                            '<a href="/literature/literatureDetail/'+item.foreignkeyid+'" target="_blank" class="img type4"><img src="/images/personal/p-colletc-icon6.jpg"></a>'+
+                                                            '<div class="widget">'+
+                                                                '<a href="javascript:;" class="del left" data-id="'+item.id+'"></a>'+
+                                                            '</div>'+
+                                                        '</div>'+
+                                                        '<p class="name"><a href="/literature/literatureDetail/'+item.foreignkeyid+'" target="_blank">'+item.title+'</a></p>'+
+                                                    '</div>';
+                                        }
+                                    }
+
+                                    partstr += '<div class="part">'+
+                                                    '<p class="timerecord">'+date+'</p>'+
+                                                    '<div class="boxlist clearfix">'+newliststr+'</div>'+
+                                                '</div>';
+                                }
+                                
+                                if (pageNum == 1) {
+                                    partDom.html(partstr);
+                                } else {
+                                    partDom.append(partstr);
+                                }
+                                if (list.length == 12) {
+                                    more.html('<span>查看更多 </span><img src="/images/personal/p-icon1.gif"/>');
+                                } else {
+                                    more.html('没有更多了！');
+                                }
+                            }else{
+                                if (pageNum == 1){
+                                    partDom.html(partstr);
+                                }
+                                if ($('.delmodal .sure').attr('data-type') == 1){
+                                    partDom.html('');
+                                }
+                                more.html('没有更多了！')
+                            }
+                        }
+                    }
+                });
+            }
+            function delHistory (delIds) {
+                $.ajax({
+                    url: '/pc/delHistory?ids='+delIds,
+                    dataType: "json",
+                    type: "GET",
+                    success: function (response) {
+                        if (response.code == 0) {
+                            layer.msg(response.msg);
+                            $('.mask,.delmodal').hide();
+                            if($('.delmodal .sure').attr('data-type') == 1){
+                                getHistory();
+                            }else{
+                                // 单条删除
+                                var box = partDom.find('.box');
+                                box.each(function (index,item) {
+                                    var id = $(item).find('.del').attr('data-id');
+                                    if (id == delIds) {
+                                        $(item).remove();
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+            // 删除单个
+            $(document).on('click','.personalMain .box .del',function () {
+                delIds = $(this).attr('data-id');
+                $('.mask,.delmodal').show();
+            });
+
+            // 删除全部
+            delAllBtn.on('click',function () {
+                var box = partDom.find('.box');
+                if(box.length == 0) return;               
+                delIds = '';
+                $('.mask,.delmodal').show();
+                $('.delmodal .sure').attr('data-type',1);
+            });
+            // 确定删除
+            $('.delmodal .sure').on('click',function () {
+                delHistory(delIds);
+            });
+            // 关闭弹框和取消按钮
+            $('.delmodal .close,.delmodal .cancel').on('click',function () {
+                $('.mask,.delmodal').hide();
+            });
+            // 加载更多
+            more.click(function () {
+                var pageNum = Math.floor(partDom.find('.box').length / 12 + 1);
+                getHistory(pageNum);
+            });
+        </script>
+</body>
+
+</html>

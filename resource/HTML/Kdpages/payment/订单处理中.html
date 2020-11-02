@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/payment.css"/>
+    <script src="../js/jQuery-v1.11.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+    <title>支付</title>
+
+</head>
+<body bgcolor="#EBEFF5">
+   <div class="inhand">
+   	  <p><span></span>订单处理中......</p>
+   </div>
+    <script type="text/javascript">
+         layer.open({
+      type:1,
+      title: false,
+      closeBtn: 0,
+      content: $('.inhand'), //这里content是一个DOM
+      area:'160px',
+      shadeClose: true, //点击遮罩关闭
+    });       
+    </script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+/* 内容下架 */
+
+.offShelf {
+    background: #fff7f1;
+    font-family: SimSun;
+    color: #333333;
+}
+
+.w1200pxAuto {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.offShelf-logo {
+    float: left;
+    margin-top: 20px;
+}
+
+.offShelf-slogan {
+    float: right;
+    margin-top: 40px;
+}
+
+.offShelf-main {
+    font-family: MicrosoftYaHei;
+}
+
+.offShelf-img {
+    display: block;
+    margin: 47px auto 36px;
+}
+
+.offShelf-text {
+    font-size: 18px;
+    color: #272727;
+    text-align: center;
+}
+
+.offShelf-btn-backhome {
+    display: block;
+    width: 118px;
+    height: 40px;
+    line-height: 40px;
+    margin: 18px auto 40px;
+    background-color: #fec425;
+    box-shadow: 1px 4px 0px 0px rgba(141, 48, 7, 0.07);
+    border-radius: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.offShelf .subottom {
+    background-color: #ffffff;
+    width: 998px;
+    border: 1px solid #DFDFDF;
+    margin: 0 auto 100px;
+}
+
+.offShelf .subottom .favorite {
+    height: 42px;
+    padding-top: 8px;
+    background-color: #475162;
+    margin-bottom: 40px;
+}
+
+.offShelf .subottom .favorite label {
+    float: left;
+    padding-left: 28px;
+    color: #a2a6ae;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 42px;
+    margin-right: 16px;
+}
+
+.offShelf .subottom .favorite .tab a {
+    float: left;
+    width: 80px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    margin-right: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #676F7D;
+}
+
+.offShelf .subottom .favorite .tab a.cur {
+    background-color: #ffffff;
+    color: #262626;
+}
+
+.offShelf .subottom .tabcont {
+    display: none;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
+
+.offShelf .subottom .tabcont ul li {
+    float: left;
+    width: 215px;
+    padding: 4px 4px 0;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+.offShelf .subottom .tabcont ul li a {
+    display: block;
+    position: relative;
+    color: #262626;
+}
+
+.offShelf .subottom .tabcont ul li a img {
+    width: 215px;
+    height: 122px;
+}
+
+.offShelf .subottom .tabcont ul li a .icon {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    top: 92px;
+    right: 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.offShelf .subottom .tabcont ul li a .icon1 {
+    background-image: url(../../images/payment/pay-icon10.png);
+}
+
+.offShelf .subottom .tabcont ul li a .icon2 {
+    background-image: url(../../images/payment/pay-icon11.png);
+}
+
+.offShelf .subottom .tabcont ul li a .icon3 {
+    background-image: url(../../images/payment/pay-icon12.png);
+}
+
+.offShelf .subottom .tabcont ul li a .icon4 {
+    background-image: url(../../images/payment/pay-icon13.png);
+}
+
+.offShelf .subottom .tabcont ul li a .icon5 {
+    background-image: url(../../images/payment/pay-icon14.png);
+}
+
+.offShelf .subottom .tabcont ul li a p {
+    line-height: 40px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.offShelf .subottom .tabcont .periodical {
+    height: 279px;
+    overflow: hidden;
+}
+
+.offShelf .subottom .tabcont .periodical li {
+    width: 169px;
+}
+
+.offShelf .subottom .tabcont .periodical li a img {
+    width: 169px;
+    height: 224px;
+}
+
+.offShelf-footer {
+    padding-bottom: 64px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 32px;
+    color: #666666;
+}
+
+
+/* 404 */
+
+.error {
+    background: #fff7f1;
+    font-family: SimSun;
+    color: #333333;
+}
+
+.w1200pxAuto {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.error-logo {
+    float: left;
+    margin-top: 20px;
+}
+
+.error-slogan {
+    float: right;
+    margin-top: 40px;
+}
+
+.error-main {
+    font-family: MicrosoftYaHei;
+}
+
+.error-img {
+    display: block;
+    margin: 64px auto 40px;
+}
+
+.error-text {
+    line-height: 30px;
+    font-size: 18px;
+    color: #272727;
+    text-align: center;
+}
+
+.error-btn-backhome {
+    display: block;
+    width: 118px;
+    height: 40px;
+    line-height: 40px;
+    margin: 18px auto 40px;
+    background-color: #fec425;
+    box-shadow: 1px 4px 0px 0px rgba(141, 48, 7, 0.07);
+    border-radius: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.error .subottom {
+    background-color: #ffffff;
+    width: 998px;
+    border: 1px solid #DFDFDF;
+    margin: 0 auto 100px;
+}
+
+.error .subottom .favorite {
+    height: 42px;
+    padding-top: 8px;
+    background-color: #475162;
+    margin-bottom: 40px;
+}
+
+.error .subottom .favorite label {
+    float: left;
+    padding-left: 28px;
+    color: #a2a6ae;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 42px;
+    margin-right: 16px;
+}
+
+.error .subottom .favorite .tab a {
+    float: left;
+    width: 80px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    margin-right: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #676F7D;
+}
+
+.error .subottom .favorite .tab a.cur {
+    background-color: #ffffff;
+    color: #262626;
+}
+
+.error .subottom .tabcont {
+    display: none;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
+
+.error .subottom .tabcont ul li {
+    float: left;
+    width: 215px;
+    padding: 4px 4px 0;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+.error .subottom .tabcont ul li a {
+    display: block;
+    position: relative;
+    color: #262626;
+}
+
+.error .subottom .tabcont ul li a img {
+    width: 215px;
+    height: 122px;
+}
+
+.error .subottom .tabcont ul li a .icon {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    top: 92px;
+    right: 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.error .subottom .tabcont ul li a .icon1 {
+    background-image: url(../../images/payment/pay-icon10.png);
+}
+
+.error .subottom .tabcont ul li a .icon2 {
+    background-image: url(../../images/payment/pay-icon11.png);
+}
+
+.error .subottom .tabcont ul li a .icon3 {
+    background-image: url(../../images/payment/pay-icon12.png);
+}
+
+.error .subottom .tabcont ul li a .icon4 {
+    background-image: url(../../images/payment/pay-icon13.png);
+}
+
+.error .subottom .tabcont ul li a .icon5 {
+    background-image: url(../../images/payment/pay-icon14.png);
+}
+
+.error .subottom .tabcont ul li a p {
+    line-height: 40px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.error .subottom .tabcont .periodical {
+    height: 279px;
+    overflow: hidden;
+}
+
+.error .subottom .tabcont .periodical li {
+    width: 169px;
+}
+
+.error .subottom .tabcont .periodical li a img {
+    width: 169px;
+    height: 224px;
+}
+
+.error-footer {
+    padding-bottom: 64px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 32px;
+    color: #666666;
+}
+.aboutus{
+    margin-bottom: 210px;
+}
+.aboutus-header {
+    position: relative;
+    width: 210px;
+    padding: 100px 0 20px;
+    margin-left: 58px;
+    border-bottom:  1px solid #aeaeae;
+	font-family: 'MicrosoftYaHei';
+	font-size: 34px;
+	font-weight: bold;
+	color: #585858;
+}
+.aboutus-header::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 45px;
+	height: 4px;
+	background-color: #d6000e;
+}
+.aboutus-main {
+    margin-left: 20px;
+}
+.aboutus-left {
+    width: 491px;
+    height: 561px;
+    margin-top: 24px;
+}
+.aboutus-right {
+    position: relative;
+	width: 639px;
+    height: 573px;
+    padding-top: 62px;
+    margin-top: -11px;
+	background-color: #ffffff;
+	box-shadow: -10px 0px 5px 0px 
+		rgba(0, 0, 0, 0.21);
+}
+.aboutus-right::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -19px;
+    left: -19px;
+    width: 38px;
+    height: 38px;
+    background: url('../images/common/icon1.png');    
+}
+.aboutus-item {
+    margin: 0 48px 32px;    
+	line-height: 28px;
+    font-size: 16px;
+	font-family: 'MicrosoftYaHei';
+	color: #000000;
+}
+.aboutus-item h2{
+    position: relative;
+    margin-bottom: 16px;    
+    padding-left: 12px;    
+    font-size: 18px;
+    font-weight: bold;
+	color: #585858;
+}
+.aboutus-item h2::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 4px;
+	height: 17px;
+	background-color: #d6000e;
+}
+.aboutus-item p {
+    margin-left: 12px;    
+    text-indent: 2em;
+}
+.aboutus-item:last-child p {
+    text-indent: 0;
+}

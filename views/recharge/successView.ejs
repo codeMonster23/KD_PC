@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/recharge/recharge.css" />
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+        <div class="charBody">
+            <h1 class="tit"><span class="left">充值中心</span></h1>
+            <div class="resultWrap">
+                <div class="part1">
+                    <p class="p1">充值成功!</p>
+                    <p class="p2">您本次充值金额为 <span><%= viewModel.rechargeMoney %></span> 元
+                        <% if(viewModel.bonus > 0){ %>
+                            （另赠<i> <%= viewModel.bonus %> </i>元券）
+                            <% } %>
+                    </p>
+                    <p class="p3">充值时间：
+                        <%= viewModel.rechargeTime %>
+                    </p>
+                    <p class="p3">您目前的账户余额：<span><%= viewModel.data.Money %></span> 元 赠券余额：
+                        <span><%= viewModel.data.UsableTicket %></span> 元</p>
+                </div>
+                <div class="part2">
+                    <a href="/personalCenter/myAccount" class="a1">我的账户</a>
+                    <a href="/" class="a2">知网文化首页</a>
+                    <a href="/temp/recharge/home" class="a3">继续充值</a>
+                </div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+            </script>
+</body>
+
+</html>

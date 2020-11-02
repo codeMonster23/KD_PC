@@ -1,0 +1,73 @@
+<div class="pheader">
+    <div class="phwrap">
+        <a href="/" class="logoimg left"><img src="/images/literature/lheaderlogo1.png" height="71"></a>
+        <div class="hl left">
+            <a target="_blank" <% if(current==0 ){ %>class="cur"
+                    <% } %>
+               href="/">首页</a>
+            <a target="_blank" <% if(current==1 ){ %>class="cur"
+                    <% } %>
+               href="/discovery">发现</a>
+            <a target="_blank" <% if(current==2 ){ %>class="cur"
+                    <% } %>
+               href="/works">作品</a>
+            <a target="_blank" <% if(current==3 ){ %>class="cur"
+                    <% } %>
+               href="/microbook">微刊</a>
+            <a target="_blank" <% if(current==4 ){ %>class="cur"
+                    <% } %>
+               href="/kdh">万选号</a>
+            <a target="_blank" <% if(current==5 ){ %>class="cur"
+                    <% } %>
+               href="/literature">文献库</a>
+            <a target="_blank" <% if(current==6 ){ %>class="cur"
+                    <% } %>
+               href="/mall/home">书刊商城</a>
+            <!--<a <% if(current == 7){ %>class="cur"-->
+            <!--<% } %>-->
+            <!--href="#">客户端</a>-->
+        </div>
+        <div class="hr right">
+            <% if(viewModel && viewModel.user.name != null){ %>
+                <%- include('../components/userOptionMenu', {}) %>
+                    <% }else{ %>
+                        <a href="/temp/userCenter/register">注册</a>
+                        <div class="line"></div>
+                        <a id="login" href="javascript:;">登录</a>
+                        <% } %>
+                            <div class="search right">
+                                <input type="text" class="click" value="<%= keyword %>" />
+                                <!--<a data-enter-control="<%=enterControl%>" href="javascript:;" class="btn" id="searchBtn"></a>-->
+                                <a data-enter-control="0" href="javascript:;" class="btn" id="searchBtn"></a>
+                            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var login = $('#login');
+    login.click(function() {
+        location.href = '/temp/userCenter/login?v=' + Date.now();
+    })
+    $(".pheader .phwrap .hr .search .btn").click(function() {
+        $(this).siblings().addClass("click").focus();
+    })
+
+    var searchBtn = $('#searchBtn');
+    var enterControl = searchBtn.attr('data-enter-control');
+    searchBtn.on('click', function() {
+            var keyword = $(this).siblings('input').val();
+            if (keyword.trim().length == 0) {
+                return;
+            }
+            location.href = encodeURI('/search/home?keyword=' + keyword);
+        })
+        // 回车 提交 enterControl可以区分其他回车需求
+    if (enterControl == 1) {
+        $(document).bind("keydown", function(e) {
+            if (e.keyCode == 13) {
+                searchBtn.click();
+            }
+        })
+    }
+</script>

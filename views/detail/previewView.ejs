@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" href="/css/imgPreview/modalStyle.css">
+        <link rel="stylesheet" href="/css/imgPreview/style.css">
+        <link rel="stylesheet" href="/css/imgPreview/viewer.min.css">
+        <style>
+            .coverTemplate .wrap {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                margin-left: -505px;
+                padding-top: 120px;
+            }
+            
+            .coverTemplate .cover img {
+                width: 343px;
+                height: 234px;
+            }
+            
+            .container {
+                margin-top: 64px;
+                padding-top: 0;
+                position: relative;
+            }
+            
+            .preview .picBox img {
+                max-height: 650px;
+                max-width: 1100px;
+            }
+            
+            .display {
+                height: 100% !important;
+            }
+            /*.preview .picBox img {
+            width: auto;
+
+        }*/
+            
+            .viewer-container {
+                /*top: 60px;*/
+                background-color: rgba(0, 0, 0, 0.80);
+            }
+            
+            .viewer-prev,
+            .viewer-play,
+            .viewer-next,
+            .viewer-rotate-left,
+            .viewer-rotate-right,
+            .viewer-flip-horizontal,
+            .viewer-flip-vertical,
+            .viewer-reset,
+            .viewer-title,
+            .viewer-active,
+            .viewer-navbar {
+                display: none;
+            }
+            
+            .viewer-toolbar>li {
+                width: 45px;
+                height: 45px;
+                background-color: rgba(70, 70, 70, 0.5);
+                margin: 2px;
+            }
+            
+            .viewer-toolbar>li:before {
+                margin: 12px;
+            }
+            
+            .viewer-button {
+                background-color: rgba(241, 230, 230, 0.5);
+            }
+            
+            .header {
+                z-index: 10;
+            }
+            
+            .viewer-toolbar {
+                width: 146px;
+            }
+            
+            .viewer-close {
+                margin-top: 65px;
+                margin-right: 65px;
+                width: 55px;
+                height: 55px;
+                background-color: rgba(148, 148, 148, 0.5);
+            }
+            
+            .header2 .logo a {
+                margin-top: 15px;
+                /*display: block;*/
+                /*line-height: 1px;*/
+            }
+            
+            .preview .smallPicBox .imgWrap ul li {
+                overflow-y: hidden;
+            }
+        </style>
+        <style>
+            .viewer-zoom-in:before {
+                background-image: url('https://bianke.cnki.net/resources/pulpit/images/picLecture/20_08.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                /*width:30px;
+            height:30px;*/
+            }
+            
+            .viewer-zoom-out:before {
+                background-image: url('https://bianke.cnki.net/resources/pulpit/images/picLecture/20_06.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: 0 0;
+                /*width:30px;
+            height:30px;*/
+            }
+            
+            .viewer-one-to-one:before {
+                background-image: url('https://bianke.cnki.net/resources/pulpit/images/picLecture/20_03.png');
+                background-repeat: no-repeat;
+                background-size: 23px 23px;
+                background-position: 0 0;
+                width: 30px;
+                height: 30px;
+            }
+            
+            .viewer-close:before {
+                background-image: url('https://bianke.cnki.net/resources/pulpit/images/picLecture/20_13.png');
+                background-repeat: no-repeat;
+                background-size: 23px 23px;
+                background-position: 1px 5px;
+                width: 30px;
+                height: 30px;
+            }
+        </style>
+        <style>
+            /*.preview .bottombar .desc {
+            height: 100px;
+        }
+
+        .preview .bottombar .descWrap {
+            height: 100px;
+        }*/
+            
+             ::-webkit-scrollbar {
+                width: 8px;
+                height: 10px;
+            }
+            
+             ::-webkit-scrollbar-thumb {
+                border-radius: 5px;
+                background-color: rgba(70, 70, 70, 0.54);
+            }
+            
+            .pictext {
+                scrollbar-3dlight-color: rgba(230, 186, 84, 1);
+                /**/
+                /*三角箭头的颜色*/
+                scrollbar-highlight-color: #333;
+                /**/
+                /*立体滚动条的颜色*/
+                scrollbar-face-color: rgba(85, 85, 85, 1);
+                /**/
+                /*立体滚动条亮边的颜色*/
+                scrollbar-arrow-color: rgba(125, 125, 125, 1);
+                /**/
+                /*滚动条空白部分的颜色*/
+                scrollbar-dark-shadow-color: #666;
+                /* 立体滚动条强阴影的颜色*/
+                scrollbar-base-color: rgba(0, 0, 0, 0.2);
+                /**/
+                /*立体滚动条背景颜色*/
+                scrollbar-track-color: rgba(0, 0, 0, 0.2);
+            }
+        </style>
+
+</head>
+
+<body>
+    <div class="lastImgBoxWrap poptips">
+        <div class="lastImgBox">
+            <div class="innerWrap">
+                <div class="t">
+                    <div class="l">已经到最后一张了！</div>
+                    <div id="again" class="btn_review r">再看一遍</div>
+                </div>
+                <a href="/" class="b">
+                    <img src="/images/imgPreview/lastPIc.jpg">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header header2 clearfix">
+        <div class="left clearfix">
+            <div class="left logo">
+                <a href="/"><img height="50" src="/images/indexImages/logo.png" alt=""></a>
+            </div>
+        </div>
+        <div class="left name clearfix" style="cursor:pointer;" id="topnav">
+            <div class="left title">
+                <a href="/detail/workDetail/<%= viewModel.data.collection.id %><%= viewModel.data.collection.mediatype %>">
+                    <%= viewModel.data.collection.title %>
+                </a>
+            </div>
+            <div class="left author">
+                <%= viewModel.data.collection.author %>
+            </div>
+        </div>
+    </div>
+    <div class="container preview">
+        <div class="lastImgBoxWrap">
+            <div class="lastImgBox">
+                <div class="innerWrap">
+                    <div class="t">
+                        <div class="l">已经到最后一张了！</div>
+                        <div id="again" class="btn_review r">再看一遍</div>
+                    </div>
+                    <a href="#" class="b">
+                        <img src="/images/imgPreview/lastPIc.jpg">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="display" style="background:url(<%= viewModel.data.collection.skincode %>);background-size:cover;position:unset;">
+            <div class="picBox">
+                <div class="carousel">
+                    <ul class="imageList">
+                        <% for(var j = 0, picList = viewModel.data.piclist[0].CollectionPicList;j < picList.length;j++){ %>
+                            <li>
+                                <div class="imgBox">
+                                    <div class="leftpart" onclick="PageTurn(-1)"></div>
+                                    <div class="rightpart" onclick="PageTurn(1)"></div>
+                                    <img src="<%= picList[j].CollectionPicUrl %>" alt="1" />
+                                    <a href="javascript:;" class="btn-zoom" data-picurl="<%= picList[j].CollectionPicUrl %>" data-state="3" data-angle="0"></a>
+                                </div>
+                            </li>
+                            <% } %>
+                    </ul>
+                </div>
+                <div class="btns">
+                    <a href="javascript:;" class="leftBtn" onclick="PageTurn(-1)"></a>
+                    <a href="javascript:;" class="rightBtn" onclick="PageTurn(1)"></a>
+                </div>
+            </div>
+            <div class="bottombar" style="z-index:200;">
+                <div class="thumbnail">
+                    <div class="smallPicBox clearfix">
+                        <div class="imgWrap clearfix">
+                            <ul>
+                                <% for(var j = 0, picList = viewModel.data.piclist[0].CollectionPicList;j < picList.length;j++){ %>
+                                    <li data-type="1" data-angle="0" data-title="<%= picList[j].Description %>" class="207 on">
+                                        <img src="<%= picList[j].CollectionPicUrl %>" />
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                        <div class="btns">
+                            <a href="javascript:;" class="leftBtn" onclick="PageTurn(-1)"></a>
+                            <a href="javascript:;" class="rightBtn" onclick="PageTurn(1)"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="descWrap">
+                    <div class="desc clearfix">
+                        <div class="left num">
+                            <span class="current">1</span>
+                            <span class="total">
+                            <% viewModel.data.piclist[0].CollectionPicList.length %>
+                        </span>
+                        </div>
+                        <span class="left text pictext" style="overflow: auto;"></span>
+                        <div class="left icon-group clearfix">
+                            <span class="icon-thumbnail" title="展开图集列表"></span>
+                            <span class="icon-toggle" title="收起">
+                                <a href="javascript:;" class="fold"></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sideFloat">
+        <div class="item" id="sMenu" title="分组">
+
+            <!--<span class="icon icon-list" data-state="0"></span>-->
+            <!--<div class="list" style="display:none;" id="list">-->
+            <!--<ul>-->
+            <!--<li><a href="javascript:;" class="pic-group" data-groupid="207">分组类</a></li>-->
+            <!--<li><a href="javascript:;" class="pic-group" data-groupid="208">分组类</a></li>-->
+            <!--<li><a href="javascript:;" class="pic-group" data-groupid="209">分组类</a></li>-->
+            <!--<li><a href="javascript:;" class="pic-group" data-groupid="210">分组类</a></li>-->
+            <!--<li><a href="javascript:;" class="pic-group" data-groupid="211">分组类</a></li>-->
+            <!--<li><a href="javascript:;" class="pic-group" data-groupid="212">分组类</a></li>-->
+            <!--<li><a href="javascript:;" class="pic-group" data-groupid="213">分组类</a></li>-->
+            <!--<li><a href="javascript:;" class="pic-group" data-groupid="214">分组类</a></li>-->
+            <!--</ul>-->
+
+            <!--</div>-->
+
+        </div>
+
+        <audio controls="controls" loop="loop" style="position:absolute;z-index:-1;width:0px;height:0px;display:none;" id="player">
+        <source src="http://1254166853.vod2.myqcloud.com/742674e8vodgzp1254166853/" type="audio/mpeg">
+    </audio>
+        <input type="hidden" value="0" id="collectCount" />
+
+        <ul id="pic-big" style="display:none;">
+            <li><img data-original="" src="" alt="图说鸟类家族"></li>
+        </ul>
+        <input type="hidden" value="1" id="hidShowType" />
+    </div>
+    <!--<script src="//bianke.cnki.net/resources/js/jquery-1.10.2.min.js"></script>-->
+
+    <script src="/js/imgPreview/layer.js"></script>
+    <script src="/js/imgPreview/jquery.mCustomScrollbar.min.js"></script>
+    <script src="/js/imgPreview/picLecture-initial.js"></script>
+    <script src="/js/imgPreview/pic_tab.js"></script>
+    <script src="/js/imgPreview/common.js"></script>
+    <script src="/js/imgPreview/jquery.share.min.js"></script>
+    <script src="/js/imgPreview/viewer.min.js"></script>
+    <script>
+        var picnum;
+        var picw;
+        var pich;
+        var poppicw;
+        var picminnum;
+        var picpopnum;
+        var picminw;
+        var picminh;
+        var curNum;
+        var totalNum;
+        var pictime;
+        var tpqhnum = 0;
+        var xtqhnum = 0;
+        var popnum = 0;
+        var xteu;
+        $(window).load(function() {
+            // 轮播图
+            $('.preview .display').banqh({
+                box: ".preview .picBox", //总框架
+                pic: ".preview .carousel", //大图框架
+                pnum: ".preview .imgWrap", //小图框架
+                prev_btn: ".smallPicBox .leftBtn", //小图左箭头
+                next_btn: ".smallPicBox .rightBtn", //小图右箭头
+                //prev: ".picBox .leftBtn,.picBox .leftpart",//大图左箭头
+                //next: ".picBox .rightBtn,.picBox .rightpart",//大图右箭头
+                autoplay: false, //是否自动播放
+                delayTime: 400, //切换一张图片时间
+                order: 0, //当前显示的图片（从0开始）
+                picdire: true, //大图滚动方向（true为水平方向滚动）
+                mindire: true, //小图滚动方向（true为水平方向滚动）
+                min_picnum: 8, //小图显示数量
+                cur_num: ".display .desc .num .current",
+                total_num: ".display .desc .num .total",
+                title_text: ".display .desc .pictext",
+                comment_url: "https://bianke.cnki.net/pulpit/Details/Index/2548",
+            })
+        })
+
+        function PageTurn(ptype) {
+            if (ptype == -1) {
+                if (tpqhnum <= 0) {
+                    tpqhnum = picnum
+                };
+                if (xtqhnum == 0) {
+                    xtqhnum = picnum
+                };
+                xtqhnum--;
+                tpqhnum--;
+                showNew(tpqhnum);
+                minshowNew(xtqhnum, true);
+
+                var index = xtqhnum + 1;
+                if (xtqhnum + 1 > picnum) {
+                    index = xtqhnum + 1 - (picnum);
+                }
+                $(".display .desc .num .current").html(index);
+            } else {
+                if (tpqhnum == picnum - 1) {
+                    $('.poptips').show();
+                    return;
+                    tpqhnum = -1;
+                };
+                if (xtqhnum == picnum - 1) {
+                    xtqhnum = -1
+                };
+                xtqhnum++;
+                minshowNew(xtqhnum, true)
+                tpqhnum++;
+                showNew(tpqhnum);
+
+                var index = xtqhnum + 1;
+                if (xtqhnum + 1 > picnum) {
+                    index = xtqhnum + 1 - (picnum);
+                }
+                $(".display .desc .num .current").html(index);
+            }
+
+        }
+
+        function minshowNew(xtqhnum, flag) {
+
+            var mingdjl_num = xtqhnum % picnum;
+            var mingdjl_w = -mingdjl_num * picminw;
+
+            $(".preview .imgWrap").find('ul li').css('float', 'left');
+            if (flag) {
+                if (picminnum > 8) {
+                    $(".preview .imgWrap").find('ul').stop().animate({
+                        'left': mingdjl_w
+                    }, 400);
+                }
+            } else {
+                var index = xtqhnum + 1;
+                if (xtqhnum + 1 > picnum) {
+                    index = xtqhnum + 1 - (picnum);
+                }
+                $(".display .desc .num .current").html(index);
+            }
+
+
+        }
+
+        //大图切换过程
+        function showNew(tpqhnum, dir) {
+            var imgRange = 3;
+            for (var i = ((tpqhnum - imgRange) < 0 ? 0 : (tpqhnum - imgRange)); i < ((tpqhnum + imgRange) >= picnum ? picnum - 1 : (tpqhnum + imgRange)); i++) {
+                var tempImg = $($('.imgBox')[i]);
+                if (!tempImg.find("img").attr("src") && tempImg.find("img").attr("data-src").length > 0) {
+                    console.log("nowimg:" + tpqhnum + ", preloadimg:" + i);
+                    tempImg.find("img").attr("src", tempImg.find("img").attr("data-src"));
+                }
+            }
+
+
+            var gdjl_w = -tpqhnum * picw;
+            $(".preview .carousel").find('ul li').css('float', 'left');
+            //滚动
+            $(".preview .carousel").find('ul').stop().animate({
+                'left': gdjl_w
+            }, 400);
+            $(".preview .imgWrap").find('li').eq(tpqhnum).addClass("on").siblings(this).removeClass("on");
+            var text = $(".preview .imgWrap").find('li').eq(tpqhnum).attr("data-title");
+            $(".display .desc .pictext").text(text);
+            calc(tpqhnum)
+
+        };
+
+        // 滚动条
+
+        var flag = 0;
+        // 缩略图收起展开
+        var thumbnail = $('.bottombar .thumbnail');
+        thumbnail.toggle();
+        $('.icon-thumbnail').click(function() {
+            if (flag == 0) {
+                $('.icon-thumbnail').attr('title', '收起图集列表');
+                flag = 1;
+            } else {
+                $('.icon-thumbnail').attr('title', '展开图集列表');
+                flag = 0;
+            }
+            thumbnail.toggle();
+        });
+
+        // 底部收起展开
+        var k = 0;
+        $('.bottombar .desc .fold').click(function() {
+            if (k == 0) {
+                $(this).addClass('unfold').removeClass('fold').html('展开');
+                if (thumbnail.is(':visible')) {
+                    $('.icon-thumbnail').attr('title', '收起图集列表');
+                    thumbnail.hide();
+                    flag = 1;
+                }
+                $('.icon-thumbnail,.desc .num,.desc .text').hide();
+                $('.descWrap').css('background', 'none');
+                k = 1;
+            } else if (k == 1) {
+                $(this).addClass('fold').removeClass('unfold').html('');
+                $('.icon-thumbnail,.desc .num,.desc .text').show();
+                $('.icon-thumbnail').attr('title', '展开图集列表');
+                flag = 0;
+                //thumbnail.show();
+                $('.descWrap').css('background', 'rgba(0, 0, 0, 0.6)');
+                k = 0;
+            }
+
+        });
+
+        var showPicTime = setInterval(function() {
+            $('.btn-zoom').hide();
+        }, 5000);
+        // 鼠标五秒内不操作隐藏缩放按钮
+        $('.imgBox').mousemove(function() {
+            $('.btn-zoom').show();
+            clearInterval(showPicTime);
+            showPicTime = setInterval(function() {
+                $('.btn-zoom').hide();
+            }, 5000);
+        });
+
+        var viewer = new Viewer(document.getElementById('pic-big'), {
+            url: 'data-original',
+            hidden: function() {
+                $('.header').css("z-index", "10");
+                $('.imgBox').find('.leftpart').show();
+                $('.imgBox').find('.rightpart').show();
+                $('.imgBox').find('.btn-zoom').show();
+                $('.bottombar').css('z-index', 200);
+            },
+        });
+
+        //播放大图
+        $('.btn-zoom').click(function() {
+            $('#hidShowType').val("0");
+
+            clearInterval(showPicTime);
+            $('.bottombar').css('z-index', 0);
+            $('.imgBox').find('.leftpart').hide();
+            $('.imgBox').find('.rightpart').hide();
+            $('.imgBox').find('.btn-zoom').hide();
+            var picurl = $(this).attr('data-picurl');
+            var angle = $(this).attr('data-angle');
+            $('#pic-big').find('img').attr('data-original', picurl);
+            $('#pic-big').find('img').attr('src', picurl);
+            viewer.show();
+            $('.header').css("z-index", "0");
+            setTimeout(function() {
+
+                viewer.rotate(angle);
+                $('.viewer-one-to-one').toggle();
+                $('.viewer-one-to-one').toggle();
+            }, 350);
+
+            $('.viewer-close').click(function() {
+                $('#hidShowType').val("1");
+            });
+        });
+
+
+        $('#sMenu').hover(function() {
+            $('#list').css('display', 'block');
+        }, function() {
+
+        })
+
+        $('#list ul li').click(function() {
+            $('#list').css('display', 'none');
+        })
+
+        $('body').click(function() {
+            $('#list').css('display', 'none');
+        })
+    </script>
+    <script>
+        function AddViewDB() {
+            var blogId = "2548";
+            var url = "/pulpit/Edit/BlogPic/AddViewCount";
+            $.post(url, {
+                "id": blogId
+            }, function(data) {});
+        }
+
+        $(function() {
+            AddViewDB()
+
+            // $('#topnav').find(".title").click(function () {
+            //     var url = "/pulpit/PrewPicBlog/Index" + "/2548";
+            //     window.location.href = url;
+            // });
+
+            $('#back-home').click(function() {
+                var url = "/pulpit/PrewPicBlog/Index" + "/2548";
+                window.location.href = url;
+            });
+
+
+            //$(".preview .picBox li .leftpart").hover(function () {
+            //    $(this).addClass("lcur");
+            //}, function () {
+            //    $(this).removeClass("lcur");
+            //});
+
+            //$(".preview .picBox li .rightpart").hover(function () {
+            //    $(this).addClass("rcur");
+            //}, function () {
+            //    $(this).removeClass("rcur");
+            //});
+
+
+            //$('.icon-list').click(function () {
+            //    var state = $(this).attr("data-state");
+            //    if (state == "0") {
+            //        $('.list').show();
+            //        $(this).attr("data-state", "1");
+            //    } else {
+            //        $('.list').hide();
+            //        $(this).attr("data-state", "0");
+            //    }
+            //});
+
+            $('.list .close').click(function() {
+                $('.list').hide();
+            });
+
+            //组的导航
+            $('.pic-group').click(function() {
+                var groupId = $(this).attr("data-groupid");
+                //先查找到跳转索引
+                $('.preview .imgWrap').find('.' + groupId).eq(0).trigger("click");
+
+            });
+
+            $('.icon-music').click(function() {
+                var player = $("#player")[0];
+                /*jquery对象转换成js对象*/
+                if (player.paused) { /*如果已经暂停*/
+                    player.play();
+                    /*播放*/
+                } else {
+                    player.pause();
+                    /*暂停*/
+                }
+
+
+                if ($(this).hasClass('pause')) {
+                    $(this).addClass('play').removeClass('pause');
+                    $(this).parent().attr("title", "暂停");
+                    //player.play();
+                } else {
+                    $(this).addClass('pause').removeClass('play');
+                    $(this).parent().attr("title", "播放");
+                    //player.pause();
+                }
+
+            });
+            share();
+            bindCollect();
+            bindOpus();
+            setTimeout(function() {
+                initializationCalc();
+            }, 200);
+        });
+
+
+        function share() {
+            var SetShareUrl = window.location.href;
+            var text = "快来看看主讲：" + "CNKI工具书" + "发布的讲座《" + "图说鸟类家族" + "》吧！--大成讲坛";
+            //插件的配置部分，注意要记得设置onBeforeClick事件，主要用于获取动态的文章ID
+            window._bd_share_config = {
+                common: {
+                    onBeforeClick: SetShareUrl,
+                    bdText: text,
+                    bdDesc: "",
+                    bdUrl: SetShareUrl,
+                    bdPic: "",
+                    onAfterClick: addShowMessage,
+                },
+                share: [{
+                    "bdSize": 32
+                }],
+
+            };
+            with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+            $('.icon-share').click(function() {
+                var type = $(this).attr('data-type');
+                if (type == 0) {
+                    $('.bdsharebuttonbox').hide();
+                    $(this).attr('data-type', 1);
+
+                } else {
+                    $('.bdsharebuttonbox').show();
+                    $(this).attr('data-type', 0);
+                }
+            });
+        }
+
+        function addShowMessage() {
+            // http://localhost:8450/pulpit/api/PulpitApi/PersonActivity?UserId=40&DynamicType=0&Type=1&id=6
+            $.ajax({
+                data: {
+                    UserId: $('#hidUserId').val(),
+                    DynamicType: 0,
+                    Type: 4,
+                    Id: '2548'
+                },
+                dataType: "JSON",
+                type: "POST",
+                url: 'https://bianke.cnki.net/pulpit' + "/api/PulpitApi/PersonActivity",
+                success: function(res) {
+                    //alert(res);
+                }
+            });
+        }
+
+        function bindCollect() {
+            $("#sc").koalacollect({
+                plateFormUrl: "https://bianke.cnki.net",
+                collectType: 3,
+                isShowCancel: false,
+                oldClass: "icon-collect",
+                newClass: "icon-collect cur",
+                iscallBackFirst: true,
+                callBack: function(data, objChild) {
+                    $('.icon-collect').text("");
+                    if (objChild != undefined) {
+                        $('#sc').text("");
+                        var cnt = $('#collectCount').val();
+                        if (data > cnt) {
+                            $(this).addClass('cur');
+                            //layer.msg("收藏成功");
+                        } else {
+                            $(this).removeClass('cur');
+                            //layer.msg("取消收藏");
+                        }
+                    }
+                }
+            });
+
+        }
+
+        function bindOpus() {
+            //作品点赞
+            $("#dz").koalaagree({
+                plateFormUrl: "https://bianke.cnki.net",
+                agreeType: 2, //讲坛
+                isShowCancel: false,
+                oldClass: "icon-like",
+                newClass: "icon-like cur",
+                iscallBackFirst: true,
+                callBack: function(data, objChild) {
+                    if (parseInt(data) == 0) {
+                        objChild.find('.num').text("");
+                    } else {
+                        objChild.find('.num').text(data);
+                    }
+
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

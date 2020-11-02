@@ -1,0 +1,56 @@
+<div class="pheader mall-header">
+    <div class="phwrap">
+        <a target="_blank" href="/" class="logoimg left"><img src="/images/indexImages/logo4.png"></a>
+        <span class="line left"></span>
+        <a href="/mall/home" class="mall-logoimg left">书城</a>
+        <div class="hl left">
+            <a target="_blank" <% if(current==0 ){ %>class="cur"
+                    <% } %>
+                href="/mall/home">精选</a>
+            <a target="_blank" <% if(current==1 ){ %>class="cur"
+                    <% } %>
+                href="/mall/magaHome">期刊</a>
+            <a target="_blank" <% if(current==2 ){ %>class="cur"
+                    <% } %>
+                href="/mall/bookHome">图书</a>
+        </div>
+        <div class="hr right">
+            <% if(viewModel && viewModel.user.name != null){ %>
+                <%- include('../../components/userOptionMenu', {}) %>
+                    <% }else{ %>
+                        <a href="/temp/userCenter/register">注册</a>
+                        <div class="line"></div>
+                        <a href="/temp/userCenter/login">登录</a>
+                        <% } %>
+                            <div class="search right">
+                                <input class="click" type="text" />
+                                <a data-enter-control="<%=enterControl%>" href="javascript:;" class="btn" id="searchBtn"></a>
+                            </div>
+        </div>
+    </div>
+</div>
+<%- include('../../components/rightToolbar', {}) %>
+<script>
+    // $(".pheader .phwrap .hr .search .btn").click(function() {
+    //     $(this).siblings().addClass("click").focus();
+    // })
+
+    var searchBtn = $('#searchBtn');
+    var enterControl = searchBtn.attr('data-enter-control');
+    searchBtn.on('click', function() {
+        var keyword = $(this).siblings('input').val();
+        if (keyword.trim().length == 0) {
+            return;
+        }
+        location.href = encodeURI('/mall/searchResult?kw=' + keyword);
+    })
+
+    // 回车 提交 enterControl可以区分其他回车需求
+    if (enterControl == 1) {
+        $(document).bind("keydown", function(e) {
+            if (e.keyCode == 13) {
+                searchBtn.click();
+            }
+        })
+    }
+</script>

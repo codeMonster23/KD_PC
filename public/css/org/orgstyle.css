@@ -1,0 +1,203 @@
+.orgbanner {
+  margin-bottom: 10px;
+  height: 227px;
+  padding-top: 31px;
+  background: url(../../images/org/orgbanner.jpg) no-repeat center;
+}
+.orgbanner .avatar {
+  display: block;
+  width: 117px ;
+  height: 117px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.orgbanner .name {
+  text-align: center;
+  font-size: 42px;
+  color: #ffffff;
+  line-height: 90px;
+  letter-spacing: 6px;
+}
+.width1198pxAuto {
+  width: 1198px;
+  margin: 0 auto;
+}
+.ogHeader {
+  height: 71px;
+  line-height: 71px;
+  background: #424242;
+}
+.ogHeader .logoimg {
+  margin-top: 8px;
+  margin-right: 6px;
+  height: 54px;
+}
+.ogHeader .logoname {
+  margin-right: 20px;
+}
+.ogHeader .ohl {
+  line-height: 71px;
+}
+.ogHeader .ohr {
+  line-height: 71px;
+}
+.ogHeader .left a {
+  float: left;
+  color: #989898;
+  font-size: 16px;
+  margin-right: 36px;
+}
+.ogHeader .left a.cur {
+  font-weight: bold;
+  color: #FF3003;
+}
+.ogHeader .login {
+  color: #989898;
+  margin-left: 50px;
+  position: relative;
+  font-size: 14px;
+}
+.ogHeader .login a {
+  color: #989898;
+}
+.ogHeader .login span {
+  margin: 0 12px;
+}
+.ogHeader .login .personal {
+  height: 54px;
+  width: 164px;
+  padding-top: 22px;
+  position: relative;
+  background: url(../../images/org/o-header-icon2.gif) no-repeat right center;
+  cursor: pointer;
+  font-family: simsun;
+}
+.ogHeader .login .personal img {
+  float: left;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.ogHeader .login .personal .name {
+  float: left;
+  line-height: 32px;
+  color: #999999;
+  font-size: 12px;
+  margin: 0;
+}
+.ogHeader .login .personal ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  padding-top: 5px;
+  width: 163px;
+  background-color: #ffffff;
+  z-index: 9999;
+}
+.ogHeader .login .personal ul a {
+  display: block;
+  padding-left: 46px;
+  font-size: 14px;
+  color: #828ea0;
+  line-height: 44px;
+  background-repeat: no-repeat;
+  background-position: 18px center;
+}
+.ogHeader .login .personal ul a:hover {
+  background-color: #F9E8E8;
+}
+.ogHeader .login .personal ul .l1 a {
+  background-image: url(../../images/org/o-header-icon3.png);
+}
+.ogHeader .login .personal ul .l2 a {
+  background-image: url(../../images/org/o-header-icon4.png);
+}
+.ogHeader .login .personal ul .l3 a {
+  background-image: url(../../images/org/o-header-icon5.png);
+}
+.ogHeader .login .personal ul .l4 a {
+  background-image: url(../../images/org/o-header-icon6.png);
+}
+.ogHeader .login .personal:hover ul {
+  display: block;
+}
+.ogHeader .client {
+  position: relative;
+}
+.ogHeader .client a {
+  font-size: 14px;
+  color: #989898;
+}
+.ogHeader .client .ewm {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: -20px;
+  width: 206px;
+  height: 219px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 9999;
+}
+.ogHeader .client .ewm p {
+  padding-top: 10px;
+  line-height: 33px;
+  text-align: center;
+  font-size: 14px;
+}
+.ogHeader .client .ewm img {
+  display: block;
+  padding: 8px;
+  margin: 0 auto;
+  border: 2px solid #F4AF7F;
+}
+.ogHeader .client:hover .ewm {
+  display: block;
+}
+.ogFooter {
+  padding-top: 41px;
+  height: 126px;
+  background-color: #464342;
+}
+.ogFooter p {
+  line-height: 30px;
+  text-align: center;
+  color: #8b8b8b;
+  font-size: 14px;
+}
+.mwrap {
+  margin-top: 0px;
+}
+.mwrap .tags {
+  margin-top: 17px;
+  padding-left: 7px;
+}
+.mwrap .tags a {
+  float: left;
+  width: 68px;
+  height: 26px;
+  line-height: 26px;
+  border: 1px solid #DADDE1;
+  background-color: #ffffff;
+  margin-right: 8px;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+}
+.mwrap .tags a.cur {
+  border-color: #FF3B28;
+  background-color: #FF3B28;
+  color: #ffffff;
+}
+.mwrap .choose .num {
+  float: right;
+  line-height: 56px;
+  font-size: 16px;
+}
+.mwrap .choose .num span {
+  margin: 0 5px;
+  font-weight: bold;
+  color: #ff2a15;
+}

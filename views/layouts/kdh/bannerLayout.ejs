@@ -1,0 +1,73 @@
+<div id="kda-banner" class="kda-banner">
+    <img class="bgPic" src="<%=viewModel.data.kdhBaseInfo.org.backgroundpic %>" alt="">
+    <div class="shadow"></div>
+    <div class="bannerWrap">
+        <div class="avatar"><img src="<%=viewModel.data.kdhBaseInfo.org.logopic %>"></div>
+        <p class="p1">
+            <%=viewModel.data.kdhBaseInfo.org.orgname %>
+        </p>
+        <p class="p2">
+            <%=viewModel.data.kdhBaseInfo.org.memo %>
+        </p>
+        <p class="p3"><a href="javascript:;" data-is-concerned="<%=viewModel.data.kdhBaseInfo.org.isconcern %>" <% if(viewModel.data.kdhBaseInfo.org.isconcern==1 ){ %> class="active" <% }%> ><% if(viewModel.data.kdhBaseInfo.org.isconcern == 1){ %> 已关注 <%}else{%> 关注 <% }%></a><span><i class="fansCount"><%=viewModel.data.kdhBaseInfo.org.totalfans %></i>粉丝</span></p>
+    </div>
+</div>
+<input type="hidden" value="<%=viewModel.data.kdhBaseInfo.org.orgid %>" id="orgid">
+<input type="hidden" value="<%=viewModel.user.name%>" id="username">
+<input type="hidden" value="<%=viewModel.data.kdhBaseInfo.org.orgname%>" id="orgname">
+
+<script>
+    var concernBtn = $('.kda-banner .p3 a');
+    var fansCount = $('.kda-banner .p3 .fansCount');
+    var username = $('#username').val();
+    var orgid = $('#orgid').val();
+    var orgname = $('#orgname').val();
+    $('title').html(orgname + '_知网文化');
+    // 关注或取消关注
+    concernBtn.click(function() {
+        if (username == undefined || username == '') {
+            layer.msg('请先登录！');
+            return;
+        }
+        var $this = $(this);
+        var index = layer.load(1, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+        var isConcerned = $(this).attr('data-is-concerned');
+        concernOrNot(orgid, 0, isConcerned, index, $this);
+    });
+    // 关注或者取消关注方法
+    function concernOrNot(orgid, typeid, isConcerned, index, pointer) {
+        var url = encodeURI('/kdh/addOrCancelConcern?orgid=' + orgid + '&typeid=' + typeid + '&isConcerned=' + isConcerned);
+
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function(response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    layer.close(index);
+                    pointer.toggleClass('active');
+                    layer.msg(response.data.info);
+                    if (response.data.status == 1) {
+                        pointer.attr('data-is-concerned', '1').html('已关注');
+                        fansCount.html(parseInt(fansCount.html()) + 1);
+
+                    } else if (response.data.status == 0) {
+                        pointer.attr('data-is-concerned', '0').html('关注');
+                        fansCount.html(parseInt(fansCount.html()) - 1);
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response.msg)
+                } else {
+                    console.log('请检查关注或者取消关注方法接口！')
+                }
+            },
+            error: function(error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/recharge/recharge.css" />
+        <script src="/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current: null, enterControl:0}) %>
+        <div class="charBody">
+            <h1 class="tit">
+                <span class="left">充值中心</span>
+                <a href="/personalCenter/invoiceInfo" target="_blank">索取发票</a>
+            </h1>
+            <div class="charWrap">
+                <div class="ways">
+                    <h2>请选择充值方式</h2>
+                    <ul class="clearfix">
+                        <li data-recharge-type="13" class="zfb <% if(viewModel.payType == 13){ %>cur<% } %>">支付宝
+                            <span></span>
+                        </li>
+                        <li data-recharge-type="12" class="wx <% if(viewModel.payType == 12){ %>cur<% } %>">微信支付
+                            <span></span>
+                        </li>
+                        <li data-recharge-type="7" class="yl <% if(viewModel.payType == 7){ %>cur<% } %>">银联支付
+                            <span></span>
+                        </li>
+                        <li data-recharge-type="6" class="card <% if(viewModel.payType == 6){ %>cur<% } %>">中国知网会员卡
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="amount">
+                    <h2>请选择充值金额</h2>
+                    <ul class="je clearfix">
+                        <li data-recharge-money="10">
+                            <span></span>
+                            <p class="p1">10元</p>
+                        </li>
+                        <li data-recharge-money="20">
+                            <span></span>
+                            <p class="p1">20元</p>
+                        </li>
+                        <li data-recharge-money="50">
+                            <span></span>
+                            <p class="p1">50元</p>
+                        </li>
+                        <li data-recharge-money="100" class="cur">
+                            <span></span>
+                            <p class="p2">100元</p>
+                            <p class="p3">赠20券</p>
+                        </li>
+                        <li data-recharge-money="200">
+                            <span></span>
+                            <p class="p2">200元</p>
+                            <p class="p3">赠50券</p>
+                        </li>
+                        <li class="other">
+                            <span></span>
+                            <p class="p1">其他金额</p>
+                            <div class="box displayN">
+                                <input autocomplete="off" id="money" type="text" />元
+                                <p id="quanTips" class="p3">满百赠券</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="discount">
+                        <!--<div class="button">-->
+                        <!--<a href="javascript:;">使用优惠券</a>-->
+                        <!--</div>-->
+                        <!--<div class="block">-->
+                        <!--<p class="tips">提示：单笔订单仅可使用一张优惠券。系统已为您选择最佳优方案，您也可以自行选择。<a href="#" target="_blank">我的卡券 ></a></p>-->
+                        <!--<div class="item">-->
+                        <!--<p class="cur"><span>10元优惠券</span>（满100元可用，有效期至2019-10-30 23:59）</p>-->
+                        <!--<p><span>10元优惠券</span>（满100元可用，有效期至2019-10-30 23:59）</p>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <div class="total">
+                            <!--<p class="p1">优惠券立减：<span>-10</span>元</p>-->
+                            <p class="p2">应付金额：
+                                <span id="totalMoney">100</span>元</p>
+                            <a href="javascript:;" class="next">下一步</a>
+                        </div>
+                    </div>
+                    <div class="wxts">
+                        <h3>温馨提示</h3>
+                        <p>1、选择充值金额后，点击“下一步”将跳转至订单确认页面；
+                            <br/>2、赠券有效期：单次充值400元以下金额，赠券有效期为90天；单次充值400元及以上金额，赠券有效期为180天；
+                            <br/>3、赠券金额自动充入您的知网文化账户中，系统默认先行扣除赠券部分；
+                            <br/>4、赠券可用于指定商品消费，包括：作品、微刊、期刊、图书、文献。
+                            <br/>5、本金充值后无有效期；
+                            <br/>6、知网文化账户仅限在中国大陆地区使用。
+                        </p>
+                    </div>
+                </div>
+                <div class="cardamount" style="display: none;">
+                    <h2>请填写会员卡信息</h2>
+                    <div class="cardInfo">
+                        <div class="row clearfix">
+                            <label>会员卡卡号：</label>
+                            <input autocomplete="off" id="cardNumber" type="text" />
+                        </div>
+                        <div class="row clearfix">
+                            <label>会员卡密码：</label>
+                            <input autocomplete="off" id="cardPassword" type="text" />
+                        </div>
+                        <div class="row clearfix">
+                            <label>验证码：</label>
+                            <input autocomplete="off" id="yzm" type="text" class="yzm" />
+                            <div class="captcha" id="captcha"></div>
+                            <span>看不清？
+                                <a id="changeCaptcha" href="javascript:;">换一张</a>
+                            </span>
+                        </div>
+                        <!--<p class="error">验证码输入不正确，请重新输入</p>-->
+                        <a href="javascript:;" class="sure">确认充值</a>
+                    </div>
+                    <div class="notice">
+                        <div class="nl left">
+                            <h3>中国知网会员卡：</h3>
+                            <p>1、中国知网会员卡由中国知网发行，用于中国知网会员账户充值。
+                                <br/>2、中国知网会员卡可免费送卡上门，货到付款，快速送达全国2000多个城市和地区。
+                                <br/>3、中国知网会员卡仅限在中国大陆地区使用。
+                            </p>
+                        </div>
+                        <div class="nr left">
+                            <h3>购买中国知网会员卡</h3>
+                            <p>在线购卡：
+                                <a target="_blank" href="https://card.cnki.net/orderCard.jsp">免费送货上门</a>
+                                <br/>电话购卡：410-819-9993
+                                <br/>汇款购卡：
+                                <a target="_blank" href="https://vipcard.cnki.net/ec/sksm/yhdh.html">银行电汇</a> ；
+                                <a target="_blank" href="https://vipcard.cnki.net/ec/sksm/yjhk.html">邮局汇款</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <div style="display: none">
+                <input autocomplete="off" type="hidden" id="rechargeType" value="<%= viewModel.payType %>">
+            </div>
+            <script>
+                'use strict'
+                var rechargeType = $('#rechargeType').val(); // 充值方式
+                var rechargeMoney = 100; // 充值金额
+                var bonus = 20; // 赠送金额
+                var money = $('#money'); // 自定义充值金额
+                var totalMoney = $('#totalMoney'); // 应付金额
+
+                //选择支付方式
+                $(".ways li").click(function() {
+                    $(this).addClass("cur").siblings().removeClass("cur");
+                    $(".amount").show();
+                    $(".cardamount").hide();
+                    rechargeType = $(this).attr('data-recharge-type');
+                    if (rechargeType == 6) {
+                        // 知网卡充值 验证码
+                        $.ajax({
+                            url: '/temp/recharge/captcha',
+                            dataType: "json",
+                            type: "get",
+                            success: function(response) {
+                                // console.log('验证码svg', response)
+                                $('#captcha').html(response);
+                            },
+                            error: function(error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+                    }
+                })
+
+                // 看不清 换一张验证码
+                $('#changeCaptcha').click(function() {
+                    $.ajax({
+                        url: '/temp/recharge/captcha',
+                        dataType: "json",
+                        type: "get",
+                        success: function(response) {
+                            console.log('验证码svg', response)
+                            $('#captcha').html(response);
+                        },
+                        error: function(error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+                })
+
+                $(".ways li.card").click(function() {
+                    $(".amount").hide();
+                    $(".cardamount").show();
+                    rechargeType = $(this).attr('data-recharge-type');
+                    totalMoney.html(rechargeMoney);
+                })
+
+                // 选择金额
+                $(".je li").click(function() {
+                        if ($(this)[0].className != 'other') {
+                            $(this).addClass("cur").siblings().removeClass("cur");
+                            rechargeMoney = $(this).attr('data-recharge-money');
+                            $(".je .other").find(".p1").show();
+                            $(".je .other").find(".box").hide();
+                            bonus = calculateBonus(rechargeMoney);
+                            totalMoney.html(rechargeMoney);
+                        }
+                    })
+                    // 选择自定义金额
+                $(".je .other").click(function() {
+                    $(this).addClass("cur").siblings().removeClass("cur");
+                    $(this).find(".p1").hide();
+                    $(this).find(".box").show();
+                    money.focus();
+                    totalMoney.html(money.val());
+                    rechargeMoney = money.val();
+                })
+
+                // 自定义金额充值
+                money.blur(function() {
+                    var value = $(this).val();
+                    var $this = $(this);
+                    if (!isNaN(value)) {
+                        rechargeMoney = value;
+                        totalMoney.html(rechargeMoney);
+                    } else {
+
+                    }
+                });
+
+                // layer弹框提示语
+                function layerPrompt(pointer, message) {
+                    layer.open({
+                        type: 2,
+                        title: '',
+                        closeBtn: 1,
+                        shade: 0.6,
+                        area: '400px',
+                        content: ['/temp/recharge/jemodal', 'no'], //iframe的url
+                        btn: "确定",
+                        resize: false,
+                        btnAlign: 'c',
+                        success: function(layero, index) {
+                            var body = layer.getChildFrame('body', index);
+                            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                            body.find('.mbody p').text(message);
+                            pointer.blur();
+                        }
+                    });
+                }
+
+                // 根据充值金额，计算赠券
+                function calculateBonus(rechargeMoney) {
+                    var ticket = parseFloat(rechargeMoney);
+                    var bonus = 0;
+                    while (ticket >= 0) {
+                        if (ticket >= 0 && ticket < 100) {
+                            return bonus;
+                        } else if (ticket >= 100 && ticket < 200) {
+                            bonus += 20;
+                            ticket = ticket - 100;
+                        } else if (ticket >= 200 && ticket < 300) {
+                            bonus += 50;
+                            ticket = ticket - 200;
+                        } else if (ticket >= 300 && ticket < 500) {
+                            bonus += 100;
+                            ticket = ticket - 300;
+                        } else if (ticket >= 500 && ticket < 1000) {
+                            bonus += 200;
+                            ticket = ticket - 500;
+                        } else if (ticket >= 1000 && ticket < 2000) {
+                            bonus += 450;
+                            ticket = ticket - 1000;
+                        } else if (ticket >= 2000 && ticket < 3000) {
+                            bonus += 1000;
+                            ticket = ticket - 2000;
+                        } else if (ticket == 3000) {
+                            bonus += 1500;
+                            ticket = ticket - 3000;
+                        }
+                    }
+                }
+
+
+                money.keyup(function() {
+                    var quanTip = $("#quanTips");
+                    var tip = '满百赠券';
+                    var $this = $(this);
+                    var reg = $(this).val().match(/\d+\.?\d{0,2}/);
+                    var txt = '';
+                    if (reg != null) {
+                        txt = reg[0];
+                    }
+                    var amout = txt;
+
+                    // 个位为零的小数
+                    if (amout.length > 1 && amout[0] == 0) {
+                        if (amout[1] != ".") {
+                            money.val(txt.substr(0, 1));
+                            totalMoney.html(txt.substr(0, 1));
+                            quanTip.html(tip);
+                            layerPrompt($this, '请输入正确的充值金额！');
+                            return false;
+                        } else {
+                            quanTip.html(tip);
+                        }
+                    }
+
+                    var moneyFloat = parseFloat(amout);
+                    if (moneyFloat == 0) {
+                        if (txt.indexOf(".") > 0) {
+                            if (txt.length > 3) {
+                                money.val(txt.substr(0, 3));
+                                totalMoney.html(txt.substr(0, 3));
+                                quanTip.html(tip);
+                            }
+                        } else {
+                            money.val(txt.substr(0, 1));
+                            totalMoney.html(txt.substr(0, 1));
+                        }
+
+                        // $(".je_box_alert").show();
+                        quanTip.html(tip);
+                        return false;
+                    }
+                    if (moneyFloat > 3000) {
+                        layerPrompt($this, '请输入0-3000元之间的金额！');
+                        var newMoney = amout.substr(0, 4);
+                        if (parseFloat(newMoney) > 3000) {
+                            money.val(amout.substr(0, 3));
+                            totalMoney.html(amout.substr(0, 3));
+                        } else {
+                            money.val(newMoney);
+                            totalMoney.html(newMoney);
+                        }
+                        return false;
+                    }
+                    // $(".je_box_alert").hide();
+                    $(this).val(txt);
+                    totalMoney.html(txt);
+
+
+                    // 计算赠券
+                    if (txt.length > 0) {
+                        bonus = calculateBonus(txt);
+                        if (bonus == 0) {
+                            quanTip.html(tip);
+                        } else {
+                            $("#quanTips").html('赠' + bonus + '元券');
+                        }
+                    } else {
+                        quanTip.html(tip);
+                    }
+
+
+                    // var couponVal = GetDiscountCouponValue(amout);
+                    // if (couponVal != "0") {
+                    //     $("#quanTips").html("赠<i>" + couponVal + "</i>券");
+                    // } else {
+                    //     quanTip.html(tip);
+                    // }
+                }).change(function() {
+                    $(this).keypress();
+                    var amout = $(this).val();
+
+                    if (/\.$/.test(amout)) {
+                        // $(".je_box_alert").show();
+                        $(this).val(amout.substr(0, amout.length - 1));
+                        totalMoney.html(amout.substr(0, amout.length - 1));
+                    }
+                });
+
+
+                //是否使用优惠券
+                // $(".discount .button a").click(function () {
+                //     $(this).toggleClass("bu1");
+                //     $(this).parents(".discount").find(".block").toggle();
+                //     $(".total .p1").toggle();
+                // })
+                // // 优惠券选择
+                // $(".item p").click(function () {
+                //     $(this).addClass("cur").siblings().removeClass("cur");
+                // })
+
+
+                // 下一步
+                $("a.next").click(function() {
+                    // 已选择充值方式和金额
+                    if (rechargeType && parseFloat(rechargeMoney)) {
+                        var nextUrl = '/temp/recharge/generateOrder?rechargeType=' + rechargeType +
+                            '&rechargeMoney=' + rechargeMoney + '&bonus=' + bonus;
+                        location.href = nextUrl;
+
+                        // $.ajax({
+                        //     url: nextUrl,
+                        //     dataType: "json",
+                        //     type: "get",
+                        //     success: function (response) {
+                        //         console.log(response)
+                        //
+                        //     },
+                        //     error: function (error) {
+                        //         //请求出错处理
+                        //         console.log(error);
+                        //     }
+                        // });
+                    } else {
+                        // 未选择充值方式和充值金额
+                        layer.open({
+                            type: 2,
+                            title: '',
+                            closeBtn: 1,
+                            shade: 0.6,
+                            area: '400px',
+                            content: ['/temp/recharge/jemodal', 'no'], //iframe的url
+                            btn: "确定",
+                            resize: false,
+                            btnAlign: 'c',
+                            success: function(layero, index) {
+                                var body = layer.getChildFrame('body', index);
+                                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                                body.find('.mbody p').text('请输入0-3000元之间的金额！');
+                            }
+                        });
+                    }
+
+                })
+
+                $(".cardInfo .sure").click(function() {
+                    // layer.open({
+                    //     type: 2,
+                    //     title: '',
+                    //     closeBtn: 0,
+                    //     shade: 0.6,
+                    //     area: '400px',
+                    //     content: ['/charging/jemodal', 'no'], //iframe的url
+                    //     btn: "确定",
+                    //     resize: false,
+                    //     btnAlign: 'c',
+                    //     success: function (layero, index) {
+                    //         var body = layer.getChildFrame('body', index);
+                    //         var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                    //         body.find('.mbody p').text('对不起，充值卡不存在或卡号密码错误！');
+                    //     }
+                    // });
+
+                    var rechargeCardNumber = $('#cardNumber').val();
+                    var rechargeCardPassword = $('#cardPassword').val();
+                    var captcha = $('#yzm').val();
+
+                    if (rechargeCardNumber != '' && rechargeCardPassword != '' && captcha != '') {
+                        $.ajax({
+                            url: '/temp/recharge/cnkiCard?rechargeCardNumber=' + rechargeCardNumber +
+                                '&rechargeCardPassword=' + rechargeCardPassword + '&captcha=' + captcha,
+                            dataType: "json",
+                            type: "get",
+                            success: function(response) {
+                                console.log('知网卡充值：', response)
+                                if (response.errorCode == 1) {
+                                    var rechargeTime = Date.now()
+                                    location.href = '/temp/recharge/success?rechargeMoney=' +
+                                        response.Amount + '&bonus=' + response.AmoutTicket + '&rechargeTime=' +
+                                        rechargeTime;
+                                } else {
+                                    layer.open({
+                                        type: 2,
+                                        title: '',
+                                        closeBtn: 0,
+                                        shade: 0.6,
+                                        area: '400px',
+                                        content: ['/temp/recharge/jemodal', 'no'], //iframe的url
+                                        btn: "确定",
+                                        resize: false,
+                                        btnAlign: 'c',
+                                        success: function(layero, index) {
+                                            var body = layer.getChildFrame('body',
+                                                index);
+                                            var iframeWin = window[layero.find('iframe')[
+                                                0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                                            body.find('.mbody p').text(response.errorMessage);
+                                        }
+                                    });
+                                }
+
+                            },
+                            error: function(error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+                    }
+
+                })
+
+                // $(document).bind("keydown", function(e) {
+                //     if (e.keyCode == 13) {
+                //         if(rechargeType!=6){
+                //             $("a.next").click();
+                //         }
+                //         else{
+                //             $("a.sure").click();
+                //         }
+                //     }
+                // })
+            </script>
+</body>
+
+</html>

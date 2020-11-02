@@ -1,0 +1,192 @@
+﻿@charset "utf-8";
+html {}
+
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+textarea,
+p,
+th,
+td,
+form,
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #333;
+}
+
+img {
+    border: none;
+}
+
+strong,
+i {
+    font-style: normal
+}
+
+ul,
+li,
+ol {
+    list-style-type: none;
+}
+em,i{
+    font-style: normal;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+input[type="button"] {
+    cursor: pointer;
+}
+
+input,
+textarea {
+    outline: none;
+    border: none;
+    background: none;
+}
+
+
+/*input { border:0; background-color:transparent;}*/
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    font-family: '微软雅黑';
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+.width1200pxAuto {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 37px;
+    line-height: 37px;
+}
+.header-l a {
+    float: left;
+    margin-right: 33px;
+}
+.header .links a {
+    float: left;
+}
+
+.header .quit {
+    margin-left: 16px;
+}
+
+.footer {
+    height: 170px;
+    padding-top: 23px;
+    background-color: #424242;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    color: #dcdcdc;
+    min-width: 1200px;
+}
+
+.footer .links {
+    margin-left: 0;
+    margin-bottom: 14px;
+}
+
+.footer a {
+    color: #dcdcdc;
+}
+
+.footer .links a {
+    margin: 0 12px;
+    
+}
+
+.footer .f2,
+.footer .f3 {
+    line-height: 36px;
+}
+
+.footer .f3 {
+    margin: 0 50px;
+}
+
+.footer .f1 {
+    padding-top: 12px;
+    margin: 0 118px 0 50px; 
+}
+
+.footer .f2 {
+    width: 570px;
+    padding-top: 7px;
+    margin-right: 156px;
+    color: #a6a6a6;
+}
+.footer .f2 a{
+    color: #a6a6a6;
+}
+.footer .f2 .links a {
+    color: #dcdcdc;
+}
+.footer .f2 .links {
+    margin-left: -11px;
+}
+.footer .f3 {
+    padding-top: 52px;
+}
+
+.footer .copyright {
+    margin-top: 30px;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:2,active:5}) %>
+                <div class="contentWrap billsWrap">
+                    <h1 class="fp"><span>发票索取</span><a href="/personalCenter/myBills">返回我的账单>></a></h1>
+                    <div class="billBlock">
+                        <!--<div class="tools">
+        			<div class="tabs left">
+        				<a href="javascript:;" class="cur">未开票</a>
+        				<a href="javascript:;">已开票</a>
+        			</div>
+        		</div>-->
+                        <div class="tabc" style="display: block;">
+                            <table class="table tableMargin" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <th>序号</th>
+                                    <th>订单编号</th>
+                                    <th>充值方式</th>
+                                    <th>充值金额</th>
+                                    <th>赠券金额</th>
+                                    <th class="last">充值时间</th>
+                                </tr>
+                                <% for(var i=0;i<viewModel.data.rechargeRecordList.length;i++){ %>
+                                    <tr>
+                                        <% if(i<9){ %>
+                                            <td>
+                                                <div><span class="checkbox"></span><label for="">0<%= i+1 %></label></div>
+                                            </td>
+                                            <% } else{ %>
+                                                <td>
+                                                    <div><span class="checkbox"></span><label for=""><%= i+1 %></label></div>
+                                                </td>
+                                                <% } %>
+                                                    <td>
+                                                        <% if (viewModel.data.rechargeRecordList[i].rechargeOrderID) {%>
+                                                            <%= viewModel.data.rechargeRecordList[i].rechargeOrderID %>
+                                                                <%}else{%>
+                                                                    <%= viewModel.data.rechargeRecordList[i].cardNum %>
+                                                                        <%}%>
+                                                    </td>
+                                                    <td>
+                                                        <% if (viewModel.data.rechargeRecordList[i].rechargeType=="alipay") {%>
+                                                            支付宝支付
+                                                            <%}%>
+                                                                <% if (viewModel.data.rechargeRecordList[i].rechargeType=="wechat") {%>
+                                                                    微信支付
+                                                                    <%}%>
+                                                                        <% if (viewModel.data.rechargeRecordList[i].rechargeType=="unionpay") {%>
+                                                                            银联支付
+                                                                            <%}%>
+                                                                                <% if (viewModel.data.rechargeRecordList[i].rechargeType=="cnkicard") {%>
+                                                                                    知网卡支付
+                                                                                    <%}%>
+                                                    </td>
+                                                    <td>
+                                                        <% if (viewModel.data.rechargeRecordList[i].amout) {%><span class="singlePrice"><%= ejsFunctions.returnFloat( viewModel.data.rechargeRecordList[i].amout) %></span>元
+                                                            <%}else{%>
+                                                                <span class="singlePrice">0.00</span>元
+                                                                <%}%>
+                                                    </td>
+                                                    <td>
+                                                        <% if (viewModel.data.rechargeRecordList[i].amoutTicket) {%>
+                                                            <%= ejsFunctions.returnFloat( viewModel.data.rechargeRecordList[i].amoutTicket) %>元
+                                                                <%}else{%>
+                                                                    0.00元
+                                                                    <%}%>
+                                                    </td>
+                                                    <td class="last">
+                                                        <% var arr = ejsFunctions.arrayParseByT(viewModel.data.rechargeRecordList[i].rechargeDate) %>
+                                                            <%= arr[0] %>
+                                                                <%= ejsFunctions.sliceTime(arr[1])%>
+                                                    </td>
+                                    </tr>
+                                    <% } %>
+                            </table>
+                            <div class="bottomBar">
+                                <div class="all left">全部选择</div>
+                                <a href="/personalCenter/invoiceInfo" class="kp">去开票>></a>
+                                <p>已选择<span id="totalCount">0</span>个订单，开票金额共计：<span id="totalPrice">0.00</span>元</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+                //选项卡
+                TableTransition($(".tabs a"), $(".tabc"), "click", "cur")
+                    //表格隔行变色
+                $(".table tr:even").find("td").addClass("bg")
+                    //复选框
+                $("td div").click(function() {
+                    $(this).find(".checkbox").toggleClass("checked")
+                    var totalcount = totalCount();
+                    var totalprice = totalPrice();
+                    $('#totalCount').text(totalcount)
+                    $('#totalPrice').text(totalprice)
+                })
+                $(".all").click(function() {
+                        $(this).toggleClass("checked")
+                        if ($(this).hasClass("checked")) {
+                            $("td .checkbox").addClass("checked")
+                        } else {
+                            $("td .checkbox").removeClass("checked")
+                        }
+                        var totalcount = totalCount();
+                        var totalprice = totalPrice();
+                        $('#totalCount').text(totalcount);
+                        $('#totalPrice').text(totalprice);
+                    })
+                    //计算选择订单数量和总金额
+                function totalCount() {
+                    let checks = document.querySelectorAll('tr .checkbox');
+                    let n = 0;
+                    for (let i = 0; i < checks.length; i++) {
+                        if (checks[i].classList.contains('checked')) {
+                            n++
+                        }
+                    }
+                    return n
+                };
+
+                function totalPrice() {
+                    let checks = document.querySelectorAll('tr .checkbox');
+                    let sum = 0;
+
+                    for (let i = 0; i < checks.length; i++) {
+                        if (checks[i].classList.contains('checked')) {
+                            var price = parseFloat($('tr .checkbox').eq(i).parents('tr').find('.singlePrice').text())
+                            sum += price
+
+                        }
+                    }
+                    return parseFloat(sum).toFixed(2);
+
+                }
+                $('.kp').click(function() {
+                    if ($('#totalCount').text() == "0") {
+                        return false
+                    } else {
+                        var amount = totalPrice()
+                        sessionStorage.money = amount;
+                    }
+                })
+            </script>
+</body>
+
+</html>

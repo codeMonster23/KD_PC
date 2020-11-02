@@ -1,0 +1,140 @@
+        <div class="menu left">
+            <div class="photo">
+                <div class="avatar">
+                    <img src="https://kdjk.cnki.net/resource/pic/avatar/<%= viewModel.user.name %>">
+                </div>
+                <p class="name"><%= viewModel.user.name %></p>
+                <div class="btns">
+                    <a href="/personalCenter/personalInfo" class="a1">编辑资料</a>
+                    <!--<a href="/personalCenter/connect" target="_blank" class="a2">机构关联</a>-->
+                    <a href="javascript:;" class="a2">机构关联</a>
+                </div>
+            </div>
+            <div class="flag">
+            	<a href="/personalCenter/vip" class="mem mem1">
+            		<p class="p1">开通VIP会员</p>
+            		<p class="p2">文献畅读，更享5-8折特惠</p>
+            	</a>
+            	<a href="/personalCenter/vipRecord" class="mem mem2">
+                    <p class="p1">会员中心</p>
+                </a>
+            </div>
+            <div class="list <% if(current==0) { %> cur <% } %>">
+                <a href="/personalCenter/home" class="m m1">首页</a>
+            </div>
+            <div class="list <% if(current==1) { %> cur <% } %>">
+                <span class="m m2">内容管理</span>
+                <div class="sublist">
+                    <a href="/pc/purchased" <% if(active==0){%> class="active" <%}%>>我的已购</a>
+                    <a href="/pc/collected" <% if(active==1){%> class="active" <%}%>>我的收藏</a>
+                    <!--<a href="#" <% if(active==2){%> class="active" <%}%>>我的朗读</a>-->
+                    <a href="/pc/followed" <% if(active==3){%> class="active" <%}%>>我的关注</a>
+                    <a href="/pc/history" <% if(active==7){%> class="active" <%}%>>我的足迹</a>
+                </div>
+            </div>
+            <div class="list <% if(current==2) { %> cur <% } %>">
+                <span class="m m3">账户管理</span>
+                <div class="sublist">
+                    <a href="/personalCenter/myAccount" <% if(active==4){%> class="active" <%}%>>我的账户</a>
+                    <a href="/personalCenter/myBills" <% if(active==5){%> class="active" <%}%>>我的账单</a>
+                    <a href="/temp/recharge/home">充值中心</a>
+                    <!--<a href="/personalCenter/myCoupon" <% if(active==6){%> class="active" <%}%>>我的卡券</a>-->
+                </div>
+            </div>
+            <div class="list <% if(current==3) { %> cur <% } %>"><a href="/personalCenter/personalInfo" class="m m4">个人资料</a></div>
+        </div>
+        <div class="layer-relevance-content clearfix" style="display: none;">
+            <div class="layer-relevance-left left">
+                <div class="layer-relevance-title">机构账号关联流程：</div>
+                <div class="layer-relevance-body">
+                    <p>①  扫描右侧二维码，下载安装知网文化客户端</p>
+                    <p>②  在客户端，登录您的个人账号；</p>
+                    <p>③  打开 “我的 > 机构关联 ” ，关联机构账号。</p>
+                    <div class="relevance-tip">
+                        <p> 温馨提示：</p>
+                        <p> ① 关联成功。即可在知网文化客户端及PC端使用机构账号权限下载文献。PC端可在机构IP范围内下载文献，客户端可漫游下载。（漫游是指在关联的机构账号IP范围外，也可下载文献。）</p>
+                        <p> ② 成功关联机构账号后，拥有15天的关联有效期，过期后需重新关联使用。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="layer-relevance-right left">
+                <div class="download-title">下载安装客户端</div>
+                <div class="download-body">
+                    <img class="qrcode" src="/images/bookstore/bookstore23.png" alt="">
+                </div>
+            </div>
+        </div>
+    <script>
+        'use strict'
+//      $(function(){
+//          var height=$(".personalMain").height()
+//          $(".menu").height(height)
+//      })
+        //判断是否是会员
+        var isUrl='/personalCenter/isVip';
+        $.ajax({
+        	type:'get',
+        	url:isUrl,
+        	dataType: 'json',
+        	success:function(response){
+        	      // console.log(response)
+        	      if(response.rows==true)
+        	      {
+        	          $('.menu .flag .mem2').css("display",'block');
+        	          $('.menu .flag .mem1').hide()
+        	      }
+        	      else{
+        	          $('.menu .flag .mem1').css('display','block');
+                      $('.menu .flag .mem2').hide()
+        	      }
+        	},
+        	error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+            }   
+        });
+        //获取用户名和头像
+        // $.ajax({
+        // 	type:'get',
+        // 	url:'/personalCenter/menuInfo',
+        //     dataType: 'json',
+        //     success:function(response){
+        //         var username=response.data.user.username;
+        //         var avasrc=response.data.user.avatar;
+        //         $('.photo .name').text(username)
+        //         if(avasrc!=''){
+        //             $('.avatar img').attr('src',avasrc)
+        //         }
+        //         else{
+        //           $('.avatar img').attr('src','/images/indexImages/userCenter1.png')
+        //         }
+        //     },
+        //     error: function (error) {
+        //             //请求出错处理
+        //             console.log(error);
+        //     }
+        // });
+        $('.a2').click(function(){
+            layer.open({
+                type: 1,
+                title: false,
+                skin: 'layer-relevance',
+                area: ['662px', '338px'],
+                content: $('.layer-relevance-content').html(),
+                shadeClose: true
+            });
+        })
+
+        //会员导语设置
+        $.ajax({
+        	type:'get',
+        	url:'/personalCenter/getVipGuideWord',
+        	dataType: 'json',
+        	success:function(response){
+                console.log(response);
+        	    if(response.code==0){
+                    $('.personalMain .menu .flag .mem1 .p2').html(response.list[0].description);
+                }
+        	} 
+        });
+    </script>

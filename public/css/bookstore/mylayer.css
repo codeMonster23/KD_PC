@@ -1,0 +1,80 @@
+.layer1,.layer2 {
+    border-radius: 5px;
+    background: #fff;
+}
+
+.layer1 .layui-layer-title,.layer2 .layui-layer-title  {
+    position: relative;
+    height: 42px;
+    border: 0;
+    background: #f13e3a;
+    color: #fff;
+    font: 16px/42px "Microsoft Yahei";
+}
+
+.layer1 .layui-layer-content {
+    height: 94px !important;
+    padding-top: 36px;
+}
+
+.layer1 .layui-layer-content p {
+    text-align: center;
+    color: #000;
+    font: 16px/30px "微软雅黑";
+}
+
+.layer1 .layui-layer-setwin,.layer2 .layui-layer-setwin {
+    top: 11px;
+}
+
+.layer1 .layui-layer-ico,.layer2 .layui-layer-ico {
+    width: 20px;
+    height: 20px;
+    background: url("../../images/bookstore/bookstore18.png");
+}
+
+.layer1 .layui-layer-btn {
+    padding: 27px 0 !important;
+    background: #f2f2f2;
+}
+
+.layer1 .layui-layer-btn a {
+    display: inline-block;
+    width: 116px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    background: #f13e3a;
+    color: #fff;
+    font: 14px/36px "微软雅黑";
+}
+.layer2 .layui-layer-content {
+    height:auto !important;
+    margin:40px auto 38px;
+    overflow: hidden;
+    text-align: center;
+    color: #000;
+    font: 16px/18px "微软雅黑";
+}
+
+.layer2 .layui-layer-btn {
+    padding: 0;
+}
+
+.layer2 .layui-layer-btn a {
+    display: inline-block;
+    height: 36px;
+    margin:0 7px;
+    padding: 0 20px;
+    border: 0;
+    border: 1px solid #f13e3a;
+    border-radius: 5px;
+    background: #f13e3a;
+    color: #fff;
+    font: 16px/36px "微软雅黑";
+}
+.layer2 .layui-layer-btn .layui-layer-btn1{
+    background: #ffffff;
+    color: #f13e3a;
+}

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature-artist.css"/>
+    <script src="/js/plugin/jquery.methods.js"></script>
+</head>
+
+<body>
+<!--header-->
+<%- include('../layouts/libraryNavLayout', {enterControl:1}) %>
+<!--banner-->
+<% if(viewModel.libraryType == 'cjfvtotal') { %>
+<div class="labanner labanner-wy"></div>
+<% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+<div class="labanner labanner-wh"></div>
+<% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+<div class="labanner labanner-kp"></div>
+<% } %>
+<div class="lacontent clearfix">
+    <div class="cmenu left">
+        <% if(viewModel.libraryType == 'cjfvtotal') { %>
+        <!--文艺库-->
+        <h1><a href="/literature/library/channel?album=V&dbname=cjfvtotal">文献导航</a></h1>
+        <div id="sideMenu" class="sideMenu">
+            <!--一级-->
+            <% for(var i = 0, vn = viewModel.libraryStaticData.VN; i < vn.length; i++) { %>
+            <div class="one">
+                <div data-x="<%= i %>" data-ztCode="<%= vn[i].ztCode %>"
+                     class="name firstm m<%= i + 1 %> <% if(viewModel.position.x == i) { %>m-cur<%= i + 1 %> <% } %>">
+                    <%= vn[i].ztName %>
+                </div>
+                <!--二级-->
+                <% if(vn[i].childlist && vn[i].childlist.length > 0){ %>
+                <div class="twoWrap" <% if(viewModel.position.x == i ) { %>style="display: block;"
+                        <% } %>
+                >
+                    <% for(var j = 0; j < vn[i].childlist.length; j++){ %>
+                    <div class="two subm">
+                        <div data-ztCode="<%= vn[i].childlist[j].ztCode %>"
+                             class="name sa <% if(vn[i].childlist[j].childlist && vn[i].childlist[j].childlist.length > 0){ %>fa<% } %>">
+                            <%= vn[i].childlist[j].ztName %>
+                        </div>
+                        <!--三级-->
+                        <% if(vn[i].childlist[j].childlist && vn[i].childlist[j].childlist.length > 0){ %>
+                        <div class="threeWrap">
+                            <% for(var k = 0;k < vn[i].childlist[j].childlist.length;k++){ %>
+                            <div class="three ca">
+                                <a data-ztCode="<%= vn[i].childlist[j].childlist[k].ztCode %>" href="javascript:;"
+                                   class="name">
+                                    <%= vn[i].childlist[j].childlist[k].ztName %>
+                                </a>
+                            </div>
+                            <% } %>
+                        </div>
+                        <% } %>
+
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+        <!--文化库-->
+        <h1><a href="/literature/library/channel?album=U&dbname=cjfutotal">文献导航</a></h1>
+        <div id="sideMenu" class="sideMenu">
+            <!--一级-->
+            <% for(var i = 0, un = viewModel.libraryStaticData.UN; i < un.length; i++) { %>
+            <div class="one">
+                <div data-x="<%= i %>" data-ztCode="<%= un[i].ztCode %>"
+                     class="name firstm m<%= i + 1 %> <% if(viewModel.position.x == i) { %>mm-cur<%= i + 1 %> <% } %>">
+                    <%= un[i].ztName %>
+                </div>
+                <!--二级-->
+                <% if(un[i].childlist && un[i].childlist.length > 0){ %>
+                <div class="twoWrap" <% if(viewModel.position.x == i ) { %>style="display: block;"
+                        <% } %>
+                >
+                    <% for(var j = 0; j < un[i].childlist.length; j++){ %>
+                    <div class="two subm">
+                        <div data-ztCode="<%= un[i].childlist[j].ztCode %>"
+                             class="name sa <% if(un[i].childlist[j].childlist && un[i].childlist[j].childlist.length > 0){ %>fa<% } %>">
+                            <%= un[i].childlist[j].ztName %>
+                        </div>
+                        <!--三级-->
+                        <% if(un[i].childlist[j].childlist && un[i].childlist[j].childlist.length > 0){ %>
+                        <div class="threeWrap">
+                            <% for(var k = 0;k < un[i].childlist[j].childlist.length;k++){ %>
+                            <div class="three ca">
+                                <a data-ztCode="<%= un[i].childlist[j].childlist[k].ztCode %>" href="javascript:;"
+                                   class="name">
+                                    <%= un[i].childlist[j].childlist[k].ztName %>
+                                </a>
+                            </div>
+                            <% } %>
+                        </div>
+                        <% } %>
+
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+        <!--科普库-->
+        <h1><a href="/literature/library/channel?album=T&dbname=cjfttotal">文献导航</a></h1>
+        <div id="sideMenu" class="sideMenu">
+            <!--一级-->
+            <% for(var i = 0, tn = viewModel.libraryStaticData.TN; i < tn.length; i++) { %>
+            <div class="one">
+                <div data-x="<%= i %>" data-ztCode="<%= tn[i].ztCode %>"
+                     class="name firstm m<%= i + 1 %> <% if(viewModel.position.x == i) { %>mmm-cur<%= i + 1 %> <% } %>">
+                    <%= tn[i].ztName %>
+                </div>
+                <!--二级-->
+                <% if(tn[i].childlist && tn[i].childlist.length > 0){ %>
+                <div class="twoWrap" <% if(viewModel.position.x == i ) { %>style="display: block;"
+                        <% } %>
+                >
+                    <% for(var j = 0; j < tn[i].childlist.length; j++){ %>
+                    <div class="two subm">
+                        <div data-ztCode="<%= tn[i].childlist[j].ztCode %>"
+                             class="name sa <% if(tn[i].childlist[j].childlist && tn[i].childlist[j].childlist.length > 0){ %>fa<% } %>">
+                            <%= tn[i].childlist[j].ztName %>
+                        </div>
+                        <!--三级-->
+                        <% if(tn[i].childlist[j].childlist && tn[i].childlist[j].childlist.length > 0){ %>
+                        <div class="threeWrap">
+                            <% for(var k = 0;k < tn[i].childlist[j].childlist.length;k++){ %>
+                            <div class="three ca">
+                                <a data-ztCode="<%= tn[i].childlist[j].childlist[k].ztCode %>" href="javascript:;"
+                                   class="name">
+                                    <%= tn[i].childlist[j].childlist[k].ztName %>
+                                </a>
+                            </div>
+                            <% } %>
+                        </div>
+                        <% } %>
+
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+    <div class="rl left">
+        <div id="topNav" class="tops">
+            <p>
+                <a href="/literature/library/channel?album=V&dbname=cjfvtotal">全部</a>
+                <span id="navFirst" <% if(viewModel.ztName == 0 ) { %>style="display:none;"
+                        <% } %>
+                >
+                    > <a data-x="<%= viewModel.position.x %>" data-ztcode="<%= viewModel.ztCode %>" href="javascript:;"
+                         class="name"><%= viewModel.ztName %></a>
+                </span>
+                <span id="navSecond" style="display: none;"> > <a data-ztcode="" href="javascript:;"
+                                                                  class="name"></a></span>
+                <span id="navThird" style="display: none;"> > <a data-ztcode="" href="javascript:;"
+                                                                 class="name"></a></span> （共
+                <span id="keywordTotal" class="number"><%= viewModel.data.total %></span>篇）
+            </p>
+        </div>
+        <div id="sort" class="px bpx">
+            <div class="ti">排序：</div>
+            <!--<a data-sort-order="0" href="javascript:;" class="cur">相关度</a>-->
+            <a data-sort-order="3" href="javascript:;" class="cur">发表时间</a>
+            <a data-sort-order="1" href="javascript:;">下载次数</a>
+            <div id="isRecommended" class="pxr right">
+                <a data-IsRecommended="1" href="javascript:;" class="cur">精选</a>|<a data-IsRecommended="0"
+                                                                                    href="javascript:;">全部</a>
+            </div>
+        </div>
+        <div id="list" class="listWrap">
+            <% for(var i = 0, list = viewModel.data.list; i < list.length; i++) { %>
+            <div class="item" data-file-name="<%= viewModel.data.list[i].FileName %>"
+                 data-db-type="<%= ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4) %>"
+                 data-libraryType="<%= ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4).toLowerCase() + 'total' %>"
+                 data-source="<%- ejsFunctions.keywordStyleRed(list[i].PublishName, '~#@', '@#~', viewModel.searchWordName) %>"
+                 data-year="<%= list[i].Year %>"
+                 data-period="<%= list[i].Period %>"
+                 data-page-count="<%= list[i].PageCount %>">
+                <h2>
+                    <a target="_blank"
+                       href="/literature/literatureDetail/<%= list[i].FileName %><%= ejsFunctions.substring(list[i].DBName, 0, 4) %>">
+                        <%= list[i].Title %>
+                    </a>
+                    
+                    <% if(list[i].ArticleStatus ==2||list[i].ArticleStatus ==4||list[i].ArticleStatus ==6||list[i].ArticleStatus ==8){ %>
+                        <span class="article-status"><%= list[i].ArticleStatusTitle %></span>
+                    <% } %>
+                    <% if(list[i].ArticleStatus !=2&&list[i].ArticleStatus !=8){ %>
+                        <a href="javascript:;" class="orgNoRight"><img src="/images/literature/licon6.png"></a>
+                    <% } %>
+                </h2>
+                <p class="p1">
+                    <!--作者名大于三个-->
+                    <%
+                        var arr = ejsFunctions.stringToArray(list[i].Author);
+                    if(arr.length > 3){
+                        arr.length = 3;
+                        var arrStr = arr[0] + ';' + arr[1] + ';' + arr[2] + ';' + ' |';
+                    %>
+                    <%= arrStr %>
+                    <% } %>
+
+                    <!--作者名存在且小于三个-->
+                    <%
+                        var arr = ejsFunctions.stringToArray(list[i].Author);
+                    if(arr.length > 0 && arr.length <= 3){
+                        var arrStr = list[i].Author + ' |';
+                    %>
+                    <%= arrStr %>
+                    <% } %>
+                    <a target="_blank" href="/detail/singlePeriodDetail/<%=list[i].FileName%>">《<%= list[i].PublishName %>》<%= list[i].Year %>年<%= list[i].Period %>期</a></p>
+                <% if(list[i].ArticleStatus !=8){ %>
+                    <p class="p2">
+                        <%= ejsFunctions.substring(list[i].Summary, 0, 190) %>...<a class="readMore" target="_blank" href="/literature/literatureDetail/<%= viewModel.data.list[i].FileName %><%= ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4) %>">[阅读全文]</a></p>
+                    <div class="pics" style="display: none;"></div>
+                    <% if(list[i].Keyword && list[i].Keyword.length > 0){ %>
+                    <div class="tag"><img src="/images/literature/licon12.gif" align="absmiddle"/>
+                        <% for(var j = 0, ky = ejsFunctions.stringToArray(list[i].Keyword);j < ky.length; j++) { if(j < 5){ %>
+                        <span><a target="_blank"
+                                href="<%= ejsFunctions.encodeURL('/literature/libraryResult?album=' + viewModel.album + '&fulltext=' + ejsFunctions.filterKeyword(ky[j])) %>"><%= ejsFunctions.filterKeyword(ky[j]) %></a></span>
+                        <% }} %>
+                    </div>
+                    <% } %>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <div class="rpage">
+            <%- viewModel.pageStr %>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<%- include('../layouts/footerLayout', {}) %>
+<div style="display: none">
+    <input type="hidden" id="dbname" value="<%= viewModel.libraryType %>">
+    <input type="hidden" id="album" value="<%= viewModel.album %>">
+    <input type="hidden" id="ztName" value="<%= viewModel.ztName %>">
+    <input type="hidden" id="ztCode" value="<%= viewModel.ztCode %>">
+    <input type="hidden" id="order" value="3">
+    <input type="hidden" id="recommended" value="1">
+</div>
+<script>
+    "use strict"
+    // 列表图片加载
+    var items = $('.item');
+    var time = 300;
+    var count = 0;
+    var ajaxRequest = [];
+    var navFirst = $('#navFirst');
+    var navSecond = $('#navSecond');
+    var navThird = $('#navThird');
+    var pageTitle = $('title');
+    var libraryName = pageTitle.html().trim();
+
+
+    //文献导航脚本
+    var one = $('#sideMenu .one>.name, #navFirst a');
+    var two = $('#sideMenu .one .two>.name, #navSecond a');
+    var three = $('#sideMenu .one .two .three>.name')
+    var twoWrap = $('#sideMenu .one .twoWrap');
+    var threeWrap = $('#sideMenu .one .twoWrap .threeWrap');
+
+    //排序
+    var sort = $('#sort');
+    // 精选 全部
+    var isRecommended = $('#isRecommended');
+    var recommended = $('#recommended');
+
+    var dbname = $('#dbname').val();
+    var album = $('#album').val();
+    var ztName = $('#ztName').val();
+    var subject = $('#ztCode').val();
+
+    var listDom = $('#list');
+    var page = $('.rpage');
+    // var keywordName = $('#keywordName');
+    var keywordTotal = $('#keywordTotal');
+    getLiteraturePic(handlePics);
+    // 页面默认标题
+    if(ztName == 0){
+        pageTitle.html('全部文献-' + libraryName);
+    }else{
+        pageTitle.html(ztName + '-' + libraryName);
+    }
+
+    // 页码事件
+    page.children('a').click(function () {
+        var pageNum = $(this).attr('data-page');
+        getDataModifyList(subject, album, dbname, ztName, pageNum);
+        // 回顶部
+        $('body,html').animate({
+            scrollTop: 260
+        }, 500);
+    });
+
+
+    //异步请求图片 返回处理
+    function handlePics(imgList) {
+        var picContainer = listDom.children('.item').children('.pics');
+        var imgStr = '';
+        for (var j = 0; j < imgList.length; j++) {
+            if (j < 3) { // 最多只显示3张图片
+                imgStr += '<a target="_blank" href="javascript:;"><img src="' + imgList[j] + '"></a>';
+            }
+        }
+        picContainer.eq(count).html(imgStr);
+        picContainer.eq(count).children('a').attr('href', picContainer.eq(count).siblings('h2').children('a').attr('href'));
+        picContainer.eq(count).slideDown(time);
+    }
+
+    // 获取每个列表下的文献图片
+    function getLiteraturePic(callback) {
+        var literaturePicsUrl = '/literature/getLiteraturePics?filename=' + listDom.children('.item').eq(count).attr('data-file-name');
+        ajaxRequest[count] = $.ajax({
+            url: literaturePicsUrl,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                // console.log(response)
+                if (response.Code == 1) {
+                    var imgList = response.ImgUrls;
+                    // 图片存在
+                    if (imgList && imgList.length > 0) {
+                        callback(imgList);
+                    }
+                    if (count < items.length - 1) {
+                        count++;
+                        getLiteraturePic(handlePics);
+                    } else {
+                        count = 0;
+                    }
+                } else {
+                    console.log('请检查获取文献图片接口！');
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 停止所有ajax请求
+    function stopAjaxRequests(request, callback) {
+        // 停止递归
+        if (request[count]) {
+            request[count].abort();
+            count = 0;
+            callback();
+        }
+    }
+
+    // 异步获取数据后改写list内容（包括页码）
+    function getDataModifyList(subject, album, dbname, ztName, pageNum, order, isRecommended) {
+        var pageNum = pageNum || 1;
+        var order = order || 3; // 0:相关度，1:下载频次，2：被引频次，3：发表时间
+        var isRecommended = isRecommended || 1;
+        var url = encodeURI('/literature/library/channel?subject=' + subject + '&album=' + album + '&dbname=' + dbname + '&ztName=' + ztName + '&isAsync=1&pageNum=' + pageNum + '&order=' + order + '&isRecommended=' + isRecommended);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                // console.log(response)
+                if (response.code == 0) {
+                    var list = response.data.list;
+                    var str = '';
+                    if (list && list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            if (list[i].Keyword && list[i].Keyword.length > 0) {
+                                var keywordStr = '';
+                                var keywordArr = $.kd.stringToArray(list[i].Keyword);
+                                for (var j = 0; j < keywordArr.length; j++) {
+                                    if (j < 5) {
+                                        var tempIndex = keywordArr[j].indexOf(':');
+                                        if (tempIndex != -1) {
+                                            keywordStr += '<span><a target="_blank" href="' + encodeURI('/literature/libraryResult?album=' + album + '&fulltext=' + keywordArr[j].substring(0, tempIndex)) + '">' + keywordArr[j].substring(0, tempIndex) + '</a></span>';
+                                        } else {
+                                            keywordStr += '<span><a target="_blank" href="' + encodeURI('/literature/libraryResult?album=' + album + '&fulltext=' + keywordArr[j]) + '">' + keywordArr[j] + '</a></span>';
+                                        }
+                                    }
+                                }
+                                // 处理作者长度
+                                if (list[i].Author && list[i].Author.indexOf(';') > 0) {
+                                    var authorList = list[i].Author.split(';');
+                                    if (authorList.length > 3) {
+                                        authorList.length = 3;
+                                        list[i].Author = authorList[0] + ';' + authorList[1] + ';' + authorList[2] + ';' + ' |';
+                                    } else if (authorList.length > 0 && authorList.length <= 3) {
+                                        list[i].Author += ' |';
+                                    }
+                                }
+
+                                str += '<div class="item" data-page-count="' + list[i].PageCount + '" data-period="' + list[i].Period + '" data-year="' + list[i].Year + '" data-source="' + list[i].PublishName + '" data-file-name="' + list[i].FileName + '" data-db-type="' + list[i].DBName.substring(0, 4) + '" data-libraryType="' + list[i].DBName.substring(0, 4).toLowerCase() + 'total' + '">' +
+                                    '                <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + list[i].Title + '</a>&nbsp;&nbsp;<a href="javascript:;" class="orgNoRight"><img src="/images/literature/licon6.png"></a></h2>' +
+                                    '                <p class="p1">' + list[i].Author + ' <a target="_blank" href="/detail/singlePeriodDetail/'+list[i].FileName+'">《' + list[i].PublishName + '》' + list[i].Year +
+                                    '                    年' + list[i].Period + '期</a></p>' +
+                                    '                <p class="p2">' + list[i].Summary.substring(0, 190) + '...<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                                    '                <div class="pics" style="display: none;"></div>' +
+                                    '                <div class="tag"><img src="/images/literature/licon12.gif" align="absmiddle"/>' + keywordStr + '</div>' +
+                                    '            </div>';
+                            } else {
+                                str += '<div class="item" data-page-count="' + list[i].PageCount + '" data-period="' + list[i].Period + '" data-year="' + list[i].Year + '" data-source="' + list[i].PublishName + '" data-file-name="' + list[i].FileName + '" data-db-type="' + list[i].DBName.substring(0, 4) + '" data-libraryType="' + list[i].DBName.substring(0, 4).toLowerCase() + 'total' + '">' +
+                                    '                <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + list[i].Title + '</a>&nbsp;&nbsp;<a href="javascript:;" class="orgNoRight"><img src="/images/literature/licon6.png"></a></h2>' +
+                                    '                <p class="p1">' + list[i].Author + ' <a target="_blank" href="/detail/singlePeriodDetail/'+list[i].FileName+'">《' + list[i].PublishName + '》' + list[i].Year +
+                                    '                    年' + list[i].Period + '期</a></p>' +
+                                    '                <p class="p2">' + list[i].Summary.substring(0, 190) + '...<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                                    '                <div class="pics" style="display: none;"></div>' +
+                                    '            </div>';
+                            }
+
+                        }
+                        // keywordName.html(ztName);
+                        keywordTotal.html(response.data.total);
+                        listDom.html(str);
+                        getLiteraturePic(handlePics);
+                        var pageStr = $.kd.outputPager(response.data.total, 10, 5, pageNum);
+                        page.html(pageStr);
+                        page.children('a').click(function () {
+                            var pageNum = $(this).attr('data-page');
+                            getDataModifyList(subject, album, dbname, ztName, pageNum);
+                            // 回顶部
+                            $('body,html').animate({
+                                scrollTop: 260
+                            }, 500);
+                        });
+                        getDownloadRight();
+                    } else {
+                        listDom.html('暂时没有数据！');
+                        page.html('');
+                        keywordTotal.html(0);
+                    }
+                } else {
+                    console.log('请检查搜索文献列表接口！');
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    
+    
+    // 文献导航脚本
+    // 点击一级菜单
+    one.click(function () {
+        var index = parseInt($(this).attr('data-x'));
+        if (album == 'V') {
+            one.each(function (index) {
+                one.eq(index).removeClass('m-cur' + parseInt(index + 1));
+            })
+            one.eq(index).addClass('m-cur' + (index + 1));
+        } else if (album == 'U') {
+            one.each(function (index) {
+                one.eq(index).removeClass('mm-cur' + parseInt(index + 1));
+            })
+            one.eq(index).addClass('mm-cur' + (index + 1));
+        } else if (album == 'T') {
+            one.each(function (index) {
+                one.eq(index).removeClass('mmm-cur' + parseInt(index + 1));
+            })
+            one.eq(index).addClass('mmm-cur' + (index + 1));
+        }
+
+
+        // 修改页面title
+        pageTitle.html($(this).html() + '-' + libraryName);
+
+        two.removeClass('cur');
+        three.removeClass('cur');
+
+        var thisTwoWrap = $(this).siblings('.twoWrap');
+        if (thisTwoWrap.css('display') == 'none' && thisTwoWrap.length > 0) {
+            twoWrap.slideUp(time);
+            $(this).siblings('.twoWrap').slideDown(time);
+            threeWrap.slideUp(time);
+        } else {
+            twoWrap.slideUp(time);
+        }
+        // 获取列表数据
+        var subject = $(this).attr('data-ztcode');
+        $('#ztCode').val(subject);
+        var ztName = $(this).html();
+        $('#ztName').val(ztName);
+        navFirst.show();
+        navSecond.hide();
+        navThird.hide();
+        // navFirst.children('a').attr('data-ztcode', subject).html(ztName);
+        navFirst.children('a').attr({
+            'data-ztcode': subject,
+            'data-x': index
+        }).html(ztName);
+        var order = $('#order').val();
+        var isRecommended = recommended.val();
+        stopAjaxRequests(ajaxRequest, function () {
+            getDataModifyList(subject, album, dbname, ztName, 1, order, isRecommended);
+        });
+    });
+
+    // 点击二级菜单
+    two.click(function () {
+        // 修改页面title
+        pageTitle.html($(this).html().trim() + '-' + navFirst.children('a').html().trim() + '-' + libraryName);
+
+        if (!$(this).siblings('.threeWrap').children().length || $(this).siblings('.threeWrap').css('display') == 'none') {
+            threeWrap.slideUp(time);
+            three.removeClass('cur');
+            $(this).siblings('.threeWrap').slideDown(time);
+        }
+
+        two.removeClass('cur');
+        three.removeClass('cur');
+        $(this).addClass('cur');
+
+        // 获取列表数据
+        var subject = $(this).attr('data-ztcode');
+        $('#ztCode').val(subject);
+        var ztName = $(this).html();
+        $('#ztName').val(ztName);
+
+        navSecond.show().children('a').attr('data-ztcode', subject).html(ztName);
+        navThird.hide();
+        // var url = encodeURI('/literature/library/wy?subject=' + subject + '&album=' + album + '&dbname=' + dbname + '&ztName=' + ztName + '&isAsync=1');
+        var order = $('#order').val();
+        var isRecommended = recommended.val();
+        stopAjaxRequests(ajaxRequest, function () {
+            getDataModifyList(subject, album, dbname, ztName, 1, order, isRecommended);
+        });
+
+    })
+
+    // 点击三级菜单
+    three.click(function () {
+        // 修改页面title
+        pageTitle.html($(this).html().trim() + '-' + navSecond.children('a').html().trim() + '-' + navFirst.children('a').html().trim() + '-' + libraryName);
+
+
+        two.children('a').removeClass('cur');
+        three.removeClass('cur');
+        $(this).addClass('cur');
+
+        // 获取列表数据
+        var subject = $(this).attr('data-ztcode');
+        $('#ztCode').val(subject);
+        var ztName = $(this).html();
+        $('#ztName').val(ztName);
+        navThird.show().children('a').attr('data-ztcode', subject).html(ztName);
+        var order = $('#order').val();
+        var isRecommended = recommended.val();
+        stopAjaxRequests(ajaxRequest, function () {
+            getDataModifyList(subject, album, dbname, ztName, 1, order, isRecommended);
+        });
+    })
+
+    // 相关度、发表时间、下载次数排序
+    // 0:相关度，1:下载频次，2：被引频次，3：发表时间
+    sort.children('a').click(function () {
+        sort.children('a').removeClass('cur');
+        $(this).addClass('cur');
+        var order = $(this).attr('data-sort-order');
+        $('#order').val(order);
+        var ztName = $('#ztName').val();
+        var subject = $('#ztCode').val();
+        var isRecommended = recommended.val();
+        stopAjaxRequests(ajaxRequest, function () {
+            getDataModifyList(subject, album, dbname, ztName, 1, order, isRecommended);
+        });
+    })
+
+    // 全部 精选
+    isRecommended.children('a').click(function () {
+        isRecommended.children('a').removeClass('cur');
+        $(this).addClass('cur');
+        var recomFlag = $(this).attr('data-isRecommended');
+        recommended.val(recomFlag);
+        var ztName = $('#ztName').val();
+        var subject = $('#ztCode').val();
+        var order = $('#order').val();
+        stopAjaxRequests(ajaxRequest, function () {
+            getDataModifyList(subject, album, dbname, ztName, 1, order, recomFlag);
+        });
+    })
+    getDownloadRight();
+
+    function getDownloadRight() {
+        // 点击下载按钮
+        $('.orgNoRight').click(function () {
+            var filename = $(this).parents('.item').attr('data-file-name');
+            var title = $(this).siblings('a').text();
+            var dbType = $(this).parents('.item').attr('data-db-type');
+            var source = $(this).parents('.item').attr('data-source');
+            var year = $(this).parents('.item').attr('data-year');
+            var period = $(this).parents('.item').attr('data-period');
+            var pageCount = $(this).parents('.item').attr('data-page-count');
+            var libraryType = $(this).parents('.item').attr('data-librarytype');
+
+
+            $.ajax({
+                url: encodeURI('/literature/getDownloadRight?fn=' + filename + '&t=' + title + '&libraryType=' + libraryType),
+                dataType: "json", //返回格式
+                type: "GET",
+                success: function (response) {
+                    console.log(response)
+                    // 未登录
+                    if (response.errorCode == -1) {
+                        location.href = '/temp/userCenter/login';
+                    }
+                    // 直接下载
+                    else if (response.errorCode == 1) {
+                        var url = response.data.downloadUrl.substring(1, response.data.downloadUrl.length - 1);
+                        var tempwindow = window.open('_blank');
+                        tempwindow.location = url;
+                    }
+                    // 跳转详情页
+                    else if (response.errorCode == 2) {
+                        var url = '/literature/literatureDetail/' + filename + dbType;
+                        var tempwindow = window.open('_blank');
+                        tempwindow.location = url;
+                    }
+                    // 机构用户没有权限
+                    else if (response.errorCode == 3) {
+                        layer.msg(response.errorMessage);
+                    }
+                    // 已经有权限，为2013年之前的文献
+                    else if (response.errorCode == 4) {
+                        var url = encodeURI('/literature/literatureDownload?title=' + title + '&source=' + source + '&year=' + year + '&period=' + period + '&pageCount=' + pageCount + '&filename=' + filename + '&lt=' + libraryType);
+                        var tempwindow = window.open('_blank');
+                        tempwindow.location = url;
+                    }
+                    // 错误处理
+                    else if (response.errorCode == 0) {
+                        layer.msg(response.errorMessage);
+                    }
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        })
+    }
+
+</script>
+
+</body>
+
+</html>

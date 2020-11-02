@@ -1,0 +1,678 @@
+body,
+html {
+  height: 100%;
+}
+body.bg1 {
+  background: url(../../images/reglog/rl-bg0.jpg) no-repeat center 100px;
+  min-width: 963px;
+}
+body.bg2 {
+  background: #774031 url(../../images/reglog/rl-bg3.jpg) no-repeat center top;
+  min-width: 963px;
+}
+.footer {
+  width: 100%;
+  text-align: center;
+  font-family: "微软雅黑";
+  font-size: 14px;
+  color: #262626;
+  line-height: 30px;
+}
+.footer a {
+  color: #262626;
+  padding: 0 5px;
+}
+.footer.color {
+  color: #ffffff;
+}
+.footer.color a {
+  color: #ffffff;
+}
+.login {
+  width: 1133px;
+  margin: 0 auto;
+}
+.login .header {
+  height: 100px;
+}
+.login ::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #b5b1b1;
+}
+.login :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #b5b1b1;
+}
+.login ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #b5b1b1;
+}
+.login :-ms-input-placeholder {
+  /* Internet Explorer 10-11*/
+  color: #b5b1b1;
+}
+.login .loginbody {
+  width: 368px;
+  /*height:357px;*/
+  background: #ffffff;
+  border-radius: 5px;
+  font-family: "微软雅黑";
+  margin-bottom: 85px;
+  margin-top: 59px;
+}
+.login .loginbody h1 {
+  font-size: 18px;
+  padding-top: 15px;
+  height: 54px;
+  padding-left: 35px;
+  padding-right: 35px;
+  color: #262626;
+  line-height: 54px;
+  font-weight: normal;
+}
+.login .loginbody h1 a {
+  font-size: 14px;
+  color: #0284e8;
+}
+.login .loginbody .frame {
+  width: 313px;
+  margin: 0 auto;
+}
+.login .loginbody .frame .item {
+  width: 311px;
+  height: 36px;
+  margin-bottom: 23px;
+  position: relative;
+  border: 1px solid #CACACA;
+}
+.login .loginbody .frame .item label {
+  float: left;
+  height: 36px;
+  width: 34px;
+}
+.login .loginbody .frame .item.name label {
+  background: url(../../images/reglog/rl-icon1.png) no-repeat center;
+}
+.login .loginbody .frame .item.psw label {
+  background: url(../../images/reglog/rl-icon2.png) no-repeat center;
+}
+.login .loginbody .frame .item input {
+  float: left;
+  background: transparent;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 20px;
+  line-height: 20px;
+  width: 276px;
+  border: none 0;
+  font-size: 14px;
+}
+.login .loginbody .frame .item .keyboard {
+  position: absolute;
+  top: 11px;
+  right: 17px;
+  cursor: pointer;
+  width: 22px;
+  height: 20px;
+  background: url(../../images/reglog/rl-icon3.png) no-repeat;
+}
+.login .loginbody .frame .item.focus {
+  border-color: #0A66CA;
+}
+.login .loginbody .frame .error {
+  padding-left: 35px;
+  min-height: 24px;
+  line-height: 24px;
+  color: #CA0D19;
+  background: url(../../images/reglog/rl-icon4.png) no-repeat 11px 5px;
+  margin-top: -23px;
+}
+.login .loginbody .frame .loginBtn {
+  display: block;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 4px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+  background-color: #CA0D19;
+  margin-bottom: 18px;
+}
+.login .loginbody .frame .info {
+  height: 18px;
+  line-height: 18px;
+  color: #737373;
+  margin-bottom: 10px;
+}
+.login .loginbody .frame .info .checkbox {
+  float: left;
+  padding-left: 19px;
+  cursor: pointer;
+  background: url(../../images/reglog/rl-icon5.png) no-repeat left center;
+}
+.login .loginbody .frame .info .checkbox.c {
+  background-image: url(../../images/reglog/rl-icon5c.png);
+}
+.login .loginbody .frame .info .forpsw {
+  float: right;
+  color: #737373;
+}
+.login .loginbody .frame .info .ljzc {
+  float: right;
+  margin-left: 10px;
+  color: #0284e8;
+}
+.login .loginbody .frame .fastlogin {
+  background: url(../../images/reglog/rl-icon6.png) no-repeat center 4px;
+}
+.login .loginbody .frame .fastlogin h2 {
+  line-height: 16px;
+  font-size: 14px;
+  color: #808080;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.login .loginbody .frame .fastlogin .ways {
+  padding-bottom: 14px;
+  font-size: 0px;
+  text-align: center;
+  height: 37px;
+  width: 137px;
+  margin: 0 auto;
+}
+.login .loginbody .frame .fastlogin .ways a {
+  float: left;
+  width: 37px;
+  height: 37px;
+}
+.login .loginbody .frame .fastlogin .ways .qq {
+  background: url(../../images/reglog/rl-iconqq.png) no-repeat;
+  margin-right: 13px;
+}
+.login .loginbody .frame .fastlogin .ways .wechat {
+  background: url(../../images/reglog/rl-iconwechat.png) no-repeat;
+  margin-right: 13px;
+}
+.login .loginbody .frame .fastlogin .ways .weibo {
+  background: url(../../images/reglog/rl-iconweibo.png) no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+.login .loginbody .linkreg {
+  line-height: 33px;
+  text-align: center;
+  font-size: 12px;
+  color: #0284e8;
+  height: 33px;
+  background-color: #F9F9F9;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.login .loginbody .linkreg a {
+  color: #0284e8;
+}
+.register {
+  width: 943px;
+  margin: 0 auto;
+}
+.register .header {
+  height: 77px;
+  padding-top: 0;
+  margin-bottom: 52px;
+}
+.register .rebody {
+  width: 420px;
+  margin: -20px auto 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 534px;
+  font-family: "微软雅黑";
+  margin-bottom: 100px;
+}
+.register .rebody h1 {
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
+.register .rebody .frame {
+  width: 350px;
+  margin: 0 auto;
+}
+.register .rebody .frame .item {
+  position: relative;
+  width: 350px;
+  height: 41px;
+  background: url(../../images/reglog/rl-icon12.png) no-repeat;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+}
+.register .rebody .frame .item label {
+  float: left;
+  height: 41px;
+  width: 48px;
+}
+.register .rebody .frame .item .judge {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 11px;
+  top: 13px;
+  background-repeat: no-repeat;
+}
+.register .rebody .frame .item .judge.correct {
+  background-image: url(../../images/reglog/rl-icon-right.png);
+}
+.register .rebody .frame .item .judge.error {
+  background-image: url(../../images/reglog/rl-icon-error.png);
+}
+.register .rebody .frame .item.yzm .judge {
+  right: 147px;
+}
+.register .rebody .frame .item.name label {
+  background: url(../../images/reglog/rl-icon7.png) no-repeat center;
+}
+.register .rebody .frame .item.psw label {
+  background: url(../../images/reglog/rl-icon8.png) no-repeat center;
+}
+.register .rebody .frame .item.yzm label {
+  background: url(../../images/reglog/rl-icon9.png) no-repeat center;
+}
+.register .rebody .frame .item input {
+  float: left;
+  background: transparent;
+  padding-top: 4px;
+  height: 36px;
+  line-height: 36px;
+  width: 302px;
+  border: none 0;
+  font-family: "simsun";
+}
+.register .rebody .frame .item ::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #808080;
+}
+.register .rebody .frame .item :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #808080;
+}
+.register .rebody .frame .item ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #808080;
+}
+.register .rebody .frame .item :-ms-input-placeholder {
+  /* Internet Explorer 10-11*/
+  color: #808080;
+}
+.register .rebody .frame .item.yzm input {
+  width: 166px;
+}
+.register .rebody .frame .item .yzm {
+  float: left;
+  width: 136px;
+  font-family: "simsun";
+  text-align: center;
+  line-height: 41px;
+}
+.register .rebody .frame .item .status1 {
+  color: #808080;
+  background: url(../../images/reglog/rl-yzm1.png) no-repeat;
+}
+.register .rebody .frame .item .status2 {
+  color: #ffffff;
+  background: url(../../images/reglog/rl-yzm2.png) no-repeat;
+}
+.register .rebody .frame .item .status3 {
+  color: #7F7F7F;
+  background: url(../../images/reglog/rl-yzm3.png) no-repeat;
+}
+.register .rebody .frame .item.focus {
+  background-image: none;
+  border-color: #CACACA;
+}
+.register .rebody .frame .item.error {
+  background-image: none;
+  border-color: #FA3838;
+}
+.register .rebody .frame p.error {
+  height: 28px;
+  line-height: 28px;
+  color: #f13e3a;
+  font-family: "simsun";
+  padding-left: 49px;
+}
+.register .rebody .frame p.error .color666 {
+  color: #666666;
+}
+.register .rebody .frame .reBtn {
+  display: block;
+  height: 41px;
+  line-height: 41px;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  background-color: #F93C3B;
+  border-radius: 20px;
+  box-shadow: 0 4px 4px #fec7c7;
+  margin-bottom: 22px;
+}
+.register .rebody .frame .checkbox {
+  line-height: 14px;
+  padding-left: 42px;
+  background: url(../../images/reglog/rl-icon10.png) no-repeat 18px center;
+  color: #7F7F7F;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.register .rebody .frame .checkbox.c {
+  background-image: url(../../images/reglog/rl-icon10c.png);
+}
+.register .rebody .frame .checkbox a {
+  color: #168EDC;
+}
+.register .rebody .frame .protocolErrorMessage {
+  color: #f13e3a;
+  padding-bottom: 20px;
+  padding-left: 41px;
+  visibility: hidden;
+}
+.register .rebody .frame .fastlogin {
+  background: url(../../images/reglog/rl-icon11.png) no-repeat center 8px;
+}
+.register .rebody .frame .fastlogin h2 {
+  line-height: 16px;
+  font-size: 14px;
+  color: #808080;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 23px;
+}
+.register .rebody .frame .fastlogin .ways {
+  padding-bottom: 14px;
+  font-size: 0px;
+  text-align: center;
+  height: 37px;
+  width: 137px;
+  margin: 0 auto;
+}
+.register .rebody .frame .fastlogin .ways a {
+  float: left;
+  width: 37px;
+  height: 37px;
+}
+.register .rebody .frame .fastlogin .ways .qq {
+  background: url(../../images/reglog/rl-iconqq.png) no-repeat;
+  margin-right: 13px;
+}
+.register .rebody .frame .fastlogin .ways .wechat {
+  background: url(../../images/reglog/rl-iconwechat.png) no-repeat;
+  margin-right: 13px;
+}
+.register .rebody .frame .fastlogin .ways .weibo {
+  background: url(../../images/reglog/rl-iconweibo.png) no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+.register .rebody .bottom {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #EBEBEB;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 14px;
+}
+.register .rebody .bottom a {
+  color: #e50000;
+}
+.register .reSuccess {
+  width: 850px;
+  margin: -18px auto 100px;
+}
+.register .reSuccess .sucTips {
+  padding-left: 291px;
+  margin-bottom: 32px;
+}
+.register .reSuccess .sucTips h1 {
+  padding-left: 56px;
+  line-height: 40px;
+  color: #ffffff;
+  font-size: 24px;
+  background: url(../../images/reglog/rl-icon13.png) no-repeat left center;
+  font-weight: normal;
+  margin-bottom: 14px;
+}
+.register .reSuccess .sucTips .btns {
+  height: 33px;
+  line-height: 33px;
+  font-size: 14px;
+}
+.register .reSuccess .sucTips .btns a {
+  color: #ffffff;
+  padding: 6px 25px;
+  border: 1px solid #ffffff;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-right: 17px;
+}
+.register .reSuccess .setBox {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.register .reSuccess .setBox .setTop .tit {
+  padding-left: 57px;
+  height: 87px;
+  line-height: 87px;
+  font-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 27px center;
+}
+.register .reSuccess .setBox .setTop .tit span {
+  color: #808080;
+  font-size: 14px;
+}
+.register .reSuccess .setBox .setBottom {
+  padding-top: 18px;
+  height: 59px;
+  background-color: #F0F0F0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+}
+.register .reSuccess .setBox .setBottom .next {
+  display: block;
+  width: 150px;
+  height: 41px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 41px;
+  font-size: 16px;
+  color: #ffffff;
+  background: url(../../images/reglog/rl-icon24.png) no-repeat;
+}
+.register .reSuccess .setBox .setBottom .skip {
+  position: absolute;
+  top: 46px;
+  right: 20px;
+  font-size: 14px;
+  line-height: 14px;
+  color: #808080;
+}
+.register .reSuccess .setBox .setBottom .skip img {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.register .reSuccess .setBox .s1 .tit {
+  background-image: url(../../images/reglog/rl-icon14.png);
+}
+.register .reSuccess .setBox .s1 .showBox {
+  padding-left: 65px;
+}
+.register .reSuccess .setBox .s1 .showBox ul {
+  height: 285px;
+  overflow: hidden;
+}
+.register .reSuccess .setBox .s1 .showBox ul li {
+  float: left;
+  position: relative;
+  width: 100px;
+  margin-right: 25px;
+  margin-bottom: 7px;
+  text-align: center;
+  cursor: pointer;
+}
+.register .reSuccess .setBox .s1 .showBox ul li img {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+.register .reSuccess .setBox .s1 .showBox ul li p {
+  line-height: 37px;
+  font-size: 14px;
+  color: #262626;
+}
+.register .reSuccess .setBox .s1 .showBox ul li .cover {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+}
+.register .reSuccess .setBox .s1 .showBox ul li .icon {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 21px;
+  height: 21px;
+}
+.register .reSuccess .setBox .s1 .showBox ul .toggle .cover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.register .reSuccess .setBox .s1 .showBox ul .toggle .icon {
+  background: url(../../images/reglog/rl-icon15.png) no-repeat;
+}
+.register .reSuccess .setBox .s1 .showBox .show {
+  display: block;
+  width: 40;
+  color: #595959;
+  margin-bottom: 30px;
+  margin-top: 7px;
+  line-height: 12px;
+  margin-left: 343px;
+}
+.register .reSuccess .setBox .s1 .showBox .show img {
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.register .reSuccess .setBox .s2 .tit {
+  background-image: url(../../images/reglog/rl-icon18.png);
+}
+.register .reSuccess .setBox .s2 .showBox {
+  padding-top: 60px;
+  height: 277px;
+  padding-left: 250px;
+}
+.register .reSuccess .setBox .s2 .showBox ul li {
+  float: left;
+  width: 140px;
+  margin-right: 68px;
+  padding-top: 140px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 18px;
+  color: #808080;
+  cursor: pointer;
+}
+.register .reSuccess .setBox .s2 .showBox ul .female {
+  background: url(../../images/reglog/rl-icon19.png) no-repeat top center;
+}
+.register .reSuccess .setBox .s2 .showBox ul .female:hover {
+  background-image: url(../../images/reglog/rl-icon19c.png);
+}
+.register .reSuccess .setBox .s2 .showBox ul .female.cur {
+  background-image: url(../../images/reglog/rl-icon19c.png);
+}
+.register .reSuccess .setBox .s2 .showBox ul .male {
+  background: url(../../images/reglog/rl-icon20.png) no-repeat top center;
+}
+.register .reSuccess .setBox .s2 .showBox ul .male:hover {
+  background-image: url(../../images/reglog/rl-icon20c.png);
+}
+.register .reSuccess .setBox .s2 .showBox ul .male.cur {
+  background-image: url(../../images/reglog/rl-icon20c.png);
+}
+.register .reSuccess .setBox .s3 .tit {
+  background-image: url(../../images/reglog/rl-icon21.png);
+}
+.register .reSuccess .setBox .s3 .showBox {
+  padding-top: 60px;
+  padding-left: 80px;
+  height: 284px;
+}
+.register .reSuccess .setBox .s3 .showBox ul li {
+  position: relative;
+  float: left;
+  width: 218px;
+  height: 88px;
+  text-align: center;
+  line-height: 88px;
+  font-size: 18px;
+  color: #808080;
+  cursor: pointer;
+  background-color: #F0F0F0;
+  border: 1px solid #D9D9D9;
+  border-radius: 5px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+.register .reSuccess .setBox .s3 .showBox ul li span {
+  display: none;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  background: url(../../images/reglog/rl-icon22.png) no-repeat;
+}
+.register .reSuccess .setBox .s3 .showBox ul li:hover span {
+  display: block;
+}
+.register .reSuccess .setBox .s3 .showBox ul li.cur {
+  background-color: #FFECEC;
+  border-color: #F95858;
+  color: #fa5959;
+}
+.register .reSuccess .setBox .s3 .showBox ul li.cur span {
+  display: block;
+  background-image: url(../../images/reglog/rl-icon22c.png);
+}
+.register .setupDone {
+  padding-top: 50px;
+  margin-bottom: 350px;
+}
+.register .setupDone h1 {
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+  line-height: 95px;
+  padding-top: 127px;
+  background: url(../../images/reglog/rl-icon23.png) no-repeat center top;
+  font-weight: normal;
+}
+.register .setupDone .links {
+  height: 41px;
+  width: 322px;
+  margin: 0 auto;
+}
+.register .setupDone .links a {
+  width: 150px;
+  height: 41px;
+  text-align: center;
+  line-height: 41px;
+  color: #ffffff;
+  background: url(../../images/reglog/rl-icon24.png) no-repeat;
+  font-size: 16px;
+}
+/*# sourceMappingURL=reglog.css.map */

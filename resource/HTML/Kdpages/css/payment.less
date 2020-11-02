@@ -1,0 +1,141 @@
+.payBg{ padding-top: 84px; padding-bottom: 88px; background: url(../images/payment/pay-bg.jpg) no-repeat center top;}
+.payWrap{ width: 850px; margin: 0 auto;
+    .orderInfo{ padding: 8px 0; background-color: #ffffff;border: 1px solid #DFDFDF; margin-bottom: 15px;
+        .oil{ padding:15px 0 15px 23px; width: 585px; border-right:1px solid #EAEAEA;
+            img{ float: left; width: 187px; height: 105px; border-radius: 5px; margin-right: 23px;}
+            .name{ float: left;
+                p{line-height: 44px; font-size: 24px; height: 80px;}
+                .classify{ display: block; width: 40px; height: 25px; text-align: center; line-height: 25px; color: #ffffff; background-color: #F03E3A;}
+            }
+        }
+        .oir{ padding-left: 21px; font-size: 14px; 
+            .p1{line-height: 75px;} 
+            .p2{ line-height: 54px;
+                .red{ color: #dd1b1b; font-weight: bold; font-size: 24px; padding: 0 5px;}
+            }  
+        }
+    }
+    .payWays{ background-color: #ffffff; border: 1px solid #E0E0E0;
+        .pay-tab{ padding-left: 7px; height:42px; padding-top: 8px; background-color: #475162;
+            a{ float: left; width: 100px; height: 42px; line-height: 42px; text-align: center; font-size: 16px; color: #ffffff; border-top-left-radius: 5px; border-top-right-radius: 5px; margin-right: 5px; background-color: #676F7D;}
+            a.cur{ background-color: #ffffff; color: #262626;}
+        }
+        .pay-cont{padding: 16px 7px;
+            .tit{ height: 43px; line-height: 43px; border-bottom: 1px solid #E4E4E4; padding-left: 36px; padding-right: 17px; background: url(../images/payment/pay-icon1.gif) no-repeat 18px center;
+                .detail{ float: left; font-size: 14px;
+                    .red{ color: #dd1b1b;}
+                    .tip{font-size: 12px; color: #a6a6a6;}
+                }
+                .je{ float: right; padding-left: 21px; color: #323232; background: url(../images/payment/pay-icon2.gif) no-repeat left center;}
+            }
+            .ways-area{ padding-top: 36px;padding-left: 36px;
+                .p1{ font-size: 14px; line-height: 40px; 
+                    .red{color: #dd1b1b; font-weight: bold; font-size: 24px; padding: 0 5px;}
+                }
+                .p2{ color: #a6a6a6; line-height: 40px;margin-bottom: 44px;
+                 //余额不足
+                    a{ color: #dd1b1b; padding-left: 2px; padding-right: 14px; background: url(../images/payment/pay-icon3.gif) no-repeat right center;}
+                }    
+               
+            }
+            .sure{display: block; margin: 0 auto 25px; width: 226px; text-align: center; height: 44px; line-height: 44px; font-size: 18px; color: #ffffff; background-color: #F03E3A; border-radius: 6px;}
+            .btns{ width: 410px; margin: 0 auto; height: 44px; overflow: hidden;
+                .disabled{ width:196px ; float: left; background-color: #BEBEBE;}
+                .charge{ float: right;width: 196px; text-align: center; height: 44px; line-height: 44px; font-size: 18px; color: #ffffff; background-color: #F03E3A; border-radius: 6px;}
+            }
+            .chargetip{ line-height: 60px; text-align: center; color: #a6a6a6;
+                a{ color: #dd1b1b; padding: 0 5px;}
+            }
+        }
+        //微信支付
+        .wechatpay{ padding:35px 0 35px 210px; overflow: hidden;
+            .qcode{ width: 172px; height: 222px; padding: 12px; border:1px solid #E5E5E5; margin-right: 23px;
+                img{ display: block; width: 172px; height: 172px; margin-bottom: 12px;}
+                .text{ padding-left: 39px; line-height: 20px; background: url(../images/payment/pay-icon4.gif) no-repeat left center;}
+            } 
+            .mobile{ float: left;}   
+        }
+        //支付宝
+        .alipay{ padding:35px 0 35px 140px; overflow: hidden;
+            .qcode{ width: 172px; height: 222px; padding: 12px; border:1px solid #E5E5E5; margin-right: 23px;
+                img{ display: block; width: 172px; height: 172px; margin-bottom: 12px;}
+                .text{ padding-left: 39px; line-height: 20px; background: url(../images/payment/pay-icon4.gif) no-repeat left center;}
+            } 
+            .mobile{ float: left;} 
+            .pcpay{ float: right; height:149px; width: 150px; background: #F1F1F1 url(../images/payment/pay-icon7.jpg) no-repeat center 50px; padding-top: 170px; margin-top: -35px; margin-bottom: -35px;
+                .tip{ line-height: 18px; margin: 0 20px 15px;}
+                .go{ display: block; width: 108px; height: 33px; text-align: center; line-height: 33px; font-size: 14px; color: #dd1b1b; border: 1px solid #F03E3A; border-radius: 5px; margin: 0 auto;}
+            }  
+        }
+        //银联
+        .unionpay{
+            .logo{ border: 2px solid #F03E3A; width: 222px; height: 74px; margin-bottom: 14px;}
+            .go{ display: block; width: 226px; height: 44px; line-height: 44px; text-align: center; color: #ffffff; font-size: 18px; border-radius: 6px; background-color: #F03E3A; margin-bottom: 50px;}
+        }
+    
+    }
+}
+//支付成功
+.swrap{ width: 1000px; margin: 0 auto;
+    .sutop{ padding-top: 166px; background: url(../images/payment/pay-icon9.png) no-repeat center 80px;
+        .p{ text-align: center; font-size: 32px; line-height: 89px;}
+        .btns{ width: 298px; margin: 0 auto 43px; height: 38px;
+            a{ width: 138px; height: 36px; line-height: 36px; text-align: center; font-size: 16px; border-radius: 6px; border:1px solid #E47373;}
+            .a1{ color: #ffffff; background-color: #E47373;}
+            .a2{ color: #808080; border-color:#C0C0C0 ;}
+            
+        }
+    }
+    .subottom{ background-color: #ffffff; width: 998px; border: 1px solid #DFDFDF;
+        .favorite{ height: 42px; padding-top: 8px; background-color: #475162; margin-bottom: 40px;
+            label{ float: left; padding-left: 28px; color: #a2a6ae; font-size: 14px; font-weight: bold; line-height: 42px; margin-right: 16px;}
+           .tab a{ float: left; width: 80px; height: 42px;line-height: 42px; text-align: center; margin-right: 6px; border-top-left-radius: 5px; border-top-right-radius: 5px; color: #ffffff; font-size: 14px; background-color: #676F7D;} 
+           .tab a.cur{background-color: #ffffff; color: #262626;}
+        }
+        .tabcont{ padding-left: 40px; padding-bottom: 40px;
+            ul li{ float: left; width: 215px; padding: 4px 4px 0; border: 1px solid #D8D8D8; border-radius: 5px; margin-right: 6px; margin-bottom: 6px;
+                a{ display: block; position: relative; color: #262626;
+                    img{ width: 215px; height: 122px;}
+                    .icon{position: absolute; width: 26px; height: 26px; top: 92px; right: 4px; background-repeat: no-repeat; background-position: center;}
+                    .icon1{ background-image: url(../images/payment/pay-icon10.png);}
+                    .icon2{ background-image: url(../images/payment/pay-icon11.png);}
+                    .icon3{ background-image: url(../images/payment/pay-icon12.png);}
+                    .icon4{ background-image: url(../images/payment/pay-icon13.png);}
+                    .icon5{ background-image: url(../images/payment/pay-icon14.png);}
+                    p{ line-height: 40px;}
+                }
+            }
+        }
+    }
+    
+}
+//modal
+.layui-layer{ background-color: transparent !important;}
+.modal{ position: relative; width: 560px; background-color: #ffffff; border-radius: 6px; display: none;
+    .close{ position: absolute; width: 20px; height: 20px; top: 11px; right: 11px; background: url(../images/payment/pay-close.png) no-repeat;}
+    .close:hover{ background-image: url(../images/payment/pay-closeh.png);}
+    h1{ height: 42px; background-color: #485162; padding-left: 16px; border-top-left-radius: 6px; border-top-right-radius: 6px; color: #ffffff; font-size: 16px; line-height: 42px; font-weight: normal;}
+    .p1{ margin-top: 50px; margin-left: 70px; line-height: 24px; color: #262626; margin-bottom: 18px; font-size: 18px; padding-left: 37px; background: url(../images/payment/pay-icon15.gif) no-repeat left center;      
+    }
+    .p2{ color: #807f7f; line-height: 34px; margin-left: 106px; margin-bottom: 47px;}
+    .p3{ padding-left:37px; line-height: 24px; margin: 52px 0 52px 139px; font-size: 18px; background: url(../images/payment/pay-icon16.png) no-repeat left center;}
+    .bottom{ padding-top:27px; height: 63px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; background-color: #F1F1F1; position: relative;
+        .btns{ width: 309px; margin:0 auto;
+            .a1{display: block; width: 116px; height: 36px; text-align: center; line-height: 36px; font-size: 14px; color: #ffffff; border-radius: 3px; background-color: #F03E3A; margin: 0 auto;}
+            .a2{ width: 180px; height: 34px; text-align: center; line-height: 34px;font-size: 14px; color:#f13e3a;border-radius: 3px; background-color:#ffffff; border: 1px solid #f13e3a;}
+            .a3{position: absolute; color: #808080; line-height: 34px; top: 27px; right: 20px; text-decoration: underline;}
+        }
+    }
+}
+//订单处理中
+.inhand{ width: 160px; height: 60px; display: none; background:url(../images/payment/pay-icon18.png) no-repeat;
+    p{ font-size: 14px; line-height: 60px; padding-left:48px; position: relative;
+    span{ position: absolute; top:20px; left: 17px; width: 22px; height: 22px; background: url(../images/payment/pay-icon17.png) no-repeat; animation: myloading .8s infinite linear;}
+    @keyframes myloading
+        {
+        0%{transform: rotate(0deg);}
+        100%{transform: rotate(360deg);}
+        }
+
+    }
+}

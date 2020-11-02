@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/plugin/jquery.methods.js"></script>
+        <script src="/js/purchasedDrm.js"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:1,active:0}) %>
+                <div class="contentWrap">
+                    <h1 class="yg"><span>我的已购</span><a href="/mall/readerDownload" target="_blank" class="reader">下载安装阅读器</a>
+                    </h1>
+                    <div class="tab">
+                        <a href="javascript:;" class="cur">作品<span>（0）</span></a>
+                        <a href="javascript:;">微刊<span>（0）</span></a>
+                        <a href="javascript:;">期刊<span>（0）</span></a>
+                        <a href="javascript:;">图书<span>（0）</span></a>
+                        <a href="javascript:;">文献<span>（0）</span></a>
+                    </div>
+                    <!--作品-->
+                    <div class="tabcont t1"></div>
+                    <!--微刊-->
+                    <div class="tabcont t2"></div>
+                    <!--期刊-->
+                    <div class="tabcont t3">
+                        <p class="accredit remind">温馨提示：
+                            <span class="registermachinejs">本电脑尚未获得下载阅读书刊的授权，您可以</span>
+                            <a href="javascript:;" class="registermachinejsbtn">授权给本电脑</a>
+                            <span class="registermachinejs2">（您最多可同时授权2台电脑）</span>
+                        </p>
+                        <div class="box"></div>
+
+                        <div class="year-box"></div>
+                    </div>
+                    <!--图书-->
+                    <div class="tabcont t3">
+                        <p class="accredit remind">温馨提示：
+                            <span class="registermachinejs">本电脑尚未获得下载阅读书刊的授权，您可以</span>
+                            <a href="javascript:;" class="registermachinejsbtn">授权给本电脑</a>
+                            <span class="registermachinejs2">（您最多可同时授权2台电脑）</span>
+                        </p>
+                        <div class="box"></div>
+                    </div>
+                    <!--文献-->
+                    <div class="tabcont t4">
+                        <!-- <p class="accredit">温馨提示：文献购买后，支持365天内重复下载阅读。</p> -->
+                        <div class="box"></div>
+
+                    </div>
+                </div>
+                <%if(viewModel.drm.isIE){%>
+                    <object classid="clsid:6C59FAF6-76F5-4370-A070-8EAB0F072011" width="0px" height="0px" id="SysInfoAx"></object>
+                    <%}else{%>
+                        <embed id="SysInfoAx" type="application/cnki-sysinfo-plugin" width="0px" height="0px" />
+                        <%}%>
+                            <a id="aDrmCajViewerDownload" href="//cajviewer.cnki.net/" target="_blank" style="display: none;">CAJViewer下载</a>
+                            <a id="aDrmHelpAnswer" href="//bianke.cnki.net/answer/item?id=0804" target="_blank" style="display: none;">为什么电脑提示授权失败</a>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <input type="hidden" id="uid" value="<%=viewModel.uid%>">
+            <input type="hidden" id="openid" value="<%=viewModel.openId%>">
+            <script>
+                'use strict'
+                var uid = $('#uid').val();
+                var openid = $('#openid').val();
+
+                var drmInit = 0;
+                var drmUserName = '<%- viewModel.user.name %>';
+                var drmSvrIp = '<%- viewModel.drm.svrip %>';
+                var iTotalOrderCount = 0;
+                var getregistercount = 2;
+
+                var index = 0; // 当前选中的类别: 作品、文献、期刊等的序号
+                var listDom = $('.tabcont ');
+                var page = $('.sp-page');
+                var pageA = $('.sp-page a');
+
+                var tabA = $(".tab a");
+                var tabBox = $(".tabcont");
+                var paramType = parseInt($.kd.getparams("typeId")); // 传参 0-作品；1-微刊；2-期刊；3-图书；4-文献
+                var index = 0;
+                if (!isNaN(paramType)) {
+                    index = paramType;
+                }
+                var type = 17; // 1-期刊；5-图书；17-作品；18-微刊；9-文献
+                switch (index) {
+                    case 0:
+                        type = 17;
+                        break;
+                    case 1:
+                        type = 18;
+                        break;
+                    case 2:
+                        type = 1;
+                        break;
+                    case 3:
+                        type = 5;
+                        break;
+                    case 4:
+                        type = 9;
+                        break;
+                }
+                tabA.eq(index).addClass('cur').siblings().removeClass('cur');
+                tabBox.hide();
+                tabBox.eq(index).show();
+                tabA.click(function() {
+
+                    index = $(this).index();
+                    // 期刊图书授权
+                    if (index == 2 || index == 3) {
+                        $("h1 .reader").show()
+                    } else {
+                        $("h1 .reader").hide()
+                    }
+                    tabA.removeClass('cur');
+                    $(this).addClass('cur');
+                    console.log('index:', index)
+                    switch (index) {
+                        case 0:
+                            type = 17;
+                            break;
+                        case 1:
+                            type = 18;
+                            break;
+                        case 2:
+                            type = 1;
+                            break;
+                        case 3:
+                            type = 5;
+                            break;
+                        case 4:
+                            type = 9;
+                            break;
+                    }
+                    getData(1, type);
+                    tabBox.hide();
+                    tabBox.eq(index).show();
+                })
+
+                // ---------------------------------------------------------------------\
+                getData(1, type);
+                getPurchasedCounts();
+                // 获取已购数量
+                function getPurchasedCounts() {
+                    var url = '/pc/purchasedCounts';
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        type: "GET",
+                        success: function(response) {
+                            console.log(response);
+                            if (response.code == 0) {
+                                for (var i = 0; i < response.list.length; i++) {
+                                    switch (response.list[i].typeId) {
+                                        case 17:
+                                            tabA.eq(0).find('span').html('（' + response.list[i].num + '）');
+                                            break;
+                                        case 18:
+                                            tabA.eq(1).find('span').html('（' + response.list[i].num + '）');
+                                            break;
+                                        case 1:
+                                            tabA.eq(2).find('span').html('（' + response.list[i].num + '）');
+                                            break;
+                                        case 5:
+                                            tabA.eq(3).find('span').html('（' + response.list[i].num + '）');
+                                            break;
+                                        case 9:
+                                            tabA.eq(4).find('span').html('（' + response.list[i].num + '）');
+                                            break;
+                                    }
+                                }
+                            } else {
+                                console.log('请检查搜索文献列表接口！');
+                            }
+                        },
+                        error: function(error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+                }
+                // 获取已购数据（包括页码）
+                function getData(pageNum, type) {
+                    // var pageNum = pageNum || 1;
+                    var url = encodeURI('/pc/purchased?pageNum=' + pageNum + '&isAsync=1&type=' + type);
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        type: "GET",
+                        success: function(response) {
+                            console.log('返回的已购数据：', response)
+                            if (response.code == 0) {
+                                var list = response.data.list;
+                                var str = '';
+                                var pageStr = $.kd.outputPager(response.data.total, 12, 5, pageNum);
+
+                                if (list && list.length > 0) {
+                                    if (index == 0) {
+                                        // 作品
+                                        var liStr = '';
+                                        for (var i = 0; i < list.length; i++) {
+                                            liStr += '<li>' +
+                                                '                    <div class="frame">' +
+                                                '                        <a title="' + list[i].producttitle + '" target="_blank"' +
+                                                '                           href="/detail/workDetail/' + list[i].productcode.toString() + list[i].mediatype + '"><img' +
+                                                '                                    src="' + list[i].coverpic + '"/><i class="icon' + list[i].mediatype + '"></i></a>' +
+                                                '                    </div>' +
+                                                '                    <p><a title="' + list[i].producttitle + '" target="_blank"' +
+                                                '                          href="/detail/workDetail/' + list[i].productcode.toString() + list[i].mediatype + '">' + list[i].producttitle + '</a>' +
+                                                '                    </p>' +
+                                                '                </li>';
+                                        }
+                                        str += '<ul class="ul clearfix">' + liStr + '</ul>' +
+                                            '   <div class="sp-page">' + pageStr + '</div>';
+                                    } else if (index == 1) {
+                                        // 微刊
+                                        var liStr = '';
+                                        for (var i = 0; i < list.length; i++) {
+                                            liStr += '<li>' +
+                                                '                    <div class="frame">' +
+                                                '                        <a target="_blank" href="/detail/microBookDetail?id=' + list[i].productcode + '"><img src="' + list[i].coverpic + '"/></a>' +
+                                                '                    </div>' +
+                                                '                    <p><a target="_blank" href="/detail/microBookDetail?id=' + list[i].productcode + '">' + list[i].producttitle + '</a></p>' +
+                                                '                </li>';
+                                        }
+                                        str = '<ul class="ul clearfix">' + liStr + '</ul>' +
+                                            '            <div class="sp-page">' + pageStr + '</div>';
+                                    } else if (index == 2) {
+                                        // 期刊
+                                        var liStr = '';
+                                        for (var i = 0; i < list.length; i++) {
+                                            var periods = list[i].productyear + '年第' + list[i].productperiod + '期';
+                                            var btns = '<a href="https://zwwh.cnki.net/onlineread/culture/index?sourceid=10&fName=' + list[i].productcode + '&uid=' + uid + '&openid=' + openid + '" target="_blank" class="a1 btn-read">阅读</a><a href="javascript:;" class="a2 button_bg_download btn-download" target="_blank">下载</a>';
+                                            var coverLink = '/detail/singlePeriodDetail/' + list[i].productcode;
+                                            if (list[i].productcode.length == 8) {
+                                                periods = list[i].productyear + '年全年';
+                                                btns = '<a href="javascript:;" class="a2 showYear">查看全年</a>';
+                                                coverLink = '/detail/periodDetail/' + list[i].productcode.substr(0,4)+'?year='+list[i].productcode.substr(4,4);
+                                            }
+                                            liStr += '                    <div class="li" data-fid="' + list[i].productcode + '">' +
+                                                '                        <div class="frame">' +
+                                                '                            <a target="_blank" href="'+coverLink+'" class="img"><img src="' + list[i].coverpic + '"/></a>' +
+                                                '                        </div>' +
+                                                '                        <p class="name"><a target="_blank" href="/detail/singlePeriodDetail/' + list[i].productcode + '">' + list[i].producttitle + '</a></p>' +
+                                                '                        <p class="periods">' + periods + '</p>' +
+                                                '                        <div class="btns">' + btns +
+                                                '                        </div>' +
+                                                '                    </div>';
+                                        }
+                                        str += '<div class="ulist clearfix">' + liStr + '</div>' +
+                                            '                <div class="sp-page">' + pageStr + '</div>';
+
+                                    } else if (index == 3) {
+                                        // 图书
+                                        var liStr = '';
+                                        for (var i = 0; i < list.length; i++) {
+                                            liStr += '                    <div class="li" data-fid="' + list[i].productcode + '">' +
+                                                '                        <div class="frame">' +
+                                                '                            <a target="_blank" href="/detail/bookDetail/' + list[i].productcode + '" class="img"><img src="' + list[i].coverpic + '"/></a>' +
+                                                '                        </div>' +
+                                                '                        <p class="name"><a target="_blank" href="/detail/bookDetail/' + list[i].productcode + '">' + list[i].producttitle + '</a></p>' +
+                                                '                        <div class="btns">' +
+                                                '                            <a href="https://zwwh.cnki.net/onlineread/culture/index?sourceid=20&fName=' + list[i].productcode + '&uid=' + uid + '&openid=' + openid + '" target="_blank" class="a1 btn-read">阅读</a><a href="javascript:;" class="a2 button_bg_download btn-download">下载</a>' +
+                                                '                        </div>' +
+                                                '                    </div>';
+                                        }
+                                        str += '<div class="ulist clearfix">' + liStr + '</div>' +
+                                            '   <div class="sp-page">' + pageStr + '</div>';
+                                    } else if (index == 4) {
+                                        // 文献
+                                        var liStr = '';
+                                        console.log(list)
+                                        for (var i = 0; i < list.length; i++) {
+                                            var date = $.kd.dateFormat(list[i].addtime);
+                                            liStr += '<div class="li">' +
+                                                '        <a href="/literature/literatureDetail?filename='+list[i].productcode+'&dbType='+list[i].productid+'" target="_blank" class="name">' + list[i].producttitle + '</a>' +
+                                                '             <a href="/literature/literatureDetail?filename='+list[i].productcode+'&dbType='+list[i].productid+'" class="download" target="_blank">下载</a>' +
+                                                // '             <span class="time">' + date.year + '-' + date.month + '-' + date.day + '</span>' +
+                                                '             <span class="time">' + date + '</span>' +
+                                                '     </div>';
+                                        }
+                                        str += '<div class="wlist">' + liStr + '</div>' +
+                                            '                <div class="sp-page">' + pageStr + '</div>';
+                                    }
+
+                                    if (index == 0 || index == 1) {
+                                        listDom.eq(index).html(str);
+                                    } else if (index == 2 || index == 3 || index == 4) {
+                                        listDom.eq(index).children('.box').html(str);
+                                        // 更新授权内容
+                                        if (drmInit == 0 && pageNum <= 1 && list.length > 0) {
+                                            iTotalOrderCount = list.length;
+                                            getUserDrmInfo(drmUserName, drmSvrIp);
+                                            $('.remind').show();
+                                        }
+                                    }
+
+                                    // page.children('a').click(function() {
+                                    //     var pageNum = $(this).attr('data-page');
+                                    //     getData(pageNum, type);
+                                    //     // 回顶部
+                                    //     $('body,html').animate({
+                                    //         scrollTop: 0
+                                    //     }, 500);
+                                    // });
+
+                                } else {
+                                    if (index == 0 || index == 1) {
+                                        listDom.eq(index).html(('暂无已购数据！'));
+                                    } else if (index == 2 || index == 3 || index == 4) {
+                                        listDom.eq(index).children('.box').html(('暂无已购数据！'));
+                                    }
+
+                                    page.html('');
+                                }
+
+                                // 下载
+                                // fid  期刊code+year+period, 图书sku
+                                // p  QK:期刊, BOOK:图书, CRFD:工具书
+                                // t  TEB, DICT, PDF,EPUB
+                                // n  下载文件的中文名称
+                                var purchasedItem = $('.personalMain .contentWrap .t3 .ulist .li');
+                                var p = '';
+                                if(index==2) p='QK';
+                                if(index==3) p='QK';
+                                purchasedItem.each(function(index, item) {
+                                    var downloadBtn = $(item).find('.btn-download');
+                                    var fid = $(item).attr('data-fid');
+                                    var purchasedItemName = $(item).find('.name');
+                                    var n = purchasedItemName.text();
+                                    
+                                    if (uid != '') {
+                                        downloadBtn.attr('href', 'https://mall.cnki.net/tebdownload.aspx?uid=' + uid + '&fid=' + fid + '&p=' + p + '&t=teb' + '&n=' + n);
+                                    }
+
+                                });
+                            } else {
+                                console.log('请检查搜索文献列表接口！');
+                            }
+                        },
+                        error: function(error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+                }
+
+
+
+                // 用户授权内容
+                function getUserDrmInfo(uname, svrip) {
+                    $.ajax({
+                        url: "/pc/getUserSysInfoCount",
+                        dataType: "json",
+                        type: "GET",
+                        success: function(response) {
+                            drmInit = 1;
+                            getregistercount = response.data;
+                            setDownloadTag(false);
+                            var ret = Query(uname, svrip);
+                        }
+                    });
+                }
+
+                $(document).on('click', '.sp-page a', function() {
+                    var pageNum = $(this).attr('data-page');
+                    if ($(this).parent().parent().hasClass('.box')) {
+                        getData(pageNum, type);
+                    }
+                    if ($(this).parent().parent().hasClass('.year-box')) {
+                        getMagaYear(pageNum, type);
+                    }
+
+                })
+
+                // 查看全年
+                var magaAllBox = $('.personalMain .t3 .box');
+                var magaYearBox = $('.personalMain .t3 .year-box');
+                var thname = '';
+                var magaTitle = '';
+                $('.personalMain .t3').on('click', '.showYear', function() {
+                    thname = $(this).parents('.li').attr('data-fid');
+                    magaTitle = $(this).parent().siblings('.name').text();
+                    getMagaYear();
+                    magaAllBox.hide();
+                    magaYearBox.show();
+                });
+                $('.personalMain .t3').on('click', '.returnAll', function() {
+                    magaAllBox.show();
+                    magaYearBox.hide();
+                });
+
+                function getMagaYear() {
+                    var code = thname.substr(0, 4);
+                    var year = thname.substr(4, 4);
+                    var pageNum = pageNum || 1;
+                    var limit = 12;
+                    $.ajax({
+                        url: '/detail/getPeriodListByYear/' + code,
+                        type: "GET",
+                        data: {
+                            year: year,
+                            pageNum: pageNum,
+                            limit: limit,
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            var list = response.data.list;
+                            var total = response.data.total;
+                            var pageStr = $.kd.outputPager(total, limit, 5, pageNum);
+                            var str = '<div class="top clearfix"><strong class="left">' + magaTitle + ' ' + year + '年全年</strong><a class="returnAll right" href="javascript:;">返回全部期刊></a></div>';
+                            var liStr = '';
+                            for (var i = 0; i < list.length; i++) {
+                                liStr += '                    <div class="li" data-fid="' + list[i].thname + '">' +
+                                    '                        <div class="frame">' +
+                                    '                            <a target="_blank" href="/detail/singlePeriodDetail/' + list[i].thname + '" class="img"><img src="' + list[i].coverpic + '"/></a>' +
+                                    '                        </div>' +
+                                    '                        <p class="name"><a target="_blank" href="/detail/singlePeriodDetail/' + list[i].thname + '">' + list[i].name + '</a></p>' +
+                                    '                        <p class="periods">' + list[i].year + '年第' + list[i].period + '期</p>' +
+                                    '                        <div class="btns">' +
+                                    '<a href="https://zwwh.cnki.net/onlineread/culture/index?sourceid=10&fName=' + list[i].thname + '&uid=' + uid + '&openid=' + openid + '" target="_blank" class="a1 btn-read">阅读</a><a href="javascript:;" class="a2 button_bg_download btn-download">下载</a>' +
+                                    '                        </div>' +
+                                    '                    </div>';
+                            }
+                            str += '<div class="ulist clearfix">' + liStr + '</div>' +
+                                '                <div class="sp-page">' + pageStr + '</div>';
+
+                            magaYearBox.html(str);
+                        }
+                    });
+                }
+            </script>
+</body>
+
+</html>

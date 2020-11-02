@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/mall/header-and-footer.css" />
+        <link rel="stylesheet" type="text/css" href="/css/mall/mall.css" />
+</head>
+
+<body>
+    <%- include('../layouts/mall/navLayout', {current: 0,sublogo:true,enterControl:1}) %>
+        <!-- 免费 -->
+        <div class="rank-banner"></div>
+        <div class="rank-main clearfix">
+            <div class="rank-sidebar clearfix">
+                <div class="rank-sidebar-title">全部排行</div>
+                <div class="rank-sidebar-body rank-sidebar-magabody"></div>
+                <div class="rank-sidebar-body rank-sidebar-bookbody"></div>
+            </div>
+            <div class="rank-content">
+                <div class="rank-tabnav">
+                    <a class="rank-tabnav-item" href="javascript:;" data-type="maga">期 刊</a>
+                    <a class="rank-tabnav-item" href="javascript:;" data-type="book">图 书</a>
+                </div>
+                <!-- 10条 -->
+                <!-- 期刊 -->
+                <div class="rank-items rank-maga-items clearfix">
+                    <!-- <div class="rank-item clearfix">
+                    <a class="rank-item-img" href="" title="" target="_blank">
+                        <span class="rank-number rank-number1"></span>
+                        <img src="http://via.placeholder.com/110x154" alt="">
+                    </a>
+                    <div class="rank-item-info">
+                        <p class="rank-item-title"><a href="" title="标题" target="_blank">标题</a></p>
+                        <p class="rank-item-author">出版：漓江出版社</p>
+                        <p class="rank-item-detail">
+                            主办：<span>漓江出版社</span>  / 刊期：<span>双月刊</span> /  出版地：<span>2安徽省芜湖市</span> /  语种：<span>中文</span> / ISBN：<span>978-7-5407-7525-4</span>
+                        </p>
+                        <p class="rank-periodcal-month">
+                            2019年：
+                            <a href="" target="_blank">06期</a>
+                            <a href="" target="_blank">05期</a>
+                            <a href="" target="_blank">04期</a>
+                            <a href="" target="_blank">03期</a>
+                            <a href="" target="_blank">02期</a>
+                            <a href="" target="_blank">01期</a>
+                        </p>
+                        <p class="rank-periodcal-year">
+                            <a href="" target="_blank">2019年</a>/ 
+                            <a href="" target="_blank">2016年</a>/ 
+                            <a href="" target="_blank">2014年</a>/ 
+                            <a href="" target="_blank">2013年</a>/ 
+                            <a href="" target="_blank">2012年</a>/ 
+                        </p>
+                    </div>
+                </div> -->
+                </div>
+                <!-- 图书 -->
+                <div class="rank-items rank-book-items clearfix">
+                    <!-- <div class="rank-item clearfix">
+                    <a class="rank-item-img" href="" title="" target="_blank">
+                        <span class="rank-number rank-number1"></span>
+                        <img src="http://via.placeholder.com/110x154" alt="">
+                    </a>
+                    <div class="rank-item-info">
+                        <p class="rank-item-title"><a href="" title="标题" target="_blank">标题</a></p>
+                        <p class="rank-item-author">张三 著</p>
+                        <p class="rank-item-detail">
+                            出版：<span>漓江出版社</span>  / 出版时间：<span>2015-05-01</span> / ISBN：<span>978-7-5407-7525-4</span> / 字数：<span>200千字</span>
+                        </p>
+                        <p class="rank-item-intro">张三 著</p>
+                    </div>
+                </div> -->
+                </div>
+                <div class="mall-pages"></div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout') %>
+            <script src="/js/plugin/jquery.methods.js"></script>
+            <script>
+                var paramType = $.kd.getparams("type"); // type 1期刊 2图书
+                var bookSidebar = $('.rank-sidebar-bookbody');
+                var magaSidebar = $('.rank-sidebar-magabody');
+                var sidebar = $('.rank-sidebar-body');
+                var tabnavItem = $('.rank-tabnav-item');
+                var type = '';
+                if (paramType && paramType.length > 0) {
+                    if (paramType == 1) {
+                        magaSidebar.show();
+                        tabnavItem.eq(0).addClass('rank-tabnav-item-select');
+                        type = 'maga';
+                    } else {
+                        bookSidebar.show();
+                        tabnavItem.eq(1).addClass('rank-tabnav-item-select');
+                        type = 'book';
+                    }
+                } else {
+                    magaSidebar.show();
+                    tabnavItem.eq(0).addClass('rank-tabnav-item-select');
+                    type = 'maga';
+                }
+                getRankList();
+
+                function getRankList() {
+                    var url = '/mall/getRankList';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(data) {
+                            if (data && data.length > 0) {
+                                var bookStr = '',
+                                    magaStr = '';
+                                for (var i = 0; i < data.length; i++) {
+                                    if (data[i].rankingType == 'book') {
+                                        bookStr += '<span class="rank-sidebar-item" data-code="' + data[i].code + '">' + data[i].title + '</span>';
+                                    } else {
+                                        magaStr += '<span class="rank-sidebar-item" data-code="' + data[i].code + '">' + data[i].title + '</span>';
+                                    }
+                                }
+                                bookSidebar.html(bookStr);
+                                magaSidebar.html(magaStr);
+                                sidebar.each(function() {
+                                    $(this).children().eq(0).addClass('rank-sidebar-item-select');
+                                    if ($(this).is(':visible')) {
+                                        var code = $(this).children().eq(0).attr('data-code');
+                                        getRankingDetail(type, code);
+                                    }
+                                });
+
+                            }
+                        }
+                    });
+                }
+
+                function getRankingDetail(type, code, pageNum) {
+                    var url = '/mall/getRankingDetail';
+                    var pageNum = pageNum || 1;
+                    var limit = 10;
+                    var type = type || 'maga';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {
+                            pageNum: pageNum,
+                            limit: limit,
+                            type: type,
+                            rankingcode: code
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.code == 0) {
+                                var total = response.total;
+                                var magalist = response.magalist;
+                                var booklist = response.booklist;
+                                if (magalist && magalist.length > 0) {
+                                    var magaStr = '',
+                                        magaNumStr = '';
+                                    for (var i = 0; i < magalist.length; i++) {
+
+                                        var years = magalist[i].years;
+                                        var periods = magalist[i].periods;
+                                        var code = magalist[i].code;
+                                        var lastestyear = magalist[i].lastestyear;
+                                        var lastestperiod = magalist[i].lastestperiod;
+                                        var singlePeriodId = code + lastestyear + lastestperiod;
+                                        var yearsStr = '';
+                                        var yearsArr = [];
+                                        var periodsStr = '';
+                                        if (pageNum == 1) {
+                                            if (i < 3) {
+                                                magaNumStr = '<span class="rank-number rank-number' + (i + 1) + '"></span>';
+                                            } else {
+                                                magaNumStr = '<span class="rank-number"></span>';
+                                            }
+                                        } else {
+                                            magaNumStr = '<span class="rank-number"></span>';
+                                        }
+
+                                        yearsArr = years.length <= 10 ? years : years.slice(0, 10);
+                                        for (var j = 1; j < yearsArr.length; j++) {
+                                            yearsStr += '<a href="/detail/periodDetail/' + code + '?year=' + yearsArr[j].year + '" target="_blank">' + yearsArr[j].year + '年</a>/';
+                                        }
+                                        yearsStr = yearsStr.substr(0, yearsStr.length - 1);
+                                        if (yearsArr.length >= 10) {
+                                            yearsStr += '<a href="/detail/periodDetail/' + code + '" target="_blank">更多</a>';
+                                        }
+                                        for (var j = 0; j < periods.length; j++) {
+                                            periodsStr += '<a href="/detail/singlePeriodDetail/' + code + lastestyear + periods[j].period + '"  target="_blank">' + periods[j].period + '期</a>';
+                                        }
+                                        magaStr += '<div class="rank-item clearfix">' +
+                                            '<a class="rank-item-img" href="/detail/singlePeriodDetail/' + singlePeriodId + '" title="' + magalist[i].name + '" target="_blank">' + magaNumStr +
+                                            '<img src="' + magalist[i].coverpic +
+                                            '" width="110" height="154" alt="">' +
+                                            '</a>' +
+                                            '<div class="rank-item-info">' +
+                                            '<p class="rank-item-title"><a href="/detail/singlePeriodDetail/' + singlePeriodId + '" title="' + magalist[i].name + '" target="_blank">' + magalist[i].name + '</a></p>' +
+                                            '<p class="rank-item-author">主办：' + magalist[i].organizers + '</p>' +
+                                            '<p class="rank-item-detail">' +
+                                            '刊期：<span>' + magalist[i].periodname + '</span> /  ' +
+                                            '出版地：<span>' + magalist[i].cbd403 + '</span> /  ' +
+                                            '语种：<span>' + magalist[i].yz502 + '</span> / ' +
+                                            'ISSN：<span>' + magalist[i].issn + '</span>' +
+                                            '</p>' +
+                                            '<p class="rank-periodcal-month">' + magalist[i].lastestyear + '年：' + periodsStr + '</a></p>' +
+                                            '<p class="rank-periodcal-year">' + yearsStr +
+                                            '</p>' +
+                                            '</div>' +
+                                            '</div>';
+                                    }
+                                    $('.rank-book-items').html('');
+                                    $('.rank-maga-items').html(magaStr);
+                                    var magaPageStr = $.kd.outputPager(total, limit, 5, pageNum);
+                                    $('.mall-pages').html(magaPageStr);
+                                }
+
+                                if (booklist && booklist.length > 0) {
+                                    var bookStr = '',
+                                        bookNumStr = '',
+                                        bookAuthor = '';
+                                    for (var i = 0; i < booklist.length; i++) {
+                                        if (pageNum == 1) {
+                                            if (i < 3) {
+                                                bookNumStr = '<span class="rank-number rank-number' + (i + 1) + '"></span>';
+                                            } else {
+                                                bookNumStr = '<span class="rank-number"></span>';
+                                            }
+                                        } else {
+                                            bookNumStr = '<span class="rank-number"></span>';
+                                        }
+                                        if (booklist[i].author.indexOf('#') != -1) {
+                                            bookAuthor = booklist[i].author.split('#').join(' ');
+                                        } else {
+                                            bookAuthor = booklist[i].author;
+                                        }
+                                        var bookdes = booklist[i].bookdes ? booklist[i].bookdes : '';
+                                        bookStr += '<div class="rank-item clearfix">' +
+                                            '<a class="rank-item-img" href="/detail/bookDetail/' + booklist[i].sku + '" title="' + booklist[i].title + '" target="_blank">' + bookNumStr +
+                                            '<img src="' + booklist[i].coverpic + '" width="110" height="154" alt="">' +
+                                            '</a>' +
+                                            '<div class="rank-item-info">' +
+                                            '<p class="rank-item-title"><a href="/detail/bookDetail/' + booklist[i].sku + '" title="' + booklist[i].title + '" target="_blank">' + booklist[i].title + '</a></p>' +
+                                            '<p class="rank-item-author">' + bookAuthor + ' 著</p>' +
+                                            '<p class="rank-item-detail">' +
+                                            '出版：<span>' + booklist[i].publisher + ' </span>  / ' +
+                                            '出版时间：<span>' + $.kd.dateFormat(booklist[i].pubtime) + '</span> / ' +
+                                            'ISBN：<span>' + booklist[i].isbn + '</span> / ' +
+                                            '字数：<span>' + booklist[i].wordcount + '</span>' +
+                                            '</p>' +
+                                            '<p class="rank-item-intro">' + bookdes + '</p>' +
+                                            '</div>' +
+                                            '</div>';
+                                    }
+                                    $('.rank-maga-items').html('');
+                                    $('.rank-book-items').html(bookStr);
+                                    var bookPageStr = $.kd.outputPager(total, limit, 5, pageNum);
+                                    $('.mall-pages').html(bookPageStr);
+                                }
+
+                            }
+                        }
+                    });
+                }
+                $('.rank-tabnav-item').click(function() {
+                    var index = $(this).index();
+                    $(this).addClass('rank-tabnav-item-select').siblings().removeClass('rank-tabnav-item-select');
+                    sidebar.hide();
+                    sidebar.eq(index).show();
+                    if (index == 0) {
+                        var code = magaSidebar.find('.rank-sidebar-item-select').attr('data-code');
+                        getRankingDetail('maga', code);
+                    } else {
+                        var code = bookSidebar.find('.rank-sidebar-item-select').attr('data-code');
+                        getRankingDetail('book', code);
+                    }
+                });
+                $('.rank-sidebar').on('click', '.rank-sidebar-item', function() {
+                    var index = $(this).index();
+                    $(this).addClass('rank-sidebar-item-select').siblings().removeClass('rank-sidebar-item-select');
+                    var type = $('.rank-tabnav-item-select').attr('data-type');
+                    var code = $(this).attr('data-code');
+                    getRankingDetail(type, code);
+                });
+                $('.mall-pages').on('click', 'a', function() {
+                    var type = $('.rank-tabnav-item-select').attr('data-type');
+                    if (type == 'maga') {
+                        var code = magaSidebar.find('.rank-sidebar-item-select').attr('data-code');
+                    } else {
+                        var code = bookSidebar.find('.rank-sidebar-item-select').attr('data-code');
+                    }
+                    var pageNum = $(this).attr('data-page');
+                    getRankingDetail(type, code, pageNum);
+                });
+            </script>
+</body>
+
+</html>

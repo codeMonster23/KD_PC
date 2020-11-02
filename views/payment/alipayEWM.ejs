@@ -1,0 +1,5 @@
+<%-body.alipayQRCodeHtml%>
+<input type="hidden" id="aliCode" value="<%=body.TransactionCode%>">
+<script>
+    window.parent.document.getElementById('alipayOrder').value=document.getElementById('aliCode').value;
+</script>

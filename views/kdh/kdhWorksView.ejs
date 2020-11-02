@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/kdh/kda.css" />
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/plugin/jquery.methods.js"></script>
+</head>
+
+<body bgcolor="#EBEFF5">
+    <%- include('../layouts/navLayout', {current: 4, enterControl:1}) %>
+        <%- include('../layouts/kdh/bannerLayout') %>
+            <%- include('../layouts/kdh/navLayout', {current: 1}) %>
+                <div class="worksWrap clearfix" id="worksWrap">
+                    <div class="wl left">
+                        <div class="kda-menu">
+                            <h1><a href="/kdh/works?orgid=<%=viewModel.data.kdhBaseInfo.org.orgid%>">全部分类</a></h1>
+                            <div id="menu-list">
+                            </div>
+                        </div>
+                        <% if(viewModel.data.kdhIndexInfo.mircbooklist&&viewModel.data.kdhIndexInfo.mircbooklist.length>0){ %>
+                            <div class="lbox lb1">
+                                <h1>精选微刊</h1>
+                                <div class="wrap">
+                                    <% for(var i = 0; i < viewModel.data.kdhIndexInfo.mircbooklist.length; i++){if(i < 3){ %>
+                                        <a target="_blank" href="/detail/microBookDetail?id=<%= viewModel.data.kdhIndexInfo.mircbooklist[i].id%>">
+                            <img src="<%= viewModel.data.kdhIndexInfo.mircbooklist[i].coverpic %>">
+                            <p><%= viewModel.data.kdhIndexInfo.mircbooklist[i].title %></p>
+                        </a>
+                                        <% } %>
+                                            <% } %>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% if (viewModel.data.listimgtxt&&viewModel.data.listimgtxt.length>0) { %>
+                                    <div class="lbox lb2">
+                                        <h1>读美文</h1>
+                                        <div class="wrap">
+                                            <% for(var i = 0; i < viewModel.data.listimgtxt.length; i++){if(i < 3){ %>
+                                                <a target="_blank" href="/detail/workDetail/<%= viewModel.data.listimgtxt[i].id%><%=viewModel.data.listimgtxt[i].mediatype%>">
+                            <img src="<%= viewModel.data.listimgtxt[i].coverpic %>">
+                            <p><%= viewModel.data.listimgtxt[i].title %></p>
+                        </a>
+                                                <% } %>
+                                                    <% } %>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                        <% if (viewModel.data.listaudio&&viewModel.data.listaudio.length>0) { %>
+                                            <div class="lbox lb3">
+                                                <h1>听精选</h1>
+                                                <div class="wrap">
+                                                    <% for(var i = 0; i < viewModel.data.listaudio.length; i++){if(i < 3){ %>
+                                                        <a target="_blank" href="/detail/workDetail/<%= viewModel.data.listaudio[i].id%><%=viewModel.data.listaudio[i].mediatype%>">
+                                                            <span class="icon"></span>
+                                                            <img src="<%= viewModel.data.listaudio[i].coverpic %>">
+                                                            <p>
+                                                                <%= viewModel.data.listaudio[i].title %>
+                                                            </p>
+                                                        </a>
+                                                        <% } %>
+                                                            <% } %>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                                <% if (viewModel.data.listvideo&&viewModel.data.listvideo.length>0) { %>
+                                                    <div class="lbox lb2">
+                                                        <h1>看视界</h1>
+                                                        <div class="wrap">
+                                                            <% for(var i = 0; i < viewModel.data.listvideo.length; i++){if(i < 3){ %>
+                                                                <a target="_blank" href="/detail/workDetail/<%= viewModel.data.listvideo[i].id%><%=viewModel.data.listvideo[i].mediatype%>">
+                                                                    <span class="icon"></span>
+                                                                    <img src="<%= viewModel.data.listvideo[i].coverpic %>">
+                                                                    <p>
+                                                                        <%= viewModel.data.listvideo[i].title %>
+                                                                    </p>
+                                                                </a>
+                                                                <% } %>
+                                                                    <% } %>
+                                                        </div>
+                                                    </div>
+                                                    <% } %>
+                                                        <% if (viewModel.data.listpic&&viewModel.data.listpic.length>0) { %>
+                                                            <div class="lb4">
+                                                                <h1>看图集</h1>
+                                                                <div class="wrap">
+                                                                    <% for(var i = 0; i < viewModel.data.listpic.length; i++){if(i < 3){ %>
+                                                                        <a target="_blank" href="/detail/workDetail/<%= viewModel.data.listpic[i].id%><%=viewModel.data.listpic[i].mediatype%>">
+                                                                            <span class="icon"></span>
+                                                                            <img src="<%= viewModel.data.listpic[i].coverpic %>">
+                                                                            <p>
+                                                                                <%= viewModel.data.listpic[i].title %>
+                                                                            </p>
+                                                                        </a>
+                                                                        <% } %>
+                                                                            <% } %>
+                                                                </div>
+                                                            </div>
+                                                            <% } %>
+                    </div>
+                    <div class="wr left">
+                        <div class="count">共<span></span>个作品</div>
+                        <div class="handle">
+                            <div id="worksType" class="select left">
+                                <p>类型</p>
+                                <ul>
+                                    <li data-type="-1">全部</li>
+                                    <li data-type="1">图文</li>
+                                    <li data-type="2">音频</li>
+                                    <li data-type="3">视频</li>
+                                    <li data-type="4">图集</li>
+                                </ul>
+                            </div>
+                            <div id="newOrHot" class="select left">
+                                <p>最新</p>
+                                <ul>
+                                    <li data-sort="SubmitTime">最新</li>
+                                    <li data-sort="viewcount">最热</li>
+                                </ul>
+                            </div>
+                            <div id="search" class="kdh-search">
+                                <input type="text" placeholder="作品检索" />
+                                <a href="javascript:;" class="sbtn"></a>
+                            </div>
+                        </div>
+                        <div class="list"></div>
+                        <div id="sp-page" class="sp-page"></div>
+                    </div>
+                </div>
+                <%- include('../layouts/footerLayout', {}) %>
+                    <input type="hidden" id="orgid" value="<%=viewModel.data.kdhBaseInfo.org.orgid%>">
+                    <input type="hidden" id="orglogo" value="<%=viewModel.data.kdhBaseInfo.org.logopic%>">
+                    <input type="hidden" id="orgname" value="<%=viewModel.data.kdhBaseInfo.org.orgname%>">
+                    <input type="hidden" id="mediatype" value="<%=viewModel.data.mediatype%>">
+                    <script>
+                        $.divselect($(".select p"), $(".select ul"), $(".select ul li"));
+                        var orgid = $('#orgid').val();
+                        var orglogo = $('#orglogo').val();
+                        var orgname = $('#orgname').val();
+                        var mediatype = parseInt($('#mediatype').val());
+                        var worksWrap = $('#worksWrap');
+                        var worksList = worksWrap.find('.list');
+                        var worksCount = worksWrap.find('.count span');
+                        var worksType = $('#worksType');
+                        var worksTypeToggle = $('#worksType').find('p');
+                        var newOrHot = $('#newOrHot');
+                        var menuList = $('#menu-list');
+                        var menuItem = menuList.find('.item');
+                        var search = $('#search');
+                        var page = $('#sp-page');
+
+
+                        switch (mediatype) {
+                            case -1:
+                                worksTypeToggle.html('类型').attr('data-type', -1);
+                                break;
+                            case 1:
+                                worksTypeToggle.html('图文').attr('data-type', 1);
+                                break;
+                            case 2:
+                                worksTypeToggle.html('音频').attr('data-type', 2);
+                                break;
+                            case 3:
+                                worksTypeToggle.html('视频').attr('data-type', 3);
+                                break;
+                            case 4:
+                                worksTypeToggle.html('图集').attr('data-type', 4);
+                                break;
+                        }
+                        getWorksList(1, '', '', '', mediatype);
+                        getWorksCategory();
+
+                        function getWorksList(pageNum, sort, orgcateid, kd, mediatype) {
+                            var pageNum = pageNum || 1;
+                            var sort = sort || 'SubmitTime';
+                            var orgcateid = orgcateid || '-1';
+                            var kd = kd || '';
+                            var mediatype = mediatype || -1;
+                            var url = '/kdh/works?orgid=' + orgid;
+                            var data = {
+                                pageNum: pageNum,
+                                sort: sort,
+                                orgcateid: orgcateid,
+                                kd: kd,
+                                mediatype: mediatype,
+                                isAsync: 1
+                            };
+                            $.ajax({
+                                url: url,
+                                dataType: "json",
+                                type: "GET",
+                                data: data,
+                                success: function(response) {
+                                    if (response.code == 0) {
+                                        worksCount.html(response.data.total);
+                                        var list = response.data.rows;
+                                        var worksStr = '';
+                                        if (list && list.length > 0) {
+                                            for (var i = 0; i < list.length; i++) {
+                                                var intromemo = list[i].intromemo ? list[i].intromemo.substr(0, 200) : '';
+                                                worksStr += '<div class="item clearfix">' +
+                                                    '<a target="_blank" href="/detail/workDetail/' + list[i].id.toString() + list[i].mediatype + '" class="img left"><img src="' + list[i].coverpic + '" width="250" height="141"><span class="i' + list[i].mediatype + '"></span></a>' +
+                                                    '<div class="info left">' +
+                                                    '<h1><a target="_blank" href="/detail/workDetail/' + list[i].id.toString() + list[i].mediatype + '">' + $.kd.keywordStyleRed(list[i].title, '~#@', '@#~', kd) + '</a></h1>' +
+                                                    '<p>' + $.kd.keywordStyleRed(intromemo, '~#@', '@#~', kd) + '</p>' +
+                                                    '<div class="bottom clearfix">' +
+                                                    '<a target="_blank" href="/kdh/home?orgid=' + orgid + '" class="jg left"><img src="' + orglogo + '" width="22" height="22" align="top">' + orgname + '</a>' +
+                                                    '<div class="right subinfo">' +
+                                                    '<a href="javascript:;" class="view">' + list[i].viewcount + '</a>' +
+                                                    '</div>' +
+                                                    '</div>' +
+                                                    '</div>' +
+                                                    '</div>'
+                                            }
+                                            var pageStr = $.kd.outputPager(response.data.total, 10, 5, pageNum);
+                                            worksList.removeClass('blank').html(worksStr);
+                                            page.html(pageStr);
+                                        } else {
+                                            worksList.html('<div class="blank"></div>');
+                                            page.html('');
+                                        }
+                                    } else {
+                                        console.log('请检查获取万选号微刊数据！');
+                                    }
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+
+                        function getWorksCategory() {
+                            var url = '/kdh/getWorksCategory?orgid=' + orgid;
+                            $.ajax({
+                                url: url,
+                                dataType: "json",
+                                type: "GET",
+                                success: function(response) {
+                                    if (response.code == 0) {
+                                        var list = response.data.categorylist;
+                                        console.log(list);
+                                        var menuStr = '';
+                                        if (list && list.length > 0) {
+                                            for (var i = 0; i < list.length; i++) {
+                                                menuStr += '<div class="item"><a href="javascript:;" class="inner i1" data-id="' + list[i].id + '">' + list[i].catename + '</a></div>'
+                                            }
+                                            menuList.html(menuStr);
+                                        }
+                                    } else {
+                                        console.log('请检查获取万选号自定义分类列表数据！');
+                                    }
+                                    list = null;
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+
+                        // 菜单导航点击
+                        $(document).on('click', '#menu-list .item', function() {
+                            search.find('input').val('');
+                            $(this).addClass('click').siblings().removeClass('click');
+                            var categoryId = $(this).find('a').attr('data-id');
+                            getWorksList('', '', categoryId, '', '');
+                        });
+                        // 作品类型
+                        worksType.find('li').on('click', function() {
+                            var categoryId = menuList.find('.item.click a').attr('data-id');
+                            var kd = search.find('input').val();
+                            var mediatype = parseInt($(this).attr('data-type'));
+                            $(this).parent().siblings('p').attr('data-type', mediatype);
+                            newOrHot.find('p').html('最新').attr('data-sort', 'SubmitTime');
+                            getWorksList('', '', categoryId, kd, mediatype);
+                        });
+                        // 最新最热
+                        newOrHot.find('li').on('click', function() {
+                            var sort = $(this).attr('data-sort');
+                            $(this).parent().siblings('p').attr('data-sort', sort);
+                            var kd = search.find('input').val();
+                            var categoryId = menuList.find('.item.click a').attr('data-id');
+                            var mediatype = parseInt(worksType.find('p').attr('data-type'));
+                            getWorksList('', sort, categoryId, kd, mediatype);
+                        });
+                        // 检索
+                        search.find('.sbtn').on('click', function() {
+                            newOrHot.find('p').html('最新').attr('data-sort', 'SubmitTime');
+                            worksType.find('p').html('类型').attr('data-type', -1);
+                            menuList.find('.item').removeClass('click');
+                            var kd = $(this).siblings('input').val();
+                            getWorksList('', '', '', kd, '');
+                        });
+                        // 回车 提交
+                        $(document).on("keydown", function(e) {
+                                if (e.keyCode == 13) {
+                                    search.find('.sbtn').click();
+                                }
+                            })
+                            // 页码
+                        page.on('click', 'a', function() {
+                            $('body,html').animate({
+                                scrollTop: 0
+                            }, 200);
+                            var pageNum = $(this).attr('data-page');
+                            var sort = newOrHot.find('p').attr('data-sort');
+                            var categoryId = menuList.find('.item.click a').attr('data-id');
+                            var kd = search.find('input').val();
+                            var mediatype = parseInt(worksType.find('p').attr('data-type'));
+                            getWorksList(pageNum, sort, categoryId, kd, mediatype);
+                        });
+                    </script>
+</body>
+
+</html>

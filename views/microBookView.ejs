@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+        <link rel="stylesheet" type="text/css" href="/css/microbook.css" />
+</head>
+
+<body bgcolor="#EBEFF5">
+    <%- include('./layouts/navLayout', {current: 3, enterControl:1}) %>
+        <div class="banner"></div>
+        <div id="app" class="mwrap">
+            <div class="choose" id="choose">
+                <!-- 最新 最热-->
+                <div id="sort" class="select select1 right">
+                    <p data-code="<%= sort %>">
+                        <% if(sort == 'id'){ %>
+                            最新
+                            <% }else{ %>
+                                最热
+                                <% } %>
+                    </p>
+                    <ul>
+                        <li data-code="id">最新</li>
+                        <li data-code="viewcount">最热</li>
+                    </ul>
+                </div>
+                <!--分类筛选-->
+                <div id="category" class="select select1 right" style="width: 100px; background-position:77px;">
+                    <p data-code="<%= categoryCode %>">
+                        <%= categoryName %>
+                    </p>
+                    <ul style="width:84px;">
+                        <li data-code="">全部</li>
+                        <li data-code="A">文学</li>
+                        <li data-code="B">艺术</li>
+                        <li data-code="C">人文历史</li>
+                        <li data-code="D">思想文化</li>
+                        <li data-code="E">成功励志</li>
+                        <li data-code="F">生活休闲</li>
+                        <li data-code="G">健康养生</li>
+                        <li data-code="H">校园/职场</li>
+                        <li data-code="I">财富创业</li>
+                        <li data-code="J">孕产育儿</li>
+                        <li data-code="K">常识科普</li>
+                        <li data-code="L">IT互联网</li>
+                        <li data-code="M">政法军事</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cardwrap clearfix">
+                <% if(viewModel.data.microBooks.length > 0) {%>
+                    <% for(var i = 0; i < viewModel.data.microBooks.length;i++){ %>
+                        <div class="ca-box">
+                            <div class="pic"><a target="_blank" href="<%= '/detail/microBookDetail?id=' + viewModel.data.microBooks[i].id %>"><img
+                                src="<%= viewModel.data.microBooks[i].coverpic %>" width="534"
+                                height="239"></a>
+                                <div class="num"><span class="s1"><%= viewModel.data.microBooks[i].childcollectioncount %></span><span class="s2"><%= viewModel.data.microBooks[i].viewcount %></span></div>
+                            </div>
+                            <div class="name">
+                                <span class="text"><a target="_blank"
+                                          href="<%= '/detail/microBookDetail?id=' + viewModel.data.microBooks[i].id %>"><%= viewModel.data.microBooks[i].title %></a></span>
+                            </div>
+                            <div class="info"><a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.microBooks[i].orgid %>" class="left"><img
+                                src="<%= viewModel.data.microBooks[i].logopic %>"><%= viewModel.data.microBooks[i].orgname %>
+                    </a><span class="right time"><%= ejsFunctions.dateFormat(viewModel.data.microBooks[i].updatetime) %></span>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% }else{ %>
+                                <!--在此处添加无数据图片-->
+                                <div style="text-align: center">暂无数据</div>
+                                <% } %>
+            </div>
+            <div id="sp-page" class="sp-page" ref="page">
+                <%- viewModel.data.pageStr %>
+            </div>
+        </div>
+
+        <%- include('./layouts/footerLayout', {}) %>
+            <div style="display: none;">
+                <input type="hidden" value="<%= sort %>" id="sortInput">
+                <input type="hidden" value="<%= categoryCode %>" id="categoryInput">
+            </div>
+            <script>
+                var time = 200;
+                var categoryCode = $('#categoryInput').val();
+                var sort = $('#sortInput').val();
+                $('.select p').click(function(e) {
+                    var e = window.event || e;
+                    e.stopPropagation();
+                    e.cancelBubble = true;
+                    $('.select ul').slideUp(time);
+                    $(this).siblings('ul').slideDown(time);
+                })
+                $('#sort ul li').click(function() {
+                    $(this).parent('ul').slideUp(time);
+                    sort = $(this).attr('data-code');
+                    window.location = '/microBook/?pageNum=1&sort=' + sort + '&categoryCode=' + categoryCode;
+                })
+                $('#category ul li').click(function() {
+                    $(this).parent('ul').slideUp(time);
+                    categoryCode = $(this).attr('data-code');
+                    window.location = '/microBook/?pageNum=1&sort=' + sort + '&categoryCode=' + categoryCode;
+                })
+
+                $('#sp-page').children('a').click(function() {
+                    var pageNum = $(this).attr('data-page');
+                    var sort = $('#choose p').attr('data-code');
+                    var categoryCode = $('#category p').attr('data-code');
+                    window.location = '/microBook/?pageNum=' + pageNum + '&sort=' + sort + '&categoryCode=' + categoryCode;
+                })
+
+                $(document).click(function() {
+                    $('.select').children('ul').slideUp(time);
+                })
+            </script>
+</body>
+
+</html>

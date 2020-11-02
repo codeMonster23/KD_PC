@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/reglog/reglog.css"/>
+    <script src="/js/jquery.enplaceholder.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body class="bg1">
+<form id="form" method="post" action="/temp/userCenter/loginChecking" enctype="application/x-www-form-urlencoded">
+    <div class="login">
+        <div class="header">
+            <a href="/home" target="_blank" class="left"><img src="/images/reglog/rl-logo4.png"/></a>
+            <img class="right" src="/images/reglog/rl-logo5.png"/>
+        </div>
+        <div class="clearfix" style="margin-bottom: 110px;">
+            <div class="loginbody right">
+                <h1><span class="left">会员登录</span><a href="/temp/userCenter/register" class="right">立即注册</a></h1>
+                <div class="frame">
+                    <div class="item name">
+                        <label for="name"></label>
+                        <input autocomplete="off" type="text" name="name" id="name"
+                               value="<% if(viewModel.username != null){ %> <%= viewModel.username %> <% } %>"
+                               placeholder="用户名/邮箱/手机号（知网会员可直接登录）"/>
+                    </div>
+                    <div class="item psw">
+                        <label for="psw"></label>
+                        <input autocomplete="off" type="password" name="psw"
+                               value="<% if(viewModel.password != null){ %> <%= viewModel.password %> <% } %>" id="psw"
+                               placeholder="请输入密码"/>
+
+                    </div>
+                    <p style="display: none;" class="error">用户名或密码错误，请重新输入！</p>
+                    <a data-referer="<%= viewModel.referer %>" id="loginBtn" href="javascript:;" class="loginBtn">登&nbsp;&nbsp;录</a>
+                    <div class="info">
+                        <span class="checkbox <% if(viewModel.rememberPws == 1){ %>c<% } %>">记住密码</span>
+                        <input data-r-p="<% if(viewModel.rememberPws == 1){ %>1<% }else{ %>0<% } %>" checked
+                               autocomplete="off" type="checkbox" name="rememberPws"
+                               id="rememberPws" style="display: none;">
+                        <a target="_blank" class="ljzc" href="/temp/userCenter/register">立即注册</a>
+                        <a href="//my.cnki.net/mycnki/RealName/FindPsd.aspx" target="_blank" class="forpsw">忘记密码？</a>
+
+                    </div>
+                    <div class="fastlogin">
+                        <h2>快速登录</h2>
+                        <div class="ways">
+                            <a href="//my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=qq&RedirectUrl=<%= viewModel.domainName %>/temp/userCenter/thirdLogin"
+                               class="qq"></a>
+                            <a href="//my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=weixin&RedirectUrl=<%= viewModel.domainName %>/temp/userCenter/thirdLogin"
+                               class="wechat"></a>
+                            <a href="//my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=sina&RedirectUrl=<%= viewModel.domainName %>/temp/userCenter/thirdLogin"
+                               class="weibo"> 新浪微博</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%- include('../layouts/reglog/footerLayout', {}) %>
+
+<script>
+    'use strict'
+    //输入框颜色变化
+    $('.item input').focus(function () {
+        $(this).parent().addClass("focus");
+
+    })
+    $('.item input').blur(function () {
+        $(this).parent().removeClass("focus");
+    })
+    // 切换记住密码
+    var rememberPws = $('#rememberPws');
+    var isChecked = rememberPws.attr('data-r-p');
+    $("input").placeholder();
+    $(".checkbox").click(function () {
+        $(this).toggleClass("c");
+        isChecked = rememberPws.attr('data-r-p');
+        rememberPws.attr('data-r-p', isChecked == 1 ? 0 : 1);
+        isChecked = isChecked == 1 ? 0 : 1;
+    })
+
+    // 登录------------------------------------------------//
+    var loginBtn = $('#loginBtn');
+    var form = $('#form');
+    loginBtn.click(function () {
+
+        var username = $('#name').val().trim();
+        var password = $('#psw').val().trim();
+        var errorP = $('.error');
+        var referer = $(this).attr('data-referer');
+        var loginCheckingUrl = '/temp/userCenter/loginChecking?username=' + username + '&password=' + password + '&rememberPws=' + isChecked;
+        console.log(loginCheckingUrl)
+        var index = layer.load(1, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+        // form.submit();
+        $.ajax({
+            url: loginCheckingUrl,
+            dataType: "json",
+            type: "get",
+            success: function (response) {
+                layer.close(index);
+                if (response.errorCode == 1) {
+                    // 注册页登录跳首页
+                    if (referer.indexOf('/temp/userCenter/register') != -1) {
+                        location.href = '/';
+                    }
+                    else if (response.data.isOrg == true) {
+                        if (referer.indexOf('/personalCenter') != -1 || referer.indexOf('/temp/recharge') != -1 || referer.indexOf('/payment') != -1 || referer.indexOf('/pc') != -1) {
+                            location.href = '/';
+                        } else {
+                            location.href = referer;
+                        }
+                    } else {
+                        location.href = referer;
+                    }
+                } else {
+                    errorP.show();
+                    errorP.html(response.errorMessage)
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    })
+
+    // 回车 提交
+    $(document).bind("keydown", function (e) {
+        var event = e || window.event;
+        var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+        if (keyCode == 13) {
+            loginBtn.click();
+        }
+    })
+</script>
+</body>
+
+</html>

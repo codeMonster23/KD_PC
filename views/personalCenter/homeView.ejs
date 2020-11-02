@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css"/>
+    <script src="/moment/moment.js"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+<%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+<div class="personalMain clearfix">
+    <%- include('../layouts/personal/menuLayout', {flag:0,current:0,active:null}) %>
+    <div class="rmain clearfix">
+        <div class="ml left">
+            <h1>你可能感兴趣</h1>
+            <div class="items">
+                <% for(var i = 0; i < viewModel.data.recommendPersonalList.length;i++) { %>
+                <% if(viewModel.data.recommendPersonalList[i].mediatype != 0 ){ %>
+                <!--作品类型循环-->
+                <div class="item clearfix">
+                    <a href="<%= '/detail/workDetail/' + viewModel.data.recommendPersonalList[i].id.toString() + viewModel.data.recommendPersonalList[i].mediatype %>"
+                       class="img left" target="_blank"><img
+                                src="<%= viewModel.data.recommendPersonalList[i].coverpic %>"/><i
+                                class="icon<%= viewModel.data.recommendPersonalList[i].mediatype %>"></i></a>
+                    <div class="info">
+                        <a href="<%= '/detail/workDetail/' + viewModel.data.recommendPersonalList[i].id.toString() + viewModel.data.recommendPersonalList[i].mediatype %>"
+                           class="name" target="_blank">
+                            <%=
+                                viewModel.data.recommendPersonalList[i].title %>
+                        </a>
+                        <p class="brief">
+                            <%= viewModel.data.recommendPersonalList[i].memo %>
+                        </p>
+                        <div class="tags">
+                            <% for(var j = 0, arr = ejsFunctions.arrayParseByBlank(viewModel.data.recommendPersonalList[i].keywords);j < arr.length;j++){ %>
+                            <span><%= arr[j] %></span>
+                            <% } %>
+                        </div>
+                        <div class="bottom clearfix">
+                            <a href="/kdh/home?orgid=<%= viewModel.data.recommendPersonalList[i].orgid %>"
+                               class="source left" target="_blank"><img
+                                        src="<%= viewModel.data.recommendPersonalList[i].orglogopic %>"/><span
+                                        class="left"><%= viewModel.data.recommendPersonalList[i].orgname %></span></a>
+                            <span class="time right"><%=
+                                    ejsFunctions.dateFormat(viewModel.data.recommendPersonalList[i].updatetime) %></span>
+                        </div>
+                    </div>
+                </div>
+                <% }else{ %>
+                <!--微刊循环-->
+                <div class="item clearfix">
+                    <a href="<%= '/detail/microBookDetail?id=' + viewModel.data.recommendPersonalList[i].id %>"
+                       class="img left" target="_blank">
+                        <img class="mb" src="<%= viewModel.data.recommendPersonalList[i].coverpic %>"/>
+                        <i class="icon5"></i>
+                        <div class="num">
+                            <span class="s1"><%= viewModel.data.recommendPersonalList[i].childcollectioncount %></span>
+                            <span class="s2"><%= viewModel.data.recommendPersonalList[i].viewcount %></span>
+                        </div>
+                    </a>
+                    <div class="info">
+                        <a href="<%= '/detail/microBookDetail?id=' + viewModel.data.recommendPersonalList[i].id %>"
+                           class="name" target="_blank">
+                            <%=
+                                viewModel.data.recommendPersonalList[i].title %>
+                        </a>
+                        <p class="brief">
+                            <%= viewModel.data.recommendPersonalList[i].intromemo %>
+                        </p>
+
+                        <div class="bottom clearfix">
+                            <a href="/kdh/home?orgid=<%= viewModel.data.recommendPersonalList[i].orgid %>"
+                               class="source left" target="_blank"><img
+                                        src="<%= viewModel.data.recommendPersonalList[i].orglogopic %>"/><span
+                                        class="left"><%= viewModel.data.recommendPersonalList[i].orgname %></span></a>
+                            <span class="time right"><%=
+                                    ejsFunctions.dateFormat(viewModel.data.recommendPersonalList[i].submittime) %></span>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+            <a href="javascript:;" class="more"><span>查看更多 </span><img src="/images/personal/p-icon1.gif"/></a>
+        </div>
+
+        <div class="mr left">
+            <div class="section s1">
+                <h1>最近浏览<a href="/pc/history">更多 ></a></h1>
+                <ul id="recentBrowse">
+                    
+                </ul>
+            </div>
+            <div class="section s2">
+                <h1>我关注的万选号<a href="/pc/followed" target="_blank">更多 ></a></h1>
+                <ul class="clearfix">
+                    <% if(viewModel.data.concernList.length > 0 && viewModel.data.concernList.length < 4){ %>
+                    <% for(var i = 0;i < viewModel.data.concernList.length;i++){ %>
+                    <li>
+                        <a href="/kdh/home?orgid=<%= viewModel.data.concernList[i].orgid %>" target="_blank">
+                            <img src="<%= viewModel.data.concernList[i].logopic %>"/>
+                            <p><%= viewModel.data.concernList[i].orgname %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                    <% } %>
+                    <% if(viewModel.data.concernList.length > 4 || viewModel.data.concernList.length == 4 ){ %>
+                    <% for(var i = 0;i < 4;i++){ %>
+                    <li>
+                        <a href="/kdh/home?orgid=<%= viewModel.data.concernList[i].orgid %>" target="_blank">
+                            <img src="<%= viewModel.data.concernList[i].logopic %>"/>
+                            <p><%= viewModel.data.concernList[i].orgname %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="section s3">
+                <h1>我收藏的作品<a href="/pc/collected" target="_blank">更多 ></a></h1>
+                <ul>
+                    <% if(viewModel.data.myCollectList.length > 0 && viewModel.data.myCollectList.length < 3){ %>
+                    <% for(var i = 0;i < viewModel.data.myCollectList.length;i++){ %>
+                    <li class="clearfix">
+                        <a href="<%= '/detail/workDetail/' + viewModel.data.myCollectList[i].id.toString() + viewModel.data.myCollectList[i].mediatype %>"
+                           class="img left"><img src="<%= viewModel.data.myCollectList[i].coverpic %>"/></a>
+                        <div class="info">
+                            <a href="<%= '/detail/workDetail/' + viewModel.data.myCollectList[i].id.toString() + viewModel.data.myCollectList[i].mediatype %>"
+                               class="name" target="_blank">
+                                <%= viewModel.data.myCollectList[i].title %>
+                            </a>
+                            <!--<p>刘文静</p>-->
+                        </div>
+                    </li>
+                    <% } %>
+                    <% } %>
+                    <% if(viewModel.data.myCollectList.length > 3 || viewModel.data.myCollectList.length == 3){ %>
+                    <% for(var i = 0;i < 3;i++){ %>
+                    <li class="clearfix">
+                        <a href="<%= '/detail/workDetail/' + viewModel.data.myCollectList[i].id.toString() + viewModel.data.myCollectList[i].mediatype %>"
+                           class="img left"><img src="<%= viewModel.data.myCollectList[i].coverpic %>"/></a>
+                        <div class="info">
+                            <a href="<%= '/detail/workDetail/' + viewModel.data.myCollectList[i].id.toString() + viewModel.data.myCollectList[i].mediatype %>"
+                               class="name" target="_blank">
+                                <%= viewModel.data.myCollectList[i].title %>
+                            </a>
+                            <!--<p>刘文静</p>-->
+                        </div>
+                    </li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../layouts/footerLayout', {}) %>
+<script>
+    //加载更多
+    'use strict'
+    var more = $(".more")
+    var listDom = $('.items');
+    more.click(function () {
+        var options = {
+            pageNum: Math.floor(listDom.children('.item').length / 10 + 1),
+            pageSize: 10,
+            isAsync: 1
+        }
+        personalHomeLoading(options);
+    })
+
+    function personalHomeLoading(options) {
+        var url = '/personalCenter/home?'
+        for (var arg in options) {
+            url += '&' + arg + '=' + options[arg];
+        }
+        url = url.replace('?&', '?');
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                //console.log(response.data)
+                if (response.code == 0) {
+                    var list = response.data;
+                    var itemsStr = '';
+                    if (list && list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            if (list[i].mediatype != 0) {
+                                // 处理关键字
+                                var spanStr = '';
+                                var keywords = list[i].keywords;
+                                if (keywords && keywords.indexOf(' ') != -1) {
+                                    keywords = list[i].keywords.split(' ');
+                                    for (var j = 0; j < keywords.length; j++) {
+                                        spanStr += '<span>' + keywords[j] + '</span>';
+                                    }
+                                } else {
+                                    spanStr = keywords;
+                                }
+                                //处理链接
+                                var linkA = '/detail/workDetail/' + list[i].id.toString() + list[i].mediatype;
+                                //拼接内容字符串
+                                itemsStr += '<div class="item clearfix">' +
+                                    '<a target="_blank" href="' + linkA + '" class="img left">' +
+                                    '<img src="' + list[i].coverpic + '">' +
+                                    '<i class="icon' + list[i].mediatype + '"></i>' +
+                                    '</a>' +
+                                    '<div class="info">' +
+                                    ' <a class="name" target="_blank" href="' + linkA + '">' + list[i].title + '</a>' +
+                                    '   <p class="brief">' + list[i].memo + '</p>' +
+                                    '   <div class="tags clearfix">' + spanStr + '</div>' +
+                                    '   <div class="bottom clearfix">' +
+                                    '       <a target="_blank" href="/kdh/home?orgid=' + list[i].orgid + '"class="source left"><img src="' + list[i].orglogopic + '">' + '<span class="left">' + list[i].orgname + '</span></a>' +
+                                    '<span class="time right">' + moment(list[i].updatetime).format('YYYY-MM-DD HH:mm:ss') + '</span>' +
+                                    '   </div>' +
+                                    '</div>' +
+                                    '</div>'
+                            } else {
+                                //处理链接
+                                var linkA = '/detail/microBookDetail?id=' + list[i].id + '&mediatype=' + list[i].mediatype;
+                                //拼接内容字符串
+                                itemsStr += '<div class="item clearfix">' +
+                                    '<a target="_blank" href="' + linkA + '" class="img left">' +
+                                    '<img class="mb" src="' + list[i].coverpic + '">' +
+                                    '<i class="icon5"></i>' +
+                                    '<div class="num"><span class="s1">' + list[i].childcollectioncount + '</span>' +
+                                    '<span class="s2">' + list[i].viewcount + '</span>' + '</div>' +
+                                    '</a>' +
+                                    '<div class="info">' +
+                                    ' <a class="name" target="_blank" href="' + linkA + '">' + list[i].title + '</a>' +
+                                    '   <p class="brief">' + list[i].intromemo + '</p>' +
+
+                                    '   <div class="bottom clearfix">' +
+                                    '       <a target="_blank" href="/kdh/home?orgid=' + list[i].orgid + '"class="source left"><img src="' + list[i].orglogopic + '">' + '<span class="left">' + list[i].orgname + '</span></a>' +
+                                    '       <span class="time right">' + moment(list[i].submittime).format('YYYY-MM-DD HH:mm:ss') + '</span>' +
+                                    '   </div>' +
+                                    '</div>' +
+                                    '</div>'
+
+                            }
+                            //listDom.append($(itemsStr));
+                        }
+                        if (options.pageNum == 1) {
+                            listDom.html(itemsStr);
+                        } else {
+                            listDom.append(itemsStr);
+                        }
+                        if (list.length == 11) {
+                            more.html('<span>查看更多 </span><img src="/images/personal/p-icon1.gif"/>');
+                        } else {
+                            more.html('没有更多了！');
+                        }
+                    } else {
+                        if (options.pageNum == 1) {
+                            listDom.html(itemsStr);
+                        }
+                        more.html('没有更多了！')
+                    }
+                } else {
+                    console.log('请检查个人首页列表接口！');
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 最近浏览
+    $.ajax({
+        url: '/personalcenter/browseRecord?isAsync=1',
+        dataType: "json",
+        type: "GET",
+        success: function (response) {
+            // console.log(response)
+            if (response.code == 0) {
+                var str = '';
+                var list = response.data.list;
+                for (var i = 0; i < list.length; i++) {
+                    var type = 0;
+                    switch (list[i].visittype) {
+                        case 11:
+                            type = '1';
+                            break;
+                        case 12:
+                            type = '2';
+                            break;
+                        case 13:
+                            type = '3';
+                            break;
+                        case 14:
+                            type = '4';
+                            break;
+                    }
+                    str += '<li>' +
+                        '                        <a href="/detail/workDetail/' + list[i].foreignkeyid + type + '" target="_blank">' +
+                        '                            <img src="https://kdjk.cnki.net/resourcetest/pic/0/'+list[i].foreignkeyid+'"/>' +
+                        '                            <p>' + list[i].title + '</p>' +
+                        '                        </a>' +
+                        '                    </li>';
+                }
+                $('#recentBrowse').html(str);
+            }
+            else {
+                console.log('请检查搜索文献列表接口！');
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:1,active:0}) %>
+                <div class="contentWrap">
+                    <h1 class="yg"><span>我的已购</span><a href="#" class="reader">下载安装阅读器</a>
+                    </h1>
+                    <div class="tab">
+                        <a href="javascript:;">作品<span>（132）</span></a>
+                        <a href="javascript:;">微刊<span>（132）</span></a>
+                        <a href="javascript:;" class="cur">期刊<span>（132）</span></a>
+                        <a href="javascript:;">图书<span>（132）</span></a>
+                        <a href="javascript:;">文献<span>（132）</span></a>
+                    </div>
+                    <!--作品-->
+                    <div class="tabcont t1">
+                        <ul class="ul clearfix">
+                            <% for(var j=0; j<4; j++){ %>
+                                <% for(var i=1; i<5; i++){ %>
+                                    <li>
+                                        <div class="frame">
+                                            <a href="#"><img src="/images/indexImages/temp/temp.jpg" /><i class="icon<%= i %>"></i></a>
+                                        </div>
+                                        <p><a href="#">各种有趣的小故事各种有趣的小故事各种有趣的小故事</a></p>
+                                    </li>
+                                    <% } %>
+                                        <% } %>
+                        </ul>
+                        <div class="sp-page">
+                            <span class="current">1</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">2</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">3</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">4</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">5</a>
+                            <a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">6</a><span>...</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">下一页</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">尾页</a>
+                        </div>
+
+                    </div>
+                    <!--微刊-->
+                    <div class="tabcont t2">
+                        <ul class="ul clearfix">
+                            <% for(var i=0; i<16; i++){ %>
+                                <li>
+                                    <div class="frame">
+                                        <a href="#"><img src="/images/indexImages/temp/temp.jpg" /></a>
+                                    </div>
+                                    <p><a href="#">各种有趣的小故事各种有趣的小故事各种有趣的小故事</a></p>
+                                </li>
+                                <% } %>
+                        </ul>
+                        <div class="sp-page">
+                            <span class="current">1</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">2</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">3</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">4</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">5</a>
+                            <a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">6</a><span>...</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">下一页</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">尾页</a>
+                        </div>
+
+                    </div>
+                    <!--期刊-->
+                    <div class="tabcont t3" style="display: block;">
+                        <p class="accredit">温馨提示：本电脑尚未获得下载阅读书刊的授权，您可以<a href="javascript:;">授权给本电脑</a>（您最多可同时授权2台电脑）</p>
+                        <div class="perioddetail">
+                            <strong>《当沉思穿越时空》 2019年全年</strong>
+                            <a href="#">返回上一页 ></a>
+                        </div>
+                        <div class="ulist clearfix">
+                            <% for(var i=0;i<16;i++){ %>
+                                <div class="li">
+                                    <div class="frame">
+                                        <a href="#" class="img"><img src="/images/indexImages/temp/temp.jpg" /></a>
+                                    </div>
+                                    <p class="name"><a href="#">读书是最美好的事 读书是最美好的事 读书是最美好的事 </a></p>
+                                    <p class="periods">2019年第04期</p>
+                                    <div class="btns">
+                                        <a href="#" class="a1">阅读</a><a href="#" class="a2">下载</a><span class="ewm"><img src="/images/personal/p-icon3.png"/><div class="h"><div class="ewmpop"><i></i><p>使用知网文化APP扫码阅读</p><img src="/images/personal/p-ewm.jpg"></div></div></span>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="sp-page">
+                            <span class="current">1</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">2</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">3</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">4</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">5</a>
+                            <a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">6</a><span>...</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">下一页</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">尾页</a>
+                        </div>
+
+                    </div>
+                    <!--图书-->
+                    <div class="tabcont t3">
+                        <p class="accredit">温馨提示：本电脑尚未获得下载阅读书刊的授权，您可以<a href="javascript:;">授权给本电脑</a>（您最多可同时授权2台电脑）</p>
+                        <div class="ulist clearfix">
+                            <% for(var i=0;i<16;i++){ %>
+                                <div class="li">
+                                    <div class="frame">
+                                        <a href="#" class="img"><img src="/images/indexImages/temp/temp.jpg" /></a>
+                                    </div>
+                                    <p class="name"><a href="#">读书是最美好的事 读书是最美好的事 读书是最美好的事 </a></p>
+                                    <div class="btns">
+                                        <a href="#" class="a1">阅读</a><a href="#" class="a2">下载</a><span class="ewm"><img src="/images/personal/p-icon3.png"/><div class="h"><div class="ewmpop"><i></i><p>使用知网文化APP扫码阅读</p><img src="/images/personal/p-ewm.jpg"></div></div></span>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="sp-page">
+                            <span class="current">1</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">2</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">3</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">4</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">5</a>
+                            <a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">6</a><span>...</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">下一页</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">尾页</a>
+                        </div>
+
+                    </div>
+                    <!--文献-->
+                    <div class="tabcont t4">
+                        <p class="accredit">温馨提示：文献购买后，支持七天重复下载阅读，此模块显示最近七天购买的文献。</p>
+                        <div class="wlist">
+                            <% for(var i=0;i<8;i++){ %>
+                                <div class="li">
+                                    <a href="#" class="name">艺术学基本学士规范的建立与人才培养——以艺术学核心概念及专业术语为例</a>
+                                    <a href="#" class="download">下载</a>
+                                    <span class="time">2019-10-30</span>
+                                </div>
+                                <div class="li">
+                                    <a href="#" class="name">艺术学基本学士规范的建立与人才培养——以艺术学核心概念及专业术语为例艺术学基本学士规范的建立与人才培养——以艺术学核心概念及专业术语为例艺术学基本学士规范的建立与人才培养——以艺术学核心概念及专业术语为例艺术学基本学士规范的建立与人才培养——以艺术学核心概念及专业术语为例艺术学基本学士规范的建立与人才培养——以艺术学核心概念及专业术语为例</a>
+                                    <a href="#" class="download">下载</a>
+                                    <span class="time">2019-10-30</span>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="sp-page">
+                            <span class="current">1</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">2</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">3</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">4</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">5</a>
+                            <a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">6</a><span>...</span><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">下一页</a><a href="?page=1&amp;type=ch&amp;keys=sdfsd&amp;sort=0">尾页</a>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+                TableTransition($(".tab a"), $(".tabcont"), "click", "cur")
+                $(".tab a").click(function() {
+                    var index = $(this).index()
+                    if (index == 2 || index == 3) {
+                        $("h1 .reader").show()
+
+                    } else {
+                        $("h1 .reader").hide()
+                    }
+                })
+            </script>
+</body>
+
+</html>

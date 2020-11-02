@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bookstore/bookstore.css" />
+        <link rel="stylesheet" href="/lib/layui/css/layui.css" media="all">
+        <link rel="stylesheet" type="text/css" href="/css/bookstore/mylayer.css" />
+        <script src="/lib/layui/layui.js"></script>
+</head>
+
+<body>
+    <%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+        <div class="container">
+            <div class="breadcrumb clearfix">
+                <span>全部期刊</span>&nbsp;>&nbsp;
+                <a href="" class="title"></a>
+            </div>
+            <div class="periodical-main">
+                <div class="periodical-main-line"></div>
+                <div class="periodical-main-body clearfix" id="periodInfo">
+                    <div class="periodical-book">
+                        <img src="" alt="">
+                    </div>
+                    <div class="periodical-info">
+                        <div class="periodical-share">
+                            <span class="periodical-share-text">分享</span>
+                            <div class="periodical-share-more bdsharebuttonbox">
+                                <a href="#" class="periodical-share-item qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                <a href="#" class="periodical-share-item tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            </div>
+                        </div>
+                        <h1 class="periodical-title"></h1>
+                        <h2 class="periodical-subtitle" id="eName"></h2>
+                        <div class="periodical-detail">
+                            <div class="periodical-detail-items clearfix">
+                                <div class="periodical-detail-item periodical-detail-item-col1">
+                                    <div class="periodical-detail-label" style="width:70px;">
+                                        主&emsp;&emsp;办：
+                                    </div>
+                                    <div class="periodical-detail-content" id="organizers"></div>
+                                </div>
+                                <div class="periodical-detail-item">
+                                    <div class="periodical-detail-label">
+                                        ISSN：
+                                    </div>
+                                    <div class="periodical-detail-content" id="issn"></div>
+                                </div>
+                            </div>
+                            <div class="periodical-detail-items clearfix">
+                                <div class="periodical-detail-item periodical-detail-item-col1">
+                                    <div class="periodical-detail-label">
+                                        出版周期：
+                                    </div>
+                                    <div class="periodical-detail-content" id="cycle"></div>
+                                </div>
+                                <div class="periodical-detail-item clearfix">
+                                    <div class="periodical-detail-label">
+                                        CN：
+                                    </div>
+                                    <div class="periodical-detail-content" id="cn"></div>
+                                </div>
+                            </div>
+                            <div class="periodical-detail-items clearfix">
+                                <div class="periodical-detail-item periodical-detail-item-col1">
+                                    <div class="periodical-detail-label">
+                                        出&ensp;版&ensp;地：
+                                    </div>
+                                    <div class="periodical-detail-content" id="publishPlace"></div>
+                                </div>
+                                <div class="periodical-detail-item">
+                                    <div class="periodical-detail-label">
+                                        邮发代号：
+                                    </div>
+                                    <div class="periodical-detail-content" id="yfdh"></div>
+                                </div>
+                            </div>
+                            <div class="periodical-detail-items clearfix">
+                                <div class="periodical-detail-item periodical-detail-item-col1">
+                                    <div class="periodical-detail-label">
+                                        语&emsp;&emsp;种：
+                                    </div>
+                                    <div class="periodical-detail-content" id="lang"></div>
+                                </div>
+                                <div class="periodical-detail-item">
+                                    <div class="periodical-detail-label">
+                                        创刊时间：
+                                    </div>
+                                    <div class="periodical-detail-content" id="createTime"></div>
+                                </div>
+                            </div>
+                            <div class="periodical-detail-items clearfix">
+                                <div class="periodical-detail-item periodical-detail-item-col1">
+                                    <div class="periodical-detail-label">
+                                        收录年度：
+                                    </div>
+                                    <div class="periodical-detail-content" id="inclusionYear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="periodical-bar" style="margin-top:-13px;">
+                        <img src="/images/bookstore/bookstore1.png" alt="">
+                    </div>
+                </div>
+                <div class="periodical-tabs clearfix">
+                    <a id="tab1" class="periodical-tab periodical-tab-select">按期刊浏览</a>
+                    <a id="tab2" class="periodical-tab">按栏目浏览</a>
+                </div>
+            </div>
+            <div class="periodical-body">
+                <div id="tab1-body" style="display:block" class="periodical-subtab">
+                    <div class="periodical-years clearfix" id="periodicalYears"></div>
+                    <div class="periodical-items clearfix" id="periodicalItems"></div>
+                    <div class="periodical-pages clearfix" id="periodicalPages"></div>
+                </div>
+                <div id="tab2-body" class="periodical-subtab clearfix">
+                    <div class="column-left">
+                        <div class="columns"></div>
+                        <div class="columns-number">
+                            找到<strong></strong>个项目
+                        </div>
+                        <div class="columns-pages" id="columnsPages"></div>
+                    </div>
+                    <div class="column-right">
+                        <div class="column-right-bar clearfix">
+                            <div class="column-right-title"></div>
+                            <div class="column-right-numbers">找到<strong></strong>条结果</div>
+                        </div>
+                        <div class="column-right-itmes"></div>
+                        <div class="periodical-pages clearfix" id="literaturePages"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script src="/js/plugin/jquery.methods.js"></script>
+            <script src="/js/detail/periodDetail.js"></script>
+            <style>
+                .bd_weixin_popup{
+                    box-sizing: content-box;
+                    padding: 20px;
+                    height:300px !important;
+                }
+                .bd_weixin_popup .bd_weixin_popup_head{
+                    text-align: center;
+                }
+                .bd_weixin_popup .bd_weixin_popup_foot{
+                    text-align: center;
+                }
+                .periodical-share-more{
+                    right: -90px;
+                }
+            </style>
+</body>
+
+</html>

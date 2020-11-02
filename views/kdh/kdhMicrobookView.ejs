@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/kdh/kda.css" />
+        <script src="/js/plugin/jquery.methods.js"></script>
+</head>
+
+<body bgcolor="#EBEFF5">
+    <%- include('../layouts/navLayout', {current: 4, enterControl:1}) %>
+        <%- include('../layouts/kdh/bannerLayout') %>
+            <%- include('../layouts/kdh/navLayout', {current: 2}) %>
+                <div class="mwrap">
+                    <div class="mtop">
+                        <a data-sort="SubmitTime" href="javascript:;" class="sort newOrHot cur">最新</a>
+                        <a data-sort="viewcount" href="javascript:;" class="sort newOrHot">最热</a>
+                        <span>共<i><%= viewModel.data.microbookData.total %></i>个微刊</span>
+                        <div class="search" id="search">
+                            <input type="text" placeholder="微刊检索" />
+                            <a href="javascript:;" class="sbtn"></a>
+                        </div>
+                    </div>
+                    <div class="cardwrap clearfix" id="cardwrap">
+                        <% if(viewModel.data.microbookData.total>0){ %>
+                            <% for(var i = 0; i < viewModel.data.microbookData.rows.length; i++){ %>
+                                <div class="ca-box">
+                                    <div class="pic"><a target="_blank" href="/detail/microBookDetail?id=<%= viewModel.data.microbookData.rows[i].id%>"><img src="<%= viewModel.data.microbookData.rows[i].coverpic %>" width="534" height="239"></a>
+                                        <div class="num"><span class="s1"><%= viewModel.data.microbookData.rows[i].childcollectioncount %></span><span class="s2"><%= viewModel.data.microbookData.rows[i].viewcount %></span></div>
+                                    </div>
+                                    <div class="name">
+                                        <span class="text"><a target="_blank" href="/detail/microBookDetail?id=<%= viewModel.data.microbookData.rows[i].id%>"><%= viewModel.data.microbookData.rows[i].title %></a></span>
+                                    </div>
+                                    <div class="info"><span class="left time"><%= ejsFunctions.dateFormat(viewModel.data.microbookData.rows[i].updatetime).substr(0,10) %></span></div>
+                                </div>
+                                <% } %>
+                                    <% }else{ %>
+                                        <div class="blank"></div>
+                                        <% } %>
+                    </div>
+                    <div id="sp-page" class="sp-page" ref="page">
+                        <%- viewModel.data.pageStr %>
+                    </div>
+                </div>
+                <%- include('../layouts/footerLayout', {}) %>
+                    <input type="hidden" id="orgid" value="<%=viewModel.data.kdhBaseInfo.org.orgid%>">
+                    <script>
+                        $(".header .search .btn").click(function() {
+                            $(this).siblings().addClass("click")
+                        })
+
+                        var orgid = $('#orgid').val();
+                        var search = $('#search');
+                        var cardwrapDom = $('#cardwrap');
+                        var newOrHot = $('.newOrHot');
+                        var page = $('#sp-page');
+                        var sort = $('.mwrap .mtop a.cur').attr('data-sort'); //SubmitTime 最新，viewcount 最热
+
+                        function getMicrobookList(sort, pageNum, kd) {
+                            var pageNum = pageNum || 1;
+                            var url = '/kdh/microbook?orgid=' + orgid;
+                            var data = {
+                                sort: sort,
+                                pageNum: pageNum,
+                                kd: kd,
+                                isAsync: 1
+                            };
+                            $.ajax({
+                                url: url,
+                                dataType: "json",
+                                type: "GET",
+                                data: data,
+                                success: function(response) {
+                                    if (response.code == 0) {
+                                        var list = response.data.rows;
+                                        var microbookStr = '';
+                                        if (list && list.length > 0) {
+                                            for (var i = 0; i < list.length; i++) {
+                                                microbookStr += '<div class="ca-box">' +
+                                                    '       <div class="pic">' +
+                                                    '<a target="_blank" href="/detail/microBookDetail?id=' + list[i].id + '"><img src="' + list[i].coverpic + '" width="534" height="239"></a>' +
+                                                    '<div class="num">' +
+                                                    '<span class="s1">' + list[i].childcollectioncount + '</span><span class="s2">' + list[i].viewcount + '</span>' +
+                                                    '</div>' +
+                                                    '</div>' +
+                                                    '<div class="name">' +
+                                                    '<span class="text"><a target="_blank" href="/detail/microBookDetail?id=' + list[i].id + '">' + $.kd.keywordStyleRed(list[i].title, '~#@', '@#~', kd) + ' </a></span>' +
+                                                    '</div>' +
+                                                    '<div class="info"><span class="left time">' + $.kd.dateFormat(list[i].updatetime) + '</span>' +
+                                                    '</div>' +
+                                                    '   </div>';
+                                            }
+                                            var pageStr = $.kd.outputPager(response.data.total, 8, 5, pageNum);
+                                            cardwrapDom.html(microbookStr);
+                                            page.html(pageStr);
+                                        } else {
+                                            cardwrapDom.html('<div class="blank"></div>');
+                                        }
+                                    } else {
+                                        console.log('请检查获取万选阅读号微刊数据！');
+                                    }
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+
+
+                        // 最新最热
+                        newOrHot.on('click', function() {
+                            $(this).addClass('cur').siblings().removeClass('cur');
+                            var sort = $(this).attr('data-sort');
+                            getMicrobookList(sort, 1);
+                        });
+                        // 检索
+                        search.find('.sbtn').on('click', function() {
+                            newOrHot.eq(0).addClass('cur').siblings().removeClass('cur');
+                            var kd = $(this).siblings('input').val();
+                            getMicrobookList('SubmitTime', 1, kd);
+                        });
+                        // 回车 提交
+                        $(document).on("keydown", function(e) {
+                                if (e.keyCode == 13) {
+                                    search.find('.sbtn').click();
+                                }
+                            })
+                            // 页码
+                        $(document).on('click', '#sp-page a', function() {
+                            $('body,html').animate({
+                                scrollTop: 0
+                            }, 200);
+                            var pageNum = $(this).attr('data-page');
+                            var sort = newOrHot.find('p').attr('data-sort');
+                            var kd = search.find('input').val();
+                            getMicrobookList(sort, pageNum, kd);
+                        });
+                    </script>
+</body>
+
+</html>

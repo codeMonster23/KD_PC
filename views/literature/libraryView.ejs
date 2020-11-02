@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature-artist.css"/>
+    <script src="/js/jquery.cycle2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/numberroll.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/plugin/jquery.methods.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body bgcolor="#EBEFF5">
+<!--header-->
+<%- include('../layouts/libraryNavLayout', {enterControl:1}) %>
+<!--banner-->
+<div class="picArea">
+    <div class="transition cycle-slideshow" data-cycle-pause-on-hover="true" data-cycle-slides=".slide"
+         data-cycle-timeout="4000" data-cycle-pager=".slidePager" data-cycle-speed="1000">
+        <% if(viewModel.libraryType == 'cjfvtotal') { %>
+        <!--文艺库-->
+        <div class="slide"><a href="#" target="_blank" class="wy-pic1"></a></div>
+        <% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+        <!--文化库-->
+        <div class="slide"><a href="#" target="_blank" class="wh-pic1"></a></div>
+        <% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+        <!--科普库-->
+        <div class="slide"><a href="#" target="_blank" class="kp-pic1"></a></div>
+        <% } %>
+    </div>
+    <!--<div class="slidePager"></div>-->
+    <!--<div class="numWrap"
+            <% if(viewModel.libraryType == 'cjfvtotal') { %>
+         style="background:url('/images/literature/l-sumBg-wy.jpg')"
+            <% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+         style="background:url('/images/literature/l-sumBg-wh.jpg')"
+            <% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+         style="background:url('/images/literature/l-sumBg-kp.jpg')"
+            <% } %>
+    >
+        <div class="item">
+            <strong class="left">文献</strong>
+            <div class="showNums1">
+            </div>
+            <strong class="left last">篇</strong>
+        </div>
+        <div class="item">
+            <strong class="left">期刊</strong>
+            <div class="showNums2">
+            </div>
+            <strong class="left last">种</strong>
+        </div>
+    </div>-->
+
+</div>
+<!--导航分类-->
+<div class="navbg">
+    <div class="navWrap">
+        <div class="label left <% if(viewModel.libraryType == 'cjfttotal') { %>slabel<% } %>">
+            <% if(viewModel.libraryType == 'cjfttotal') { %>
+            <p>文分<br/>献类</p>
+            <% }else{ %>
+            <p>文<br/>献<br/>分<br/>类</p>
+            <% } %>
+        </div>
+        <div class="items clearfix">
+            <% if(viewModel.libraryType == 'cjfvtotal') { %>
+            <!--文艺库分类-->
+            <% for(var i = 0;i < viewModel.libraryStaticData.VN.length; i++){ %>
+            <a href="/literature/library/channel?subject=<%= viewModel.libraryStaticData.VN[i].ztCode %>&album=V&dbname=<%= viewModel.libraryType %>&x=<%= i %>&ztName=<%= ejsFunctions.encodeURL(viewModel.libraryStaticData.VN[i].ztName) %>"
+               class="item" target="_blank"><%= viewModel.libraryStaticData.VN[i].ztName %></a>
+            <% } %>
+            <% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+            <!--文化库分类-->
+            <% for(var i = 0;i < viewModel.libraryStaticData.UN.length; i++){ %>
+            <a href="/literature/library/channel?subject=<%= viewModel.libraryStaticData.UN[i].ztCode %>&album=U&dbname=<%= viewModel.libraryType %>&x=<%= i %>&ztName=<%= ejsFunctions.encodeURL(viewModel.libraryStaticData.UN[i].ztName) %>"
+               class="item" target="_blank"><%= viewModel.libraryStaticData.UN[i].ztName %></a>
+            <% } %>
+            <% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+            <!--科普库分类-->
+            <% for(var i = 0;i < viewModel.libraryStaticData.TN.length; i++){ %>
+            <a href="/literature/library/channel?subject=<%= viewModel.libraryStaticData.TN[i].ztCode %>&album=T&dbname=<%= viewModel.libraryType %>&x=<%= i %>&ztName=<%= ejsFunctions.encodeURL(viewModel.libraryStaticData.TN[i].ztName) %>"
+               class="item" target="_blank"><%= viewModel.libraryStaticData.TN[i].ztName %></a>
+            <% } %>
+            <% } %>
+        </div>
+    </div>
+
+</div>
+<div class="contain clearfix">
+    <div class="cl left">
+        <h1>精选文章</h1>
+        <% if(viewModel.libraryType == 'cjfvtotal') { %>
+        <!--文艺库分类-->
+        <div id="tags" class="tags clearfix">
+            <a href="javascript:;" data-ztcode="VN101" class="cur">文艺理论</a>
+            <a href="javascript:;" data-ztcode="VN104">小说</a>
+            <a href="javascript:;" data-ztcode="VN105">散文</a>
+            <a href="javascript:;" data-ztcode="VN102">诗歌、韵文</a>
+            <a href="javascript:;" data-ztcode="VN112">音乐</a>
+            <a href="javascript:;" data-ztcode="VN115">影视</a>
+            <a href="javascript:;" data-ztcode="VN117">摄影</a>
+            <a href="javascript:;" data-ztcode="VN116">书画篆刻</a>
+        </div>
+        <% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+        <!--文化库分类-->
+        <div id="tags" class="tags clearfix">
+            <a href="javascript:;" data-ztcode="UN101" class="cur">修身养性</a>
+            <a href="javascript:;" data-ztcode="UN103">法制纵横</a>
+            <a href="javascript:;" data-ztcode="UN104">百姓焦点</a>
+            <a href="javascript:;" data-ztcode="UN105">历史人文</a>
+            <a href="javascript:;" data-ztcode="UN107">居家生活</a>
+            <a href="javascript:;" data-ztcode="UN108">休闲广场</a>
+            <a href="javascript:;" data-ztcode="UN109">体育健身</a>
+            <a href="javascript:;" data-ztcode="UN110">家庭保健</a>
+        </div>
+        <% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+        <!--科普库分类-->
+        <div id="tags" class="tags clearfix">
+            <a href="javascript:;" data-ztcode="TN201" class="cur">生命奥秘</a>
+            <a href="javascript:;" data-ztcode="TN202">地球故事</a>
+            <a href="javascript:;" data-ztcode="TN203">万物之理</a>
+            <a href="javascript:;" data-ztcode="TN204">星宇迷尘</a>
+            <a href="javascript:;" data-ztcode="TN205">军事大观</a>
+            <a href="javascript:;" data-ztcode="TN206">科技之光</a>
+            <a href="javascript:;" data-ztcode="TN207">农业广角</a>
+            <a href="javascript:;" data-ztcode="TN208">社科视野</a>
+        </div>
+        <% } %>
+        <div id="list" class="list">
+            <% for(var i = 0;i < viewModel.data.list.length;i++) { %>
+            <div class="item">
+                <h2>
+                    <a target="_blank" href="/literature/literatureDetail/<%= viewModel.data.list[i].FileName %><%= ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4) %>"><%= viewModel.data.list[i].Title %></a>
+                </h2>
+                <p class="p1"><%= viewModel.data.list[i].Author %> |<a class="publishName" target="_blank" href="/detail/periodDetail/<%=viewModel.data.list[i].PublishPYName%>">《<%= viewModel.data.list[i].PublishName %>
+                        》<%= viewModel.data.list[i].Year %>年<%= viewModel.data.list[i].Period %>期</a></p>
+                <p class="p2"><%= ejsFunctions.limitWordCount(viewModel.data.list[i].Summary, 160) %>...<a class="readMore" target="_blank" href="/literature/literatureDetail/<%= viewModel.data.list[i].FileName %><%= ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4) %>">[阅读全文]</a></p>
+                <% if(viewModel.data.list[i].Keyword && ejsFunctions.trim(viewModel.data.list[i].Keyword).length > 0) { %>
+                <div class="tag"><img src="/images/literature/licon12.gif" align="absmiddle"/>
+                    <% for(var j = 0, keyword = ejsFunctions.stringToArray(viewModel.data.list[i].Keyword);j < keyword.length;j++) {if(j < 5) { %>
+                    <span><a target="_blank" href="<%= ejsFunctions.encodeURL('/literature/libraryResult?album=' + viewModel.album + '&fulltext=' + ejsFunctions.filterKeyword(keyword[j])) %>"><%= ejsFunctions.filterKeyword(keyword[j]) %></a></span>
+                    <% }} %>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <a id="loadingMore" href="javascript:;" class="more" data-ztcode="<%= viewModel.ztcode %>">查看更多&nbsp;<img
+                    src="/images/literature/licon13.gif" align="absmiddle"></a>
+    </div>
+    <div class="cr left">
+        <!-- <div class="slogan">
+            <img src="/images/indexImages/KandianQRCode1.png" width="82" height="82">
+        </div> -->
+        <div class="aside s1">
+            <% if(viewModel.libraryType == 'cjfvtotal') { %>
+            <!--文艺库-->
+            <h1><span>期刊导航</span><a target="_blank" href="/literature/library/period?dbCode=V">更多></a></h1>
+            <ul class="clearfix">
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V01&dbCode=V&qkName=文学作品') %>"><img
+                                src="/images/literature/licon14.gif"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V01&dbCode=V&qkName=文学作品') %>">文学作品</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V0101&dbCode=V&qkName=文学博览') %>"><img
+                                src="/images/literature/licon15.gif"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V0101&dbCode=V&qkName=文学博览') %>">文学博览</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V0102&dbCode=V&qkName=诗歌及韵文') %>"><img
+                                src="/images/literature/licon16.gif"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V0102&dbCode=V&qkName=诗歌及韵文') %>">诗歌及韵文</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V0103&dbCode=V&qkName=小说') %>"><img
+                                src="/images/literature/licon17.gif"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V0103&dbCode=V&qkName=小说') %>">小说</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V02&dbCode=V&qkName=美术摄影') %>"><img
+                                src="/images/literature/licon18.gif"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V02&dbCode=V&qkName=美术摄影') %>">美术摄影</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V03&dbCode=V&qkName=音乐舞蹈') %>"><img
+                                src="/images/literature/licon19.gif"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V03&dbCode=V&qkName=音乐舞蹈') %>">音乐舞蹈</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V04&dbCode=V&qkName=工艺美术') %>"><img
+                                src="/images/literature/licon20.gif"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V04&dbCode=V&qkName=工艺美术') %>">工艺美术</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V05&dbCode=V&qkName=表演艺术') %>"><img
+                                src="/images/literature/licon21.gif"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=V05&dbCode=V&qkName=表演艺术') %>">表演艺术</a>
+                    </p>
+                </li>
+            </ul>
+            <% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+            <!--文化库-->
+            <h1><span>期刊导航</span><a target="_blank" href="/literature/library/period?dbCode=U">更多></a></h1>
+            <ul class="clearfix">
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U02&dbCode=U&qkName=女性天地') %>"><img
+                                src="/images/literature/l-period-wh1.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U02&dbCode=U&qkName=女性天地') %>">女性天地</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U03&dbCode=U&qkName=青年励志') %>"><img
+                                src="/images/literature/l-period-wh2.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U03&dbCode=U&qkName=青年励志') %>">青年励志</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U10&dbCode=U&qkName=生活保健') %>"><img
+                                src="/images/literature/l-period-wh3.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U10&dbCode=U&qkName=生活保健') %>">生活保健</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U11&dbCode=U&qkName=资讯生活') %>"><img
+                                src="/images/literature/l-period-wh4.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U11&dbCode=U&qkName=资讯生活') %>">资讯生活</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U18&dbCode=U&qkName=文粹欣赏') %>"><img
+                                src="/images/literature/l-period-wh5.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U18&dbCode=U&qkName=文粹欣赏') %>">文粹欣赏</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U19&dbCode=U&qkName=体育星空') %>"><img
+                                src="/images/literature/l-period-wh6.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U19&dbCode=U&qkName=体育星空') %>">体育星空</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U22&dbCode=U&qkName=地方文化与旅游') %>"><img
+                                src="/images/literature/l-period-wh7.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U22&dbCode=U&qkName=地方文化与旅游') %>">地方文化与旅游</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U27&dbCode=U&qkName=人文精神') %>"><img
+                                src="/images/literature/l-period-wh8.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=U27&dbCode=U&qkName=人文精神') %>">人文精神</a>
+                    </p>
+                </li>
+            </ul>
+            <% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+            <!--科普库-->
+            <h1><span>期刊导航</span><a target="_blank" href="/literature/library/period?dbCode=T">更多></a></h1>
+            <ul class="clearfix">
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T01&dbCode=T&qkName=科学大观') %>"><img
+                                src="/images/literature/l-period-kp1.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T01&dbCode=T&qkName=科学大观') %>">科学大观</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T02&dbCode=T&qkName=探索自然') %>"><img
+                                src="/images/literature/l-period-kp2.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T02&dbCode=T&qkName=探索自然') %>">探索自然</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T0201&dbCode=T&qkName=地球故事') %>"><img
+                                src="/images/literature/l-period-kp3.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T0201&dbCode=T&qkName=地球故事') %>">地球故事</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T03&dbCode=T&qkName=科技之光') %>"><img
+                                src="/images/literature/l-period-kp4.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T03&dbCode=T&qkName=科技之光') %>">科技之光</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T0304&dbCode=T&qkName=数字时代') %>"><img
+                                src="/images/literature/l-period-kp5.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T0304&dbCode=T&qkName=数字时代') %>">数字时代</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T04&dbCode=T&qkName=军事天地') %>"><img
+                                src="/images/literature/l-period-kp6.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T04&dbCode=T&qkName=军事天地') %>">军事天地</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T06&dbCode=T&qkName=医疗保健') %>"><img
+                                src="/images/literature/l-period-kp7.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T06&dbCode=T&qkName=医疗保健') %>">医疗保健</a>
+                    </p>
+                </li>
+                <li>
+                    <a target="_blank"
+                       href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T05&dbCode=T&qkName=农业广角') %>"><img
+                                src="/images/literature/l-period-kp8.png"></a>
+                    <p><a target="_blank"
+                          href="<%= ejsFunctions.encodeURL('/literature/library/period?qkMark=T05&dbCode=T&qkName=农业广角') %>">农业广角</a>
+                    </p>
+                </li>
+            </ul>
+            <% } %>
+        </div>
+        <div class="aside s2">
+            <h1>
+                <span>好刊推荐</span>
+                <% if(viewModel.libraryType == 'cjfvtotal') { %>
+                <a target="_blank" href="/literature/library/period?dbCode=V">更多></a>
+                <% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+                <a target="_blank" href="/literature/library/period?dbCode=U">更多></a>
+                <% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+                <a target="_blank" href="/literature/library/period?dbCode=T">更多></a>
+                <% } %>
+            </h1>
+            <ul id="periodRecom" class="clearfix"></ul>
+        </div>
+        <div class="aside s3">
+            <h1><span>大家都在看</span><a target="_blank" href="/discovery">更多></a></h1>
+            <div id="hot" class="ul">
+                <div class="li clearfix">
+                    <span class="num left">01</span>
+                    <a href="#" class="img left"><img src="imagesTemp/temp.jpg"></a>
+                    <div class="info left">
+                        <p><a href="#">电影史上的天才导演到底做了什么？</a></p>
+                        <div class="bottom">
+                            <a href="#" target="_blank"><img src="imagesTemp/temp.jpg">漓江出版社</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<%- include('../layouts/footerLayout', {}) %>
+<div style="display: none">
+    <input type="hidden" id="dbname" value="<%= viewModel.libraryType %>">
+    <input type="hidden" id="album" value="<%= viewModel.album %>">
+</div>
+<!--数字滚动显示插件-->
+<script>
+
+    // 切换精选文章词条和加载更多
+    var time = 200;
+    var tag = $('#tags a');
+    var loadingMore = $('#loadingMore');
+    var listDom = $('#list');
+    var dbname = $('#dbname').val();
+    var dbcode = '';
+    var typeId = -1; // 71-文艺库期刊；72-文化库期刊；73-科普库期刊
+    if (dbname == 'cjfvtotal') {
+        dbCode = 'V';
+        typeId = 71;
+    }
+    if (dbname == 'cjfutotal') {
+        dbCode = 'U';
+        typeId = 72;
+    }
+    if (dbname == 'cjfttotal') {
+        dbCode = 'T';
+        typeId = 73;
+    }
+
+    // 好刊推荐 获取文献库推荐期刊数据
+    var periodRecom = $('#periodRecom');
+    var getPeriodRecomUrl = '/literature/getRecommendPeriod?typeId=' + typeId;
+    $.ajax({
+        url: getPeriodRecomUrl,
+        dataType: "json",
+        type: "GET",
+        success: function (response) {
+            console.log('好看推荐：',response)
+            if (response.code == 0) {
+                var list = response.data.list;
+                var str = '';
+                if (list && list.length > 0) {
+                    for (var i = 0; i < list.length; i++) {
+                        str += '<li>' +
+                            '       <a target="_blank" title="' + list[i].title + '" href="/detail/periodDetail/'+ list[i].foreignkeyid +'"><img src="' + list[i].coverpic + '"></a>' +
+                            '       <p><a target="_blank" title="' + list[i].title + '" href="'+ list[i].foreignkeyid +'">' + list[i].title + '</a></p>' +
+                            '   </li>';
+                    }
+                    periodRecom.html(str);
+                    periodRecom.slideDown(time);
+                } else {
+                    periodRecom.html('暂时没有数据！');
+                }
+            } else {
+                console.log('请检查获取文献库推荐期刊数据！');
+            }
+            list = null;
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+    // 大家都在看 获取首页作品分页列表（只提推荐作品）
+    var hot = $('#hot');
+    var getRecommendWorksUrl = '/literature/getRecommendWorks?sort=collection.UpdateTime'
+    $.ajax({
+        url: getRecommendWorksUrl,
+        dataType: "json",
+        type: "GET",
+        success: function (response) {
+            // console.log(response.data.collectionlist)
+            if (response.code == 0) {
+                var list = response.data.collectionlist.collectionlist;
+                var str = '';
+                if (list && list.length > 0) {
+                    for (var i = 0; i < list.length; i++) {
+                        str += '<div class="li clearfix">' +
+                            '       <span class="num left">' + parseInt(i + 1) + '</span>' +
+                            '       <a target="_blank" title="' + list[i].title + '" href="/detail/workDetail/' + list[i].id.toString() + list[i].mediatype + '" class="img left"><img src="' + list[i].coverpic + '"></a>' +
+                            '       <div class="info left">' +
+                            '           <p><a target="_blank" title="' + list[i].title + '" href="/detail/workDetail/' + list[i].id.toString() + list[i].mediatype + '">' + list[i].title + '</a></p>' +
+                            '           <div class="bottom"><a target="_blank" href="/kdh/home?orgid='+ list[i].orgid +'"><img src="' + list[i].logopic + '"><span>' + list[i].orgname + '<span></a></div>' +
+                            '       </div>' +
+                            '   </div>';
+                    }
+                    hot.html(str);
+                    hot.slideDown(time);
+                } else {
+                    hot.html('暂时没有数据！');
+                }
+            } else {
+                console.log('请检查获取首页作品分页列表（只提推荐作品）！');
+            }
+            list = null;
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+    // 精选文章
+    tag.click(function () {
+        var ztcode = $(this).attr('data-ztcode');
+        tag.removeClass('cur');
+        $(this).addClass('cur');
+        var options = {
+            dbname: dbname,
+            pageNum: 1,
+            ztcode: ztcode,
+            isAsync: 1
+        }
+        libraryInterface(options);
+        loadingMore.attr('data-ztcode', ztcode);
+    })
+
+    // 处理异步返回的数据 生成列表
+    function handleList(list, searchWordKeyword) {
+        var str = ''
+        // 小于10条全部显示
+        if (list.length <= 10) {
+            for (var i = 0; i < list.length; i++) {
+                var keywordStr = '';
+                // 有关键字
+                if (list[i].Keyword && list[i].Keyword.length > 0) {
+                    var keywordArr = $.kd.stringToArray(list[i].Keyword);
+                    for (var j = 0; j < keywordArr.length; j++) {
+                        // keywordStr += '<span><a>' + keywordArr[j] + '</a></span>'
+                        if (j < 5) { //最多显示5个
+                            //删除关键词后面带的数字
+                            var tempIndex = keywordArr[j].indexOf(':');
+                            if (tempIndex != -1) {
+                                keywordStr += '<span><a target="_blank" href="' + encodeURI('/literature/libraryResult?album=' + album + '&fulltext=' + keywordArr[j].substring(0, tempIndex)) + '">' + keywordArr[j].substring(0, tempIndex) + '</a></span>';
+                            } else {
+                                keywordStr += '<span><a target="_blank" href="' + encodeURI('/literature/libraryResult?album=' + album + '&fulltext=' + keywordArr[j]) + '">' + keywordArr[j] + '</a></span>';
+                            }
+                        }
+                    }
+
+                    str += '<div class="item" data-file-name="' + list[i].FileName + '">' +
+                        '       <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + $.kd.keywordStyleRed(list[i].Title, '~#@', '@#~', searchWordKeyword) + '</a></h2>' +
+                        '       <p class="p1">' + list[i].Author + ' |<a class="publishName" target="_blank" href="/detail/periodDetail/'+list[i].PublishPYName+'">《' + list[i].PublishName + '》' + list[i].Year + '年' + list[i].Period + '期</a></p>' +
+                        '       <p class="p2">' + $.kd.keywordStyleRed(list[i].Summary, '~#@', '@#~', searchWordKeyword) + '<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                        '       <div class="pics"></div>' +
+                        '       <div class="tag"><img src="/images/literature/licon12.gif" align="absmiddle"/>' + keywordStr + '</div>' +
+                        '   </div>';
+                } else {
+                    // 没有关键字
+                    str += '<div class="item" data-file-name="' + list[i].FileName + '">' +
+                        '       <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + $.kd.keywordStyleRed(list[i].Title, '~#@', '@#~', searchWordKeyword) + '</a></h2>' +
+                        '       <p class="p1">' + list[i].Author + ' |<a class="publishName" target="_blank" href="/detail/periodDetail/'+list[i].PublishPYName+'">《' + list[i].PublishName + '》' + list[i].Year + '年' + list[i].Period + '期</a></p>' +
+                        '       <p class="p2">' + $.kd.keywordStyleRed(list[i].Summary, '~#@', '@#~', searchWordKeyword) + '<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                        '       <div class="pics"></div>' +
+                        '   </div>';
+                }
+
+            }
+
+        } else {  // 大于10条显示10条
+            for (var i = 0; i < 10; i++) {
+                var keywordStr = '';
+                // 有关键字
+                if (list[i].Keyword && list[i].Keyword.length > 0) {
+                    var keywordArr = $.kd.stringToArray(list[i].Keyword);
+                    for (var j = 0; j < keywordArr.length; j++) {
+                        // keywordStr += '<span><a>' + keywordArr[j] + '</a></span>'
+                        if (j < 5) { //最多显示5个
+                            //删除关键词后面带的数字
+                            var tempIndex = keywordArr[j].indexOf(':');
+                            if (tempIndex != -1) {
+                                keywordStr += '<span><a target="_blank" href="' + encodeURI('/literature/libraryResult?album=' + album + '&fulltext=' + keywordArr[j].substring(0, tempIndex)) + '">' + keywordArr[j].substring(0, tempIndex) + '</a></span>';
+                            } else {
+                                keywordStr += '<span><a target="_blank" href="' + encodeURI('/literature/libraryResult?album=' + album + '&fulltext=' + keywordArr[j]) + '">' + keywordArr[j] + '</a></span>';
+                            }
+                        }
+                    }
+
+                    str += '<div class="item" data-file-name="' + list[i].FileName + '">' +
+                        '       <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + $.kd.keywordStyleRed(list[i].Title, '~#@', '@#~', searchWordKeyword) + '</a></h2>' +
+                        '       <p class="p1">' + list[i].Author + ' |<a class="publishName" target="_blank" href="/detail/periodDetail/'+list[i].PublishPYName+'">《' + list[i].PublishName + '》' + list[i].Year + '年' + list[i].Period + '期</a></p>' +
+                        '       <p class="p2">' + $.kd.keywordStyleRed(list[i].Summary, '~#@', '@#~', searchWordKeyword) + '<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                        '       <div class="pics"></div>' +
+                        '       <div class="tag"><img src="/images/literature/licon12.gif" align="absmiddle"/>' + keywordStr + '</div>' +
+                        '   </div>';
+                } else {
+                    // 没有关键字
+                    str += '<div class="item" data-file-name="' + list[i].FileName + '">' +
+                        '       <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + $.kd.keywordStyleRed(list[i].Title, '~#@', '@#~', searchWordKeyword) + '</a></h2>' +
+                        '       <p class="p1">' + list[i].Author + ' |<a class="publishName" target="_blank" href="/detail/periodDetail/'+list[i].PublishPYName+'">《' + list[i].PublishName + '》' + list[i].Year + '年' + list[i].Period + '期</a></p>' +
+                        '       <p class="p2">' + $.kd.keywordStyleRed(list[i].Summary, '~#@', '@#~', searchWordKeyword) + '<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                        '       <div class="pics"></div>' +
+                        '   </div>';
+                }
+            }
+        }
+        return str;
+    }
+
+    // 查看更多
+    loadingMore.click(function () {
+        var ztcode = $(this).attr('data-ztcode');
+        if (ztcode) {
+            var options = {
+                dbname: dbname,
+                pageNum: Math.floor(listDom.children('.item').length / 10 + 1),
+                ztcode: ztcode,
+                isAsync: 1,
+                pageSize: 10
+            }
+            libraryInterface(options);
+        }
+    })
+
+    function libraryInterface(options) {
+        var url = '/literature/library?'
+        var album = $('#album').val();
+        for (var arg in options) {
+            url += '&' + arg + '=' + options[arg];
+        }
+        url = url.replace('?&', '?');
+        var index = layer.load(1, {
+            shade: [0.1,'#fff'] //0.1透明度的白色背景
+        });
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                // console.log(response.data)
+                if (response.code == 0) {
+                    var list = response.data.list;
+                    var str = '';
+                    if (list && list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            // 有关键字
+                            if (list[i].Keyword && list[i].Keyword.length > 0) {
+                                var keywordArr = $.kd.stringToArray(list[i].Keyword);
+                                var keywordStr = '';
+                                for (var j = 0; j < keywordArr.length; j++) {
+                                    if (j < 5) { //最多显示5个
+                                        //删除关键词后面带的数字
+                                        var tempIndex = keywordArr[j].indexOf(':');
+                                        if (tempIndex != -1) {
+                                            keywordStr += '<span><a target="_blank" href="' + encodeURI('/literature/libraryResult?album=' + album + '&fulltext=' + keywordArr[j].substring(0, tempIndex)) + '">' + keywordArr[j].substring(0, tempIndex) + '</a></span>';
+                                        } else {
+                                            keywordStr += '<span><a target="_blank" href="' + encodeURI('/literature/libraryResult?album=' + album + '&fulltext=' + keywordArr[j]) + '">' + keywordArr[j] + '</a></span>';
+                                        }
+                                    }
+                                }
+                                str += '<div class="item">' +
+                                    '                <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + list[i].Title + '</a></h2>' +
+                                    '                <p class="p1">' + list[i].Author + ' |<a class="publishName" target="_blank" href="/detail/periodDetail/'+list[i].PublishPYName+'">《' + list[i].PublishName + '》' + list[i].Year + '年' + list[i].Period + '期</a></p>' +
+                                    '                <p class="p2">' + list[i].Summary.substring(0, 160) + '...<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                                    '                <div class="tag"><img src="/images/literature/licon12.gif" align="absmiddle"/>' + keywordStr + '</div>' +
+                                    '            </div>';
+                            } else {
+                                // 无关键字
+                                str += '<div class="item">' +
+                                    '                <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + list[i].Title + '</a></h2>' +
+                                    '                <p class="p1">' + list[i].Author + ' |<a class="publishName" target="_blank" href="/detail/periodDetail/'+list[i].PublishPYName+'">《' + list[i].PublishName + '》' + list[i].Year + '年' + list[i].Period + '期</a></p>' +
+                                    '                <p class="p2">' + list[i].Summary.substring(0, 160) + '...<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                                    '            </div>';
+                            }
+
+                        }
+                        if (options.pageNum == 1) {
+                            listDom.html(str);
+                        } else {
+                            listDom.append(str);
+                        }
+                        if (list.length == 10) {
+                            loadingMore.html('查看更多&nbsp;<img src="/images/literature/licon13.gif" align="absmiddle">');
+                        } else {
+                            loadingMore.attr('data-ztcode', '').html('没有更多了！');
+                        }
+                    }
+                    else {
+                        if (options.pageNum == 1) {
+                            listDom.html(str);
+                        }
+                        loadingMore.attr('data-ztcode', '').html('没有更多了！')
+                    }
+                } else {
+                    console.log('请检查搜索文献列表接口！');
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 获取文献和期刊总数
+    var GetArticleAndMagaCountUrl = '/literature/getArticleAndMagaCount?dbCode=' + dbCode;
+    $.ajax({
+        url: GetArticleAndMagaCountUrl,
+        dataType: "json",
+        type: "GET",
+        success: function (response) {
+            // console.log(response)
+            if (response.code == 0) {
+                $(".showNums1").rollNum({
+                    deVal: response.data.articlecount
+                });
+                $(".showNums2").rollNum({
+                    deVal: response.data.magacount
+                });
+            } else {
+                console.log('请检查搜索文献列表接口！');
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+</script>
+</body>
+</html>

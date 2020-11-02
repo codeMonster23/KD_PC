@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature-artist.css"/>
+</head>
+
+<body>
+<!--header-->
+<%- include('../layouts/libraryNavLayout', {current: 5, enterControl:1}) %>
+<!--main-->
+<div class="mainbg">
+    <div class="main <%if(viewModel.user.isOrg == true){%>main599<%}%> clearfix">
+        <div class="ml left">
+            <h1>
+                <%= viewModel.title %>
+            </h1>
+            <div class="info">
+                <p>[来源]<span>《<%= viewModel.source %>》<%= viewModel.year %>年第<%= viewModel.period %>期</span></p>
+                <p>[页数]<span><%= viewModel.pageCount %>页</span></p>
+                <% if(viewModel.check.freeDownload == 1) { %>
+                <p>[价格]<span id="price" class="color">免费</span></p>
+                <% }else{ %>
+                <p>[价格]<span id="price" class="color"><%= viewModel.check.PagePrice * viewModel.pageCount %></span>元</p>
+                <% } %>
+                <% if(viewModel.sufficient == 1){ %>
+                <% if(viewModel.check.freeDownload == 1) { %>
+                <a id="download" data-filename="<%= viewModel.filename %>" href="javascript:;" class="btn"
+                   style="background-color:#3eb135;">免费下载</a>
+                <% }else{ %>
+                <a id="download" data-filename="<%= viewModel.filename %>" href="javascript:;" class="btn">立即下载</a>
+                <% } %>
+
+                <% }else{ %>
+                <p class="p3">您的账户余额不足</p>
+                <a href="/temp/recharge/home" class="btn">立即充值</a>
+                <% } %>
+            </div>
+            <div class="tips">
+                <h2>温馨提示： </h2>
+                <p>>> 点击“立即下载”，系统扣除账户费用后开始下载文献。<br/>>>
+                    咨询热线：400-810-9993；010-62985026
+                </p>
+            </div>
+        </div>
+        <% if(viewModel.user.isOrg == true) { %>
+        <%}else{%>
+        <div class="mr left">
+            <div class="section1">
+                <p>账户余额：<span id="balance" class="color"><%= viewModel.account.Money %></span> 元</p>
+                <p>赠券余额：<span id="ticketBalance" class="color"><%= viewModel.account.UsableTicket %></span> 元</p>
+            </div>
+            <div class="section2">
+                <h1><span>账户充值</span></h1>
+                <div class="ways clearfix">
+                    <a href="/temp/recharge/home?payType=12" class="a1"><img src="/images/literature/wepay.png">微信支付</a>
+                    <a href="/temp/recharge/home?payType=13" class="a2"><img src="/images/literature/alipay.png">支付宝</a>
+                    <a href="/temp/recharge/home?payType=7" class="a3"><img
+                                src="/images/literature/unionpay.png">银联支付</a>
+                    <a href="/temp/recharge/home?payType=6" class="a4"><img src="/images/literature/card.png">会员卡</a>
+                </div>
+                <p class="link"><a href="/temp/recharge/home">充值中心></a><a href="/personalCenter/invoice">发票索取></a></p>
+            </div>
+            <%if(viewModel.isVip == true || viewModel.isOrg == true){%><%}else {%>
+            <div class="section4">
+                <div class="section4-title"><span>VIP会员</span></div>
+                <a class="section4-btn" href="/personalCenter/vip" target="_blank">开通会员, 尊享文献畅读包</a>
+            </div>
+            <%}%>
+            <div class="section3" style="height: 142px;">
+                <!--<a href="/personalCenter/connect" class="relevance ">使用机构账号下载</a>-->
+                <a href="javascript:;" class="relevance ">使用机构账号下载</a>
+                <p>如果您是机构用户，可以关联机构账号，关联完成，即可使用机构账号免费下载文献。</p>
+            </div>
+        </div>
+        <%}%>
+    </div>
+</div>
+<div class="layer-relevance-content clearfix" style="display: none;">
+    <div class="clearfix">
+        <div class="layer-relevance-left left">
+            <div class="layer-relevance-title">机构账号关联流程：</div>
+            <div class="layer-relevance-body">
+                <p>①  扫描右侧二维码，下载安装知网文化客户端</p>
+                <p>②  在客户端，登录您的个人账号；</p>
+                <p>③  打开 “我的 > 机构关联 ” ，关联机构账号。</p>
+                <div class="relevance-tip">
+                    <p> 温馨提示：</p>
+                    <p> ① 关联成功。即可在知网文化客户端及PC端使用机构账号权限下载文献。PC端可在机构IP范围内下载文献，客户端可漫游下载。（漫游是指在关联的机构账号IP范围外，也可下载文献。）</p>
+                    <p> ② 成功关联机构账号后，拥有15天的关联有效期，过期后需重新关联使用。</p>
+                </div>
+            </div>
+        </div>
+        <div class="layer-relevance-right left">
+            <div class="download-title">下载安装客户端</div>
+            <div class="download-body">
+                <img class="qrcode" src="/images/bookstore/bookstore23.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="layer-relevance-btns">
+        <a class="ro" data-title="<%= viewModel.title %>" data-filename="<%= viewModel.filename %>" id="relate-org" href="javascript:;">已成功关联</a>
+        <!--<a class="btn-cancel" href="javascript:;">取&nbsp;消</a>-->
+    </div>
+</div>
+<!--footer-->
+<!--<div class="pfooter">-->
+<!--<p>数字出版：《中国学术期刊（光盘版）》电子杂志社有限公司</p>-->
+<!--<p>京ICP证040431号 互联网出版许可证 新出网证(京)字271号 北京市公安局海淀分局 备案号11010802020460</p>-->
+<!--</div>-->
+<%- include('../layouts/footerLayout', {}) %>
+<script>
+
+    // 立即下载
+    $('#download').click(function () {
+        var filename = $(this).attr('data-filename');
+        var downloadUrl = '/literature/download?filename=' + filename;
+        console.log('downloadUrl',downloadUrl)
+        var index = layer.load(1, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+        $.ajax({
+            url: downloadUrl,
+            dataType: "json",
+            type: "get",
+            success: function (response) {
+                console.log('download', response)
+                layer.close(index);
+                window.location = response;
+                var balance = $('#balance');
+                var bValue = parseFloat(balance.html());
+                var ticketBalance = $('#ticketBalance');
+                var tbValue = parseFloat(ticketBalance.html());
+                var price = $('#price');
+                var pValue = 0;
+                if (price.html() == '免费') {
+                    pValue == 0;
+                } else {
+                    pValue = parseFloat(price.html());
+                }
+                if (tbValue > 0) {
+                    if (tbValue >= pValue) {
+                        ticketBalance.html(tbValue - pValue);
+                    } else {
+                        ticketBalance.html(0);
+                        balance.html(bValue - pValue + tbValue);
+                    }
+                } else {
+                    balance.html(bValue - pValue);
+                }
+                if (price.html() != '免费') {
+                    price.html(0)
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    })
+    // 机构关联弹框
+    $('.relevance').click(function(){
+        var layer1 = layer.open({
+            type: 1,
+            title: false,
+            skin: 'layer-relevance',
+            area: ['662px', '400px'],
+            content: $('.layer-relevance-content').html(),
+            shadeClose: true
+        });
+        $('.ro').click(function(){
+            var title = $(this).attr('data-title');
+            var filename = $(this).attr('data-filename');
+
+            $.ajax({
+                url: encodeURI('/literature/orgRightCheck?fn=' + filename + '&t=' + title),
+                dataType: "json", //返回格式
+                type: "GET",
+                success: function (response) {
+                    // 未登录
+                    if (response.errorCode == -1) {
+                        location.href = '/temp/userCenter/login';
+                    }
+                    // 直接下载
+                    else if (response.errorCode == 1) {
+                        var url = response.data.downloadUrl.substring(1, response.data.downloadUrl.length - 1);
+                        location.href = url;
+                        layer.close(layer1);
+                    }
+                    // 跳转详情页
+                    else if (response.errorCode == 2) {
+                        layer.close(layer1);
+                        layer.msg('绑定失败或绑定的机构账号没有下载权限！')
+                    }
+                    // 机构用户没有权限
+                    else if (response.errorCode == 3) {
+                        layer.msg(response.errorMessage);
+                    }
+                    // 已经有权限，为2013年之前的文献
+                    else if (response.errorCode == 4) {
+                        // var url = encodeURI('/literature/literatureDownload?title=' + title + '&source=' + source + '&year=' + year + '&period=' + period + '&pageCount=' + pageCount + '&filename=' + filename + '&lt=' + libraryType);
+                        // // window.open(url);
+                        // location.href = url;
+                        layer.close(layer1);
+                        layer.msg('绑定失败或绑定的机构账号没有下载权限！');
+                    }
+                    // 错误处理
+                    else if (response.errorCode == 0) {
+                        layer.msg(response.errorMessage);
+                    }
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        })
+    })
+
+
+
+</script>
+</body>
+
+</html>

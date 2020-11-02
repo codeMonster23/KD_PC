@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature-artist.css"/>
+    <script src="/js/imageShow.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/super_slider.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/qrcode/build/qrcode.js"></script>
+</head>
+
+<body bgcolor="#F6F6F6">
+<!--header-->
+<%- include('../layouts/libraryNavLayout', {enterControl:1}) %>
+<div class="articelWrap clearfix">
+    <div class="al left">
+        <div class="atop">
+            <span class="logo"></span>
+            <h1 class="title">
+                <%= viewModel.data.artilce.title %>
+                <!-- 文献出版状态 1 已勘误 2撤回 3未勘误 4撤稿 5全文替换 6关注 7取消关注 8 撤稿不留原文 -->
+                <% if(viewModel.data.artilce.articleStatus){ %>
+                <% if(viewModel.data.artilce.articleStatus == 3){ %>
+                <span class="article-status article-status-grey"><%= viewModel.data.artilce.articleStatusTitle %></span>
+                <% } %>
+                <% if(viewModel.data.artilce.articleStatus != 7){ %>
+                <span class="article-status"><%= viewModel.data.artilce.articleStatusTitle %></span>
+                <% } %>
+                <% } %>
+
+            </h1>
+            <p class="author">
+                <% if(viewModel.data.artilce.author.indexOf(';') != -1){ %>
+                <span><%= ejsFunctions.substring(viewModel.data.artilce.author, 0, viewModel.data.artilce.author.length - 1) %></span>
+                <% }else{ %>
+                <span><%= viewModel.data.artilce.author %></span>
+                <% } %>
+            </p>
+            <% if(viewModel.data.artilce.articleStatus != 8){ %>
+            <p class="paragraph">
+                <%= viewModel.data.artilce.summary %><span>（共<%= viewModel.data.artilce.pageCount %>页）</span>
+            </p>
+            <% } %>
+
+            <div class="sliderBox" style="display: none;">
+                <span class="prev"></span>
+                <div>
+                    <ul id="roll">
+                        <li>
+                            <a href="#" class="img" target="_blank"><span><img src="/images/temp.jpg"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="img" target="_blank"><span><img src="/images/temp.jpg"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="img" target="_blank"><span><img src="/images/temp.jpg"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="img" target="_blank"><span><img src="/images/temp.jpg"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="img" target="_blank"><span><img src="/images/temp.jpg"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="img" target="_blank"><span><img src="/images/temp.jpg"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="img" target="_blank"><span><img src="/images/temp.jpg"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <span class="next"></span>
+            </div>
+            <script>
+                $(".sliderBox").superSlider({
+                    prevBtn: ".prev", //左按钮
+                    nextBtn: ".next", //右按钮
+                    listCont: "#roll", //滚动列表外层
+                    scrollWhere: "prev", //自动滚动方向next
+                    delayTime: 1000, //自动轮播时间间隔
+                    speed: 500, //滚动速度
+                    amount: 1, //单次滚动数量
+                    showNum: 4, //显示数量
+                    autoPlay: false //自动播放
+                });
+            </script>
+            <div class="handler clearfix item" data-file-name="<%= viewModel.data.artilce.fileName %>"
+                 data-db-type="<%= viewModel.data.artilce.assignType.toLowerCase() %>"
+                 data-libraryType="<%= viewModel.data.artilce.assignType.toLowerCase() + 'total' %>"
+                 data-source="<%= viewModel.data.artilce.publishName %>"
+                 data-year="<%= viewModel.data.artilce.year %>"
+                 data-period="<%= viewModel.data.artilce.period %>"
+                 data-title="<%= viewModel.data.artilce.title %>"
+                 data-page-count="<%= viewModel.data.artilce.pageCount %>">
+                <!-- 文献出版状态 1 已勘误 2撤回 3未勘误 4撤稿 5全文替换 6关注 7取消关注 8 撤稿不留原文 -->
+                <!-- 声明 -->
+                <% if(viewModel.data.artilce.articleStatus){ %>
+                <% if(viewModel.data.artilce.articleStatus == 1 || viewModel.data.artilce.articleStatus == 3){ %>
+                <a class="btn btn-satatement" href="https://c61.cnki.net/cjfd/Erratum/SJWJ/SJWJ20190428000.pdf"
+                   target="_blank">勘误声明</a>
+                <% }else if(viewModel.data.artilce.articleStatus == 2){ %>
+                <a class="btn btn-satatement" href="https://c61.cnki.net/cjfd/Withdraw/QBLL/QBLL20180111000.pdf"
+                   target="_blank"><%= viewModel.data.artilce.articleStatusTitle %>声明</a>
+                <% }else if(viewModel.data.artilce.articleStatus == 4){ %>
+                <a class="btn btn-satatement" href="https://c61.cnki.net/cjfd/retraction/GSJY/gsjy201716036.pdf"
+                   target="_blank"><%= viewModel.data.artilce.articleStatusTitle %>声明</a>
+                <% }else if(viewModel.data.artilce.articleStatus == 5){ %>
+                <a class="btn btn-satatement" href="https://c61.cnki.net/cjfd/replacement/XUGB/xugb201820018.pdf"
+                   target="_blank"><%= viewModel.data.artilce.articleStatusTitle %>声明</a>
+                <% }else if(viewModel.data.artilce.articleStatus == 6){ %>
+                <a class="btn btn-satatement" href="https://c61.cnki.net/cjfd/concern/SXZL/sxzl201518007.pdf"
+                   target="_blank"><%= viewModel.data.artilce.articleStatusTitle %>声明</a>
+                <% }else if(viewModel.data.artilce.articleStatus == 7){ %>
+                <a class="btn btn-satatement" href="https://c61.cnki.net/cjfd/concern/SXZL/sxzl201518007.pdf"
+                   target="_blank"><%= viewModel.data.artilce.articleStatusTitle %>声明</a>
+                <% }else { %>
+                <a class="btn btn-satatement" href="https://c61.cnki.net/cjfd/retraction/CJMY/cjmy201810046.pdf"
+                   target="_blank"><%= viewModel.data.artilce.articleStatusTitle %>声明</a>
+                <% } %>
+                <% } %>
+
+                <!-- PDF全文下载 -->
+                <% if(viewModel.data.artilce.articleStatus != 2 && viewModel.data.artilce.articleStatus != 8){ %>
+                <a href="javascript:;" class="btn orgNoRight"><img src="/images/literature/licon24.gif"></a>
+                <% } %>
+                <!-- 原版PDF下载 -->
+                <!-- <% if(viewModel.data.artilce.articleStatus){ %>
+                    <% if(viewModel.data.artilce.articleStatus == 1 && viewModel.data.artilce.articleStatus == 5){ %>
+                        <a href="javascript:;" class="btn btn-pdfdownload">原版PDF下载</a>
+                    <% } %>
+                <% } %> -->
+                <div data-dbtype="<%= viewModel.data.artilce.type %>" data-code="<%= viewModel.data.artilce.fileName %>"
+                     class="ewm"><img src="/images/literature/licon28.png">
+                    <div class="pop">
+                        <p>扫描二维码 前往手机版</p>
+                        <img src="/images/common/logo.png" alt=""/>
+                        <canvas id="canvas"></canvas>
+
+                        <script>
+                            var routerType = $('.ewm').attr('data-dbtype').toLowerCase();
+                            var code = $('.ewm').attr('data-code');
+                            var wr = '';
+                            switch (routerType) {
+                                case 'cjfv':
+                                    wr = 'WX001';
+                                    break;  // 文艺
+                                case 'cjfu':
+                                    wr = 'WX002';
+                                    break;  // 文化
+                                case 'cjfd':
+                                    wr = 'WX003';
+                                    break;  // 科普
+                            }
+                            console.log(routerType, code, wr);
+                            QRCode.toCanvas(document.getElementById('canvas'), 'https://zwwh.cnki.net/web/m/download/index?token=' + wr + '&code=' + code, function (
+                                error) {
+                                if (error) console.error(error)
+                                $('#canvas').width(160).height(160);
+
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="operate">
+                <a data-is-collected="<%= viewModel.data.iscollect %>" id="collectA" href="javascript:;"
+                   class="collect <% if(viewModel.data.iscollect == 1){ %>collected<% } %>">收藏</a>&nbsp;|&nbsp;<a
+                        href="javascript:;" class="share">分享</a>
+                <%- include('../components/share', {type:3, title: viewModel.data.artilce.title, style:'', org:''}) %>
+                <script>
+                    // 点击下拉分享
+                    $('.share').click(function (e) {
+                        var e = window.event || e;
+                        e.stopPropagation();
+                        e.cancelBubble = true;
+                        var type = $(this).attr('data-type');
+                        if (type == 0) {
+                            $('.bdsharebuttonbox').hide();
+                            $(this).attr('data-type', 1);
+                        }
+                        else {
+                            $('.bdsharebuttonbox').show();
+                            $(this).attr('data-type', 0);
+                        }
+                    });
+                    // $('body').click(function(){
+                    //     $('.bdsharebuttonbox').hide();
+                    //     $('.share').attr('data-type', 1);
+                    // })
+                </script>
+            </div>
+            <%if(viewModel.isOrg == true){%><%}else {%>
+            <div class="vip-guidebar clearfix">
+                <div class="text">开通VIP会员,尊享文献畅读包</div>
+                <a class="btn-open" href="/personalCenter/vip" target="_blank">立即开通</a>
+            </div>
+            <%}%>
+            <div class="similar" style="display:none;">
+                <h2>相似文献</h2>
+                <div id="similar"></div>
+            </div>
+        </div>
+        <div class="abottom" style="display: none;">
+            <h3><span>推荐阅读</span><a target="_blank" href="/discovery">更多>> </a></h3>
+            <ul id="worksRecommend" class="clearfix"></ul>
+        </div>
+    </div>
+    <div class="ar left">
+        <div class="box1">
+            <span class="logo">来源期刊</span>
+            <a title="<%= viewModel.data.journal.title %>"
+               href="/detail/singlePeriodDetail/<%= viewModel.data.journal.thname %>" target="_blank" class="img"><img
+                        src="<%= viewModel.data.journal.coverpic %>"/></a>
+            <p class="p1">
+                <a title="<%= viewModel.data.journal.title %>"
+                   href="/detail/singlePeriodDetail/<%= viewModel.data.journal.thname %>" target="_blank">
+                    <%= viewModel.data.journal.title %>
+                </a>
+            </p>
+            <p class="p2">
+                <%= viewModel.data.journal.name %>
+            </p>
+        </div>
+        <div class="box2" style="display: none;">
+            <h1><span>最新刊期</span><a id="morePastPeriod" href="#" target="_blank">查看全部往期 >></a></h1>
+            <ul id="pastPeriods" class="clearfix"></ul>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<%- include('../layouts/footerLayout', {}) %>
+<div style="display: none;">
+    <input type="hidden" value="<%= viewModel.user.name %>" id="username">
+    <input type="hidden" id="filename" value="<%= viewModel.data.artilce.fileName %>">
+    <input type="hidden" id="dbType" value="<%= viewModel.dbType %>">
+    <input type="hidden" id="thName" value="<%= viewModel.data.journal.thname %>">
+    <input type="hidden" id="title" value="<%= viewModel.data.artilce.title %>">
+</div>
+<script>
+    var similar = $('#similar');
+    var filename = $('#filename').val();
+    var roll = $('#roll');
+    var sliderBox = $('.sliderBox');
+    var thName = $('#thName').val();
+    var worksRecommend = $('#worksRecommend');
+    var pastPeriods = $('#pastPeriods');
+    var time = 50;
+
+    // 获取文献图片
+    var literaturePicsUrl = '/literature/getLiteraturePics?filename=' + filename;
+    $.ajax({
+        url: literaturePicsUrl,
+        dataType: "json",
+        type: "GET",
+        success: function (response) {
+            // console.log(response)
+            if (response.Code == 1) {
+                var list = response.ImgUrls;
+                var str = '';
+                if (list && list.length > 0) {
+                    for (var i = 0; i < list.length; i++) {
+                        str += '<li>' +
+                            '      <a class=img><span><img src="' + list[i] + '"></span></a>' +
+                            '   </li>';
+                    }
+                    roll.html(str);
+                    sliderBox.slideDown(time);
+                }
+            } else {
+                console.log('请检查获取文献图片接口！');
+            }
+            list = null;
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+    // 获取相似文献
+    var similarUrl = '/literature/getSimilarLiterature?filename=' + filename;
+    $.ajax({
+        url: similarUrl,
+        dataType: "json",
+        type: "GET",
+        success: function (response) {
+            console.log('相似文献：', response.data)
+            if (response.code == 0) {
+                var list = response.data.list;
+                var str = '';
+                if (list && list.length > 0) {
+                    for (var i = 0; i < list.length; i++) {
+                        str += '<p>' + parseInt(i + 1) + '&nbsp;<span>' + list[i].Author + '</span><a target="_blank" href="/literature/literatureDetail/' + list[i].Filename + list[i].Type + '">' + list[i].Title + '</a><span><a target="_blank" class="cbs" href="/detail/singlePeriodDetail/' + list[i].Filename + '">' + list[i].Name + ' ' + list[i].Year + '年' + list[i].Period + '期</a>;</span></p>'
+                    }
+                    similar.html(str);
+                    similar.parent().slideDown(time);
+                }
+            } else {
+                console.log('请检查接口是否有数据返回或查看传参是否正确！');
+            }
+            list = null;
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+    // 最新刊期
+    var pastPeriodsUrl = '/literature/getPastPeriod?thName=' + thName;
+    $.ajax({
+        url: pastPeriodsUrl,
+        dataType: "json",
+        type: "GET",
+        success: function (response) {
+            if (response.pastperiod && response.pastperiod.length > 0) {
+                var str = '';
+                for (var i = 0; i < response.pastperiod.length; i++) {
+                    str += '<li>' +
+                        '         <a title="' + response.pastperiod[i].name + '" href="/detail/singlePeriodDetail/' + response.pastperiod[i].thname + '" target="_blank" class="img"><img src="' + response.pastperiod[i].coverpic + '"></a>' +
+                        '         <p><a title="' + response.pastperiod[i].name + '" href="/detail/singlePeriodDetail/' + response.pastperiod[i].thname + '" target="_blank" >' + response.pastperiod[i].name + '</a></p>' +
+                        '         <p class="pp">' + response.pastperiod[i].year + '年' + response.pastperiod[i].period + '期</p>' +
+                        '   </li>';
+                }
+                pastPeriods.html(str);
+                $('#morePastPeriod').attr('href', '/detail/periodDetail/' + response.pastperiod[0].code)
+                pastPeriods.parent().slideDown(time);
+            } else {
+                console.log('前端获取往期期刊接口');
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+    // 知网文化推荐
+    var worksRecommendUrl = '/discoveryMore';
+    $.ajax({
+        url: worksRecommendUrl,
+        dataType: "json",
+        data: {
+            count: 4,
+            sort: 'submittime'
+        },
+        type: "POST",
+        success: function (response) {
+            // console.log(response)
+            if (response.list && response.list.length > 0) {
+                var str = '';
+                for (var i = 0; i < response.list.length; i++) {
+                    str += '<li>' +
+                        '         <a target="_blank" href="/detail/workDetail/' + response.list[i].id.toString() + response.list[i].mediatype + '" class="img"><img src="' + response.list[i].coverpic + '"/></a>' +
+                        '         <p class="p1"><a href="#">' + response.list[i].title + '</a></p>' +
+                        '         <p class="p2"><a target="_blank" href="/kdh/home?orgid=' + response.list[i].orgid + '"><img src="' + response.list[i].logopic + '"><span>' + response.list[i].orgname + '</span></a></p>' +
+                        '   </li>'
+                }
+                worksRecommend.html(str);
+                worksRecommend.parent().slideDown(time);
+            } else {
+                console.log('请检查接口是否有数据返回或查看传参是否正确！');
+            }
+            list = null;
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+
+    // 加载图片插件
+    //图片尺寸
+    var imgdefereds = [];
+    jQuery('img').each(function () {
+        var dfd = jQuery.Deferred();
+        $(this).bind('load', function () {
+            dfd.resolve(); //load执行代表图片加载完成
+        }).bind('error', function () {
+            //图片加载错误，加入错误处理
+            // dfd.resolve();
+        });
+
+        if (this.complete) { //complete属性为true，代表图片加载完成
+            dfd.resolve();
+        }
+        imgdefereds.push(dfd);
+    })
+    jQuery.when.apply(null, imgdefereds).done(function () {
+        imgSize($("#roll img"), 140, 102)
+    });
+    // 分享
+    $(".share").click(function () {
+        $(this).toggleClass("click")
+    })
+
+
+    // $(".share").click(function () {
+    //     $(this).siblings(".sharebox").fadeToggle()
+    // })
+
+
+    // 点击收藏
+    $('#collectA').click(function () {
+        var username = $('#username').val();
+        if (username != 'undefined' && username.length > 0) {
+            var dbType = $('#dbType').val();
+            var filename = $('#filename').val();
+            var index = layer.load(1, {
+                shade: [0.1, '#fff'] //0.1透明度的白色背景
+            });
+            var isCollected = $(this).attr('data-is-collected');
+            var title = $('#title').val();
+            collectOrNot(dbType, filename, 6, index, isCollected, $(this), title);
+        }
+        else {
+            // layer.msg('请先登录！')
+            var collectionPopLayer = layer.open({
+                title: ['', 'height:0; border-top:3px solid #ee8d6d'],
+                type: 1,
+                area: ['274px', '180px'], //宽高
+                content: $('.collectionPopWrap').html(),
+            });
+            $('.b2').click(function(){
+                layer.close(collectionPopLayer);
+            })
+        }
+    })
+
+    // 收藏或者取消收藏方法
+    function collectOrNot(dbType, filename, typeId, index, isCollected, pointer, title) {
+        var url = encodeURI('/common/collectOrNot?dbType=' + dbType + '&typeId=' + typeId + '&filename=' + filename + '&isCollected=' + isCollected + '&title=' + title);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    layer.close(index);
+                    pointer.toggleClass('collected');
+                    if (response.data.status == 1) {
+                        pointer.attr('data-is-collected', '1');
+                        layer.msg('收藏成功！');
+                        getCollectedData(1,typeId,dbType,filename);
+                    } else if (response.data.status == 0) {
+                        pointer.attr('data-is-collected', '0');
+                        layer.msg('取消收藏成功！');
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response.msg)
+                } else {
+                    console.log('请检查收藏或者取消收藏方法接口！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+    // 获取收藏数据
+    function getCollectedData(pageNum, typeId,dbType,filename) {
+        var url = encodeURI('/pc/singleCollected?pageNum=' + pageNum + '&type=' + typeId);
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                console.log(response);
+                if (response.code == 0) {
+                    var list = response.data.list;
+                    if (list && list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            if (list[i].foreignkeyid == dbType+'#'+filename) {
+                                layer.open({
+                                    type: 2,
+                                    title: ['添加到收藏夹', 'height: 42px; line-height: 42px; padding-left: 15px; color: #ffffff; font-size: 16px; font-weight: normal;background-color: #E64A3C; color:#fff;'],
+                                    shade: 0.8,
+                                    area: ['430px', '540px'],
+                                    content:  '/pc/transfer?id=' + list[i].collectid + '&isList=0'+ '&isPersonalCenter=0'
+                                });
+                            }
+                        }
+                    } 
+                }
+            }
+        });
+    }
+    getDownloadRight();
+
+    function getDownloadRight() {
+        // 点击下载按钮
+        $('.orgNoRight').click(function () {
+            var filename = $(this).parents('.item').attr('data-file-name');
+            var title = $(this).parents('.item').attr('data-title');
+            // var title = $(this).siblings('a').text();
+            var dbType = $(this).parents('.item').attr('data-db-type');
+            var source = $(this).parents('.item').attr('data-source');
+            var year = $(this).parents('.item').attr('data-year');
+            var period = $(this).parents('.item').attr('data-period');
+            var pageCount = $(this).parents('.item').attr('data-page-count');
+            var libraryType = $(this).parents('.item').attr('data-librarytype');
+
+            $.ajax({
+                url: encodeURI('/literature/getDownloadRight?fn=' + filename + '&t=' + title + '&libraryType=' + libraryType),
+                dataType: "json", //返回格式
+                type: "GET",
+                success: function (response) {
+                    console.log(response)
+                    // 未登录
+                    if (response.errorCode == -1) {
+                        location.href = '/temp/userCenter/login';
+                    }
+                    // 直接下载
+                    else if (response.errorCode == 1) {
+                        var url = response.data.downloadUrl.substring(1, response.data.downloadUrl.length - 1);
+                        window.open(url);
+                    }
+                    // 跳转详情页
+                    else if (response.errorCode == 2) {
+                        var url = '/literature/literatureDetail/' + filename + dbType;
+                        window.open(url);
+                    }
+                    // 机构用户没有权限
+                    else if (response.errorCode == 3) {
+                        layer.msg(response.errorMessage);
+                    }
+                    // 已经有权限，为2013年之前的文献
+                    else if (response.errorCode == 4) {
+                        var url = encodeURI('/literature/literatureDownload?filename=' + filename + '&lt=' + libraryType);
+                        window.open(url);
+                    }
+                    // 错误处理
+                    else if (response.errorCode == 0) {
+                        layer.msg(response.errorMessage);
+                    }
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        })
+    }
+</script>
+<%- include('../components/collectionPop', { }) %>
+</body>
+
+</html>

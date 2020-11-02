@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/recharge/recharge.css" />
+        <script src="/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+        <div class="charBody">
+            <h1 class="tit"><span class="left">充值中心</span><a href="/personalCenter/invoice" target="_blank">索取发票</a></h1>
+            <div class="orderWrap">
+                <div class="top">您正在通过 <span><%= viewModel.name %></span> 进行账户充值，请您确认订单信息 <a href="/temp/recharge/home">选择其他充值方式></a></div>
+                <% if(viewModel.rechargeType != 7){ %>
+                    <div class="middle clearfix">
+                        <table class="detail left">
+                            <tr>
+                                <th colspan="2">订单信息</th>
+                            </tr>
+                            <tr>
+                                <td width="164">订单编号</td>
+                                <td>
+                                    <div>
+                                        <%= viewModel.data.TransactionCode %>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="164">充值账户</td>
+                                <td>
+                                    <div>
+                                        <%= viewModel.user.name %>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="164">充值金额</td>
+                                <td>
+                                    <div>
+                                        <%= viewModel.rechargeMoney %> 元
+                                            <%if(viewModel.bonus>0){%>（另赠
+                                                <%= viewModel.bonus %>元券）
+                                                    <%}%>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!--<tr>-->
+                            <!--<td width="164">优惠券立减</td>-->
+                            <!--<td>-->
+                            <!--<div>0.00 元</div>-->
+                            <!--</td>-->
+                            <!--</tr>-->
+                            <tr>
+                                <td width="164">应付金额</td>
+                                <td>
+                                    <div><span><%= viewModel.rechargeMoney %></span> 元</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="last" colspan="2">系统将为您生成和提交订单，请记住本次充值的订单号和金额，已备核对。</td>
+                            </tr>
+                        </table>
+                        <div class="qrcode right">
+                            <p class="p1">请使用手机
+                                <%= viewModel.name %>, 扫描二维码支付</p>
+                            <div class="code clearfix">
+                                <!--<img class="ewm left" src="/images/chargingCenter/cc-ewmzfb.jpg"/>-->
+                                <% if(viewModel.rechargeType == 13) { %>
+                                    <div style="width:145px; height:145px; padding-top:9px;padding-right:5px;padding-bottom:5px;padding-left:9px; border: 1px solid #E6E6E6; float: left;">
+                                        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"
+                                                name="AlipayQR" width="172" height="154" src="<%='https://my.cnki.net/cnkirec/alipay/alipayOrder.aspx?OrderId='+ viewModel.data.TransactionCode+'&Id=kandian&isMiniQR=true'%>"></iframe>
+                                    </div>
+                                    <img class="right" src="/images/chargingCenter/cc-mobilezfb.png" />
+                                    <% }else if(viewModel.rechargeType == 12){ %>
+                                        <div style="width:145px; height:145px; padding-top:9px;padding-right:5px;padding-bottom:5px;padding-left:9px; border: 1px solid #E6E6E6; float: left;">
+                                            <img src="<%= viewModel.qrcode %>" alt="微信二维码"></div>
+                                        <img class="right" src="/images/chargingCenter/cc-mobilewx.png" />
+                                        <% } %>
+
+                            </div>
+                            <% if(viewModel.rechargeType == 13){ %>
+                                <p class="p2">您也可以登录电脑版支付宝进行支付 <a id="goPay" target="_blank" href="https://my.cnki.net/cnkirec/alipay/alipayOrder.aspx?OrderId=<%= viewModel.data.TransactionCode %>&Id=kandian&isMiniQR=false">去支付</a></p>
+                                <% }else if(viewModel.rechargeType == 12){ %>
+                                    <p class="p2">请使用微信扫一扫, 扫描二维码支付</p>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <% }else { %>
+                        <div class="middle clearfix">
+                            <table class="detail union">
+                                <tr>
+                                    <th colspan="3">订单信息</th>
+                                </tr>
+                                <tr>
+                                    <td width="164">订单编号</td>
+                                    <td width="343">
+                                        <div>
+                                            <%= viewModel.data.TransactionCode %>
+                                        </div>
+                                    </td>
+                                    <td rowspan="4"><img src="/images/chargingCenter/cc-mobileunionpay.jpg" /></td>
+                                </tr>
+                                <tr>
+                                    <td width="164">充值账户</td>
+                                    <td>
+                                        <div>
+                                            <%= viewModel.user.name %>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="164">充值金额</td>
+                                    <td>
+                                        <div>
+                                            <%= viewModel.rechargeMoney %> 元
+                                                <%if(viewModel.bonus>0){%>（另赠
+                                                    <%= viewModel.bonus %>元券）
+                                                        <%}%>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!--<tr>-->
+                                <!--<td width="164">优惠券立减</td>-->
+                                <!--<td>-->
+                                <!--<div>0.00 元</div>-->
+                                <!--</td>-->
+                                <!--</tr>-->
+                                <tr>
+                                    <td width="164">应付金额</td>
+                                    <td>
+                                        <div><span><%= viewModel.rechargeMoney %></span> 元</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="last" colspan="3">系统将为您生成和提交订单，请记住本次充值的订单号和金额，已备核对。</td>
+                                </tr>
+                            </table>
+                            <a id="unionRecharge" target="_blank" href="<%=viewModel.unionPayUrl%>" class="sure">确认充值</a>
+                        </div>
+                        <% } %>
+
+                            <div class="bottom">
+                                <p><img src="/images/chargingCenter/cc-icon9.png">中国知网客服电话：400-819-9993，010-62791813&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <img src="/images/chargingCenter/cc-icon10.png">
+                                    <% if(viewModel.rechargeType == 13){ %>
+                                        支付宝客服电话：0571-88156688
+                                        <% }else if(viewModel.rechargeType == 12){ %>
+                                            微信支付客服电话：0571-88156688
+                                            <% }else if(viewModel.rechargeType == 7){ %>
+                                                银联在线客服电话：95516
+                                                <% }%>
+                                </p>
+                            </div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <div style="display: none">
+                <input type="hidden" id="order" value="<%= viewModel.data.TransactionCode %>">
+                <input type="hidden" id="rechargeType" value="<%= viewModel.rechargeType %>">
+                <input type="hidden" id="rechargeMoney" value="<%= viewModel.rechargeMoney %>">
+                <input type="hidden" id="bonus" value="<%= viewModel.bonus %>">
+                <input type="hidden" id="rechargeTime" value="">
+            </div>
+            <script>
+                'use strict'
+
+                var order = $('#order').val();
+                var rechargeType = parseInt($('#rechargeType').val());
+                var orderCheckUrl = '';
+                var rechargeMoney = parseFloat($('#rechargeMoney').val())
+                var bonus = parseFloat($('#bonus').val());
+                var timer = null;
+                var goPay = $('#goPay');
+
+                if (rechargeType != 6) {
+                    // 查询订单支付状态
+                    timer = setInterval(function() {
+                        if (rechargeType == 13) {
+                            orderCheckUrl = '/temp/recharge/orderCheck?id=' + order + '&payType=alipay';
+                        } else if (rechargeType == 12) {
+                            orderCheckUrl = '/temp/recharge/orderCheck?id=' + order + '&payType=wechat';
+                        } else if (rechargeType == 7) {
+                            orderCheckUrl = '/temp/recharge/orderCheck?id=' + order + '&payType=union';
+                        }
+                        $.ajax({
+                            url: orderCheckUrl,
+                            dataType: "json",
+                            type: "get",
+                            success: function(response) {
+                                if (response.errorCode == 1) {
+                                    clearInterval(timer);
+                                    $('#rechargeTime').val(Date.now());
+                                    var rechargeTime = Date.now()
+                                    location.href = '/temp/recharge/success?rechargeMoney=' + rechargeMoney + '&bonus=' + bonus + '&rechargeTime=' + rechargeTime;
+
+                                } else {
+                                    console.log('暂未查到充值成功反馈')
+                                }
+                                console.log(response)
+                            },
+                            error: function(error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+                    }, 3000);
+                } else {
+
+                }
+
+                // 点击去支付 终止订单查询 弹出提示框
+                goPay.click(function() {
+                    clearInterval(timer);
+                    // $('#rechargeTime').val(Date.now());
+                    // var rechargeTime = Date.now()
+                    layer.open({
+                        type: 2,
+                        title: '',
+                        closeBtn: 0,
+                        shade: 0.6,
+                        area: ['560px', '293px'],
+                        content: ['/temp/recharge/modal', 'no'], //iframe的url
+                        resize: false,
+                        btnAlign: 'c'
+                    });
+
+                })
+
+                // 银联支付
+                $('#unionRecharge').click(function() {
+                    layer.open({
+                        type: 2,
+                        title: '',
+                        closeBtn: 0,
+                        shade: 0.6,
+                        area: ['560px', '293px'],
+                        content: ['/temp/recharge/modal', 'no'], //iframe的url
+                        resize: false,
+                        btnAlign: 'c'
+                    });
+                })
+            </script>
+</body>
+
+</html>

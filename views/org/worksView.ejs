@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/works.css" />
+        <link rel="stylesheet" type="text/css" href="/css/org/orgstyle.css" />
+</head>
+
+<body bgcolor="#EBEFF5">
+    <%- include('../layouts/org/navLayout', {current: 1}) %>
+        <%- include('../layouts/org/bannerLayout') %>
+            <div class="worksWrap clearfix">
+                <div class="wl left">
+                    <div class="menu">
+                        <h1><a href="/institution/works/<%= viewModel.data.institutionid %>">全部分类</a></h1>
+                        <% for(var i = 0;i < viewModel.category.length;i++){ %>
+                            <div class="item <% if(viewModel.menuPosition.x == i){ %>click<% } %>">
+                                <a href="/institution/works/<%= viewModel.data.institutionid %>?classifyId=<%= viewModel.category[i].code %>&positionX=<%= i %>" class="inner i<%= i + 1 %>">
+                                    <%= viewModel.category[i].name %><i></i></a>
+                            </div>
+                            <div class="sublist" <% if(viewModel.menuPosition.x==i ){ %>style="display: block;"
+                                <% } %>
+                                    >
+                                    <% for(var j = 0;j < viewModel.category[i].childlist.length;j++){ %>
+                                        <a class="<% if(viewModel.menuPosition.x == i && viewModel.menuPosition.y == j){ %>cur<% } %>" href="/institution/works/<%= viewModel.data.institutionid %>?classifyId=<%= viewModel.category[i].childlist[j].code %>&positionX=<%= i %>&positionY=<%= j %>">
+                                            <%= viewModel.category[i].childlist[j].name %>
+                                        </a>
+                                        <% } %>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <div class="wr left">
+                    <div class="wcont">
+                        <div class="route">
+                            <% if(viewModel.navName.XName != 0) { %>
+                                <a href="/institution/works/<%= viewModel.data.institutionid %>">全部</a> >
+                                <a href="/institution/works/<%= viewModel.data.institutionid %>?classifyId=<%= viewModel.data.classifyId %>&positionX=<%= viewModel.menuPosition.x %>">
+                                    <%= viewModel.navName.XName %>
+                                </a>
+                                <% if(viewModel.navName.YName != 0) { %>
+                                    >
+                                    <a href="/institution/works/<%= viewModel.data.institutionid %>?classifyId=<%= viewModel.data.classifyId %>&positionX=<%= viewModel.menuPosition.x %>&positionY=<%= viewModel.menuPosition.y %>">
+                                        <%= viewModel.navName.YName %>
+                                    </a>
+                                    <% } %>
+                                        <% }else{ %>
+                                            <a href="/institution/works/<%= viewModel.data.institutionid %>">全部</a>
+                                            <% } %>
+                        </div>
+                        <!--下拉-->
+                        <div class="handle">
+                            <!--主题 下拉列表-->
+                            <% if(viewModel.thirdList.length > 0){ %>
+                                <div id="thirdList" class="select select1 left thirdListSelect">
+                                    <% if(viewModel.menuPosition.z >= 0){ %>
+                                        <p>
+                                            <%= viewModel.thirdList[viewModel.menuPosition.z].val %>
+                                        </p>
+                                        <% }else{ %>
+                                            <p>主题</p>
+                                            <% } %>
+                                                <ul class="thirdList">
+                                                    <% for(var i = 1;i < viewModel.thirdList.length;i++){ %>
+                                                        <li>
+                                                            <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&classifyId=' + viewModel.thirdList[i].code + '&positionZ=' + i %>">
+                                                                <%= viewModel.thirdList[i].val %>
+                                                            </a>
+                                                        </li>
+                                                        <% } %>
+                                                </ul>
+                                </div>
+                                <% } %>
+                                    <!--作品类型-->
+                                    <div id="worksType" class="select select1 left">
+                                        <% if(viewModel.data.mediatype){ %>
+                                            <p>
+                                                <%= viewModel.mediatypeList[viewModel.data.mediatype + 1].val %>
+                                            </p>
+                                            <% }else{ %>
+                                                <p>类型</p>
+                                                <% } %>
+                                                    <ul>
+                                                        <!--处理classifyId=null,或者undefined-->
+                                                        <% if(viewModel.data.classifyId != null){ %>
+                                                            <li>
+                                                                <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&classifyId=' + viewModel.data.classifyId + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + -1 %>">全部</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&classifyId=' + viewModel.data.classifyId + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + 1 %>">图文</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&classifyId=' + viewModel.data.classifyId + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + 2 %>">音频</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&classifyId=' + viewModel.data.classifyId + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + 3 %>">视频</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&classifyId=' + viewModel.data.classifyId + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + 4 %>">图集</a>
+                                                            </li>
+                                                            <% }else{ %>
+                                                                <li>
+                                                                    <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' +  viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + -1 %>">全部</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + 1 %>">图文</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + 2 %>">音频</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + 3 %>">视频</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' +  viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + 4 %>">图集</a>
+                                                                </li>
+                                                                <% } %>
+
+                                                    </ul>
+                                    </div>
+                                    <!--最新、最热-->
+                                    <div id="newOrHot" class="select select1 left">
+                                        <% if(viewModel.data.sort && viewModel.data.sort == 'updatetime'){ %>
+                                            <p>最新</p>
+                                            <% }else if(viewModel.data.sort && viewModel.data.sort == 'viewcount'){ %>
+                                                <p>最热</p>
+                                                <% }else{ %>
+                                                    <p>最新</p>
+                                                    <% } %>
+                                                        <ul>
+                                                            <% if(viewModel.data.classifyId != null){ %>
+                                                                <li>
+                                                                    <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' +  viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&classifyId=' + viewModel.data.classifyId + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + viewModel.data.mediatype + '&sort=' + 'updatetime' %>">最新</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<%= '/institution/works/'+ viewModel.data.institutionid +'?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&classifyId=' + viewModel.data.classifyId + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + viewModel.data.mediatype + '&sort=' + 'viewcount' %>">最热</a>
+                                                                </li>
+                                                                <% }else{ %>
+                                                                    <li>
+                                                                        <a href="<%= '/institution/works/'+ viewModel.data.institutionid + '?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + viewModel.data.mediatype + '&sort=' + 'updatetime' %>">最新</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="<%= '/institution/works/'+ viewModel.data.institutionid + '?positionX=' + viewModel.menuPosition.x + '&positionY=' + viewModel.menuPosition.y + '&positionZ=' + viewModel.menuPosition.z + '&mediatype=' + viewModel.data.mediatype + '&sort=' + 'viewcount' %>">最热</a>
+                                                                    </li>
+                                                                    <% } %>
+
+                                                        </ul>
+                                    </div>
+                                    <script>
+                                        var time = 100;
+                                        var thirdList = $('#thirdList');
+                                        var worksType = $('#worksType');
+                                        var newOrHot = $('#newOrHot');
+
+                                        thirdList.children('p').click(function(e) {
+                                            window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                                            $(this).siblings('ul').slideDown(time);
+                                        })
+
+                                        thirdList.children('ul').children('li').children('a').click(function(e) {
+                                            window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                                            thirdList.children('p').html($(this).html());
+                                        })
+
+
+                                        worksType.children('p').click(function(e) {
+                                            window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                                            $(this).siblings('ul').slideDown(time);
+                                        })
+                                        worksType.children('ul').children('li').children('a').click(function(e) {
+                                            window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                                            $(this).parent('li').parent('ul').siblings('p').html($(this).html());
+                                            $(this).parent('li').parent('ul').slideUp(time);
+                                        })
+
+                                        newOrHot.children('p').click(function(e) {
+                                            window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                                            $(this).siblings('ul').slideDown(time);
+                                        })
+                                        newOrHot.children('ul').children('li').children('a').click(function(e) {
+                                            window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                                            $(this).parent('li').parent('ul').siblings('p').html($(this).html());
+                                            $(this).parent('li').parent('ul').slideUp(time);
+                                        })
+                                        $(document).click(function() {
+                                            thirdList.children('ul').slideUp(time);
+                                        })
+                                    </script>
+
+                                    <span class="num right">共<strong><%= viewModel.data.works.total %></strong>个作品</span>
+                        </div>
+                        <div class="list">
+                            <% for(var i = 0; i < viewModel.data.works.list.length;i++){ %>
+                                <div class="item clearfix">
+                                    <a href="<%= '/detail/workDetail/' + viewModel.data.works.list[i].id.toString() + viewModel.data.works.list[i].mediatype %>" target="_blank" class="img left"><img src="<%= viewModel.data.works.list[i].coverpic %>" width="250" height="141"><span class="i<%= viewModel.data.works.list[i].mediatype %>"></span></a>
+                                    <div class="info left">
+                                        <h1>
+                                            <a href="<%= '/detail/workDetail/' + viewModel.data.works.list[i].id.toString() + viewModel.data.works.list[i].mediatype %>" target="_blank">
+                                                <%= viewModel.data.works.list[i].title %>
+                                            </a>
+                                        </h1>
+                                        <p>
+                                            <%= viewModel.data.works.list[i].intromemo %>
+                                        </p>
+                                        <div class="bottom clearfix">
+                                            <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.works.list[i].orgid %>" class="jg left"><img src="<%= viewModel.data.works.list[i].logopic %>" width="22" height="22" align="top"><%= viewModel.data.works.list[i].orgname %></a>
+                                            <div class="right subinfo">
+                                                <a href="javascript:;" class="view">
+                                                    <%= viewModel.data.works.list[i].viewcount %>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="sp-page">
+                            <%- viewModel.data.worksPageStr %>
+                        </div>
+                        <div id="pageInfo" style="display: none;" data-position-x="<%= viewModel.menuPosition.x %>" data-institutionid="<%= viewModel.data.institutionid %>" data-position-y="<%= viewModel.menuPosition.y %>" data-position-z="<%= viewModel.menuPosition.z %>" data-classify-id="<%= viewModel.data.classifyId %>"
+                            data-media-type="<%= viewModel.data.mediatype %>" data-sort="<%= viewModel.data.sort %>"></div>
+                        <script>
+                            $(function() {
+                                // 重写页码的href
+                                var pageA = $('.sp-page a');
+                                var pageInfo = $('#pageInfo')
+                                var positionX = pageInfo.attr('data-position-x');
+                                var positionY = pageInfo.attr('data-position-y');
+                                var positionZ = pageInfo.attr('data-position-z');
+                                var classifyId = pageInfo.attr('data-classify-id');
+                                var mediaType = pageInfo.attr('data-media-type');
+                                var institutionid = pageInfo.attr('data-institutionid');
+                                var sort = pageInfo.attr('data-sort');
+
+                                if (pageA.length > 0) {
+                                    for (var t = 0; t < pageA.length; t++) {
+                                        var pageNum = pageA.eq(t).attr('data-page');
+                                        var href = '/institution/works/' + institutionid + '?positionX=' + positionX + '&positionY=' + positionY + '&classifyId=' + classifyId + '&positionZ=' + positionZ + '&mediatype=' + mediaType + '&sort=' + sort + '&pageNum=' + pageNum;
+                                        pageA.eq(t).attr('href', href);
+                                    }
+                                }
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <%- include('../layouts/footerLayout', {}) %>
+                <script>
+                    $.divselect($(".select p"), $(".select ul"), $(".select ul li"));
+                    //menu
+                    $(".menu .item").click(function() {
+                        $(this).addClass("click").siblings().removeClass("click")
+                        $(this).next(".sublist").slideDown().siblings(".sublist").slideUp()
+                    })
+                    $(".sublist a").click(function() {
+                            $(".sublist a").removeClass("cur")
+                            $(this).addClass("cur")
+                        })
+                        //免费
+                    $(".free").click(function() {
+                        $(this).toggleClass("toggle")
+                    })
+                </script>
+</body>
+
+</html>

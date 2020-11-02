@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/search/search.css" />
+        <script src="/js/plugin/jquery.methods.js"></script>
+        <script src="/js/search/microbook.js"></script>
+</head>
+
+<body>
+    <%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+        <%- include('../layouts/search/subnavLayout.ejs', {current: 2}) %>
+            <div class="search-main">
+                <div class="microBookWrap w1200Auto clearfix">
+                    <div class="listWrap left">
+                        <div class="handle">
+                            <div class="filter">
+                                <a data-sort="id" href="javascript:;" class="cur">最新</a>
+                                <a data-sort="viewcount" href="javascript:;">最热</a>
+                            </div>
+                            <span class="num right">找到<strong>2555</strong>个微刊</span>
+                        </div>
+                        <div class="list clearfix"></div>
+                        <div class="sp-page" id="sp-page"></div>
+                    </div>
+                    <div class="aside right">
+                        <div class="module works">
+                            <h1>相关作品</h1>
+                            <ul class="list"></ul>
+                        </div>
+                        <div class="module period">
+                            <h1>相关期刊</h1>
+                            <ul class="list clearfix"></ul>
+                        </div>
+                        <div class="module book">
+                            <h1>相关图书</h1>
+                            <ul class="list clearfix"></ul>
+                        </div>
+                        <div class="module kdh">
+                            <h1>相关万选号</h1>
+                            <ul class="list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../layouts/footerLayout', {}) %>
+</body>
+
+</html>

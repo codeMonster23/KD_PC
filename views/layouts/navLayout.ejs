@@ -1,0 +1,221 @@
+<div class="header">
+    <div class="headerWrap">
+        <div class="hl left clearfix">
+            <a class="logo" target="_blank" href="/">
+                <img src="/images/indexImages/logo4.png" alt="">
+            </a>
+            <div class="left all dropdown">
+                <a class="dropdown-toggle" target="_blank" href="/works">全部分类</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a target="_blank" href="/works?classifyId=A&positionX=0">
+                            <img src="/images/indexImages/cate1.png" alt="">
+                            <span>文学</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=B&positionX=1">
+                            <img src="/images/indexImages/cate2.png" alt="">
+                            <span>艺术</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=C&positionX=2">
+                            <img src="/images/indexImages/cate3.png" alt="">
+                            <span>思想文化</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=D&positionX=3">
+                            <img src="/images/indexImages/cate4.png" alt="">
+                            <span>人物</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=E&positionX=4">
+                            <img src="/images/indexImages/cate5.png" alt="">
+                            <span>历史</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=F&positionX=5">
+                            <img src="/images/indexImages/cate6.png" alt="">
+                            <span>军事</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=G&positionX=6">
+                            <img src="/images/indexImages/cate7.png" alt="">
+                            <span>法律</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=H&positionX=7">
+                            <img src="/images/indexImages/cate8.png" alt="">
+                            <span>生活休闲</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=I&positionX=8">
+                            <img src="/images/indexImages/cate9.png" alt="">
+                            <span>育儿</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=J&positionX=9">
+                            <img src="/images/indexImages/cate10.png" alt="">
+                            <span>孕产</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=K&positionX=10">
+                            <img src="/images/indexImages/cate11.png" alt="">
+                            <span>职场</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=L&positionX=11">
+                            <img src="/images/indexImages/cate12.png" alt="">
+                            <span>财富</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/works?classifyId=M&positionX=12">
+                            <img src="/images/indexImages/cate13.png" alt="">
+                            <span>科普</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a target="_blank" href="/">首页</a>
+            <a target="_blank" href="/works?classifyId=A&positionX=0">文学</a>
+            <a target="_blank" href="/works?classifyId=B&positionX=1">艺术</a>
+            <a target="_blank" href="/works?classifyId=E&positionX=4">历史</a>
+            <a target="_blank" href="/works?classifyId=D&positionX=3">人物</a>
+            <a target="_blank" href="/works?classifyId=H&positionX=7">生活</a>
+            <a target="_blank" href="/works?classifyId=C&positionX=2">思想文化</a>
+
+        </div>
+        <div class="hr right">
+            <% if(viewModel && viewModel.user.name != null){ %>
+                <%- include('../components/userOptionMenu', {}) %>
+                    <% }else{ %>
+                        <a href="/temp/userCenter/register">注册</a>
+                        <div class="line"></div>
+                        <a id="login" href="javascript:;">登录</a>
+                        <% } %>
+                            <a href="javascript:;" class="search-icon"></a>
+                            <div class="hrlink clearfix">
+                                <a target="_blank" href="/appdownload">客户端</a>
+                                <a target="_blank" href="/mall/home">书城</a>
+                                <a target="_blank" href="/literature">文献库</a>
+                                <div class="right discovery dropdown">
+                                    <a class="dropdown-toggle" href="javascript:;">发现</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a target="_blank" href="/discovery">精选</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="/microBook">微刊</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="/kdh">万选号</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="search">
+    <div class="w1200Auto positionR">
+        <div class="search-tab">
+            <span class="selected">全部</span>
+            <span>作品</span>
+            <span>微刊</span>
+            <span>万选号</span>
+            <span>期刊</span>
+            <span>图书</span>
+            <span>文献</span>
+        </div>
+        <div class="search-box">
+            <input class="search-input" type="text" placeholder="请输入关键词搜索">
+            <!--<a class="search-btn" href="javascript:;" data-enter-control="1"></a>-->
+            <a class="search-btn" href="javascript:;" data-enter-control="<%=enterControl%>"></a>
+        </div>
+        <a class="search-box-close" href="javascript:;"></a>
+    </div>
+</div>
+<%- include('../components/rightToolbar', {}) %>
+<script>
+    $(function () {
+        $('.header .dropdown').hover(function() {
+            $(this).find('.dropdown-menu').stop(true).slideToggle();
+        });
+        $('.header .hr .search-icon').click(function(e) {
+            e.stopPropagation();
+            $('.search').stop(true).slideDown();
+        });
+        $('.search').click(function(e) {
+            e.stopPropagation();
+        });
+        // $('.search').mouseleave(function() {
+        //     $(this).stop(true).slideUp();
+        // });
+        // 搜索类型切换
+        var type = 0;
+        $('.search-tab span').click(function() {
+            type = $(this).index();
+            $(this).addClass('selected').siblings().removeClass('selected');
+        });
+        var login = $('#login');
+        login.click(function() {
+            location.href = '/temp/userCenter/login?v=' + Date.now();
+        })
+
+        var searchBtn = $('.search-btn');
+        var enterControl = searchBtn.attr('data-enter-control');
+        searchBtn.on('click', function() {
+            var kd = $(this).siblings('input').val();
+            if (kd.trim().length == 0) {
+                return;
+            }
+            var typeArr = ['home', 'works', 'microbook', 'kdh', 'period', 'book'];
+            if (type == 6) {
+                location.href = encodeURI('/literature/literatureResult?topic=' + kd);
+            } else {
+                location.href = encodeURI('/search/' + typeArr[type] + '?kd=' + kd);
+            }
+
+        })
+        $('.search-box-close').click(function () {
+            $('.search').stop(true).slideUp();
+
+            if($('.search').is(':visible')){
+                $('.search-nav').css('margin-top',0);
+            }else{
+                $('.search-nav').css('margin-top',192);
+            }
+        })
+        // 回车 提交 enterControl可以区分其他回车需求
+        if (enterControl == 1) {
+            $(document).bind("keydown", function(e) {
+                if (e.keyCode == 13) {
+                    searchBtn.click();
+                }
+            })
+        }
+
+        $(window).scroll(function() {
+            var A = $(window).scrollTop();
+            if (A > 0) {
+                $('.header').addClass('fixed');
+            } else {
+                $('.header').removeClass('fixed');
+            }
+        });
+    })
+    
+</script>

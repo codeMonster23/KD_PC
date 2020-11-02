@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+
+    <link rel="stylesheet" type="text/css" href="css/kdh.css"/>
+    <link rel="stylesheet" href="/lib/layui/css/layui.css" media="all">
+    <script src="/lib/layui/layui.js"></script>
+</head>
+
+<body bgcolor="#F9EFE6">
+<%- include('./layouts/navLayout', {current: 4, enterControl:1}) %>
+<div class="k-banner"></div>
+<div class="kcont">
+    <div class="handle">
+        <div class="choose left">
+            <a href="<%= '/kdh?sort=UpdateTime' %>"
+               class="<% if(viewModel.data.sort == 'UpdateTime'){ %>cur<% } %>">最新</a>
+            <a href="<%= '/kdh?sort=ClickCount' %>"
+               class="<% if(viewModel.data.sort == 'ClickCount'){ %>cur<% } %>">最热</a>
+        </div>
+        <script></script>
+    </div>
+    <ul class="list clearfix">
+        <% for(var i = 0;i < viewModel.data.org.data.rows.length;i++){ %>
+        <li>
+            <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.org.data.rows[i].orgid %>" class="link">
+                <img class="cover" src="<%= viewModel.data.org.data.rows[i].backgroundpic %>">
+                <div class="shadow"></div>
+                <img class="logo" src="<%= viewModel.data.org.data.rows[i].logopic %>">
+                <h1><%= viewModel.data.org.data.rows[i].orgname %></h1>
+                <p title="<%= viewModel.data.org.data.rows[i].memo %>"
+                   class="p1"><%= viewModel.data.org.data.rows[i].memo %></p>
+                <p class="p1">作品：<%= viewModel.data.org.data.rows[i].collectioncount %>
+                    丨浏览：<%= viewModel.data.org.data.rows[i].clickcount %></p>
+            </a>
+            <a href="javascript:;" data-is-concerned="<%= viewModel.data.org.data.rows[i].isconcern %>"
+               data-orgid="<%= viewModel.data.org.data.rows[i].orgid %>"
+               class="follow <% if(viewModel.data.org.data.rows[i].isconcern == 1){ %> active <% } %> ">
+                <% if(viewModel.data.org.data.rows[i].isconcern == 1){ %>
+                已关注
+                <% }else{ %>
+                关注
+                <% } %>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+    <div class="sp-page">
+        <%- viewModel.data.kdhPageStr %>
+    </div>
+</div>
+<%- include('./layouts/footerLayout', {}) %>
+<input type="hidden" value="<%= viewModel.user.name %>" id="username">
+
+<script>
+    var concernBtn = $('.kcont .list li .follow');
+    var username = $('#username').val();
+    // 关注或取消关注
+    concernBtn.click(function () {
+        if (username == undefined || username == '') {
+            layer.msg('请先登录！');
+            return;
+        }
+        var $this = $(this);
+        var orgid = $this.attr('data-orgid');
+        var index = layer.load(1, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+        var isConcerned = $(this).attr('data-is-concerned');
+        concernOrNot(orgid, 0, isConcerned, index, $this);
+    });
+
+    // 关注或者取消关注方法
+    function concernOrNot(orgid, typeid, isConcerned, index, pointer) {
+        var url = encodeURI('/kdh/addOrCancelConcern?orgid=' + orgid + '&typeid=' + typeid + '&isConcerned=' + isConcerned);
+
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    layer.close(index);
+                    pointer.toggleClass('active');
+                    layer.msg(response.data.info);
+                    if (response.data.status == 1) {
+                        pointer.attr('data-is-concerned', '1').html('已关注');
+
+                    } else if (response.data.status == 0) {
+                        pointer.attr('data-is-concerned', '0').html('关注');
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response.msg)
+                } else {
+                    console.log('请检查关注或者取消关注方法接口！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

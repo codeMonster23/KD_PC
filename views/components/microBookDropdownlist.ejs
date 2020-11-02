@@ -1,0 +1,27 @@
+<!--最新、最热下拉列表-->
+
+    <div class="select select1 right">
+        <p data-code="<%= sort%>">
+            <%if(sort == 'id'){%>
+            最新
+            <%}else{%>
+            最热
+            <%}%>
+        </p>
+        <ul>
+            <% for(var i=0;i<list.length;i++){%>
+            <li data-code="<%=list[i].code %>"><%= list[i].val %></li>
+            <%}%>
+        </ul>
+    </div>
+
+<script>
+    var time = 200;
+    $('.select p').click(function(){
+        $(this).siblings('ul').slideDown(time);
+    })
+    $('.select ul li').click(function(){
+        $(this).parent('ul').slideUp(time);
+        window.location = '/microBook/?pageNum='+ 1 +'&sort='+ $(this).attr('data-code');
+    })
+</script>

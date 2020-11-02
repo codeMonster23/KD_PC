@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/kdh/kda.css" />
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/plugin/jquery.methods.js"></script>
+</head>
+
+<body bgcolor="#EBEFF5">
+    <%- include('../layouts/navLayout', {current: 4, enterControl:1}) %>
+        <%- include('../layouts/kdh/bannerLayout') %>
+            <%- include('../layouts/kdh/navLayout', {current: 3}) %>
+                <div class="shop-tab clearfix">
+                    <a href="javascript:;" class="<% if(viewModel.data.otype == 1) { %> cur <% } %>">期刊</a>
+                    <a href="javascript:;" class="<% if(viewModel.data.otype == 2) { %> cur <% } %>">图书</a>
+                </div>
+                <div class="tabContent">
+                    <!-- 期刊 -->
+                    <div class="magazineWrap">
+                        <div class="magazinelist"></div>
+                        <div id="qk-page" class="sp-page"></div>
+                    </div>
+                    <!-- 图书 -->
+                    <div class="bookshopWrap clearfix">
+                        <div class="bsl left">
+                            <div class="bookshop-menu">
+                                <h1><a href="/kdh/bookshop?orgid=<%=viewModel.data.kdhBaseInfo.org.orgid%>&otype=2">全部分类</a></h1>
+                                <div class="menu-list"></div>
+                            </div>
+                            <div class="sales">
+                                <h1>热门榜</h1>
+                                <div class="list"></div>
+                            </div>
+                        </div>
+                        <div class="bsr left">
+                            <div class="operate">
+                                <!-- <a href="javascript:;" class="choose toggle">全部</a> -->
+                                <!-- <a href="javascript:;" class="choose">精选</a>
+                        <a href="javascript:;" class="choose">预售</a> -->
+                                <a href="javascript:;" class="px newOrHot" data-sort="viewcount">热门</a>
+                                <a href="javascript:;" class="px newOrHot cur" data-sort="addtime">最新</a>
+                            </div>
+                            <div class="booklist">
+                                <ul class="clearfix"></ul>
+                            </div>
+                            <div id="book-page" class="sp-page"></div>
+                        </div>
+                    </div>
+                </div>
+                <%- include('../layouts/footerLayout', {}) %>
+                    <input type="hidden" id="orgid" value="<%=viewModel.data.kdhBaseInfo.org.orgid%>">
+                    <input type="hidden" id="otype" value="<%=viewModel.data.otype%>">
+                    <script>
+                        $.divselect($(".select p"), $(".select ul"), $(".select ul li"));
+                        $(".header .search .btn").click(function() {
+                            $(this).siblings().addClass("click")
+                        })
+                        PromptToggle($(".search input"), "作品检索", "colorGrey")
+                        $(".choose").click(function() {
+                            $(this).addClass("toggle").siblings().removeClass("toggle")
+                        })
+
+
+                        var orgid = $('#orgid').val();
+                        var otype = $('#otype').val();
+                        var shopTabNav = $('.shop-tab a');
+                        var bookMenu = $('.bookshop-menu');
+                        var bookMenuList = bookMenu.find('.menu-list');
+                        var shopTabContent = $('.tabContent');
+                        var magazineWrap = $('.magazineWrap');
+                        var bookshopWrap = $('.bookshopWrap');
+                        var bookList = bookshopWrap.find('.booklist ul');
+                        var magazineList = magazineWrap.find('.magazinelist');
+                        var hotBookRankList = bookshopWrap.find('.sales .list');
+                        var newOrHot = $('.newOrHot');
+                        var qkPage = magazineWrap.find('#qk-page');
+                        var bookPage = bookshopWrap.find('#book-page');
+                        var count = 0;
+                        var ajaxRequest = [];
+                        createPeriodDom();
+                        createBookDom();
+                        getHotBook();
+                        getBookCategory();
+                        if(otype==1){
+                            magazineWrap.show();
+                            bookshopWrap.hide();
+                        }else{
+                            magazineWrap.hide();
+                            bookshopWrap.show();
+                        }
+                        function getPeriodAndBookList(pageNum, limit, sort, typeid, cateid, callback) {
+                            var pageNum = pageNum || 1;
+                            var sort = sort || 'addtime';
+                            var typeid = typeid || 1;
+                            var url = '/kdh/bookshop/getPeriodAndBook?orgid=' + orgid;
+                            var data = {
+                                pageNum: pageNum,
+                                limit: limit,
+                                sort: sort,
+                                typeid: typeid,
+                                cateid: cateid
+                            };
+                            $.ajax({
+                                url: url,
+                                dataType: "json",
+                                type: "GET",
+                                data: data,
+                                success: function(response) {
+                                    if (response.code == 0) {
+                                        callback(response.data);
+                                    } else {
+                                        console.log('请检查获取万选阅读书店分页列表！');
+                                    }
+                                }
+                            });
+                        }
+                        var singlePeriodId = '';
+                        // 期刊列表
+                        function createPeriodDom(pageNum, limit, sort, typeid) {
+                            var pageNum = pageNum || 1;
+                            var limit = 4;
+                            var typeid = 1;
+                            getPeriodAndBookList(pageNum, limit, sort, typeid, '', function(data) {
+                                var list = data.list;
+                                var magazineStr = '';
+                                if (list && list.length > 0) {
+                                    for (var i = 0; i < list.length; i++) {
+                                        var li = '';
+                                        var magacode = list[i].foreignkeyid;
+                                        var magalist = list[i].magalist;
+                                        if (magalist && magalist.length > 0) {
+                                            for (var j = 0; j < magalist.length; j++) {
+                                                var thname = magalist[0].thname;
+                                                var maganame = magalist[j].name;
+                                                singlePeriodId = magacode + maganame.substr(0, 4) + maganame.substr(6, 2);
+                                                li += '<li><a href="/detail/singlePeriodDetail/' + singlePeriodId + '" target="_blank"><img src="' + magalist[j].coverpic + '"><p>' + maganame + '</p></a></li>'
+                                            }
+                                        }
+                                        magazineStr += '<div class="magazineBlock" data-id="' + magacode + '">' +
+                                            '<h1>' + list[i].title + '</h1>' +
+                                            '<div class="block">' +
+                                            '<div class="ytop clearfix"><div class="yearlist"></div><a href="/detail/periodDetail/' + thname.substr(0, 4) + '" target="_blank" class="more">更多往期</a>' +
+                                            '</div>' +
+                                            '<div class="listWrap">' +
+                                            '<ul class="clearfix">' + li + '</ul>' +
+                                            '<a href="/detail/periodDetail/' + thname.substr(0, 4) + '" target="_blank" class="mamore">更多往期 >></a>' +
+                                            '</div>' +
+                                            '</div>' +
+                                            '</div>';
+                                        magazineList.html(magazineStr);
+                                    }
+                                    getMagaYear(handleYear);
+                                    var qkPageStr = $.kd.outputPager(data.total, 4, 5, pageNum);
+                                    qkPage.html(qkPageStr);
+                                } else {
+                                    shopTabNav.eq(0).hide();
+                                    magazineWrap.hide();
+                                }
+                            });
+                        }
+                        // 获取每个期刊下的年信息
+                        function getMagaYear(callback) {
+                            var magacode = magazineList.find('.magazineBlock').eq(count).attr('data-id');
+                            var url = '/kdh/getPeriodYear?magacode=' + magacode;
+                            ajaxRequest[count] = $.ajax({
+                                url: url,
+                                dataType: "json",
+                                type: "GET",
+                                success: function(response) {
+                                    if (response.code == 0) {
+                                        var yearlist = response.data.list;
+                                        // 年份存在
+                                        if (yearlist && yearlist.length > 0) {
+                                            callback(yearlist);
+                                        }
+                                        var listLength = magazineList.find('.magazineBlock').length;
+                                        if (count < listLength - 1) {
+                                            count++;
+                                            getMagaYear(handleYear);
+                                        } else {
+                                            count = 0;
+                                        }
+                                    } else {
+                                        console.log('请检查获取期刊年信息接口！');
+                                    }
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+
+                        function handleYear(yearlist) {
+                            var magacode = magazineList.find('.magazineBlock').eq(count).attr('data-id');
+                            var yearContainer = magazineList.find('.magazineBlock .yearlist');
+                            var yearStr = '';
+                            var yearArr = [];
+                            yearArr = yearlist.length <= 15 ? yearlist : yearlist.slice(0, 15);
+                            for (var i = 0; i < yearArr.length; i++) {
+                                if (i == yearArr.length - 1) {
+                                    yearStr += '<a href="/detail/periodDetail/' + magacode + '?year=' + yearArr[i].year + '" target="_blank">' + yearArr[i].year + '年</a>'
+                                } else {
+                                    yearStr += '<a href="/detail/periodDetail/' + magacode + '?year=' + yearArr[i].year + '" target="_blank">' + yearArr[i].year + '年</a>|'
+                                }
+                            }
+                            yearContainer.eq(count).html(yearStr);
+                        }
+                        // 停止所有ajax请求
+                        function stopAjaxRequests(request, callback) {
+                            // 停止递归
+                            if (request[count]) {
+                                request[count].abort();
+                                count = 0;
+                                callback();
+                            }
+                        }
+                        // 图书列表
+                        function createBookDom(pageNum, limit, sort, typeid, cateid, isClickBookCate) {
+                            var isBookCate = isBookCate || false;
+                            var pageNum = pageNum || 1;
+                            var limit = 20;
+                            var typeid = 2;
+                            getPeriodAndBookList(pageNum, limit, sort, typeid, cateid, function(data) {
+                                var list = data.list;
+                                var bookStr = '';
+                                if (list && list.length > 0) {
+                                    for (var i = 0; i < list.length; i++) {
+                                        bookStr += '<li>' +
+                                            '<a target="_blank" href="/detail/bookDetail/' + list[i].foreignkeyid + '"><img src="' + list[i].coverpic + '"/></a>' +
+                                            '<p class="p1"><a target="_blank" href="/detail/bookDetail/' + list[i].foreignkeyid + '">' + list[i].title + '</a></p><p class="p2">' + list[i].bookauthor + '&nbsp;著</p>' +
+                                            '</li>';
+                                    }
+
+                                    var bookPageStr = $.kd.outputPager(data.total, 20, 5, pageNum);
+                                    bookList.html(bookStr);
+                                    bookPage.html(bookPageStr);
+                                } else {
+                                    //判断不是点击的图书分类数据则图书标签下的数据隐藏
+                                    if (!isClickBookCate) {
+                                        shopTabNav.eq(1).hide();
+                                        bookshopWrap.hide();
+                                    } else {
+                                        bookList.html('暂时没有数据！');
+                                        bookPage.html('');
+                                    }
+                                }
+                            });
+                        }
+                        // 图书热门榜
+                        function getHotBook(pageNum, limit, sort, typeid) {
+                            var limit = 10;
+                            var typeid = 2;
+                            var sort = 'viewcount';
+                            getPeriodAndBookList(pageNum, limit, sort, typeid, '', function(data) {
+                                var list = data.list;
+                                var hotBookRankStr = '';
+                                if (list && list.length > 0) {
+                                    for (var i = 0; i < list.length; i++) {
+                                        if (i == 0) {
+                                            hotBookRankStr += '<a target="_blank" href="/detail/bookDetail/' + list[i].foreignkeyid + '" class="first"><span class="red">' + (i + 1) + '</span><img src="' + list[i].coverpic + '"><p>' + list[i].title + '</p></a>';
+                                        } else if (i <= 2) {
+                                            hotBookRankStr += '<a target="_blank" href="/detail/bookDetail/' + list[i].foreignkeyid + '"><span class="red">' + (i + 1) + '</span><p>' + list[i].title + '</p></a>';
+                                        } else {
+                                            hotBookRankStr += '<a target="_blank" href="/detail/bookDetail/' + list[i].foreignkeyid + '"><span>' + (i + 1) + '</span><p>' + list[i].title + '</p></a>';
+                                        }
+                                    }
+                                    hotBookRankList.html(hotBookRankStr);
+                                } else {
+                                    hotBookRankList.html('暂时没有数据！');
+                                }
+                            });
+                        }
+                        // 图书分类
+                        function getBookCategory() {
+                            var url = '/kdh/getBookCategory?orgid=' + orgid;
+                            $.ajax({
+                                url: url,
+                                dataType: "json",
+                                type: "GET",
+                                success: function(response) {
+                                    if (response.code == 0) {
+                                        var list = response.data;
+                                        var bookMenuStr = '';
+                                        if (list && list.length > 0) {
+                                            for (var i = 0; i < list.length; i++) {
+                                                bookMenuStr += '<div class="item" data-cateid="' + list[i].id + '"><a href="javascript:;" class="inner i1">' + list[i].catename + '</a></div>';
+                                            }
+                                            bookMenuList.html(bookMenuStr);
+                                        } else {
+                                            bookMenu.hide()
+                                        }
+                                    }
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+                        // 图书分类点击
+                        $(document).on('click', '.bookshop-menu .item', function() {
+                            $(this).addClass('click').siblings().removeClass('click');
+                            var cateid = $(this).attr('data-cateid');
+                            createBookDom('', '', '', '', cateid, true);
+                        });
+
+
+                        // 期刊图书导航点击切换
+                        shopTabNav.click(function() {
+                            var index = $(this).index();
+                            shopTabContent.children().eq(index).show().siblings().hide();
+                            $(this).addClass('cur').siblings().removeClass('cur');
+                        });
+                        // 最新最热
+                        newOrHot.on('click', function() {
+                            $(this).addClass('cur').siblings().removeClass('cur');
+                            var sort = $(this).attr('data-sort');
+                            var cateid = bookMenu.find('.item.click').attr('data-cateid');
+                            createBookDom('', '', sort, '', cateid);
+                        });
+                        // 图书页码点击
+                        $(document).on('click', '#book-page a', function() {
+                            $('body,html').animate({
+                                scrollTop: 0
+                            }, 200);
+                            var pageNum = $(this).attr('data-page');
+                            var sort = $('.newOrHot.cur').attr('data-sort');
+                            createBookDom(pageNum, '', sort, '');
+                        });
+
+                        // 期刊页码点击
+                        $(document).on('click', '#qk-page a', function() {
+                            $('body,html').animate({
+                                scrollTop: 0
+                            }, 200);
+                            var pageNum = $(this).attr('data-page');
+                            createPeriodDom(pageNum);
+                        });
+                    </script>
+</body>
+
+</html>

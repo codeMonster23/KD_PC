@@ -1,0 +1,713 @@
+.charBody {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 39px;
+  padding-bottom: 60px;
+}
+.charBody h1 {
+  font-size: 30px;
+  padding-left: 39px;
+  line-height: 62px;
+  height: 62px;
+  font-weight: normal;
+  background: url(../../images/chargingCenter/cc-icon1.png) no-repeat left 20px;
+}
+.charBody h1 a {
+  float: right;
+  font-size: 14px;
+  color: #807f7f;
+  margin-top: 32px;
+  line-height: 16px;
+}
+.charBody .charWrap {
+  background-color: #ffffff;
+  border: 1px solid #E1E1E1;
+  box-shadow: 0 0 5px 5px #EEEEEE;
+  padding: 30px;
+}
+.charBody .charWrap h2 {
+  font-size: 16px;
+  height: 26px;
+  line-height: 26px;
+  padding-left: 18px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #E4E4E4;
+  background: url(../../images/chargingCenter/cc-icon2.png) no-repeat left top;
+}
+.charBody .charWrap .ways ul {
+  padding-left: 18px;
+  padding-top: 32px;
+  padding-bottom: 50px;
+}
+.charBody .charWrap .ways ul li {
+  float: left;
+  height: 63px;
+  line-height: 63px;
+  font-size: 18px;
+  position: relative;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.charBody .charWrap .ways ul li span {
+  display: none;
+  position: absolute;
+  top: 28px;
+  right: 0;
+  width: 46px;
+  height: 35px;
+  background: url(../../images/chargingCenter/cc-icon3.png) no-repeat;
+}
+.charBody .charWrap .ways ul .zfb {
+  width: 109px;
+  padding-left: 109px;
+  background: url(../../images/chargingCenter/cc-zfb.png) no-repeat 56px center;
+}
+.charBody .charWrap .ways ul .wx {
+  padding-left: 100px;
+  width: 118px;
+  background: url(../../images/chargingCenter/cc-wx.png) no-repeat 47px center;
+}
+.charBody .charWrap .ways ul .yl {
+  padding-left: 105px;
+  width: 113px;
+  background: url(../../images/chargingCenter/cc-yl.png) no-repeat 42px center;
+}
+.charBody .charWrap .ways ul .card {
+  padding-left: 74px;
+  width: 144px;
+  background: url(../../images/chargingCenter/cc-card.png) no-repeat 19px center;
+}
+.charBody .charWrap .ways ul li:hover span {
+  display: block;
+}
+.charBody .charWrap .ways ul li.cur {
+  border-color: #F03E3A;
+  background-color: #FFECEC;
+}
+.charBody .charWrap .ways ul li.cur span {
+  display: block;
+  background-image: url(../../images/chargingCenter/cc-icon3c.png);
+}
+.charBody .charWrap .amount .je {
+  padding-top: 32px;
+  padding-left: 18px;
+  margin-bottom: 32px;
+}
+.charBody .charWrap .amount .je li {
+  float: left;
+  width: 140px;
+  height: 78px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.charBody .charWrap .amount .je li .p1 {
+  line-height: 78px;
+  text-align: center;
+  font-size: 18px;
+}
+.charBody .charWrap .amount .je li span {
+  display: none;
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 46px;
+  height: 36px;
+  background: url(../../images/chargingCenter/cc-icon7.png) no-repeat;
+}
+.charBody .charWrap .amount .je li .p2 {
+  line-height: 48px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.charBody .charWrap .amount .je li .p3 {
+  text-align: center;
+  line-height: 12px;
+}
+.charBody .charWrap .amount .je li .box {
+  padding-top: 24px;
+  text-align: center;
+  font-size: 18px;
+}
+.charBody .charWrap .amount .je li .box input {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  border-bottom: 1px solid #252525;
+  font-size: 18px;
+  margin-right: 5px;
+  text-align: center;
+}
+.charBody .charWrap .amount .je li .box .p3 {
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 11px;
+}
+.charBody .charWrap .amount .je li:hover span {
+  display: block;
+}
+.charBody .charWrap .amount .je li.cur {
+  border-color: #F03E3A;
+  background-color: #FFECEC;
+}
+.charBody .charWrap .amount .je li.cur span {
+  display: block;
+  background-image: url(../../images/chargingCenter/cc-icon7c.png);
+}
+.charBody .charWrap .amount .discount {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.charBody .charWrap .amount .discount .button {
+  height: 16px;
+  margin-bottom: 16px;
+}
+.charBody .charWrap .amount .discount .button a {
+  float: left;
+  margin-right: 18px;
+  padding-left: 24px;
+  font-weight: bold;
+  color: #f13e3a;
+  background: url(../../images/chargingCenter/cc-icon4.png) no-repeat left center;
+}
+.charBody .charWrap .amount .discount .button .bu1 {
+  background-image: url(../../images/chargingCenter/cc-icon5.png);
+}
+.charBody .charWrap .amount .discount .block {
+  display: none;
+  padding: 0 16px;
+  border: 1px solid #FFA4A4;
+  border-radius: 5px;
+  background-color: #FFF3F3;
+}
+.charBody .charWrap .amount .discount .block .tips {
+  font-size: 14px;
+  color: #eb7c7c;
+  line-height: 44px;
+  border-bottom: 1px solid #F9CBCB;
+  margin-bottom: 26px;
+}
+.charBody .charWrap .amount .discount .block .tips a {
+  float: right;
+  font-size: 14px;
+  color: #f13e3a;
+}
+.charBody .charWrap .amount .discount .block .item {
+  padding-left: 30px;
+  padding-bottom: 5px;
+}
+.charBody .charWrap .amount .discount .block .item p {
+  cursor: pointer;
+  line-height: 18px;
+  padding-left: 23px;
+  background: url(../../images/chargingCenter/cc-icon6.png) no-repeat left center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.charBody .charWrap .amount .discount .block .item p span {
+  color: #f13e3a;
+}
+.charBody .charWrap .amount .discount .block .item p.cur {
+  background-image: url(../../images/chargingCenter/cc-icon6c.png);
+}
+.charBody .charWrap .amount .discount .total {
+  padding-top: 22px;
+  text-align: right;
+  overflow: hidden;
+}
+.charBody .charWrap .amount .discount .total span {
+  color: #f13e3a;
+  margin: 0 5px;
+}
+.charBody .charWrap .amount .discount .total .p1 {
+  display: none;
+  font-size: 14px;
+  line-height: 35px;
+}
+.charBody .charWrap .amount .discount .total .p2 {
+  font-size: 16px;
+  line-height: 35px;
+}
+.charBody .charWrap .amount .discount .total .next {
+  float: right;
+  margin-top: 19px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  background-color: #F03E3A;
+  border-radius: 5px;
+  width: 170px;
+  height: 44px;
+  font-size: 18px;
+  line-height: 44px;
+}
+.charBody .charWrap .amount .wxts {
+  margin-top: 60px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #E4E4E4;
+  color: #808080;
+}
+.charBody .charWrap .amount .wxts h3 {
+  line-height: 34px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.charBody .charWrap .amount .wxts p {
+  padding-left: 27px;
+  line-height: 24px;
+}
+.charBody .charWrap .cardamount .cardInfo {
+  padding-top: 44px;
+  padding-left: 172px;
+}
+.charBody .charWrap .cardamount .cardInfo .row {
+  height: 40px;
+  margin-bottom: 20px;
+}
+.charBody .charWrap .cardamount .cardInfo .row label {
+  float: left;
+  width: 94px;
+  line-height: 40px;
+  font-size: 14px;
+}
+.charBody .charWrap .cardamount .cardInfo .row input {
+  float: left;
+  padding: 9px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  width: 390px;
+  border: 1px solid #D8D8D8;
+}
+.charBody .charWrap .cardamount .cardInfo .row .yzm {
+  width: 185px;
+  margin-right: 10px;
+}
+.charBody .charWrap .cardamount .cardInfo .row .captcha {
+  float: left;
+  border: 1px solid #D8D8D8;
+  margin-right: 12px;
+  width: 100px;
+  height: 38px;
+}
+.charBody .charWrap .cardamount .cardInfo .row img {
+  float: left;
+  border: 1px solid #D8D8D8;
+  margin-right: 12px;
+  width: 83px;
+  height: 38px;
+}
+.charBody .charWrap .cardamount .cardInfo .row span {
+  float: left;
+  line-height: 40px;
+  color: #808080;
+}
+.charBody .charWrap .cardamount .cardInfo .row span a {
+  color: #206ed6;
+}
+.charBody .charWrap .cardamount .cardInfo .error {
+  height: 35px;
+  line-height: 35px;
+  padding-left: 94px;
+  color: #f13e3a;
+  margin-top: -20px;
+}
+.charBody .charWrap .cardamount .cardInfo .sure {
+  display: block;
+  margin-left: 197px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #F03E3A;
+  border-radius: 5px;
+  width: 205px;
+  height: 44px;
+  font-size: 18px;
+  line-height: 44px;
+  margin-bottom: 43px;
+}
+.charBody .charWrap .cardamount .notice {
+  padding-top: 10px;
+  border-top: 1px solid #E4E4E4;
+  height: 160px;
+  margin-bottom: -20px;
+}
+.charBody .charWrap .cardamount .notice .nl {
+  padding-top: 10px;
+  padding-left: 18px;
+  width: 545px;
+  border-right: 1px dashed #BEBEBE;
+  height: 149px;
+}
+.charBody .charWrap .cardamount .notice .nl h3 {
+  font-size: 14px;
+  line-height: 42px;
+}
+.charBody .charWrap .cardamount .notice .nl p {
+  line-height: 24px;
+  padding-left: 13px;
+}
+.charBody .charWrap .cardamount .notice .nr {
+  padding-left: 32px;
+  padding-top: 10px;
+}
+.charBody .charWrap .cardamount .notice .nr h3 {
+  font-size: 14px;
+  line-height: 42px;
+}
+.charBody .charWrap .cardamount .notice .nr p {
+  padding-left: 15px;
+  line-height: 26px;
+}
+.charBody .charWrap .cardamount .notice .nr p a {
+  color: #206ed6;
+}
+.charBody .orderWrap {
+  background-color: #ffffff;
+  border: 1px solid #E1E1E1;
+  box-shadow: 0 0 5px 5px #EEEEEE;
+  padding: 15px 28px;
+}
+.charBody .orderWrap .top {
+  height: 42px;
+  line-height: 42px;
+  padding-left: 27px;
+  font-size: 16px;
+  margin-bottom: 35px;
+  background: url(../../images/chargingCenter/cc-icon8.png) no-repeat left center;
+  border-bottom: 1px solid #E4E4E4;
+}
+.charBody .orderWrap .top span {
+  color: #f13e3a;
+}
+.charBody .orderWrap .top a {
+  float: right;
+  color: #206ed6;
+  font-size: 14px;
+}
+.charBody .orderWrap .middle {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-bottom: 50px;
+}
+.charBody .orderWrap .middle .detail {
+  border: 0;
+  width: 510px;
+  text-align: center;
+  font-size: 14px;
+}
+.charBody .orderWrap .middle .detail th {
+  font-size: 16px;
+  border: 1px solid #D8D8D8;
+  background-color: #F4F4F4;
+  height: 48px;
+  text-align: center;
+  font-weight: bold;
+}
+.charBody .orderWrap .middle .detail td {
+  height: 45px;
+  border: 1px solid #D8D8D8;
+}
+.charBody .orderWrap .middle .detail td div {
+  text-align: left;
+  padding-left: 20px;
+}
+.charBody .orderWrap .middle .detail td div span {
+  font-weight: bold;
+  font-size: 18px;
+  color: #f13e3a;
+}
+.charBody .orderWrap .middle .detail .last {
+  font-size: 12px;
+  color: #a6a6a6;
+}
+.charBody .orderWrap .middle .qrcode {
+  width: 304px;
+  margin-right: 27px;
+}
+.charBody .orderWrap .middle .qrcode .p1 {
+  line-height: 67px;
+  text-align: center;
+  font-size: 14px;
+}
+.charBody .orderWrap .middle .qrcode .code .ewm {
+  padding: 9px;
+  border: 1px solid #E6E6E6;
+}
+.charBody .orderWrap .middle .qrcode .p2 {
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  margin-top: 22px;
+}
+.charBody .orderWrap .middle .qrcode .p2 a {
+  margin-left: 5px;
+  padding: 4px 12px;
+  color: #f13e3a;
+  font-size: 12px;
+  border: 1px solid #F95958;
+  border-radius: 3px;
+}
+.charBody .orderWrap .middle .wxcode {
+  padding-top: 34px;
+}
+.charBody .orderWrap .middle .detail.union {
+  width: 100%;
+}
+.charBody .orderWrap .middle .sure {
+  display: block;
+  margin: 30px auto 0;
+  width: 205px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #F03E3A;
+}
+.charBody .orderWrap .bottom {
+  padding-top: 24px;
+  border-top: 1px solid #E4E4E4;
+  padding-left: 18px;
+  padding-bottom: 10px;
+}
+.charBody .orderWrap .bottom p {
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+}
+.charBody .orderWrap .bottom p img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.charBody .resultWrap {
+  background-color: #ffffff;
+  border: 1px solid #E1E1E1;
+  padding: 0 29px;
+}
+.charBody .resultWrap .part1 {
+  padding-top: 76px;
+  padding-left: 327px;
+  padding-bottom: 80px;
+  background: url(../../images/chargingCenter/cc-icon11.png) no-repeat 222px 76px;
+}
+.charBody .resultWrap .part1 .p1 {
+  font-size: 30px;
+  line-height: 55px;
+}
+.charBody .resultWrap .part1 .p2 {
+  font-size: 18px;
+  line-height: 27px;
+  margin-bottom: 38px;
+}
+.charBody .resultWrap .part1 .p3 {
+  font-size: 14px;
+  color: #808080;
+  line-height: 24px;
+}
+.charBody .resultWrap .part1 .p3 span {
+  color: #f13e3a;
+}
+.charBody .resultWrap .part2 {
+  padding-top: 28px;
+  padding-left: 203px;
+  height: 72px;
+  border-top: 1px solid #E4E4E4;
+}
+.charBody .resultWrap .part2 a {
+  float: left;
+  margin-right: 20px;
+  height: 44px;
+  line-height: 44px;
+  color: #ffffff;
+  font-size: 18px;
+  padding-left: 69px;
+  width: 96px;
+  border-radius: 5px;
+  background-color: #F03E3A;
+  background-repeat: no-repeat;
+  background-position: 28px center;
+}
+.charBody .resultWrap .part2 .a1 {
+  background-image: url(../../images/chargingCenter/cc-icon12.png);
+}
+.charBody .resultWrap .part2 .a2 {
+  background-image: url(../../images/chargingCenter/cc-icon13.png);
+  width: 132px;
+}
+.charBody .resultWrap .part2 .a3 {
+  background-image: url(../../images/chargingCenter/cc-icon14.png);
+}
+.charBody .resultWrap h2 {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 125px;
+  text-align: center;
+  height: 125px;
+}
+.charBody .resultWrap h2 img {
+  vertical-align: text-top;
+  margin-right: 13px;
+}
+.charBody .resultWrap .issue {
+  padding-left: 173px;
+  padding-bottom: 50px;
+}
+.charBody .resultWrap .issue h3 {
+  line-height: 32px;
+  font-size: 14px;
+}
+.charBody .resultWrap .issue p {
+  line-height: 30px;
+  color: #808080;
+  font-size: 14px;
+}
+.charBody .resultWrap .issue p img {
+  vertical-align: text-top;
+  margin-right: 3px;
+}
+.charBody .resultWrap .issue p a {
+  margin: 0 5px;
+  color: #f13e3a;
+}
+.charBody .fail {
+  margin-bottom: 201px;
+}
+.layui-layer {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.layui-layer-iframe iframe {
+  min-height: 212px;
+}
+.modal {
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.modal h1 {
+  height: 42px;
+  line-height: 42px;
+  background-color: #F03E3A;
+  color: #ffffff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-left: 17px;
+  font-size: 16px;
+  font-weight: normal;
+}
+.modal .close {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/chargingCenter/cc-icon18.png) no-repeat;
+}
+.modal .close:hover {
+  background-image: url(../../images/chargingCenter/cc-icon18h.png);
+}
+.jemodal .mbody {
+  height: 170px;
+}
+.jemodal .mbody p {
+  line-height: 104px;
+  text-align: center;
+  color: #333333;
+  font-size: 18px;
+}
+.jemodal .mbody a {
+  display: block;
+  margin: 0 auto;
+  width: 114px;
+  text-align: center;
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  color: #db0500;
+  background-color: #FFC9C8;
+  border: 1px solid #F03E3A;
+  border-radius: 3px;
+  padding: 0;
+}
+.chargingmodal .mbody {
+  height: 250px ;
+}
+.chargingmodal .mbody .mtips {
+  padding-top: 35px;
+  height: 120px;
+  border-bottom: 1px solid #E5E5E5;
+}
+.chargingmodal .mbody .mtips .p1 {
+  padding-left: 106px;
+  font-size: 18px;
+  background: url(../../images/chargingCenter/cc-icon19.png) no-repeat 69px center;
+}
+.chargingmodal .mbody .mtips .p2 {
+  line-height: 38px;
+  color: #807f7f;
+  padding-left: 106px;
+}
+.chargingmodal .mbody .btns {
+  padding-top: 29px;
+  padding-left: 126px;
+  height: 36px;
+}
+.chargingmodal .mbody .btns a {
+  float: left;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  font-size: 14px;
+  color: #db0500;
+  border: 1px solid #F03E3A;
+  border-radius: 3px;
+  margin-right: 11px;
+}
+.chargingmodal .mbody .btns .a1 {
+  width: 114px;
+  background-color: #FFC9C8;
+}
+.chargingmodal .mbody .btns .a2 {
+  width: 180px;
+}
+.layui-layer-iframe .layui-layer-btn,
+.layui-layer-page .layui-layer-btn {
+  position: absolute;
+  z-index: 999;
+  bottom: 28px;
+  width: 100%;
+  padding: 0 !important;
+}
+.layui-layer-btn .layui-layer-btn0 {
+  width: 114px;
+  text-align: center;
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  color: #db0500 !important;
+  background-color: #FFC9C8 !important;
+  border: 1px solid #F03E3A !important;
+  border-radius: 3px;
+  padding: 0;
+  margin: 0;
+}
+.layui-layer-load {
+  background: transparent !important;
+}
+.layui-layer-setwin .layui-layer-close2 {
+  top: -4px !important;
+  right: -4px !important;
+  width: 20px !important;
+  height: 20px !important;
+  background: url(../../images/chargingCenter/cc-icon18.png) no-repeat center !important;
+}
+.layui-layer-setwin .layui-layer-close2:hover {
+  background-image: url(../../images/chargingCenter/cc-icon18h.png);
+}

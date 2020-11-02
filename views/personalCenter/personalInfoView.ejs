@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/jquery.Jcrop.min.css" />
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery.enplaceholder.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/province.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/provinceAndCitySelect.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery.Jcrop.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:3,active:null}) %>
+                <div class="contentWrap infoWrap">
+                    <h1 class="zl"><span>个人资料</span></h1>
+                    <div class="tabNav">
+                        <a href="javascript:;" class="cur">基本信息</a>
+                        <a href="javascript:;">手机绑定</a>
+                        <a href="javascript:;">密码修改</a>
+                    </div>
+                    <div class="tcWrap">
+                        <!--基本信息-->
+                        <div class="tabBlock tbBaseInfo" style="display: block;">
+                            <div class="infoArea">
+                                <!--个人信息-->
+                                <div class="partWrap">
+                                    <div class="partTit">
+                                        <span class="titName">个人信息</span>
+                                        <div id="part1" class="tBtns">
+                                            <a href="javascript:;" class="edit">编辑</a>
+                                            <a href="javascript:;" class="save">保存</a>
+                                        </div>
+                                    </div>
+                                    <div class="item item1 clearfix">
+                                        <label for="">账号：</label>
+                                        <div id="username">
+                                            <%= viewModel.data.userInfoList.user.username %>
+                                        </div>
+                                    </div>
+                                    <div class="item item2 clearfix">
+                                        <label for="">昵称：</label>
+                                        <div class="showItem">
+                                            <%= viewModel.data.userInfoList.user.nickname %>
+                                        </div>
+                                        <div class="editItem">
+                                            <input type="text" autocomplete="off" id="nickname" value="<%= viewModel.data.userInfoList.user.nickname %>" />
+                                        </div>
+                                    </div>
+                                    <div class="item item3 clearfix">
+                                        <label for="">性别：</label>
+                                        <div class="showItem">
+                                            <% if(viewModel.data.userInfoList.user.gender == 0){ %>
+                                                保密
+                                                <% } %>
+                                                    <% if(viewModel.data.userInfoList.user.gender == 1){ %>
+                                                        男
+                                                        <% } %>
+                                                            <% if(viewModel.data.userInfoList.user.gender == 2){ %>
+                                                                女
+                                                                <% } %>
+                                        </div>
+                                        <div class="editItem" id="gender">
+                                            <span <% if(viewModel.data.userInfoList.user.gender==0 ){ %>class="active"
+                                        <% } %>
+                                      gender='0'>保密</span>
+                                            <span <% if(viewModel.data.userInfoList.user.gender==1 ){ %>class="active"
+                                        <% } %>
+                                      gender='1'>男</span>
+                                            <span <% if(viewModel.data.userInfoList.user.gender==2 ){ %>class="active"
+                                        <% } %>
+                                      gender='2'>女</span>
+                                        </div>
+                                    </div>
+                                    <div class="item item4 clearfix">
+                                        <label for="">年龄：</label>
+                                        <div class="showItem">
+                                            <%= viewModel.data.userInfoList.user.age %>
+                                        </div>
+                                        <div class="editItem">
+                                            <div class="select" id="age">
+                                                <p>
+                                                    <% if(viewModel.data.userInfoList.user.age){ %>
+                                                        <%= viewModel.data.userInfoList.user.age %>
+                                                            <% }else{ %>
+                                                                请选择
+                                                                <% } %>
+                                                </p>
+                                                <ul>
+                                                    <li>请选择</li>
+                                                    <li>2010年以后</li>
+                                                    <li>2000~2010年</li>
+                                                    <li>1990~1999年</li>
+                                                    <li>1980~1989年</li>
+                                                    <li>1970~1979年</li>
+                                                    <li>1970年之前</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item item5 clearfix">
+                                        <label for="">地区：</label>
+                                        <div class="showItem">
+                                            <%= ejsFunctions.deletePound(viewModel.data.userInfoList.user.location) %>
+                                        </div>
+                                        <div class="editItem" id="location">
+                                            <div class="select province">
+                                                <% var arr = ejsFunctions.arrayParseByPound(viewModel.data.userInfoList.user.location) %>
+                                                    <p class="index_mask_select" id="index_mask_select_city">
+                                                        <% if(arr[0]){ %>
+                                                            <%= arr[0] %>
+                                                                <% }else{ %>
+                                                                    请选择
+                                                                    <% } %>
+                                                    </p>
+                                                    <ul class="index_mask_list abs index_mask_list_city">
+                                                        <li></li>
+                                                    </ul>
+                                            </div>
+                                            <div class="select city">
+                                                <p class="index_mask_select" id="index_mask_select_area">
+                                                    <% if(arr[1]){ %>
+                                                        <%= arr[1] %>
+                                                            <% }else{ %>
+                                                                请选择
+                                                                <% } %>
+                                                </p>
+                                                <ul class="index_mask_list abs index_mask_list_area">
+                                                    <li></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--兴趣分类-->
+                                <div class="partWrap">
+                                    <div class="partTit">
+                                        <span class="titName">兴趣分类</span>
+                                        <div id="part2" class="tBtns">
+                                            <a href="javascript:;" class="edit">编辑</a>
+                                            <a href="javascript:;" class="save">保存</a>
+                                        </div>
+                                    </div>
+                                    <div class="item item6 clearfix">
+                                        <label for="">分类信息：</label>
+                                        <div class="showItem">
+                                            <span>推 荐</span>
+                                            <!--循环兴趣列表-->
+                                            <% for (var i = 0;i < viewModel.data.userInfoList.category.length;i++){ %>
+                                                <span><%= viewModel.data.userInfoList.category[i].name %></span>
+                                                <% } %>
+                                        </div>
+                                        <div class="editItem">
+                                            <div class="exist clearfix" id="cateids">
+                                                <span class="tj">推 荐</span>
+                                                <% for (var i = 0;i < viewModel.data.userInfoList.category.length;i++){ %>
+                                                    <span class="isSelected" data-id="<%= viewModel.data.userInfoList.category[i].platformcateid %>"><%= viewModel.data.userInfoList.category[i].name %>
+                                        <a href="javascript:;" class="del"></a></span>
+                                                    <% } %>
+                                                        <a href="javascript:;" class="more">更多</a>
+                                            </div>
+                                            <div class="addItem">
+                                                <% for(var i = 0; i < viewModel.category.length;i++){ %>
+                                                    <span data-id="<%= viewModel.category[i].code %>"><%= viewModel.category[i].name %>
+                                        <a href="javascript:;" class="add"></a></span>
+                                                    <% } %>
+                                                        <a href="javascript:;" class="fold">收起</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--头像设置-->
+                                <div class="partWrap">
+                                    <div class="partTit">
+                                        <span class="titName">头像设置</span>
+                                        <div id="part3" class="tBtns">
+                                            <a href="javascript:;" class="edit">编辑</a>
+                                            <a href="javascript:;" class="save">保存</a>
+                                        </div>
+                                    </div>
+                                    <div class="item item7 clearfix">
+                                        <label for=""></label>
+                                        <div class="showItem">
+                                            <% if(viewModel.data.userInfoList.user.avatar){%>
+                                                <img id="showAva" src="<%= viewModel.data.userInfoList.user.avatar %>" />
+                                            <% }else{ %>
+                                            <img id="showAva" src="/images/personal/default-avatar.jpg" /> 
+                                            <% } %>                             
+                                        </div>
+                                        <div class="editItem">
+                                            <div class="tabHead">
+                                                <a href="javascript:;" class="cur">本地上传</a><a href="javascript:;">系统头像</a>
+                                            </div>
+                                            <div class="tabAvatar ava1" style="display: block;">
+                                                <form method="post" enctype="multipart/form-data">
+                                                    <input type="file" name="uploadImage" id="uploadImage" value="" style="display: none;" />
+                                                </form>
+
+                                                <label class="uploadImage" for="uploadImage">选择您要上传的头像</label>
+                                                <div class="clearfix">
+                                                    <div class="upload">
+                                                        <img id="uploadPreview" src="/images/personal/p-info-icon7.jpg" />
+                                                    </div>
+                                                    <div class="preview">
+                                                        <p class="p1">头像预览</p>
+                                                        <div class="preview100">
+                                                            <img src="/images/personal/default.jpg" />
+                                                        </div>
+                                                        <p class="p2">100px x 100px</p>
+                                                        <div class="preview50">
+                                                            <img src="/images/personal/default.jpg" />
+                                                        </div>
+                                                        <p class="p2">50px x 50px</p>
+                                                    </div>
+                                                    <!--获取剪裁选框坐标、宽高-->
+                                                    <input type="hidden" id="imageX1" name="imageX1" value="" />
+                                                    <input type="hidden" id="imageY1" name="imageY1" value="" />
+                                                    <input type="hidden" id="imageX2" name="imageX2" value="" />
+                                                    <input type="hidden" id="imageY2" name="imageY2" value="" />
+                                                    <input type="hidden" id="imageWidth" name="imageWidth" value="" />
+                                                    <input type="hidden" id="imageHeight" name="imageHeight" value="" />
+                                                    <input type="hidden" id="imgSrc" name="imgSrc" value="" />
+                                                    <input type="hidden" id="clipSrc" name="clipSrc" value="" />
+
+                                                </div>
+                                            </div>
+                                            <!--系统默认头像-->
+                                            <div class="tabAvatar ava2">
+                                                <ul class="clearfix">
+                                                    <% for(var i = 0;i < viewModel.data.avatarList.length;i++){ %>
+                                                        <li data-name="<%= viewModel.data.avatarList[i].filename %>"><img src="<%= viewModel.data.avatarList[i].url %>" /></li>
+                                                        <% } %>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--手机绑定-->
+                        <div class="tabBlock tbMobile">
+                            <% if(!viewModel.data.userInfoList.user.phonenumber){ %>
+                                <!--未绑定手机号立即绑定-->
+                                <div class="step step1">
+                                    <p class="p1">您暂未绑定手机号！<a href="javascript:;">立即绑定 >></a></p>
+                                    <p class="p2">温馨提示：<br/>1.绑定手机号可提高账户安全；<br/>2.绑定后，手机号可用于登录中国知网、找回密码等。</p>
+                                </div>
+                                <div class="step step3" style="display: none;">
+                                    <p class="p1">绑定手机号<span class="safeNum"></span><input class="orignNum" type="hidden" value="<%= viewModel.data.userInfoList.user.phonenumber %>">
+                                    </p>
+                                    <p class="p2">该手机号可用于登录中国知网、找回密码等。</p>
+                                    <div class="btns">
+                                        <a href="javascript:;" class="a1">更换绑定手机号</a>
+                                    </div>
+                                </div>
+                                <% } else{ %>
+                                    <!--已绑定手机号-->
+                                    <div class="step step3">
+                                        <p class="p1">绑定手机号<span class="safeNum"></span><input class="orignNum" type="hidden" value="<%= viewModel.data.userInfoList.user.phonenumber %>">
+                                        </p>
+                                        <p class="p2">该手机号可用于登录中国知网、找回密码等。</p>
+                                        <div class="btns">
+                                            <a href="javascript:;" class="a1">更换绑定手机号</a>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                        <!--绑定手机号-->
+                                        <div class="step step2" style="display: none;">
+                                            <input type="text" class="input" id="tel" placeholder="请输入您的手机号" autocomplete="off" />
+                                            <p class="error error1"></p>
+                                            <div class="row clearfix">
+                                                <input type="text" class="input" id="yzm" placeholder="请输入验证码" autocomplete="off" />
+                                                <a id="sendCaptcha" href="javascript:;" class="yzm status1">发送验证码</a>
+                                            </div>
+                                            <p class="error error2"></p>
+                                            <div class="btns">
+                                                <a href="javascript:;" id="bindNum" class="a1">绑 定</a>
+                                                <a href="javascript:;" id="cancel" class="a2">取 消</a>
+                                            </div>
+                                        </div>
+                                        <!--更换手机号-->
+                                        <div class="step step4" style="display: none;">
+                                            <p class="p3">为保障您的账号安全，更换手机前请先进行安全验证</p>
+                                            <p class="p1">您当前的手机号是号<span class="safeNum"></span></p>
+                                            <input type="text" class="input" id="" placeholder="请输入完整的当前手机号码" autocomplete="off" />
+                                            <p class="error">
+                                                <!--填写手机号与原手机号不一致-->
+                                            </p>
+                                            <div class="btns">
+                                                <a href="javascript:;" class="a1">下一步</a>
+                                            </div>
+                                        </div>
+                        </div>
+                        <!--修改密码-->
+                        <div class="tabBlock tbPassword">
+                            <div class="items">
+                                <div class="item">
+                                    <label for="">原密码：</label>
+                                    <input id="psw" type="password" name="" />
+                                </div>
+                                <p class="error error1"></p>
+                                <div class="item">
+                                    <label for="">新密码：</label>
+                                    <input id="newPsw1" type="password" name="" placeholder="请使用4-20位英文字母+数字组合" />
+                                </div>
+                                <p class="error error2"></p>
+                                <div class="item">
+                                    <label for="">再次确认：</label>
+                                    <input id="newPsw2" type="password" name="" placeholder="请再次输入您的密码" />
+                                </div>
+                                <p class="error error3"></p>
+                            </div>
+                            <a href="javascript:;" class="sure">确 认 修 改</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script src="/lib/layui/layui.js"></script>
+            <script>
+                'use strict'
+                //选项卡
+                TableTransition($(".tabNav a"), $(".tabBlock"), "click", "cur")
+                    //头像选项卡
+                TableTransition($(".tabHead a"), $(".tabAvatar"), "click", "cur")
+                    //选择男女
+                $(".item3 .editItem span").click(function() {
+                        $(this).addClass("active").siblings().removeClass("active")
+                    })
+                    //选择出生日期
+                $.divselect($(".select p"), $(".select ul"), $(".select ul li"))
+                    //兴趣分类展开收起
+                $(".item6 .editItem .more").click(function() {
+                    $(this).hide()
+                    $(this).parents(".editItem").find(".addItem").slideDown(200)
+                })
+                $(".item6 .editItem .fold").click(function() {
+                        $(this).parent().slideUp(200)
+                        $(this).parents(".editItem").find(".more").show()
+                    })
+                    //兴趣分类判断是否用户已经选择
+                var selectStr = ''
+                $(".exist .isSelected").each(function() {
+                    var selectId = $(this).attr("data-id")
+                    selectStr += selectId
+                })
+                $(".addItem span").each(function() {
+                        var allStr = $(this).attr("data-id")
+                        if (selectStr.indexOf(allStr) == -1) {
+                            $(this).show()
+                        } else {
+                            $(this).hide()
+                        }
+                    })
+                    //编辑状态下删除添加分类兴趣
+                $(".exist").on("click", ".isSelected a", function() {
+                    var text = $(this).parent().text();
+                    var dataId = $(this).parent().attr("data-id")
+                    var spanHtml = '<span data-id="' + dataId + '">' + text + '<a href="javascript:;" class="add"></a></span>'
+                    $(".addItem .fold").before(spanHtml)
+                    $(this).parent().remove()
+                })
+                $(".addItem").on("click", " span a", function() {
+                    var text = $(this).parent().text();
+                    var dataId = $(this).parent().attr("data-id")
+                    var spanHtml = '<span class="isSelected" data-id="' + dataId + '">' + text + '<a href="javascript:;" class="del"></a></span>'
+                    $(".exist .more").before(spanHtml)
+                    $(this).parent().remove()
+                })
+
+                //选择系统头像
+                $(".ava2 ul li").click(function() {
+                        $(this).addClass("click").siblings().removeClass("click")
+                    })
+                    //编辑保存状态切换
+                $('.tbBaseInfo .tBtns .edit').click(function() {
+                        $(this).parents('.partWrap').find('.showItem').hide()
+                        $(this).parents('.partWrap').find('.editItem').show()
+                        $(this).hide().siblings().css("display", "block")
+                    })
+                    //头像剪裁上传
+                var jcrop_api, boundx, boundy;
+                var $pcnt1 = $('.preview100'),
+                    $pcnt2 = $('.preview50'),
+                    $pimg1 = $('.preview100 img'),
+                    $pimg2 = $('.preview50 img');
+                var xsize1 = 0,
+                    ysize1 = 0,
+                    xsize2 = 0,
+                    ysize2 = 0;
+                $("#uploadImage").on("change", function() {
+                    // 得到一个参考文件列表
+                    var files = !!this.files ? this.files : [];
+                    // 如果没有选择任何文件,或者没有文件读到就返回
+                    if (!files.length || !window.FileReader) return;
+                    // 只有进行选择的文件是一个形象
+                    if (/^image/.test(files[0].type)) {
+                        // 创建一个新的FileReader的实例
+                        var reader = new FileReader();
+                        // 读取本地文件作为一个DataURL
+                        reader.readAsDataURL(files[0]);
+                        // 当加载时,图像数据设置为背景的div
+                        var image = document.getElementById('uploadPreview');
+                        reader.onload = function(theFile) {
+                            //image.src = theFile.target.result;
+                            //提交到图片上传接口返回地址链接
+                            var formData = new FormData();
+                            formData.append('img', $('#uploadImage')[0].files[0]);
+
+                            $.ajax({
+                                url: '/personalCenter/uploadImg',
+                                type: 'POST',
+                                contentType: false,
+                                data: formData,
+                                processData: false,
+                                //async:false,             
+                                success: function(response) {
+                                    console.log(response.msg);
+                                    $('#imgSrc').val(response.msg)
+                                    image.src = response.msg;
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+
+                                }
+                            });
+                            image.onload = function(theFile) {
+                                var originalS = files[0].size;
+                                var maxSize = 2097152 //2M
+                                var originalW = image.width;
+                                var originalH = image.height;
+                                var wrapW = $(".upload").width();
+                                var wrapH = $(".upload").height();
+                                var showImg = $(".upload img")
+                                if (originalW > originalH) {
+                                    showImg.width(wrapW)
+                                    showImg.height("auto");
+                                }
+                                if (originalW < originalH || originalW == originalH) {
+                                    showImg.height(wrapH);
+                                    showImg.width("auto");
+                                }
+                                //判断上传图片大小
+                                if (originalS > maxSize) {
+                                    return false
+                                    console.log("不能大于2M");
+                                }
+                                //给预览img添加路径
+                                $(".preview100 img,.preview50 img,.jcrop-holder img").attr("src", image.src);
+                                //设置剪裁宽高
+                                $(".jcrop-holder, .jcrop-tracker").css({
+                                    "width": showImg.width(),
+                                    "height": showImg.height()
+                                });
+
+                                if (jcrop_api) {
+                                    jcrop_api.setImage(image.src); //解决图片重新上传问题
+                                    jcrop_api.destroy();
+                                }
+                                xsize1 = $pcnt1.width();
+                                ysize1 = $pcnt1.height();
+                                xsize2 = $pcnt2.width();
+                                ysize2 = $pcnt2.height();
+                                var Coords = {
+                                    "w": 100,
+                                    "h": 100,
+                                    "x": 0,
+                                    "y": 0,
+                                    "x2": 100,
+                                    "y2": 100
+                                };
+                                $('#uploadPreview').Jcrop({
+                                    onChange: updatePreview,
+                                    onSelect: updatePreview,
+                                    aspectRatio: 1,
+                                    setSelect: [0, 0, 100, 100]
+                                }, function() {
+                                    jcrop_api = this;
+                                    var bounds = this.getBounds();
+                                    boundx = bounds[0];
+                                    boundy = bounds[1];
+                                    var avaW = $('.jcrop-holder').width()
+                                    var avaH = $('.jcrop-holder').height()
+                                    $('#imageWidth').val(avaW);
+                                    $('#imageHeight').val(avaH);
+                                    //重新加载
+                                    updatePreview(Coords);
+                                    // Store the API in the jcrop_api variable
+                                })
+                            }
+                        }
+
+                        function updatePreview(coords) {
+                            if (parseInt(coords.w) > 0) {
+                                var rx1 = xsize1 / coords.w;
+                                var ry1 = ysize1 / coords.h;
+                                var rx2 = xsize2 / coords.w;
+                                var ry2 = ysize2 / coords.h;
+                                $pimg1.css({
+                                    width: Math.round(rx1 * boundx) + 'px',
+                                    height: Math.round(ry1 * boundy) + 'px',
+                                    marginLeft: '-' + Math.round(rx1 * coords.x) + 'px',
+                                    marginTop: '-' + Math.round(ry1 * coords.y) + 'px'
+                                });
+                                $pimg2.css({
+                                    width: Math.round(rx2 * boundx) + 'px',
+                                    height: Math.round(ry2 * boundy) + 'px',
+                                    marginLeft: '-' + Math.round(rx2 * coords.x) + 'px',
+                                    marginTop: '-' + Math.round(ry2 * coords.y) + 'px'
+                                });
+                                $('#imageX1').val(coords.x);
+                                $('#imageY1').val(coords.y);
+                                $('#imageX2').val(coords.x2);
+                                $('#imageY2').val(coords.y2);
+                                //$('#imageWidth').val(coords.w);
+                                //$('#imageHeight').val(coords.h);
+                            }
+                            console.log(coords.x, coords.y, coords.x2, coords.y2, coords.w, coords.h)
+                        };
+
+
+                    }
+                });
+
+                //绑定手机号、更改手机号
+                var bindPhone = $('.step1 a')
+                var phoneNode = $(".step3 .p1 .orignNum");
+                var phoneNumInput = $('.step2 #tel');
+                var captcha = $('.step2 #yzm');
+                var sendCaptcha = $('#sendCaptcha');
+                //var orignNum=phoneNode.text();
+                var changeBtn = $(".step3 .a1");
+                var changeflag = 0;
+                var isRegistered = 1 // 1 被注册， 0 未被注册
+                var yzmCorrect = 0; // 1 验证码正确， 0不正确
+                var repeatTime = 30; // 短信重发时间间隔
+                //*处理手机号
+                function showPhone(phone, textNode) {
+                    var str = phone.substr(0, 3) + '******' + phone.substr(9);
+                    textNode.text(str)
+                }
+
+                if (phoneNode.val()) {
+                    showPhone(phoneNode.val(), $(".step .p1 .safeNum"))
+                }
+                changeBtn.click(function() {
+                    $(this).parents(".step3").hide()
+                    $(".step4").show()
+                })
+                bindPhone.click(function() {
+                        $(this).parents(".step1").hide()
+                        $(".step2").show()
+                    })
+                    //判断更改手机号安全性
+                $(".step4 .input").blur(function() {
+                    var orignInputNum = $(".step4 .input").val().trim();
+                    if (orignInputNum == phoneNode.val()) {
+                        changeflag = 1
+                        $(".step4 .error").text('')
+                    } else {
+                        $(".step4 .error").text('请输入正确原手机号')
+                        changeflag = 0
+                    }
+                })
+                $(".step4 .a1").click(function() {
+                        var orignInputNum = $(".step4 .input").val().trim();
+                        console.log(orignInputNum, phoneNode.val())
+                        if (orignInputNum == phoneNode.val()) {
+                            $(".step4").hide()
+                            $(".step4 input").val("")
+                            $(".step2").show()
+                        } else {
+                            $(".step4 .error").text('请输入正确原手机号')
+                        }
+                    })
+                    // 验证手机号格式
+                    // 返回值 -1 为空，0 格式不正确，1 正确
+                function verifyPhoneNum(phoneNum) {
+                    if (!phoneNum) {
+                        return -1;
+                    } else if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phoneNum))) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+                }
+
+                // 验证码重新发送倒数计时 time为多少秒
+                function countDownTime(repeatTime, node) {
+                    var time = repeatTime;
+                    var timer = setInterval(function() {
+                        if (repeatTime != 0) {
+                            node.html('再次发送（' + repeatTime-- + '秒）');
+                            if ($('.step2').css("display") == "none") {
+                                clearInterval(timer);
+                                $('.step2 .yzm').attr("class", "yzm status1").text("获取短信验证码")
+                            }
+                        } else {
+                            clearInterval(timer);
+                            node.removeClass('status1').addClass('status2');
+                            node.html('获取短信验证码');
+                            console.log('repeatTime', time)
+                            limitSendCaptcha(time);
+                        }
+
+                    }, 1000)
+                }
+
+                // 验证码发送后 一分钟后才能再次发送
+                function limitSendCaptcha(repeatTime) {
+                    sendCaptcha.click(function() {
+                        var $this = $(this);
+                        if (isRegistered == 0) {
+                            var errorDom = $(this).parent().parent().children('.error1');
+                            var errorDomCaptcha = $(this).parent().parent().children('.error2');
+                            var phoneNum = phoneNumInput.val().trim();
+                            if (verifyPhoneNum(phoneNum) == 1) {
+                                $(this).removeClass('status2').addClass('status1');
+                                var sendCaptchaUrl = '/personalCenter/sendCaptcha?phoneNum=' + phoneNum;
+                                $.ajax({
+                                    url: sendCaptchaUrl,
+                                    dataType: "json",
+                                    type: "get",
+                                    success: function(response) {
+                                        console.log(response)
+                                        if (response.errorCode == 1) {
+                                            errorDom.html('');
+                                            $this.unbind('click');
+                                            countDownTime(repeatTime, $this);
+                                            var codeNum = response.body.Code
+                                            captcha.blur(function() {
+                                                var captchaVal = $(this).val().trim()
+                                                if (captchaVal == codeNum) {
+                                                    yzmCorrect = 1
+                                                    errorDomCaptcha.text('')
+                                                } else {
+                                                    yzmCorrect = 0
+                                                    errorDomCaptcha.text('短信验证码填写错误，请重新输入')
+                                                }
+                                            })
+                                        } else {
+                                            errorDom.html('该手机号获取验证码已达上限，请明天再试。');
+                                        }
+                                    },
+                                    error: function(error) {
+                                        //请求出错处理
+                                        console.log(error);
+                                    }
+                                });
+                            } else {
+                                // 手机号码有误，不发送
+                            }
+                        }
+
+                    })
+                }
+
+                phoneNumInput.focus(function() {
+                        $(this).parent().children('.error1').html('');
+                    })
+                    // 校验手机号码格式和是否可以注册
+                phoneNumInput.blur(function() {
+                        var errorDom = $(this).parent().children('.error1');
+                        var phoneNum = phoneNumInput.val().trim();
+                        if (verifyPhoneNum(phoneNum) == -1) {
+                            errorDom.html('手机号不能为空！');
+                            sendCaptcha.removeClass('status2').addClass('status1');
+                        } else if (verifyPhoneNum(phoneNum) == 0) {
+                            errorDom.html('请输入正确手机号');
+                            sendCaptcha.removeClass('status2').addClass('status1');
+                        } else {
+                            var verifyPhoneNumUrl = '/personalCenter/verifyPhoneNum?phoneNum=' + phoneNum;
+                            $.ajax({
+                                url: verifyPhoneNumUrl,
+                                dataType: "json",
+                                type: "get",
+                                success: function(response) {
+                                    // console.log(response)
+                                    if (response.Code == 1) {
+                                        isRegistered = 0;
+                                        errorDom.html('');
+                                        sendCaptcha.removeClass('status1').addClass('status2');
+                                    } else {
+                                        isRegistered = 1;
+                                        errorDom.html('手机号已被注册！');
+                                    }
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+                    })
+                    // 手机验证码
+                limitSendCaptcha(repeatTime);
+                //手机号绑定事件
+                $("#bindNum").click(function() {
+                    if (isRegistered == 0 && yzmCorrect == 1) {
+                        var phonenumber = $('#tel').val();
+                        var phoneUrl = '/personalCenter/updatePhone?phonenumber=' + phonenumber;
+                        $.ajax({
+                            type: "get",
+                            url: phoneUrl,
+                            dataType: "json",
+                            success: function(response) {
+                                console.log(response)
+                                if (response.errorCode == 0) {
+                                    //layer.msg('绑定成功')
+                                    $(".tbMobile .step").hide()
+                                    $(".tbMobile .step3").show()
+                                    showPhone(phonenumber, $(".step .p1 span"))
+                                    $('.orignNum').val(phonenumber)
+                                    $('.step2 input').val('')
+                                    yzmCorrect = 0;
+                                    countDownTime(repeatTime, sendCaptcha)
+                                    limitSendCaptcha(repeatTime)
+                                } else {
+                                    layer.msg('绑定失败')
+                                }
+                            },
+                            error: function(error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+
+                        });
+                    }
+                })
+                    //手机取消绑定
+                $("#cancel").click(function() {
+                    if (!phoneNode.val()) {
+                        $(".tbMobile .step").hide()
+                        $(".tbMobile .step1").show()
+                    } else {
+                        $(".tbMobile .step").hide()
+                        $(".tbMobile .step3").show()
+                    }
+                })
+
+                //更改密码
+                var sure = $(".tbPassword .sure");
+                var orignalCorrect = 0; //0未输入原密码；1输入原密码
+                var newCorrect = 0; //0新密码设置错误；1新密码设置正确
+                var repeatCorrect = 0; //0确认新密码错误；1确认新密码正确
+                //原密码不能为空
+                $("#psw").blur(function() {
+                        var errorDom = $(this).parent().parent().children('.error1');
+                        var pswVal = $(this).val().trim();
+                        if (!pswVal) {
+                            newCorrect = 0
+                            errorDom.html('请输入原密码');
+                        } else {
+                            newCorrect = 1;
+                            errorDom.html('')
+                        }
+                    })
+                    //新密码格式验证
+                $("#newPsw1").blur(function() {
+                        var errorDom = $(this).parent().parent().children('.error2');
+                        var pswVal = $('#psw').val().trim();
+                        var newpswVal = $(this).val().trim();
+                        if (!newpswVal) {
+                            newCorrect = 0
+                            errorDom.html('新密码不能为空！');
+                        } else if (!(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/).test(newpswVal)) {
+                            newCorrect = 0
+                            errorDom.html('请使用4-20位英文字母+数字组合');
+                        } else if (newpswVal == pswVal) {
+                            newCorrect = 0
+                            errorDom.html('新密码不能与旧密码相同，请重新输入');
+                        } else {
+                            newCorrect = 1
+                            errorDom.html('');
+                        }
+                    })
+                    //再次输入密码验证
+                $("#newPsw2").blur(function() {
+                    var errorDom = $(this).parent().parent().children('.error3');
+                    var newpswVal = $("#newPsw1").val().trim();
+                    var repeatpswVal = $(this).val().trim();
+                    if (!repeatpswVal) {
+                        repeatCorrect = 0;
+                        errorDom.html('再次确认密码不能为空');
+                    } else if (repeatpswVal != newpswVal) {
+                        repeatCorrect = 0;
+                        errorDom.html('两次密码不一致请重新输入');
+                    } else {
+                        repeatCorrect = 1;
+                        errorDom.html('');
+                    }
+                })
+                var layer = '';
+                layui.use('layer', function() {
+                    layer = layui.layer;
+                });
+                sure.click(function() {
+                        if (repeatCorrect == 1 && newCorrect == 1 && repeatCorrect == 1) {
+                            var password = $("#psw").val();
+                            var newPassword = $("#newPsw1").val();
+                            var pswUrl = '/personalCenter/updatePassword?password=' + password + '&newPassword=' + newPassword
+                            $.ajax({
+                                url: pswUrl,
+                                type: "get",
+                                dataType: "json",
+                                success: function(response) {
+                                    if (response.errorcode == 1) {
+                                        layer.msg(response.errormessage)
+                                        $('.tbPassword .items input').val('')
+                                    } else {
+                                        layer.msg(response.errormessage)
+                                    }
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+                                }
+                            });
+                        }
+                    })
+                    //个人信息修改保存
+                $("#part1 .save").click(function() {
+                    var username = $('#username').text().trim();
+                    var nickname = $('#nickname').val().trim();
+                    var gender = $('#gender .active').attr('gender');
+                    var age = $('#age p').text().trim();
+                    age = age.replace('\n', '')
+                    age = age.replace('\t', '')
+                    if (age == '请选择') {
+                        age = ''
+                    };
+                    var mylocation = '';
+                    var mylocationStr = '';
+                    if ($('#location .province p').text().trim() != '请选择' && $('#location .city p').text().trim() != '请选择' && $('#location .city p').text().trim() != '市或区') {
+                        mylocation = $('#location .province p').text().trim() + '#' + $('#location .city p').text()
+                        mylocationStr = $('#location .province p').text().trim() + $('#location .city p').text()
+                    };
+                    var formData = {
+                        username: username,
+                        nickname: nickname,
+                        gender: gender,
+                        age: age,
+                        mylocation: mylocation
+                    };
+                    console.log(formData)
+                        //给显示页面赋值
+                    $(".item1 .showItem").text(username)
+                    $(".item2 .showItem").text(nickname)
+                    $(".item3 .showItem").text($('#gender .active').text())
+                    $(".item4 .showItem").text(age)
+                    $(".item5 .showItem").text(mylocationStr)
+                    $('#part1 .save').parents('.partWrap').find('.showItem').show()
+                    $('#part1 .save').parents('.partWrap').find('.editItem').hide()
+                    $('#part1 .save').hide().siblings().css("display", "block")
+                    $.ajax({
+                        type: "post",
+                        url: "/personalCenter/updatePersonalInfoA",
+                        dataType: "json", //返回格式
+                        data: formData,
+                        success: function(response) {
+                            console.log(response.code)
+                            if (response.code == '0') {
+                                console.log('success')
+                            }
+                        },
+                        error: function(error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+
+                })
+
+                //个人兴趣分类修改保存
+                $('#part2 .save').click(function() {
+                        var username = $('#username').text().trim();
+                        var cateStr = ''
+                        if ($('.exist .isSelected').length > 0) {
+                            $('.exist .isSelected').each(function() {
+                                var cateId = $(this).attr('data-id')
+                                cateStr += cateId + ','
+                            })
+                            cateStr = cateStr.substring(0, cateStr.length - 1);
+                        }
+                        var cateids = cateStr;
+                        var formData = {
+                            username: username,
+                            cateids: cateids
+                        };
+                        console.log(formData)
+                            //给显示页面赋值
+                        var spanStr = '<span>推 荐</span>'
+                        for (var i = 0; i < $('.exist .isSelected').length; i++) {
+                            spanStr += '<span>' + $('.exist .isSelected').eq(i).text() + '</span>'
+                        }
+                        $(".item6 .showItem").html(spanStr)
+                        $('#part2 .save').parents('.partWrap').find('.showItem').show()
+                        $('#part2 .save').parents('.partWrap').find('.editItem').hide()
+                        $('#part2 .save').hide().siblings().css("display", "block")
+                            //收起编辑页面的折叠
+                        $('.item6 .editItem .addItem').hide()
+                        $('.item6 .editItem .exist .more').show()
+                        $.ajax({
+                            type: 'post',
+                            url: '/personalCenter/updatePersonalInfoB',
+                            dataType: 'json', //返回格式
+                            data: formData,
+                            success: function(response) {
+                                console.log(response.code)
+                                if (response.code == '0') {
+                                    console.log('success')
+                                }
+                            },
+                            error: function(error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+                    })
+                    //头像保存
+                $('#part3 .save').click(function() {
+                    var index = $('.tabHead .cur').index()
+                    console.log(index)
+                    if (index == '0') {
+                        var imgSrc = $('#imgSrc').val().trim()
+                        console.log(imgSrc)
+                        if (imgSrc == '') {
+                            $('#part3 .save').parents('.partWrap').find('.showItem').css('display', 'block')
+                            $('#part3 .save').parents('.partWrap').find('.editItem').css('display', 'none')
+                            $('#part3 .save').hide().siblings().css("display", "block")
+                        } else {
+                            imgSrc = imgSrc.replace(/^https:\/\/[^/]+/, "");
+                            var addr = imgSrc.substr(imgSrc.lastIndexOf('/', imgSrc.lastIndexOf('/') - 1) + 1);
+                            var index = addr.lastIndexOf("\/");
+                            var fileName = decodeURI(addr.substring(index + 1, addr.length));
+                            console.log(fileName)
+                            var imgWidth = $('#imageWidth').val();
+                            var imgHeight = $('#imageHeight').val();
+                            var imageX1 = $('#imageX1').val();
+                            var imageX2 = $('#imageX2').val();
+                            var imageY1 = $('#imageY1').val();
+                            var imageY2 = $('#imageY2').val()
+                            var formData = {
+                                fileName: fileName,
+                                imgWidth: imgWidth,
+                                imgHeight: imgHeight,
+                                imageX1: imageX1,
+                                imageX2: imageX2,
+                                imageY1: imageY1,
+                                imageY2: imageY2
+                            }
+                            console.log(formData)
+                            $.ajax({
+                                type: 'post',
+                                url: '/personalCenter/clipImg',
+                                data: formData,
+                                dataType: 'json',
+                                success: function(response) {
+                                    var avatar = response.msg
+                                    console.log(avatar);
+                                    $('#clipSrc').val(avatar)
+                                    $('#showAva').attr('src', avatar)
+                                        //同步到左侧菜单用户头像
+                                    $('.photo .avatar img').attr('src', avatar)
+                                    setTimeout(function() {
+                                        $('#part3 .save').parents('.partWrap').find('.showItem').css('display', 'block');
+                                        $('#part3 .save').parents('.partWrap').find('.editItem').css('display', 'none');
+                                        $('#part3 .save').hide().siblings().css("display", "block");
+                                        $('.ava2 li').removeClass('click')
+                                    }, 1000)
+
+                                    //提交到修改个人信息接口
+                                    var data = {
+                                        avatar: avatar
+                                    }
+                                    $.ajax({
+                                        type: 'post',
+                                        url: '/personalCenter/updatePersonalInfoC',
+                                        dataType: 'json',
+                                        data: data,
+                                        success: function(res) {
+                                            if(res.code == 0){
+                                                $('.header .username .avatar img').attr('src',avatar);
+                                            }
+                                        },
+                                        error: function(error) {
+                                            //请求出错处理
+                                            console.log(error);
+
+                                        }
+                                    });
+
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+
+                                }
+                            });
+                        }
+                    }
+                    if (index == '1') {
+                        if (!$('.ava2 li').hasClass('click')) {
+                            $('#part3 .save').parents('.partWrap').find('.showItem').css('display', 'block')
+                            $('#part3 .save').parents('.partWrap').find('.editItem').css('display', 'none')
+                            $('#part3 .save').hide().siblings().css("display", "block")
+                        } else {
+                            var avatar = $('.ava2 .click').attr('data-name') + '.png';
+                            var fileUrl = $('.ava2 .click img').attr('src');
+                            var formData = {
+                                    avatar: avatar
+                                }
+                                //              console.log(avatar)
+                            $.ajax({
+                                type: 'post',
+                                url: '/personalCenter/updatePersonalInfoC',
+                                data: formData,
+                                dataType: 'json',
+                                success: function(response) {
+                                    console.log(response);
+                                    if (response.code == '0') {
+                                        $('#showAva').attr('src', fileUrl)
+                                        $('.photo .avatar img').attr('src', fileUrl)
+                                        $('.header .username .avatar img').attr('src',fileUrl);
+                                        $('#part3 .save').parents('.partWrap').find('.showItem').css('display', 'block');
+                                        $('#part3 .save').parents('.partWrap').find('.editItem').css('display', 'none');
+                                        $('#part3 .save').hide().siblings().css("display", "block");
+                                        $('.ava2 li').removeClass('click');
+
+                                    } else {
+                                        console.log('fail')
+                                    }
+
+                                },
+                                error: function(error) {
+                                    //请求出错处理
+                                    console.log(error);
+
+                                }
+                            });
+                        }
+
+                    }
+
+
+                })
+            </script>
+</body>
+
+</html>

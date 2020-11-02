@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/recharge/recharge.css" />
+        <script src="/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="modal chargingmodal">
+        <h1>正在充值</h1>
+        <div class="mbody">
+            <div class="mtips">
+                <p class="p1">请您在新打开的页面完成充值后选择：</p>
+                <p class="p2">充值完成前请不要关闭此窗口</p>
+            </div>
+            <div class="btns" id="btns">
+                <a href="javascript:;" class="a1">充值成功</a>
+                <a href="javascript:;" class="a2">充值失败，请重新支付</a>
+            </div>
+        </div>
+        <div style="display: none;">
+            <!--<input type="hidden" id="rechargeMoney" value="">-->
+        </div>
+    </div>
+    <script>
+        // console.log(parent.document.getElementById('bonus').value);
+        $('#btns a').click(function() {
+            var index = $('#btns a').index(this);
+            var rechargeMoney = parent.document.getElementById('rechargeMoney').value;
+            var bonus = parent.document.getElementById('bonus').value;
+            var rechargeTime = parent.document.getElementById('rechargeTime').value;
+            var rechargeType = parent.document.getElementById('rechargeType').value;
+            var order = parent.document.getElementById('order').value;
+
+            // 查询订单支付状态
+            if (rechargeType == 13) {
+                orderCheckUrl = '/temp/recharge/orderCheck?id=' + order + '&payType=alipay';
+            } else if (rechargeType == 12) {
+                orderCheckUrl = '/temp/recharge/orderCheck?id=' + order + '&payType=wechat';
+            } else if (rechargeType == 7) {
+                orderCheckUrl = '/temp/recharge/orderCheck?id=' + order + '&payType=union';
+            }
+            $.ajax({
+                url: orderCheckUrl,
+                dataType: "json",
+                type: "get",
+                success: function(response) {
+                    console.log('支付后查询', response)
+                    if (response.errorCode == 1) {
+                        parent.location.href = '/temp/recharge/success?rechargeMoney=' + rechargeMoney + '&bonus=' + bonus + '&rechargeTime=' + rechargeTime;
+                    } else {
+                        if (index == 1) {
+                            parent.location.href = '/temp/recharge/home';
+                        } else {
+                            parent.location.href = '/temp/recharge/fail';
+                        }
+
+                    }
+                },
+                error: function(error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+
+            // if (index == 0) {
+            //     parent.location.href = '/recharge/success?rechargeMoney=' + rechargeMoney + '&bonus=' + bonus + '&rechargeTime=' + rechargeTime;
+            // } else if (index == 1) {
+            //     parent.location.href = '/recharge/fail';
+            // }
+        })
+    </script>
+
+</body>
+
+</html>

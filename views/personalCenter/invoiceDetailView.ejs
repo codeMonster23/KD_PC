@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:2,active:5}) %>
+                <div class="contentWrap billsWrap">
+                    <h1 class="fp"><span>发票信息</span></h1>
+                    <div class="billBlock">
+                        <div class="part">
+                            <p class="title">发票详情</p>
+                            <table class="detailTable" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="dl" width="183">发票类型</td>
+                                    <td class="dr">单位</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">发票抬头</td>
+                                    <td class="dr">上海敏学科技股份有限公司</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">纳税人识别号</td>
+                                    <td class="dr">356246621446622354423</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">开户银行</td>
+                                    <td class="dr">中国银行上海市分行</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">银行账号</td>
+                                    <td class="dr">254235512365545665</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">注册地址</td>
+                                    <td class="dr">上海市虹口区杨浦路323号</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">注册电话</td>
+                                    <td class="dr">021-5689733</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">发票内容</td>
+                                    <td class="dr">资料检索费</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">发票金额</td>
+                                    <td class="dr">300.00元</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="part">
+                            <p class="title">寄送信息</p>
+                            <table class="detailTable" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="dl" width="183">姓名</td>
+                                    <td class="dr">张燕飞</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">手机</td>
+                                    <td class="dr">188888888</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">邮箱</td>
+                                    <td class="dr">356246621446622354423</td>
+                                </tr>
+                                <tr>
+                                    <td class="dl">备注</td>
+                                    <td class="dr">中国银行上海市分行</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="part">
+                            <p class="title">该发票含以下订单</p>
+                            <table class="table" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <th>序号</th>
+                                    <th>订单编号</th>
+                                    <th>充值方式</th>
+                                    <th>充值金额</th>
+                                    <th>赠券金额</th>
+                                    <th class="last">充值时间</th>
+                                </tr>
+                                <% for(var i=1;i<7;i++){ %>
+                                    <tr>
+                                        <% if(i<10){ %>
+                                            <td>0
+                                                <%= i %>
+                                            </td>
+                                            <% } else{ %>
+                                                <td>
+                                                    <%= i %>
+                                                </td>
+                                                <% } %>
+                                                    <td>wechat1902281455341762</td>
+                                                    <td>微信支付</td>
+                                                    <td>200.00元</td>
+                                                    <td>50.00元</td>
+                                                    <td class="last">2019-02-28 14:56</td>
+                                    </tr>
+                                    <% } %>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+                //表格隔行变色
+                $(".table tr:even").find("td").addClass("bg")
+            </script>
+</body>
+
+</html>

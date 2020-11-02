@@ -1,0 +1,49 @@
+<div data-type="<%=type%>" id="sharebox" class="sharebox bdsharebuttonbox" style="<%= style %>">
+    <a href="javascript:;" class="qq" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="javascript:;" class="wx" data-cmd="weixin" title="分享到微信"></a>
+    <a href="javascript:;" class="wb" data-cmd="tsina" title="分享到新浪微博"></a>
+</div>
+<style>
+    .bd_weixin_popup{
+        box-sizing: content-box;
+        padding: 20px;
+        height:300px !important;
+    }
+    .bd_weixin_popup .bd_weixin_popup_head{
+        text-align: center;
+    }
+    .bd_weixin_popup .bd_weixin_popup_foot{
+        text-align: center;
+    }
+</style>
+<script>
+    (function () {
+        var SetShareUrl = window.location.href;
+        // type: 1作品 2微刊 3文献 4期刊 5图书 6书单
+        var type = $('#sharebox').attr('data-type');
+        var text = '';
+        // 作品
+        if(type==1 || type==2){
+            text = "很喜欢" + "<%= org %>" + "发布的作品--<%= title %>，快来看看吧！";
+        }
+        else if(type==3){
+            text = "<%= title %>--知网文化";
+        }
+        //插件的配置部分，注意要记得设置onBeforeClick事件，主要用于获取动态的文章ID
+        window._bd_share_config = {
+            common: {
+                onBeforeClick: SetShareUrl,
+                bdText: text,
+                bdDesc: "",
+                bdUrl: SetShareUrl,
+                bdPic: ""
+            },
+            share: [{
+                "bdSize": 32
+            }],
+
+        };
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    })()
+
+</script>

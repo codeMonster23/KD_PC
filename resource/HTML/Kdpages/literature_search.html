@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+       <link rel="stylesheet" type="text/css" href="css/literature.css"/>
+        <script src="js/jQuery-v1.11.1.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+		<title>文献库</title>
+      
+	</head>
+	<body>
+	   <!--header-->
+	   <div class="pheader">
+	   	 <div class="phwrap">
+	   	 	<div class="hl left">
+	   	 	 <a href="#">首页</a><a href="#">发现</a><a href="#">作品</a><a href="#">微刊</a><a href="#">看典号</a><a href="#" class="cur">文献库</a><a href="#">书刊商城</a><a href="#">客户端</a>  	
+	   	 	</div>
+	   	    <div class="hr right">
+             <a href="#">注册</a>
+             <div class="line"></div>
+             <a href="#">登录</a>
+             <div class="search right">
+               <input type="" name="" id="" value="" />
+               <a href="javascript:;" class="btn"></a>
+             </div>
+           </div>
+	   
+	   	 </div>
+	   </div> 
+	   <div class="sbanner"></div>
+	   <div class="searching">
+	   	 <div class="item clearfix">
+	   	 	<label>搜索位置</label>
+	   	 	<div class="inputWrap">
+	   	 	  <div class="row clearfix">
+	   	 	  	 <span class="keys">全文</span>
+	   	 	  	 <input type="text" id="" value="" />
+	   	 	  </div>	
+	   	 	  <div class="row clearfix">
+                 <span class="keys">主题</span>
+                 <input type="text" id="" value="" />
+              </div> 
+              <div class="row clearfix">
+                 <span class="keys">篇名</span>
+                 <input type="text" id="" value="" />
+              </div> 
+              <div class="row clearfix">
+                 <span class="keys">关键词</span>
+                 <input type="text" id="" value="" />
+              </div>
+              <div class="row clearfix">
+                 <span class="keys">作者</span>
+                 <input type="text" id="" value="" />
+              </div>
+	   	 	</div>
+	   	 </div>
+	     <div class="item clearfix">
+	     	<label>文献来源</label>
+	     	<input type="text" id="" value="" />
+	     </div>
+	     <div class="item clearfix">
+            <label>发表时间</label>
+            <div class="yearwrap">
+            	<div class="fromwrap"><i class="left">从</i>
+                    <p class="p from"><b>不限</b><span class="positionA"></span></p>
+                    <ul class="fromlist">
+                        <li>不限</li>
+                        <li>1915年</li>
+                        <li>1949年</li>
+                        <li>1979年</li>
+                    </ul>
+                </div>
+                <div class="towrap"><i class="left">到</i>
+                    <p class="p to"><b>不限</b><span class="positionA"></span></p>
+                    <ul class="tolist positionA">
+                        <li class="ndy">不限</li>
+                        <li>1979年</li>
+                        <li>1949年</li>
+                        <li>1915年</li>
+                    </ul>
+                </div>
+            </div>
+         </div>
+	     <div class="item clearfix">
+	     	<label>作者单位</label>
+            <input type="text" id="" value="" />
+	     </div>
+	     <div class="btn clearfix">
+	     	<a href="javascript:;" class="a1">确&nbsp;定</a>
+	     	<a href="javascript:;" class="a2">重置信息</a>
+	     </div>
+	   </div>    
+	   <!--footer-->
+	   <div class="pfooter">
+	   	 <p>数字出版：《中国学术期刊（光盘版）》电子杂志社有限公司</p>
+	   	 <p>京ICP证040431号 互联网出版许可证 新出网证(京)字271号 北京市公安局海淀分局 备案号11010802020460</p>
+	   </div>
+	   <script>
+	     //下拉列表时间
+	     var start = 1980; // 指定开始年份
+         var end = new Date().getFullYear(); // 获取当前年份
+         for(i=start;i<=end;i++){
+            $(".fromlist").append("<li>"+i+"年</li>");
+            $(".tolist .ndy").after("<li>"+i+"年</li>");
+        }
+        var yearwarpP=$(".yearwrap .p");
+        yearwarpP.click(function(){        
+            $(".yearwrap ul").css({"display":"none"});
+            $(".yearwrap .p").removeClass("clickp");
+            $(this).parent().find("ul").css("display","block");            
+            $(this).addClass("clickp");
+        })
+        //鼠标点击事件效果
+        $(".yearwrap ul").on("click","li",function()
+        {
+            var Text=$(this).text();
+            $(this).parent("ul").siblings(".p").removeClass("clickp").children("b").text(Text);
+            $(this).parent("ul").hide();
+        });
+	   </script>
+	</body>
+</html>

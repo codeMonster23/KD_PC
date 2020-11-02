@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+        <link rel="stylesheet" type="text/css" href="/css/literature/literature.css" />
+</head>
+
+<body>
+    <%- include('../layouts/navLayout', {current: 5,enterControl:0}) %>
+        <!--header-->
+        <%- include('../components/literature/topBanner', {}) %>
+            <div class="ctab">
+                <div id="libTitWrap" class="wrap">
+                    <a href="javascript:;" class="cur">文艺库</a>
+                    <a href="javascript:;" class="mid">文化库</a>
+                    <a href="javascript:;">科普库</a>
+                </div>
+            </div>
+            <div id="libWrap" class="libWrap">
+                <!--文艺库-->
+                <div class="ctabc">
+                    <ul class="ul1 clearfix">
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN101&album=V&dbname=cjfvtotal&x=0&ztName=文艺理论') %>">
+                                <img src="images/literature/lpic1.png" />
+                                <p>文艺理论</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN102&album=V&dbname=cjfvtotal&x=1&ztName=诗歌、韵文') %>">
+                                <img src="images/literature/lpic2.png" />
+                                <p>诗歌、韵文</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN103&album=V&dbname=cjfvtotal&x=2&ztName=戏剧文学') %>">
+                                <img src="images/literature/lpic3.png" />
+                                <p>戏剧文学</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN104&album=V&dbname=cjfvtotal&x=3&ztName=小说') %>">
+                                <img src="images/literature/lpic4.png" />
+                                <p>小说</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN105&album=V&dbname=cjfvtotal&x=4&ztName=散文') %>">
+                                <img src="images/literature/lpic5.png" />
+                                <p>散文</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN106&album=V&dbname=cjfvtotal&x=5&ztName=杂著') %>">
+                                <img src="images/literature/lpic6.png" />
+                                <p>杂著</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN108&album=V&dbname=cjfvtotal&x=6&ztName=民间文学') %>">
+                                <img src="images/literature/lpic7.png" />
+                                <p>民间文学</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN109&album=V&dbname=cjfvtotal&x=7&ztName=儿童文学') %>">
+                                <img src="images/literature/lpic8.png" />
+                                <p>儿童文学</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN110&album=V&dbname=cjfvtotal&x=8&ztName=少数民族文学') %>">
+                                <img src="images/literature/lpic9.png" />
+                                <p>少数民族文学</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=VN111&album=V&dbname=cjfvtotal&x=9&ztName=报告文学') %>">
+                                <img src="images/literature/lpic10.png" />
+                                <p>报告文学</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="/literature/library?dbname=cjfvtotal&ztcode=VN101" class="into">进入文艺库</a>
+                </div>
+                <!--文化库-->
+                <div class="ctabc" style="display: none">
+                    <ul class="ul1 clearfix">
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN101&album=U&dbname=cjfutotal&x=0&ztName=修身养性') %>">
+                                <img src="images/literature/l-wh1.png" />
+                                <p>修身养性</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN102&album=U&dbname=cjfutotal&x=1&ztName=民风民俗') %>">
+                                <img src="images/literature/l-wh2.png" />
+                                <p>民风民俗</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN103&album=U&dbname=cjfutotal&x=2&ztName=法制纵横') %>">
+                                <img src="images/literature/l-wh3.png" />
+                                <p>法制纵横</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN104&album=U&dbname=cjfutotal&x=3&ztName=百姓焦点') %>">
+                                <img src="images/literature/l-wh4.png" />
+                                <p>百姓焦点</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN105&album=U&dbname=cjfutotal&x=4&ztName=历史人文') %>">
+                                <img src="images/literature/l-wh5.png" />
+                                <p>历史人文</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN106&album=U&dbname=cjfutotal&x=5&ztName=人才求职') %>">
+                                <img src="images/literature/l-wh6.png" />
+                                <p>人才求职</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN107&album=U&dbname=cjfutotal&x=6&ztName=居家生活') %>">
+                                <img src="images/literature/l-wh7.png" />
+                                <p>居家生活</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN108&album=U&dbname=cjfutotal&x=7&ztName=休闲广场') %>">
+                                <img src="images/literature/l-wh8.png" />
+                                <p>休闲广场</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN109&album=U&dbname=cjfutotal&x=8&ztName=体育健身') %>">
+                                <img src="images/literature/l-wh9.png" />
+                                <p>体育健身</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=UN110&album=U&dbname=cjfutotal&x=9&ztName=家庭保健') %>">
+                                <img src="images/literature/l-wh10.png" />
+                                <p>家庭保健</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="/literature/library?dbname=cjfutotal&ztcode=UN101" class="into">进入文化库</a>
+                </div>
+                <!--科普库-->
+                <div class="ctabc" style="display: none">
+                    <ul class="ul1 clearfix">
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN201&album=T&dbname=cjfttotal&x=0&ztName=生命奥秘') %>">
+                                <img src="images/literature/l-kp1.png" />
+                                <p>生命奥秘</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN202&album=T&dbname=cjfttotal&x=1&ztName=地球故事') %>">
+                                <img src="images/literature/l-kp2.png" />
+                                <p>地球故事</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN203&album=T&dbname=cjfttotal&x=2&ztName=万物之理') %>">
+                                <img src="images/literature/l-kp3.png" />
+                                <p>万物之理</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN204&album=T&dbname=cjfttotal&x=3&ztName=星宇迷尘') %>">
+                                <img src="images/literature/l-kp4.png" />
+                                <p>星宇迷尘</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN205&album=T&dbname=cjfttotal&x=4&ztName=军事大观') %>">
+                                <img src="images/literature/l-kp5.png" />
+                                <p>军事大观</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN206&album=T&dbname=cjfttotal&x=5&ztName=科技之光') %>">
+                                <img src="images/literature/l-kp6.png" />
+                                <p>科技之光</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN207&album=T&dbname=cjfttotal&x=6&ztName=农业广角') %>">
+                                <img src="images/literature/l-kp7.png" />
+                                <p>农业广角</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN208&album=T&dbname=cjfttotal&x=7&ztName=社科视野') %>">
+                                <img src="images/literature/l-kp8.png" />
+                                <p>社科视野</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= ejsFunctions.encodeURL('/literature/library/channel?subject=TN209&album=T&dbname=cjfttotal&x=8&ztName=科学探秘') %>">
+                                <img src="images/literature/l-kp9.png" />
+                                <p>科学探秘</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="/literature/library?dbname=cjfttotal&ztcode=TN201" class="into">进入科普库</a>
+                </div>
+            </div>
+            <script>
+                // 文艺库 文化库 科普库 切换
+                var libTitWrapA = $('#libTitWrap a');
+                var libWrapItem = $('#libWrap .ctabc');
+                libTitWrapA.click(function() {
+                    libTitWrapA.removeClass('cur');
+                    $(this).addClass('cur');
+                    var index = $(this).index();
+                    libWrapItem.css('display', 'none');
+                    libWrapItem.eq(index).css('display', 'block');
+                })
+            </script>
+
+            <!--footer-->
+            <%- include('../layouts/footerLayout', {}) %>
+
+</body>
+
+</html>

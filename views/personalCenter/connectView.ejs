@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:null,active:null}) %>
+                <div class="contentWrap">
+                    <h1 class="gl">
+                        <span><a href="/personalCenter/home" target="_blank">个人中心</a> > 机构关联</span>
+                    </h1>
+                    <div class="connectWrap">
+                        <div class="title">
+                            <p>如您所在的机构已购买了知网数据库，您可以关联机构账号，<br />关联成功，即可获得机构账号下载文章的权限。</p>
+                        </div>
+                        <div class="ways">
+                            <p class="p1">您可以选择以下任一种关联方式：</p>
+                            <p class="p2"><strong>方式一：IP关联</strong>（只有在机构IP范围内，才能使用该方式绑定成功）</p>
+                            <div class="way1">
+                                <a href="javascript:;" class="button">IP关联</a><span>关联失败，当前IP暂无机构</span>
+                            </div>
+                            <p class="p2"><strong>方式二：账号密码关联</strong></p>
+                            <div class="items">
+                                <div class="item">
+                                    <label>机构账号</label>
+                                    <input type="text" name="" id="" value="" />
+                                </div>
+                                <div class="item">
+                                    <label>机构密码</label>
+                                    <input type="password" name="" id="" value="" />
+                                </div>
+                            </div>
+                            <div class="way2">
+                                <a href="javascript:;" class="button">账号密码关联</a><span>关联失败，账号或密码错误</span>
+                            </div>
+                        </div>
+                        <!--关联成功写在此处了-->
+                        <div class="success">
+                            <p class="p1">您可以关联以下机构：</p>
+                            <div class="info"><span>同方知网</span><a href="javascript:;" class="a">取消关联</a></div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+            </script>
+</body>
+
+</html>

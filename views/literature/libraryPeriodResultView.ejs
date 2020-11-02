@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature-artist.css"/>
+    <script src="/js/plugin/jquery.methods.js"></script>
+</head>
+<body>
+<!--header-->
+<%- include('../layouts/libraryNavLayout', {enterControl:1}) %>
+
+<div class="resultWrap clearfix">
+    <div class="rl left">
+        <p class="tit advancedSearchMargin"><span>“<%= viewModel.searchWordsStr %>”</span>的检索结果如下</p>
+        <div class="tops">
+            <% if(viewModel.prevNextPage){ %>
+
+            <!--期刊 上一页 下一页-->
+            <div class="right prevNextPage" id="periodPrevNextPage">
+                <span id="periodNext"><%- viewModel.prevNextPage.nextPage %></span>
+                <span id="periodPrev"><%- viewModel.prevNextPage.prevPage %></span>
+                <span><span id="periodCurrentPage"><%= viewModel.pageNum %></span>/<span
+                            id="periodSumPage"><%= ejsFunctions.ceil(viewModel.data.totalcount / 25) %></span></span>
+            </div>
+            <% } %>
+        </div>
+
+
+        <!--<div class="redLine"></div>-->
+        <!--排序-->
+        <div id="periodPx" class="px" data-type-code="null" data-field="null">
+            <div class="ti">排序：</div>
+            <a class="px-item cur" href="javascript:;" data-order="0">相关度</a>
+            <a class="px-item" href="javascript:;" data-order="1">出版时间</a>
+        </div>
+
+
+        <div class="mainWrap">
+            <div id="period" class="mlist rmlist">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.magalist.length;i++) { %>
+                    <li>
+                        <a target="_blank" title="<%= viewModel.data.magalist[i].name %>" href="/detail/singlePeriodDetail/<%=viewModel.data.magalist[i].code%><%=viewModel.data.magalist[i].lastestyear%><%=viewModel.data.magalist[i].lastestperiod%>"><img src="https://c61.cnki.net/CJFD/big/<%= viewModel.data.magalist[i].code %>.jpg"></a>
+                        <p><a target="_blank" title="<%= viewModel.data.magalist[i].name %>" href="/detail/singlePeriodDetail/<%=viewModel.data.magalist[i].code%><%=viewModel.data.magalist[i].lastestyear%><%=viewModel.data.magalist[i].lastestperiod%>"><%= viewModel.data.magalist[i].name %></a></p>
+                        <p class="p2"><%= viewModel.data.magalist[i].lastestyear %>年<%= viewModel.data.magalist[i].lastestperiod %>期</p>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="rpage-period rpage-style rpage"><%- viewModel.pageStr %></div>
+        </div>
+    </div>
+    <div class="rr left">
+        <div id="relatedPeriod" class="s s1">
+            <h1><span class="left">相关期刊</span><!--<a href="#" class="right">更多 ></a>--></h1>
+            <ul class="clearfix"></ul>
+        </div>
+        <div class="s s2">
+            <h1><span class="left">精选微刊</span><a href="#" class="right">更多 ></a></h1>
+            <div id="microBooksRecommend" class="wrap"></div>
+        </div>
+        <div class="s s3">
+            <h1><span class="left">万选号</span><a href="#" class="right">更多 ></a></h1>
+            <div id="kdh" class="wrap"></div>
+
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<%- include('../layouts/footerLayout', {}) %>
+
+<div style="display: none">
+    <input type="hidden" id="searchWordValue" value="<%= viewModel.searchWordValue %>">
+    <input type="hidden" id="dbname" value="<%= viewModel.libraryType %>">
+    <input type="hidden" id="album" value="<%= viewModel.dbCode %>">
+    <input type="hidden" id="ztName" value="<%= viewModel.ztName %>">
+    <input type="hidden" id="ztCode" value="<%= viewModel.ztCode %>">
+    <input type="hidden" id="searchWordName" value="<%= viewModel.searchWordName %>">
+    <input type="hidden" id="queryStr" value="<%= viewModel.queryStr %>">
+    <input type="hidden" id="isAdvancedSearch" value="<%= viewModel.isAdvancedSearch %>">
+    <input type="hidden" id="isLiterature" value="<%= viewModel.isLiterature %>">
+    <input type="hidden" id="orderby" value="0">
+</div>
+<script>
+
+    "use strict"
+    // 列表图片加载
+    var items = $('.item');
+    var time = 300;
+    var count = 0;
+    var ajaxRequest = [];
+
+    var searchWordName = $('#searchWordName').val();
+    var searchWordValue = $('#searchWordValue').val();
+    var dbname = $('#dbname').val();
+    var album = $('#album').val();
+    var ztName = $('#ztName').val();
+    var subject = $('#ztCode').val();
+    var listDom = $('#list');
+    var page = $('.rpage');
+    var filterType = '';
+    var fieldValue = ''; // typeCode
+    var queryStr = $('#queryStr').val();
+    var isAdvancedSearch = $('#isAdvancedSearch').val();
+
+    var px = $('#px');
+    var periodPx = $('#periodPx');
+    var pxItem = $('#px .px-item');
+    var periodPxItem = $('#periodPx .px-item');
+
+    var filter = $('#filter');
+    var literaturePage = $('#prevNextPage');
+    var periodPage = $('#periodPrevNextPage');
+    var sortWrap = $('#sortWrap');
+
+    // 期刊
+    // var keyword = $('#hiddenSearchValue').val();
+    var magaName = $('#searchWordValue').val();
+    var period = $('#period');
+    var topsA = $('.tops .tab li a');
+    var mainWrap = $('.mainWrap');
+    var isLiterature = $('#isLiterature').val();
+    var queryStr = $('#queryStr').val();
+    // 单个库高级搜索 非期刊搜索不执行
+    if (isAdvancedSearch == 0 || isLiterature == 0) {
+        // getPeriodResult(magaName, 1, 0, album);
+    }
+
+    // 绑定页码
+    $('.rpage-period a, #periodPrev a,#periodNext a').click(function () {
+        var pageNum = $(this).attr('data-page');
+        var dbCode = $('#album').val();
+        getPeriodResult(queryStr, pageNum, 0, dbCode);
+        // 回顶部
+        $('body,html').animate({scrollTop: 0}, time);
+    })
+
+    function getPeriodResult(queryStr, pageNum, orderby, dbCode) {
+        var pageNum = pageNum || 1;
+        var orderby = orderby || 0;
+        var dbCode = dbCode || 'V;U;T';
+        var periodUrl = encodeURI('/literature/library/period?' + queryStr + '&isAsync=1&pageSize=25&pageNum=' + pageNum + '&orderby=' + orderby + '&dbCode=' + dbCode);
+        $.ajax({
+            url: periodUrl,
+            dataType: "json", //返回格式
+            type: "get",
+            success: function (response) {
+                // console.log(response)
+                if (response.code == 0) {
+                    $('#periodCount').html(response.data.totalcount);
+                    if (response.data.totalcount > 0) {
+                        var list = response.data.magalist;
+                        var str = '';
+                        for (var i = 0; i < list.length; i++) {
+                            str += '<li>' +
+                                '       <a target="_blank" title="' + list[i].name + '" href="/detail/singlePeriodDetail/'+ list[i].code + list[i].lastestyear+list[i].lastestperiod+'"><img src="https://c61.cnki.net/CJFD/big/' + list[i].code + '.jpg"></a>' +
+                                '       <p><a target="_blank" title="' + list[i].name + '" href="/detail/singlePeriodDetail/'+ list[i].code + list[i].lastestyear+list[i].lastestperiod+'">' + list[i].name + '</a></p>' +
+                                '       <p class="p2">' + list[i].lastestyear + '年'+ list[i].lastestperiod  +'期</p>' +
+                                '   </li>';
+                        }
+                        period.children('ul').html(str);
+                        // 页码
+                        var pageStr = $.kd.outputPager(response.data.totalcount, 25, 5, pageNum);
+                        var prevNextPageStr = $.kd.outputPrevNextPager(response.data.totalcount, 25, 5, pageNum);
+                        $('#periodPrev').html(prevNextPageStr.prevPage);
+                        $('#periodNext').html(prevNextPageStr.nextPage);
+                        $('#periodCurrentPage').html(pageNum);
+                        $('#periodSumPage').html(Math.ceil(response.data.totalcount / 25));
+                        var periodPage = $('.rpage-period');
+                        periodPage.html(pageStr);
+                        // 绑定页码
+                        $('.rpage-period a, #periodPrev a,#periodNext a').click(function () {
+                            var pageNum = $(this).attr('data-page');
+                            var dbCode = $('#album').val();
+                            var queryStr = $('#queryStr').val();
+                            var orderby = $('#orderby').val()
+                            getPeriodResult(queryStr, pageNum, orderby, dbCode);
+                            // 回顶部
+                            $('body,html').animate({scrollTop: 0}, time);
+                        })
+
+                    } else {
+                        //
+                    }
+                } else {
+                    cosole.log('请检查获取期刊信息列表！');
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 期刊 排序 相关度 发表时间
+    periodPxItem.click(function () {
+        periodPxItem.removeClass('cur');
+        $(this).addClass('cur');
+        var queryStr = $('#queryStr').val();
+        var orderby = $(this).attr('data-order');
+        $('#orderby').val(orderby);
+        var dbCode = $('#album').val();
+        getPeriodResult(queryStr, 1, orderby, dbCode);
+
+    })
+
+    // 右侧展示----------------------------------------------------------------------
+    // 相关期刊
+    // var keyword = $('#hiddenSearchValue').val();
+    var magaName = $('#searchWordValue').val();
+    var relatedPeriod = $('#relatedPeriod');
+    var relatedPeriodUrl = encodeURI('/literature/library/period?magaName=' + magaName + '&isAsync=1&pageSize=4');
+    $.ajax({
+        url: relatedPeriodUrl,
+        dataType: "json", //返回格式
+        type: "get",
+        success: function (response) {
+            // console.log(response)
+            if (response.code == 0) {
+                if (response.data.totalcount > 0) {
+                    relatedPeriod.show();
+                    var list = response.data.magalist;
+                    var str = '';
+                    for (var i = 0; i < list.length; i++) {
+                        str += '<li>' +
+                            '       <a target="_blank" title="' + list[i].name + '" href="#"><img src="https://c61.cnki.net/CJFD/big/' + list[i].code + '.jpg"></a>' +
+                            '       <p><a target="_blank" title="' + list[i].name + '" href="#">' + list[i].name + '</a></p>' +
+                            '   </li>';
+                    }
+                    relatedPeriod.children('ul').html(str);
+                } else {
+                    //
+                }
+            } else {
+                console.log('请检查获取期刊信息列表！');
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+    // 精选微刊
+    var keyword = $('#searchWordValue').val();
+    $.ajax({
+        url: encodeURI('/microBook?kd=' + keyword + '&limit=3&async=true'),
+        dataType: "json", //返回格式
+        type: "get",
+        success: function (response) {
+            // console.log(response)
+            if (response.rows && response.rows.length > 0) {
+                var microBookStr = '';
+                for (var i = 0; i < response.rows.length; i++) {
+                    microBookStr += '<a title="' + response.rows[i].title + '" target="_blank" href="/detail/microBookDetail?id=' + response.rows[i].id + '"><img src="' + response.rows[i].coverpic + '"><p>' + response.rows[i].title + '</p></a>';
+                }
+                $('#microBooksRecommend').html(microBookStr);
+            } else {
+                console.log('微刊数据错误！')
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+    // 万选号
+    $.ajax({
+        url: encodeURI('/literature/getOrgListByKeyword?kd=' + keyword + '&limit=3'),
+        dataType: "json", //返回格式
+        type: "get",
+        success: function (response) {
+            // console.log(response)
+            if (response.rows && response.rows.length > 0) {
+                var kdhStr = '';
+                for (var i = 0; i < response.rows.length; i++) {
+                    kdhStr += '<div class="item clearfix">' +
+                        '                    <a href="#" class="img left"><img src="' + response.rows[i].logopic + '"></a>' +
+                        '                    <div class="info left">' +
+                        '                        <p class="p1"><a href="#">' + response.rows[i].orgname + '</a></p>' +
+                        '                        <p class="p2">' + response.rows[i].memo + '</p>' +
+                        '                    </div>' +
+                        '                </div>';
+                }
+                $('#kdh').html(kdhStr);
+            } else {
+                console.log('获取万选号列表信息无数据返回');
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+</script>
+
+</body>
+</html>

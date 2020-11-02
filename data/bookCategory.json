@@ -1,0 +1,802 @@
+[
+  {
+    "childlist": [
+      {
+        "code": "A01",
+        "grade": 2,
+        "id": "",
+        "name": "文学作品",
+        "order": 1,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A02",
+        "grade": 2,
+        "id": "",
+        "name": "文学博览",
+        "order": 2,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A03",
+        "grade": 2,
+        "id": "",
+        "name": "诗歌及韵文",
+        "order": 3,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A04",
+        "grade": 2,
+        "id": "",
+        "name": "小说",
+        "order": 4,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A05",
+        "grade": 2,
+        "id": "",
+        "name": "散文及杂著",
+        "order": 5,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A06",
+        "grade": 2,
+        "id": "",
+        "name": "戏剧文学",
+        "order": 6,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A07",
+        "grade": 2,
+        "id": "",
+        "name": "报告文学",
+        "order": 7,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A08",
+        "grade": 2,
+        "id": "",
+        "name": "民间文学",
+        "order": 8,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A09",
+        "grade": 2,
+        "id": "",
+        "name": "少数民族文学",
+        "order": 9,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "code": "A10",
+        "grade": 2,
+        "id": "",
+        "name": "儿童文学",
+        "order": 10,
+        "parentcode": "A",
+        "specialcodes": ""
+      }
+    ],
+    "code": "A",
+    "grade": 1,
+    "id": "",
+    "name": "文学",
+    "order": 1,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+    {
+    "childlist": [
+      {
+        "code": "B01",
+        "grade": 2,
+        "id": "",
+        "name": "美术摄影",
+        "order": 1,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "code": "B02",
+        "grade": 2,
+        "id": "",
+        "name": "工艺美术",
+        "order": 2,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "code": "B03",
+        "grade": 2,
+        "id": "",
+        "name": "表演艺术",
+        "order": 3,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "code": "B04",
+        "grade": 2,
+        "id": "",
+        "name": "音乐舞蹈",
+        "order": 4,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "code": "B05",
+        "grade": 2,
+        "id": "",
+        "name": "曲艺杂坛",
+        "order": 5,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "code": "B06",
+        "grade": 2,
+        "id": "",
+        "name": "收藏鉴赏",
+        "order": 6,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "code": "B07",
+        "grade": 2,
+        "id": "",
+        "name": "艺术综合",
+        "order": 7,
+        "parentcode": "B",
+        "specialcodes": ""
+      }
+    ],
+    "code": "B",
+    "grade": 1,
+    "id": "",
+    "name": "艺术",
+    "order": 2,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "C01",
+        "grade": 2,
+        "id": "",
+        "name": "人物传记",
+        "order": 1,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "code": "C02",
+        "grade": 2,
+        "id": "",
+        "name": "中华千年",
+        "order": 2,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "code": "C03",
+        "grade": 2,
+        "id": "",
+        "name": "海外历史",
+        "order": 3,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "code": "C04",
+        "grade": 2,
+        "id": "",
+        "name": "党史博览",
+        "order": 4,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "code": "C05",
+        "grade": 2,
+        "id": "",
+        "name": "近现代史",
+        "order": 5,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "code": "C06",
+        "grade": 2,
+        "id": "",
+        "name": "地方史志",
+        "order": 6,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "code": "C07",
+        "grade": 2,
+        "id": "",
+        "name": "考古博物",
+        "order": 7,
+        "parentcode": "C",
+        "specialcodes": ""
+      }
+    ],
+    "code": "C",
+    "grade": 1,
+    "id": "",
+    "name": "人文历史",
+    "order": 3,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "D01",
+        "grade": 2,
+        "id": "",
+        "name": "诸子百家",
+        "order": 1,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D02",
+        "grade": 2,
+        "id": "",
+        "name": "国学传统",
+        "order": 2,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D03",
+        "grade": 2,
+        "id": "",
+        "name": "哲学思想",
+        "order": 3,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D04",
+        "grade": 2,
+        "id": "",
+        "name": "宗教文化",
+        "order": 4,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D05",
+        "grade": 2,
+        "id": "",
+        "name": "中华文化",
+        "order": 5,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D06",
+        "grade": 2,
+        "id": "",
+        "name": "西方文化",
+        "order": 6,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D07",
+        "grade": 2,
+        "id": "",
+        "name": "语言文字",
+        "order": 7,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D08",
+        "grade": 2,
+        "id": "",
+        "name": "地方文化",
+        "order": 8,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D09",
+        "grade": 2,
+        "id": "",
+        "name": "民俗文化",
+        "order": 9,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D10",
+        "grade": 2,
+        "id": "",
+        "name": "饮食文化",
+        "order": 10,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "code": "D11",
+        "grade": 2,
+        "id": "",
+        "name": "文化综合",
+        "order": 11,
+        "parentcode": "D",
+        "specialcodes": ""
+      }
+    ],
+    "code": "D",
+    "grade": 1,
+    "id": "",
+    "name": "思想文化",
+    "order": 4,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "E01",
+        "grade": 2,
+        "id": "",
+        "name": "政治",
+        "order": 1,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "code": "E02",
+        "grade": 2,
+        "id": "",
+        "name": "法律",
+        "order": 2,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "code": "E03",
+        "grade": 2,
+        "id": "",
+        "name": "军事",
+        "order": 3,
+        "parentcode": "E",
+        "specialcodes": ""
+      }
+    ],
+    "code": "E",
+    "grade": 1,
+    "id": "",
+    "name": "政法军事",
+    "order": 5,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "F01",
+        "grade": 2,
+        "id": "",
+        "name": "成功励志",
+        "order": 1,
+        "parentcode": "F",
+        "specialcodes": ""
+      }
+    ],
+    "code": "F",
+    "grade": 1,
+    "id": "",
+    "name": "成功励志",
+    "order": 6,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "G01",
+        "grade": 2,
+        "id": "",
+        "name": "旅行",
+        "order": 1,
+        "parentcode": "G",
+        "specialcodes": ""
+      },
+      {
+        "code": "G02",
+        "grade": 2,
+        "id": "",
+        "name": "居家",
+        "order": 2,
+        "parentcode": "G",
+        "specialcodes": ""
+      },
+      {
+        "code": "G03",
+        "grade": 2,
+        "id": "",
+        "name": "时尚",
+        "order": 3,
+        "parentcode": "G",
+        "specialcodes": ""
+      },
+      {
+        "code": "G04",
+        "grade": 2,
+        "id": "",
+        "name": "运动",
+        "order": 4,
+        "parentcode": "G",
+        "specialcodes": ""
+      },
+      {
+        "code": "G05",
+        "grade": 2,
+        "id": "",
+        "name": "情感",
+        "order": 5,
+        "parentcode": "G",
+        "specialcodes": ""
+      },
+      {
+        "code": "G06",
+        "grade": 2,
+        "id": "",
+        "name": "娱乐",
+        "order": 6,
+        "parentcode": "G",
+        "specialcodes": ""
+      },
+      {
+        "code": "G07",
+        "grade": 2,
+        "id": "",
+        "name": "烹饪",
+        "order": 7,
+        "parentcode": "G",
+        "specialcodes": ""
+      }
+    ],
+    "code": "G",
+    "grade": 1,
+    "id": "",
+    "name": "生活休闲",
+    "order": 7,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "H01",
+        "grade": 2,
+        "id": "",
+        "name": "职场",
+        "order": 1,
+        "parentcode": "H",
+        "specialcodes": ""
+      }
+    ],
+    "code": "H",
+    "grade": 1,
+    "id": "",
+    "name": "职场攻略",
+    "order": 8,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "I01",
+        "grade": 2,
+        "id": "",
+        "name": "家庭健康",
+        "order": 1,
+        "parentcode": "I",
+        "specialcodes": ""
+      },
+      {
+        "code": "I02",
+        "grade": 2,
+        "id": "",
+        "name": "中医养生",
+        "order": 2,
+        "parentcode": "I",
+        "specialcodes": ""
+      },
+      {
+        "code": "I03",
+        "grade": 2,
+        "id": "",
+        "name": "医疗保健",
+        "order": 3,
+        "parentcode": "I",
+        "specialcodes": ""
+      },
+      {
+        "code": "I04",
+        "grade": 2,
+        "id": "",
+        "name": "健康知识",
+        "order": 4,
+        "parentcode": "I",
+        "specialcodes": ""
+      }
+    ],
+    "code": "I",
+    "grade": 1,
+    "id": "",
+    "name": "健康养生",
+    "order": 9,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "J01",
+        "grade": 2,
+        "id": "",
+        "name": "孕产育儿",
+        "order": 1,
+        "parentcode": "J",
+        "specialcodes": ""
+      },
+      {
+        "code": "J02",
+        "grade": 2,
+        "id": "",
+        "name": "家庭教育",
+        "order": 2,
+        "parentcode": "J",
+        "specialcodes": ""
+      },
+      {
+        "code": "J03",
+        "grade": 2,
+        "id": "",
+        "name": "绘本故事",
+        "order": 3,
+        "parentcode": "J",
+        "specialcodes": ""
+      },
+      {
+        "code": "J04",
+        "grade": 2,
+        "id": "",
+        "name": "早教启蒙",
+        "order": 4,
+        "parentcode": "J",
+        "specialcodes": ""
+      }
+    ],
+    "code": "J",
+    "grade": 1,
+    "id": "",
+    "name": "孕产育儿",
+    "order": 10,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "k01",
+        "grade": 2,
+        "id": "",
+        "name": "商业管理",
+        "order": 1,
+        "parentcode": "k",
+        "specialcodes": ""
+      },
+      {
+        "code": "k02",
+        "grade": 2,
+        "id": "",
+        "name": "金融证券",
+        "order": 2,
+        "parentcode": "k",
+        "specialcodes": ""
+      },
+      {
+        "code": "k03",
+        "grade": 2,
+        "id": "",
+        "name": "理财投资",
+        "order": 3,
+        "parentcode": "k",
+        "specialcodes": ""
+      },
+      {
+        "code": "k04",
+        "grade": 2,
+        "id": "",
+        "name": "财富创业",
+        "order": 4,
+        "parentcode": "k",
+        "specialcodes": ""
+      },
+      {
+        "code": "k05",
+        "grade": 2,
+        "id": "",
+        "name": "市场营销",
+        "order": 5,
+        "parentcode": "k",
+        "specialcodes": ""
+      }
+    ],
+    "code": "k",
+    "grade": 1,
+    "id": "",
+    "name": "财富创业",
+    "order": 11,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "L01",
+        "grade": 2,
+        "id": "",
+        "name": "数字生活",
+        "order": 1,
+        "parentcode": "L",
+        "specialcodes": ""
+      },
+      {
+        "code": "L02",
+        "grade": 2,
+        "id": "",
+        "name": "互联网",
+        "order": 2,
+        "parentcode": "L",
+        "specialcodes": ""
+      },
+      {
+        "code": "L03",
+        "grade": 2,
+        "id": "",
+        "name": "信息科技",
+        "order": 3,
+        "parentcode": "L",
+        "specialcodes": ""
+      },
+      {
+        "code": "L04",
+        "grade": 2,
+        "id": "",
+        "name": "电子商务",
+        "order": 4,
+        "parentcode": "L",
+        "specialcodes": ""
+      }
+    ],
+    "code": "L",
+    "grade": 1,
+    "id": "",
+    "name": "IT互联网",
+    "order": 12,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "code": "M01",
+        "grade": 2,
+        "id": "",
+        "name": "生活科学",
+        "order": 1,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "code": "M02",
+        "grade": 2,
+        "id": "",
+        "name": "自然探索",
+        "order": 2,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "code": "M03",
+        "grade": 2,
+        "id": "",
+        "name": "地球故事",
+        "order": 3,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "code": "M04",
+        "grade": 2,
+        "id": "",
+        "name": "宇宙奥秘",
+        "order": 4,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "code": "M05",
+        "grade": 2,
+        "id": "",
+        "name": "能源环保",
+        "order": 5,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "code": "M06",
+        "grade": 2,
+        "id": "",
+        "name": "农业广角",
+        "order": 6,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "code": "M07",
+        "grade": 2,
+        "id": "",
+        "name": "科技博览",
+        "order": 7,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "code": "M08",
+        "grade": 2,
+        "id": "",
+        "name": "生物医药",
+        "order": 8,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "code": "M09",
+        "grade": 2,
+        "id": "",
+        "name": "青少年科普",
+        "order": 9,
+        "parentcode": "M",
+        "specialcodes": ""
+      }
+    ],
+    "code": "M",
+    "grade": 1,
+    "id": "",
+    "name": "常识科普",
+    "order": 13,
+    "parentcode": "",
+    "specialcodes": ""
+  }
+]

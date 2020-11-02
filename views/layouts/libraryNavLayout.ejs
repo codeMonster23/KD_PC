@@ -1,0 +1,167 @@
+<div class="aheader">
+    <div class="ahwrap">
+        <a href="/" class="logoimg"><img src="/images/literature/lheaderlogo.png" height="71"></a>
+        <div class="dssb left">
+            <span class="sort sort-v-line">
+            <% if(viewModel.libraryType == 'cjfvtotal') { %>
+            <a
+                href="/literature/library?dbname=cjfvtotal&ztcode=VN101">文艺库</a>
+            <% }else if(viewModel.libraryType == 'cjfutotal'){ %>
+            <a href="/literature/library?dbname=cjfutotal&ztcode=UN101">文化库</a>
+            <% }else if(viewModel.libraryType == 'cjfttotal'){ %>
+            <a href="/literature/library?dbname=cjfttotal&ztcode=TN201">科普库</a>
+            <% } %>
+        </span>
+            <ul>
+                <li><a href="/literature">文献首页</a></li>
+                <li><a href="/literature/library?dbname=cjfvtotal&ztcode=VN101">精品文艺</a></li>
+                <li><a href="/literature/library?dbname=cjfutotal&ztcode=UN101">精品文化</a></li>
+                <li><a href="/literature/library?dbname=cjfttotal&ztcode=TN201">精品科普</a></li>
+            </ul>
+        </div>
+        <!--下拉列表分类-->
+        <!--文献分类-->
+        <div class="select">
+            <p>文献分类</p>
+            <% if(viewModel.libraryType == 'cjfvtotal') { var vn = viewModel.libraryStaticData.VN %>
+                <!--文艺库分类-->
+                <div class="list">
+                    <% for(var j = 0; j < ejsFunctions.floor((vn.length - 1) / 7 + 1); j++) { %>
+                        <div class="col left">
+                            <% for(var i = j * 7; i < ((vn.length > ((j + 1) * 7)) ? (j + 1) * 7 : vn.length); i++) { %>
+                                <a href="/literature/library/channel?subject=<%= vn[i].ztCode %>&album=V&dbname=<%= viewModel.libraryType %>&x=<%=i%>&ztName=<%= ejsFunctions.encodeURL(vn[i].ztName) %>">
+                                    <%= vn[i].ztName %>
+                                </a>
+                                <% } %>
+                        </div>
+                        <% } %>
+                </div>
+                <% }else if(viewModel.libraryType == 'cjfutotal'){ var un = viewModel.libraryStaticData.UN %>
+                    <div class="list" style="width: 301px;">
+                        <!--文化库分类-->
+                        <% for(var j = 0; j < ejsFunctions.floor((un.length - 1) / 7 + 1); j++) { %>
+                            <div class="col left">
+                                <% for(var i = j * 7; i < ((un.length > ((j + 1) * 7)) ? (j + 1) * 7 : un.length); i++) { %>
+                                    <a href="/literature/library/channel?subject=<%= un[i].ztCode %>&album=U&dbname=<%= viewModel.libraryType %>&x=<%=i%>&ztName=<%= ejsFunctions.encodeURL(un[i].ztName) %>">
+                                        <%= un[i].ztName %>
+                                    </a>
+                                    <% } %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <% }else if(viewModel.libraryType == 'cjfttotal'){ var tn = viewModel.libraryStaticData.TN %>
+                        <div class="list" style="width: 301px;">
+                            <!--科普库分类-->
+                            <% for(var j = 0; j < ejsFunctions.floor((tn.length - 1) / 7 + 1); j++) { %>
+                                <div class="col left">
+                                    <% for(var i = j * 7; i < ((tn.length > ((j + 1) * 7)) ? (j + 1) * 7 : tn.length); i++) { %>
+                                        <a href="/literature/library/channel?subject=<%= tn[i].ztCode %>&album=T&dbname=<%= viewModel.libraryType %>&x=<%=i%>&ztName=<%= ejsFunctions.encodeURL(tn[i].ztName) %>">
+                                            <%= tn[i].ztName %>
+                                        </a>
+                                        <% } %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <% } %>
+        </div>
+        <!--期刊分类-->
+        <div class="select qk">
+            <p>期刊导航</p>
+            <% if(viewModel.libraryType == 'cjfvtotal') { var vn = viewModel.periodStaticData[0].list %>
+                <!--文艺库分类-->
+                <div class="list">
+                    <% for(var j = 0; j < ejsFunctions.floor((vn.length - 1) / 7 + 1); j++) { %>
+                        <div class="col left">
+                            <% for(var i = j * 7; i < ((vn.length > ((j + 1) * 7)) ? (j + 1) * 7 : vn.length); i++) { %>
+                                <a href="/literature/library/period?qkMark=<%= vn[i].code %>&dbCode=V&qkName=<%= ejsFunctions.encodeURL(vn[i].name) %>">
+                                    <%= vn[i].name %>
+                                </a>
+                                <% } %>
+                        </div>
+                        <% } %>
+                </div>
+                <% }else if(viewModel.libraryType == 'cjfutotal') { var vn = viewModel.periodStaticData[1].list %>
+                    <!--文化库分类-->
+                    <div class="list" style="width:604px;">
+                        <% for(var j = 0; j < ejsFunctions.floor((vn.length - 1) / 7 + 1); j++) { %>
+                            <div class="col left">
+                                <% for(var i = j * 7; i < ((vn.length > ((j + 1) * 7)) ? (j + 1) * 7 : vn.length); i++) { %>
+                                    <a href="/literature/library/period?qkMark=<%= vn[i].code %>&dbCode=U&qkName=<%= ejsFunctions.encodeURL(vn[i].name) %>">
+                                        <%= vn[i].name %>
+                                    </a>
+                                    <% } %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <% }else if(viewModel.libraryType == 'cjfttotal') { var vn = viewModel.periodStaticData[2].list %>
+                        <!--科普库分类-->
+                        <div class="list">
+                            <% for(var j = 0; j < ejsFunctions.floor((vn.length - 1) / 7 + 1); j++) { %>
+                                <div class="col left">
+                                    <% for(var i = j * 7; i < ((vn.length > ((j + 1) * 7)) ? (j + 1) * 7 : vn.length); i++) { %>
+                                        <a href="/literature/library/period?qkMark=<%= vn[i].code %>&dbCode=T&qkName=<%= ejsFunctions.encodeURL(vn[i].name) %>">
+                                            <%= vn[i].name %>
+                                        </a>
+                                        <% } %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <% } %>
+        </div>
+
+        <div class="search left">
+            <input maxlength="30" type="text" id="search" value="<% if(viewModel.isAdvancedSearch == 0) { %> <%= viewModel.searchWordValue %> <% } %>" />
+            <a data-enter-control="<%=enterControl%>" id="searchBtn" href="javascript:;" class="btn"></a>
+            <script>
+                (function() {
+                    var libraryType = $('.sort a').html();
+                    var album = '';
+                    var searchBtn = $('#searchBtn');
+                    var enterControl = searchBtn.attr('data-enter-control');
+                    searchBtn.click(function() {
+                            if (libraryType == '文艺库') {
+                                album = 'V';
+                            } else if (libraryType == '文化库') {
+                                album = 'U';
+                            } else if (libraryType == '科普库') {
+                                album = 'T';
+                            }
+                            var topic = $('#search').val().trim();
+                            if (topic.length > 0) {
+                                location.href = encodeURI('/literature/libraryResult?album=' + album + '&topic=' + topic);
+                            } else {
+                                layer.msg('请输入关键词检索');
+                                // location.href = '/literature';
+                            }
+
+                        })
+                        // 回车 提交 enterControl可以区分其他回车需求
+                    if (enterControl == 1) {
+                        $(document).bind("keydown", function(e) {
+                            if (e.keyCode == 13) {
+                                searchBtn.click();
+                            }
+                        })
+                    }
+                })()
+            </script>
+        </div>
+        <a href="/literature/channelSearch?dbName=<%= viewModel.libraryType %>">高级搜索</a>
+        <div class="right">
+            <!--<a href="/">万选阅读首页</a>
+            <div class="dssb left"><a href="/literature">万选阅读·文献库</a>
+                <ul>
+                    <li><a href="/literature/library?dbname=cjfvtotal&ztcode=VN101">精品文艺</a></li>
+                    <li><a href="/literature/library?dbname=cjfutotal&ztcode=UN101">精品文化</a></li>
+                    <li><a href="/literature/library?dbname=cjfttotal&ztcode=TN201">精品科普</a></li>
+                </ul>
+            </div>-->
+            <% if(viewModel && viewModel.user.name != null){ %>
+                <%- include('../components/userOptionMenu', {}) %>
+                    <% }else{ %>
+                        <a href="/temp/userCenter/login">登录</a><a class="boundary">|</a><a href="/temp/userCenter/register">注册</a>
+                        <% } %>
+
+        </div>
+    </div>
+</div>

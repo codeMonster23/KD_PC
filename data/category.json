@@ -1,0 +1,4799 @@
+[
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "code": "A0101",
+            "grade": 3,
+            "id": 120,
+            "name": "先秦诗词",
+            "order": 1,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0102",
+            "grade": 3,
+            "id": 121,
+            "name": "唐诗经典",
+            "order": 2,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0103",
+            "grade": 3,
+            "id": 122,
+            "name": "宋词经典",
+            "order": 3,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0104",
+            "grade": 3,
+            "id": 123,
+            "name": "元曲经典",
+            "order": 4,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0105",
+            "grade": 3,
+            "id": 124,
+            "name": "帝王诗词",
+            "order": 5,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0106",
+            "grade": 3,
+            "id": 125,
+            "name": "伟人诗词",
+            "order": 6,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0107",
+            "grade": 3,
+            "id": 126,
+            "name": "写景诗词",
+            "order": 7,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0108",
+            "grade": 3,
+            "id": 127,
+            "name": "咏物诗词",
+            "order": 8,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0109",
+            "grade": 3,
+            "id": 128,
+            "name": "节日诗词",
+            "order": 9,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0110",
+            "grade": 3,
+            "id": 129,
+            "name": "二十四节气诗词",
+            "order": 10,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0111",
+            "grade": 3,
+            "id": 130,
+            "name": "爱情诗词",
+            "order": 11,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0112",
+            "grade": 3,
+            "id": 131,
+            "name": "花卉·植物诗词",
+            "order": 12,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0113",
+            "grade": 3,
+            "id": 132,
+            "name": "怀古·感怀诗词",
+            "order": 13,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0114",
+            "grade": 3,
+            "id": 133,
+            "name": "送别·离别诗词",
+            "order": 14,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0115",
+            "grade": 3,
+            "id": 134,
+            "name": "励志·壮志诗词",
+            "order": 15,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0116",
+            "grade": 3,
+            "id": 135,
+            "name": "战争·边塞诗词",
+            "order": 16,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0117",
+            "grade": 3,
+            "id": 136,
+            "name": "哲理·智慧诗词",
+            "order": 17,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0118",
+            "grade": 3,
+            "id": 137,
+            "name": "小学必备古诗词",
+            "order": 18,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0119",
+            "grade": 3,
+            "id": 138,
+            "name": "初中必备古诗词",
+            "order": 19,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0120",
+            "grade": 3,
+            "id": 139,
+            "name": "高中必备古诗词",
+            "order": 20,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0121",
+            "grade": 3,
+            "id": 140,
+            "name": "现代诗歌经典",
+            "order": 21,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0122",
+            "grade": 3,
+            "id": 141,
+            "name": "外国诗歌经典",
+            "order": 22,
+            "parentcode": "A01",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0123",
+            "grade": 3,
+            "id": 142,
+            "name": "诗学",
+            "order": 23,
+            "parentcode": "A01",
+            "specialcodes": ""
+          }
+        ],
+        "code": "A01",
+        "grade": 2,
+        "id": 18,
+        "name": "诗词",
+        "order": 1,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "A0201",
+            "grade": 3,
+            "id": 143,
+            "name": "历史小说",
+            "order": 1,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0202",
+            "grade": 3,
+            "id": 144,
+            "name": "言情小说",
+            "order": 2,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0203",
+            "grade": 3,
+            "id": 145,
+            "name": "都市小说",
+            "order": 3,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0204",
+            "grade": 3,
+            "id": 146,
+            "name": "乡土小说",
+            "order": 4,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0205",
+            "grade": 3,
+            "id": 147,
+            "name": "商战小说",
+            "order": 5,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0206",
+            "grade": 3,
+            "id": 148,
+            "name": "官场小说",
+            "order": 6,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0207",
+            "grade": 3,
+            "id": 149,
+            "name": "红色小说",
+            "order": 7,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0208",
+            "grade": 3,
+            "id": 150,
+            "name": "军事小说",
+            "order": 8,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0209",
+            "grade": 3,
+            "id": 151,
+            "name": "科幻小说",
+            "order": 9,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0210",
+            "grade": 3,
+            "id": 152,
+            "name": "武侠小说",
+            "order": 10,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0211",
+            "grade": 3,
+            "id": 153,
+            "name": "推理/悬疑/侦探小说",
+            "order": 11,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0212",
+            "grade": 3,
+            "id": 154,
+            "name": "恐怖/惊悚小说",
+            "order": 12,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0213",
+            "grade": 3,
+            "id": 155,
+            "name": "青春/校园小说",
+            "order": 13,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0214",
+            "grade": 3,
+            "id": 156,
+            "name": "名家经典",
+            "order": 14,
+            "parentcode": "A02",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0215",
+            "grade": 3,
+            "id": 157,
+            "name": "外国小说",
+            "order": 15,
+            "parentcode": "A02",
+            "specialcodes": ""
+          }
+        ],
+        "code": "A02",
+        "grade": 2,
+        "id": 19,
+        "name": "小说",
+        "order": 2,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "A0301",
+            "grade": 3,
+            "id": 158,
+            "name": "情感美文",
+            "order": 1,
+            "parentcode": "A03",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0302",
+            "grade": 3,
+            "id": 159,
+            "name": "励志美文",
+            "order": 2,
+            "parentcode": "A03",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0303",
+            "grade": 3,
+            "id": 160,
+            "name": "生活美文",
+            "order": 3,
+            "parentcode": "A03",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0304",
+            "grade": 3,
+            "id": 161,
+            "name": "青春美文",
+            "order": 4,
+            "parentcode": "A03",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0305",
+            "grade": 3,
+            "id": 162,
+            "name": "哲理美文",
+            "order": 5,
+            "parentcode": "A03",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0306",
+            "grade": 3,
+            "id": 163,
+            "name": "智慧美文",
+            "order": 6,
+            "parentcode": "A03",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0307",
+            "grade": 3,
+            "id": 164,
+            "name": "名家美文",
+            "order": 7,
+            "parentcode": "A03",
+            "specialcodes": ""
+          }
+        ],
+        "code": "A03",
+        "grade": 2,
+        "id": 20,
+        "name": "美文",
+        "order": 3,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "A0401",
+            "grade": 3,
+            "id": 165,
+            "name": "经典神话",
+            "order": 1,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0402",
+            "grade": 3,
+            "id": 166,
+            "name": "民间传说",
+            "order": 2,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0403",
+            "grade": 3,
+            "id": 167,
+            "name": "成语典故",
+            "order": 3,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0404",
+            "grade": 3,
+            "id": 168,
+            "name": "寓言故事",
+            "order": 4,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0405",
+            "grade": 3,
+            "id": 169,
+            "name": "童话故事",
+            "order": 5,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0406",
+            "grade": 3,
+            "id": 170,
+            "name": "励志故事",
+            "order": 6,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0407",
+            "grade": 3,
+            "id": 171,
+            "name": "哲理智慧",
+            "order": 7,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0408",
+            "grade": 3,
+            "id": 172,
+            "name": "名人故事",
+            "order": 8,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0409",
+            "grade": 3,
+            "id": 173,
+            "name": "爱情故事",
+            "order": 9,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0410",
+            "grade": 3,
+            "id": 174,
+            "name": "亲情故事",
+            "order": 10,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0411",
+            "grade": 3,
+            "id": 175,
+            "name": "友情故事",
+            "order": 11,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0412",
+            "grade": 3,
+            "id": 176,
+            "name": "红色故事",
+            "order": 12,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0413",
+            "grade": 3,
+            "id": 177,
+            "name": "抗战故事",
+            "order": 13,
+            "parentcode": "A04",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0414",
+            "grade": 3,
+            "id": 178,
+            "name": "宗教故事",
+            "order": 14,
+            "parentcode": "A04",
+            "specialcodes": ""
+          }
+        ],
+        "code": "A04",
+        "grade": 2,
+        "id": 21,
+        "name": "故事",
+        "order": 4,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "A05",
+        "grade": 2,
+        "id": 22,
+        "name": "儿歌/童谣",
+        "order": 5,
+        "parentcode": "A",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "A0601",
+            "grade": 3,
+            "id": 179,
+            "name": "文学常识",
+            "order": 1,
+            "parentcode": "A06",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0602",
+            "grade": 3,
+            "id": 180,
+            "name": "文学流派",
+            "order": 2,
+            "parentcode": "A06",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0603",
+            "grade": 3,
+            "id": 181,
+            "name": "文学奖项",
+            "order": 3,
+            "parentcode": "A06",
+            "specialcodes": ""
+          },
+          {
+            "code": "A0604",
+            "grade": 3,
+            "id": 182,
+            "name": "文学研究",
+            "order": 4,
+            "parentcode": "A06",
+            "specialcodes": ""
+          }
+        ],
+        "code": "A06",
+        "grade": 2,
+        "id": 23,
+        "name": "文学常识",
+        "order": 6,
+        "parentcode": "A",
+        "specialcodes": ""
+      }
+    ],
+    "code": "A",
+    "grade": 1,
+    "id": 5,
+    "name": "文学",
+    "order": 1,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "code": "B0101",
+            "grade": 3,
+            "id": 183,
+            "name": "中国画",
+            "order": 1,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0102",
+            "grade": 3,
+            "id": 184,
+            "name": "版画",
+            "order": 2,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0103",
+            "grade": 3,
+            "id": 185,
+            "name": "油画",
+            "order": 3,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0104",
+            "grade": 3,
+            "id": 186,
+            "name": "水彩画/水粉画",
+            "order": 4,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0105",
+            "grade": 3,
+            "id": 187,
+            "name": "粉笔画/蜡笔画",
+            "order": 5,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0106",
+            "grade": 3,
+            "id": 188,
+            "name": "素描与速写",
+            "order": 6,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0107",
+            "grade": 3,
+            "id": 189,
+            "name": "宣传画",
+            "order": 7,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0108",
+            "grade": 3,
+            "id": 190,
+            "name": "漫画",
+            "order": 8,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0109",
+            "grade": 3,
+            "id": 191,
+            "name": "年画",
+            "order": 9,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0110",
+            "grade": 3,
+            "id": 192,
+            "name": "壁画",
+            "order": 10,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0111",
+            "grade": 3,
+            "id": 193,
+            "name": "插画/连环画",
+            "order": 11,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0112",
+            "grade": 3,
+            "id": 194,
+            "name": "动画",
+            "order": 12,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0113",
+            "grade": 3,
+            "id": 195,
+            "name": "绘画教程",
+            "order": 13,
+            "parentcode": "B01",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0114",
+            "grade": 3,
+            "id": 196,
+            "name": "绘画理论与知识",
+            "order": 14,
+            "parentcode": "B01",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B01",
+        "grade": 2,
+        "id": 24,
+        "name": "绘画",
+        "order": 1,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B0201",
+            "grade": 3,
+            "id": 197,
+            "name": "中国历代雕塑",
+            "order": 1,
+            "parentcode": "B02",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0202",
+            "grade": 3,
+            "id": 198,
+            "name": "外国经典雕塑",
+            "order": 2,
+            "parentcode": "B02",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0203",
+            "grade": 3,
+            "id": 199,
+            "name": "宗教雕塑",
+            "order": 3,
+            "parentcode": "B02",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0204",
+            "grade": 3,
+            "id": 200,
+            "name": "城市雕塑",
+            "order": 4,
+            "parentcode": "B02",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0205",
+            "grade": 3,
+            "id": 201,
+            "name": "观赏雕塑",
+            "order": 5,
+            "parentcode": "B02",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0206",
+            "grade": 3,
+            "id": 202,
+            "name": "雕塑工艺与技巧",
+            "order": 6,
+            "parentcode": "B02",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B02",
+        "grade": 2,
+        "id": 25,
+        "name": "雕塑",
+        "order": 2,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B0301",
+            "grade": 3,
+            "id": 203,
+            "name": "篆书",
+            "order": 1,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0302",
+            "grade": 3,
+            "id": 204,
+            "name": "隶书",
+            "order": 2,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0303",
+            "grade": 3,
+            "id": 205,
+            "name": "楷书",
+            "order": 3,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0304",
+            "grade": 3,
+            "id": 206,
+            "name": "行书",
+            "order": 4,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0305",
+            "grade": 3,
+            "id": 207,
+            "name": "草书",
+            "order": 5,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0306",
+            "grade": 3,
+            "id": 208,
+            "name": "甲骨文",
+            "order": 6,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0307",
+            "grade": 3,
+            "id": 209,
+            "name": "金文",
+            "order": 7,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0308",
+            "grade": 3,
+            "id": 210,
+            "name": "硬笔书法",
+            "order": 8,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0309",
+            "grade": 3,
+            "id": 211,
+            "name": "外文书法",
+            "order": 9,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0310",
+            "grade": 3,
+            "id": 212,
+            "name": "书法技法与教程",
+            "order": 10,
+            "parentcode": "B03",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0311",
+            "grade": 3,
+            "id": 213,
+            "name": "书法文化与常识",
+            "order": 11,
+            "parentcode": "B03",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B03",
+        "grade": 2,
+        "id": 26,
+        "name": "书法",
+        "order": 3,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B0401",
+            "grade": 3,
+            "id": 214,
+            "name": "纂刻鉴赏",
+            "order": 1,
+            "parentcode": "B04",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0402",
+            "grade": 3,
+            "id": 215,
+            "name": "纂刻教程",
+            "order": 2,
+            "parentcode": "B04",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0403",
+            "grade": 3,
+            "id": 216,
+            "name": "纂刻知识",
+            "order": 3,
+            "parentcode": "B04",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B04",
+        "grade": 2,
+        "id": 27,
+        "name": "纂刻",
+        "order": 4,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B0501",
+            "grade": 3,
+            "id": 217,
+            "name": "静物摄影",
+            "order": 1,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0502",
+            "grade": 3,
+            "id": 218,
+            "name": "人物摄影",
+            "order": 2,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0503",
+            "grade": 3,
+            "id": 219,
+            "name": "艺术摄影",
+            "order": 3,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0504",
+            "grade": 3,
+            "id": 220,
+            "name": "风光摄影",
+            "order": 4,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0505",
+            "grade": 3,
+            "id": 221,
+            "name": "新闻摄影",
+            "order": 5,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0506",
+            "grade": 3,
+            "id": 222,
+            "name": "广告摄影",
+            "order": 6,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0507",
+            "grade": 3,
+            "id": 223,
+            "name": "舞台摄影",
+            "order": 7,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0508",
+            "grade": 3,
+            "id": 224,
+            "name": "动体摄影",
+            "order": 8,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0509",
+            "grade": 3,
+            "id": 225,
+            "name": "建筑摄影",
+            "order": 9,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0510",
+            "grade": 3,
+            "id": 226,
+            "name": "动物/植物摄影",
+            "order": 10,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0511",
+            "grade": 3,
+            "id": 227,
+            "name": "摄影技巧",
+            "order": 11,
+            "parentcode": "B05",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0512",
+            "grade": 3,
+            "id": 228,
+            "name": "摄影知识",
+            "order": 12,
+            "parentcode": "B05",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B05",
+        "grade": 2,
+        "id": 28,
+        "name": "摄影",
+        "order": 5,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B0601",
+            "grade": 3,
+            "id": 229,
+            "name": "平面设计",
+            "order": 1,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0602",
+            "grade": 3,
+            "id": 230,
+            "name": "标志设计",
+            "order": 2,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0603",
+            "grade": 3,
+            "id": 231,
+            "name": "服装设计",
+            "order": 3,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0604",
+            "grade": 3,
+            "id": 232,
+            "name": "环艺设计",
+            "order": 4,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0605",
+            "grade": 3,
+            "id": 233,
+            "name": "工业设计",
+            "order": 5,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0606",
+            "grade": 3,
+            "id": 234,
+            "name": "广告设计",
+            "order": 6,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0607",
+            "grade": 3,
+            "id": 235,
+            "name": "书籍装帧",
+            "order": 7,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0608",
+            "grade": 3,
+            "id": 236,
+            "name": "包装设计",
+            "order": 8,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0609",
+            "grade": 3,
+            "id": 237,
+            "name": "设计比赛与奖项",
+            "order": 9,
+            "parentcode": "B06",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0610",
+            "grade": 3,
+            "id": 238,
+            "name": "设计理论与知识",
+            "order": 10,
+            "parentcode": "B06",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B06",
+        "grade": 2,
+        "id": 29,
+        "name": "设计",
+        "order": 6,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B0701",
+            "grade": 3,
+            "id": 239,
+            "name": "玉石收藏",
+            "order": 1,
+            "parentcode": "B07",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0702",
+            "grade": 3,
+            "id": 240,
+            "name": "书画收藏",
+            "order": 2,
+            "parentcode": "B07",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0703",
+            "grade": 3,
+            "id": 241,
+            "name": "陶瓷收藏",
+            "order": 3,
+            "parentcode": "B07",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0704",
+            "grade": 3,
+            "id": 242,
+            "name": "钱币收藏",
+            "order": 4,
+            "parentcode": "B07",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0705",
+            "grade": 3,
+            "id": 243,
+            "name": "邮票收藏",
+            "order": 5,
+            "parentcode": "B07",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0706",
+            "grade": 3,
+            "id": 244,
+            "name": "珠宝收藏",
+            "order": 6,
+            "parentcode": "B07",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0707",
+            "grade": 3,
+            "id": 245,
+            "name": "家具收藏",
+            "order": 7,
+            "parentcode": "B07",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0708",
+            "grade": 3,
+            "id": 246,
+            "name": "收藏鉴赏知识",
+            "order": 8,
+            "parentcode": "B07",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B07",
+        "grade": 2,
+        "id": 30,
+        "name": "收藏",
+        "order": 7,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B0801",
+            "grade": 3,
+            "id": 247,
+            "name": "陶瓷艺术",
+            "order": 1,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0802",
+            "grade": 3,
+            "id": 248,
+            "name": "纺织印染",
+            "order": 2,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0803",
+            "grade": 3,
+            "id": 249,
+            "name": "漆艺雕刻",
+            "order": 3,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0804",
+            "grade": 3,
+            "id": 250,
+            "name": "木/竹/棕/草编织",
+            "order": 4,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0805",
+            "grade": 3,
+            "id": 251,
+            "name": "刺绣",
+            "order": 5,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0806",
+            "grade": 3,
+            "id": 252,
+            "name": "玉器",
+            "order": 6,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0807",
+            "grade": 3,
+            "id": 253,
+            "name": "首饰",
+            "order": 7,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0808",
+            "grade": 3,
+            "id": 254,
+            "name": "金银器",
+            "order": 8,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0809",
+            "grade": 3,
+            "id": 255,
+            "name": "景泰蓝",
+            "order": 9,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0810",
+            "grade": 3,
+            "id": 256,
+            "name": "珐琅",
+            "order": 10,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0811",
+            "grade": 3,
+            "id": 257,
+            "name": "像章/徽章",
+            "order": 11,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0812",
+            "grade": 3,
+            "id": 258,
+            "name": "铁艺",
+            "order": 12,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0813",
+            "grade": 3,
+            "id": 259,
+            "name": "玻璃艺术",
+            "order": 13,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0814",
+            "grade": 3,
+            "id": 260,
+            "name": "剪纸/刻纸",
+            "order": 14,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0815",
+            "grade": 3,
+            "id": 261,
+            "name": "折纸/扎纸/绒绢",
+            "order": 15,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0816",
+            "grade": 3,
+            "id": 262,
+            "name": "木偶/面具/皮影",
+            "order": 16,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0817",
+            "grade": 3,
+            "id": 263,
+            "name": "石雕与石刻",
+            "order": 17,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0818",
+            "grade": 3,
+            "id": 264,
+            "name": "木雕/根雕/竹雕",
+            "order": 18,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0819",
+            "grade": 3,
+            "id": 265,
+            "name": "牙雕/骨雕",
+            "order": 19,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0820",
+            "grade": 3,
+            "id": 266,
+            "name": "玉雕",
+            "order": 20,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0821",
+            "grade": 3,
+            "id": 267,
+            "name": "冰雕",
+            "order": 21,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0822",
+            "grade": 3,
+            "id": 268,
+            "name": "泥塑",
+            "order": 22,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0823",
+            "grade": 3,
+            "id": 269,
+            "name": "面塑",
+            "order": 23,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0824",
+            "grade": 3,
+            "id": 270,
+            "name": "风筝",
+            "order": 24,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0825",
+            "grade": 3,
+            "id": 271,
+            "name": "灯饰",
+            "order": 25,
+            "parentcode": "B08",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0826",
+            "grade": 3,
+            "id": 272,
+            "name": "其它",
+            "order": 26,
+            "parentcode": "B08",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B08",
+        "grade": 2,
+        "id": 31,
+        "name": "工艺美术",
+        "order": 8,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B0901",
+            "grade": 3,
+            "id": 273,
+            "name": "钢琴",
+            "order": 1,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0902",
+            "grade": 3,
+            "id": 274,
+            "name": "电子琴",
+            "order": 2,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0903",
+            "grade": 3,
+            "id": 275,
+            "name": "吉他/贝斯",
+            "order": 3,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0904",
+            "grade": 3,
+            "id": 276,
+            "name": "大提琴",
+            "order": 4,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0905",
+            "grade": 3,
+            "id": 277,
+            "name": "小提琴",
+            "order": 5,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0906",
+            "grade": 3,
+            "id": 278,
+            "name": "架子鼓",
+            "order": 6,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0907",
+            "grade": 3,
+            "id": 279,
+            "name": "二胡三弦",
+            "order": 7,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0908",
+            "grade": 3,
+            "id": 280,
+            "name": "琵琶",
+            "order": 8,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0909",
+            "grade": 3,
+            "id": 281,
+            "name": "古筝",
+            "order": 9,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0910",
+            "grade": 3,
+            "id": 282,
+            "name": "笛子",
+            "order": 10,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0911",
+            "grade": 3,
+            "id": 283,
+            "name": "葫芦丝",
+            "order": 11,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0912",
+            "grade": 3,
+            "id": 284,
+            "name": "其他器乐",
+            "order": 12,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0913",
+            "grade": 3,
+            "id": 285,
+            "name": "声乐常识",
+            "order": 13,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0914",
+            "grade": 3,
+            "id": 286,
+            "name": "古典音乐",
+            "order": 14,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0915",
+            "grade": 3,
+            "id": 287,
+            "name": "民族音乐",
+            "order": 15,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0916",
+            "grade": 3,
+            "id": 288,
+            "name": "乡村音乐",
+            "order": 16,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0917",
+            "grade": 3,
+            "id": 289,
+            "name": "流行乐",
+            "order": 17,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0918",
+            "grade": 3,
+            "id": 290,
+            "name": "摇滚乐",
+            "order": 18,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0919",
+            "grade": 3,
+            "id": 291,
+            "name": "宗教音乐",
+            "order": 19,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0920",
+            "grade": 3,
+            "id": 292,
+            "name": "音乐流派",
+            "order": 20,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0921",
+            "grade": 3,
+            "id": 293,
+            "name": "音乐历史",
+            "order": 21,
+            "parentcode": "B09",
+            "specialcodes": ""
+          },
+          {
+            "code": "B0922",
+            "grade": 3,
+            "id": 294,
+            "name": "音乐百科",
+            "order": 22,
+            "parentcode": "B09",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B09",
+        "grade": 2,
+        "id": 32,
+        "name": "音乐",
+        "order": 9,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B1001",
+            "grade": 3,
+            "id": 295,
+            "name": "古典舞",
+            "order": 1,
+            "parentcode": "B10",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1002",
+            "grade": 3,
+            "id": 296,
+            "name": "芭蕾舞",
+            "order": 2,
+            "parentcode": "B10",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1003",
+            "grade": 3,
+            "id": 297,
+            "name": "民族舞",
+            "order": 3,
+            "parentcode": "B10",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1004",
+            "grade": 3,
+            "id": 298,
+            "name": "民间舞",
+            "order": 4,
+            "parentcode": "B10",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1005",
+            "grade": 3,
+            "id": 299,
+            "name": "现代舞",
+            "order": 5,
+            "parentcode": "B10",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1006",
+            "grade": 3,
+            "id": 300,
+            "name": "拉丁舞",
+            "order": 6,
+            "parentcode": "B10",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1007",
+            "grade": 3,
+            "id": 301,
+            "name": "街舞",
+            "order": 7,
+            "parentcode": "B10",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1008",
+            "grade": 3,
+            "id": 302,
+            "name": "舞蹈知识",
+            "order": 8,
+            "parentcode": "B10",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B10",
+        "grade": 2,
+        "id": 33,
+        "name": "舞蹈",
+        "order": 10,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B1101",
+            "grade": 3,
+            "id": 303,
+            "name": "影视评论",
+            "order": 1,
+            "parentcode": "B11",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1102",
+            "grade": 3,
+            "id": 304,
+            "name": "影视知识",
+            "order": 2,
+            "parentcode": "B11",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1103",
+            "grade": 3,
+            "id": 305,
+            "name": "影视产业",
+            "order": 3,
+            "parentcode": "B11",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B11",
+        "grade": 2,
+        "id": 34,
+        "name": "影视",
+        "order": 11,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B1201",
+            "grade": 3,
+            "id": 306,
+            "name": "京剧",
+            "order": 1,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1202",
+            "grade": 3,
+            "id": 307,
+            "name": "评剧",
+            "order": 2,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1203",
+            "grade": 3,
+            "id": 308,
+            "name": "越剧",
+            "order": 3,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1204",
+            "grade": 3,
+            "id": 309,
+            "name": "豫剧",
+            "order": 4,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1205",
+            "grade": 3,
+            "id": 310,
+            "name": "黄梅戏",
+            "order": 5,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1206",
+            "grade": 3,
+            "id": 311,
+            "name": "歌/舞剧",
+            "order": 6,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1207",
+            "grade": 3,
+            "id": 312,
+            "name": "话剧",
+            "order": 7,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1208",
+            "grade": 3,
+            "id": 313,
+            "name": "音乐剧",
+            "order": 8,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1209",
+            "grade": 3,
+            "id": 314,
+            "name": "木偶剧",
+            "order": 9,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1210",
+            "grade": 3,
+            "id": 315,
+            "name": "戏剧戏曲教程",
+            "order": 10,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1211",
+            "grade": 3,
+            "id": 316,
+            "name": "戏剧戏曲知识",
+            "order": 11,
+            "parentcode": "B12",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1212",
+            "grade": 3,
+            "id": 317,
+            "name": "其他剧种",
+            "order": 12,
+            "parentcode": "B12",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B12",
+        "grade": 2,
+        "id": 35,
+        "name": "戏曲",
+        "order": 12,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B1301",
+            "grade": 3,
+            "id": 318,
+            "name": "评书",
+            "order": 1,
+            "parentcode": "B13",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1302",
+            "grade": 3,
+            "id": 319,
+            "name": "相声",
+            "order": 2,
+            "parentcode": "B13",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1303",
+            "grade": 3,
+            "id": 320,
+            "name": "快板",
+            "order": 3,
+            "parentcode": "B13",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1304",
+            "grade": 3,
+            "id": 321,
+            "name": "鼓曲",
+            "order": 4,
+            "parentcode": "B13",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1305",
+            "grade": 3,
+            "id": 322,
+            "name": "弹词",
+            "order": 5,
+            "parentcode": "B13",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1306",
+            "grade": 3,
+            "id": 323,
+            "name": "大鼓",
+            "order": 6,
+            "parentcode": "B13",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1307",
+            "grade": 3,
+            "id": 324,
+            "name": "其他曲艺",
+            "order": 7,
+            "parentcode": "B13",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1308",
+            "grade": 3,
+            "id": 325,
+            "name": "曲艺知识",
+            "order": 8,
+            "parentcode": "B13",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B13",
+        "grade": 2,
+        "id": 36,
+        "name": "曲艺",
+        "order": 13,
+        "parentcode": "B",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "B1401",
+            "grade": 3,
+            "id": 326,
+            "name": "艺术理论",
+            "order": 1,
+            "parentcode": "B14",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1402",
+            "grade": 3,
+            "id": 327,
+            "name": "艺术流派",
+            "order": 2,
+            "parentcode": "B14",
+            "specialcodes": ""
+          },
+          {
+            "code": "B1403",
+            "grade": 3,
+            "id": 328,
+            "name": "艺术史",
+            "order": 3,
+            "parentcode": "B14",
+            "specialcodes": ""
+          }
+        ],
+        "code": "B14",
+        "grade": 2,
+        "id": 37,
+        "name": "艺术综合",
+        "order": 14,
+        "parentcode": "B",
+        "specialcodes": ""
+      }
+    ],
+    "code": "B",
+    "grade": 1,
+    "id": 6,
+    "name": "艺术",
+    "order": 2,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "code": "C0101",
+            "grade": 3,
+            "id": 329,
+            "name": "中国节日",
+            "order": 1,
+            "parentcode": "C01",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0102",
+            "grade": 3,
+            "id": 330,
+            "name": "外国节日",
+            "order": 2,
+            "parentcode": "C01",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C01",
+        "grade": 2,
+        "id": 38,
+        "name": "节日文化",
+        "order": 1,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "C0201",
+            "grade": 3,
+            "id": 331,
+            "name": "咬文嚼字",
+            "order": 1,
+            "parentcode": "C02",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0202",
+            "grade": 3,
+            "id": 332,
+            "name": "成语/俗语",
+            "order": 2,
+            "parentcode": "C02",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0203",
+            "grade": 3,
+            "id": 333,
+            "name": "谚语/歇后语",
+            "order": 3,
+            "parentcode": "C02",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0204",
+            "grade": 3,
+            "id": 334,
+            "name": "谜语",
+            "order": 4,
+            "parentcode": "C02",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0205",
+            "grade": 3,
+            "id": 335,
+            "name": "方言",
+            "order": 5,
+            "parentcode": "C02",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0206",
+            "grade": 3,
+            "id": 336,
+            "name": "名言/格言",
+            "order": 6,
+            "parentcode": "C02",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0207",
+            "grade": 3,
+            "id": 337,
+            "name": "隐语",
+            "order": 7,
+            "parentcode": "C02",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0208",
+            "grade": 3,
+            "id": 338,
+            "name": "绕口令",
+            "order": 8,
+            "parentcode": "C02",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C02",
+        "grade": 2,
+        "id": 39,
+        "name": "语言文字",
+        "order": 2,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "C0301",
+            "grade": 3,
+            "id": 339,
+            "name": "民间禁忌",
+            "order": 1,
+            "parentcode": "C03",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0302",
+            "grade": 3,
+            "id": 340,
+            "name": "民间礼俗",
+            "order": 2,
+            "parentcode": "C03",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0303",
+            "grade": 3,
+            "id": 341,
+            "name": "岁时节令",
+            "order": 3,
+            "parentcode": "C03",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0304",
+            "grade": 3,
+            "id": 342,
+            "name": "民间信仰",
+            "order": 4,
+            "parentcode": "C03",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0305",
+            "grade": 3,
+            "id": 343,
+            "name": "游艺民俗",
+            "order": 5,
+            "parentcode": "C03",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0306",
+            "grade": 3,
+            "id": 344,
+            "name": "神仙鬼怪文化",
+            "order": 6,
+            "parentcode": "C03",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0307",
+            "grade": 3,
+            "id": 345,
+            "name": "生产民俗",
+            "order": 7,
+            "parentcode": "C03",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0308",
+            "grade": 3,
+            "id": 346,
+            "name": "异国风俗",
+            "order": 8,
+            "parentcode": "C03",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C03",
+        "grade": 2,
+        "id": 40,
+        "name": "民俗文化",
+        "order": 3,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "C0401",
+            "grade": 3,
+            "id": 347,
+            "name": "食文化",
+            "order": 1,
+            "parentcode": "C04",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0402",
+            "grade": 3,
+            "id": 348,
+            "name": "酒文化",
+            "order": 2,
+            "parentcode": "C04",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0403",
+            "grade": 3,
+            "id": 349,
+            "name": "茶文化",
+            "order": 3,
+            "parentcode": "C04",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0404",
+            "grade": 3,
+            "id": 350,
+            "name": "咖啡文化",
+            "order": 4,
+            "parentcode": "C04",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C04",
+        "grade": 2,
+        "id": 41,
+        "name": "饮食文化",
+        "order": 4,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "C05",
+        "grade": 2,
+        "id": 42,
+        "name": "服饰文化",
+        "order": 5,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "C06",
+        "grade": 2,
+        "id": 43,
+        "name": "建筑文化",
+        "order": 6,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "C07",
+        "grade": 2,
+        "id": 44,
+        "name": "武术文化",
+        "order": 7,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "C0801",
+            "grade": 3,
+            "id": 350,
+            "name": "中原文化",
+            "order": 1,
+            "parentcode": "C08",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0802",
+            "grade": 3,
+            "id": 351,
+            "name": "江南文化",
+            "order": 2,
+            "parentcode": "C08",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0803",
+            "grade": 3,
+            "id": 352,
+            "name": "西域文化",
+            "order": 3,
+            "parentcode": "C08",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0804",
+            "grade": 3,
+            "id": 353,
+            "name": "岭南文化",
+            "order": 4,
+            "parentcode": "C08",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0805",
+            "grade": 3,
+            "id": 354,
+            "name": "关东文化",
+            "order": 5,
+            "parentcode": "C08",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0806",
+            "grade": 3,
+            "id": 355,
+            "name": "塞北文化",
+            "order": 6,
+            "parentcode": "C08",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0807",
+            "grade": 3,
+            "id": 356,
+            "name": "藏族文化",
+            "order": 7,
+            "parentcode": "C08",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0808",
+            "grade": 3,
+            "id": 357,
+            "name": "其他",
+            "order": 8,
+            "parentcode": "C08",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C08",
+        "grade": 2,
+        "id": 45,
+        "name": "地域文化",
+        "order": 8,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "C0901",
+            "grade": 3,
+            "id": 358,
+            "name": "道教",
+            "order": 1,
+            "parentcode": "C09",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0902",
+            "grade": 3,
+            "id": 359,
+            "name": "佛教",
+            "order": 2,
+            "parentcode": "C09",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0903",
+            "grade": 3,
+            "id": 360,
+            "name": "基督教",
+            "order": 3,
+            "parentcode": "C09",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0904",
+            "grade": 3,
+            "id": 361,
+            "name": "伊斯兰教",
+            "order": 4,
+            "parentcode": "C09",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0905",
+            "grade": 3,
+            "id": 362,
+            "name": "印度教",
+            "order": 5,
+            "parentcode": "C09",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0906",
+            "grade": 3,
+            "id": 363,
+            "name": "犹太教",
+            "order": 6,
+            "parentcode": "C09",
+            "specialcodes": ""
+          },
+          {
+            "code": "C0907",
+            "grade": 3,
+            "id": 364,
+            "name": "其他教派",
+            "order": 7,
+            "parentcode": "C09",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C09",
+        "grade": 2,
+        "id": 46,
+        "name": "宗教文化",
+        "order": 9,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "C1001",
+            "grade": 3,
+            "id": 365,
+            "name": "中国哲学",
+            "order": 1,
+            "parentcode": "C10",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1002",
+            "grade": 3,
+            "id": 366,
+            "name": "西方哲学",
+            "order": 2,
+            "parentcode": "C10",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1003",
+            "grade": 3,
+            "id": 367,
+            "name": "伦理学",
+            "order": 3,
+            "parentcode": "C10",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1004",
+            "grade": 3,
+            "id": 368,
+            "name": "美学",
+            "order": 4,
+            "parentcode": "C10",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1005",
+            "grade": 3,
+            "id": 369,
+            "name": "逻辑学",
+            "order": 5,
+            "parentcode": "C10",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1006",
+            "grade": 3,
+            "id": 370,
+            "name": "心理学",
+            "order": 6,
+            "parentcode": "C10",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C10",
+        "grade": 2,
+        "id": 47,
+        "name": "哲学",
+        "order": 10,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "C1101",
+            "grade": 3,
+            "id": 371,
+            "name": "经史子集",
+            "order": 1,
+            "parentcode": "C11",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1102",
+            "grade": 3,
+            "id": 372,
+            "name": "文化典籍",
+            "order": 2,
+            "parentcode": "C11",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1103",
+            "grade": 3,
+            "id": 373,
+            "name": "思想流派",
+            "order": 3,
+            "parentcode": "C11",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C11",
+        "grade": 2,
+        "id": 48,
+        "name": "诸子百家",
+        "order": 11,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "C1201",
+            "grade": 3,
+            "id": 374,
+            "name": "西方文化",
+            "order": 1,
+            "parentcode": "C12",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1202",
+            "grade": 3,
+            "id": 375,
+            "name": "东方文化",
+            "order": 2,
+            "parentcode": "C12",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1203",
+            "grade": 3,
+            "id": 376,
+            "name": "文化交流互鉴",
+            "order": 3,
+            "parentcode": "C12",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1204",
+            "grade": 3,
+            "id": 377,
+            "name": "文化常识",
+            "order": 4,
+            "parentcode": "C12",
+            "specialcodes": ""
+          },
+          {
+            "code": "C1205",
+            "grade": 3,
+            "id": 378,
+            "name": "非物质文化遗产",
+            "order": 5,
+            "parentcode": "C12",
+            "specialcodes": ""
+          }
+        ],
+        "code": "C12",
+        "grade": 2,
+        "id": 49,
+        "name": "文化综合",
+        "order": 12,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "C13",
+        "grade": 2,
+        "id": 50,
+        "name": "文化观察",
+        "order": 13,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "C14",
+        "grade": 2,
+        "id": 51,
+        "name": "人文解读",
+        "order": 14,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "C15",
+        "grade": 2,
+        "id": 509,
+        "name": "书评",
+        "order": 15,
+        "parentcode": "C",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "C16",
+        "grade": 2,
+        "id": 510,
+        "name": "影评",
+        "order": 16,
+        "parentcode": "C",
+        "specialcodes": ""
+      }
+    ],
+    "code": "C",
+    "grade": 1,
+    "id": 7,
+    "name": "思想文化",
+    "order": 3,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "code": "D01",
+        "grade": 2,
+        "id": 52,
+        "name": "历代帝王",
+        "order": 1,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D02",
+        "grade": 2,
+        "id": 53,
+        "name": "历代将帅",
+        "order": 2,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D03",
+        "grade": 2,
+        "id": 54,
+        "name": "历代名臣",
+        "order": 3,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D04",
+        "grade": 2,
+        "id": 55,
+        "name": "伟人领袖",
+        "order": 4,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D05",
+        "grade": 2,
+        "id": 56,
+        "name": "军事人物",
+        "order": 5,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D06",
+        "grade": 2,
+        "id": 57,
+        "name": "文艺名家",
+        "order": 6,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D07",
+        "grade": 2,
+        "id": 58,
+        "name": "财富名流",
+        "order": 7,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D08",
+        "grade": 2,
+        "id": 59,
+        "name": "科教名人",
+        "order": 8,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D09",
+        "grade": 2,
+        "id": 60,
+        "name": "爱国名人",
+        "order": 9,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D10",
+        "grade": 2,
+        "id": 61,
+        "name": "侠义名士",
+        "order": 10,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D11",
+        "grade": 2,
+        "id": 62,
+        "name": "名医传奇",
+        "order": 11,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D12",
+        "grade": 2,
+        "id": 63,
+        "name": "党史人物",
+        "order": 12,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D13",
+        "grade": 2,
+        "id": 64,
+        "name": "机智人物",
+        "order": 13,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D14",
+        "grade": 2,
+        "id": 65,
+        "name": "技艺工匠",
+        "order": 14,
+        "parentcode": "D",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "D15",
+        "grade": 2,
+        "id": 66,
+        "name": "平凡榜样",
+        "order": 15,
+        "parentcode": "D",
+        "specialcodes": ""
+      }
+    ],
+    "code": "D",
+    "grade": 1,
+    "id": 8,
+    "name": "人物",
+    "order": 4,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "code": "E01",
+        "grade": 2,
+        "id": 67,
+        "name": "中华千年",
+        "order": 1,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "E02",
+        "grade": 2,
+        "id": 68,
+        "name": "海外历史",
+        "order": 2,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "E03",
+        "grade": 2,
+        "id": 69,
+        "name": "大事件",
+        "order": 3,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "E04",
+        "grade": 2,
+        "id": 70,
+        "name": "党史博览",
+        "order": 4,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "E05",
+        "grade": 2,
+        "id": 71,
+        "name": "近现代史",
+        "order": 5,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "E06",
+        "grade": 2,
+        "id": 72,
+        "name": "地方史志",
+        "order": 6,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "E07",
+        "grade": 2,
+        "id": 73,
+        "name": "考古博物",
+        "order": 7,
+        "parentcode": "E",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "E08",
+        "grade": 2,
+        "id": 74,
+        "name": "历史趣读",
+        "order": 8,
+        "parentcode": "E",
+        "specialcodes": ""
+      }
+    ],
+    "code": "E",
+    "grade": 1,
+    "id": 9,
+    "name": "历史",
+    "order": 5,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "code": "F01",
+        "grade": 2,
+        "id": 75,
+        "name": "战争战役",
+        "order": 1,
+        "parentcode": "F",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "F02",
+        "grade": 2,
+        "id": 76,
+        "name": "武器舰船",
+        "order": 2,
+        "parentcode": "F",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "F03",
+        "grade": 2,
+        "id": 77,
+        "name": "兵法谋略",
+        "order": 3,
+        "parentcode": "F",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "F04",
+        "grade": 2,
+        "id": 78,
+        "name": "军事常识",
+        "order": 4,
+        "parentcode": "F",
+        "specialcodes": ""
+      }
+    ],
+    "code": "F",
+    "grade": 1,
+    "id": 10,
+    "name": "军事",
+    "order": 6,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "code": "G0101",
+            "grade": 3,
+            "id": 379,
+            "name": "治安处罚",
+            "order": 1,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0102",
+            "grade": 3,
+            "id": 380,
+            "name": "交通事故",
+            "order": 2,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0103",
+            "grade": 3,
+            "id": 381,
+            "name": "教育案件",
+            "order": 3,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0104",
+            "grade": 3,
+            "id": 382,
+            "name": "医疗纠纷",
+            "order": 4,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0105",
+            "grade": 3,
+            "id": 383,
+            "name": "劳动争议",
+            "order": 5,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0106",
+            "grade": 3,
+            "id": 384,
+            "name": "社会保障",
+            "order": 6,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0107",
+            "grade": 3,
+            "id": 385,
+            "name": "财政税收",
+            "order": 7,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0108",
+            "grade": 3,
+            "id": 386,
+            "name": "保险纠纷",
+            "order": 8,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0109",
+            "grade": 3,
+            "id": 387,
+            "name": "农业案例",
+            "order": 9,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0110",
+            "grade": 3,
+            "id": 388,
+            "name": "环境保护",
+            "order": 10,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0111",
+            "grade": 3,
+            "id": 389,
+            "name": "婚姻家庭",
+            "order": 11,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0112",
+            "grade": 3,
+            "id": 390,
+            "name": "遗嘱继承",
+            "order": 12,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0113",
+            "grade": 3,
+            "id": 391,
+            "name": "合同纠纷",
+            "order": 13,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0114",
+            "grade": 3,
+            "id": 392,
+            "name": "人身伤害",
+            "order": 14,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0115",
+            "grade": 3,
+            "id": 393,
+            "name": "财产权",
+            "order": 15,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0116",
+            "grade": 3,
+            "id": 394,
+            "name": "房产物业",
+            "order": 16,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0117",
+            "grade": 3,
+            "id": 395,
+            "name": "债权纠纷",
+            "order": 17,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0118",
+            "grade": 3,
+            "id": 396,
+            "name": "消费者权益",
+            "order": 18,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0119",
+            "grade": 3,
+            "id": 397,
+            "name": "名誉/肖像权",
+            "order": 19,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0120",
+            "grade": 3,
+            "id": 398,
+            "name": "著作权/版权",
+            "order": 20,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0121",
+            "grade": 3,
+            "id": 399,
+            "name": "专利/商标",
+            "order": 21,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0122",
+            "grade": 3,
+            "id": 400,
+            "name": "公司经营",
+            "order": 22,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0123",
+            "grade": 3,
+            "id": 401,
+            "name": "刑事案件",
+            "order": 23,
+            "parentcode": "G01",
+            "specialcodes": ""
+          },
+          {
+            "code": "G0124",
+            "grade": 3,
+            "id": 402,
+            "name": "海商海事",
+            "order": 24,
+            "parentcode": "G01",
+            "specialcodes": ""
+          }
+        ],
+        "code": "G01",
+        "grade": 2,
+        "id": 79,
+        "name": "法律案例",
+        "order": 1,
+        "parentcode": "G",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "G02",
+        "grade": 2,
+        "id": 80,
+        "name": "律师诉讼",
+        "order": 2,
+        "parentcode": "G",
+        "specialcodes": ""
+      }
+    ],
+    "code": "G",
+    "grade": 1,
+    "id": 11,
+    "name": "法律",
+    "order": 7,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "code": "H0101",
+            "grade": 3,
+            "id": 403,
+            "name": "个人修养",
+            "order": 1,
+            "parentcode": "H01",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0102",
+            "grade": 3,
+            "id": 404,
+            "name": "社交礼仪",
+            "order": 2,
+            "parentcode": "H01",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0103",
+            "grade": 3,
+            "id": 405,
+            "name": "人生思考",
+            "order": 3,
+            "parentcode": "H01",
+            "specialcodes": ""
+          }
+        ],
+        "code": "H01",
+        "grade": 2,
+        "id": 81,
+        "name": "修身养性",
+        "order": 1,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "H0201",
+            "grade": 3,
+            "id": 406,
+            "name": "家庭用药",
+            "order": 1,
+            "parentcode": "H02",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0202",
+            "grade": 3,
+            "id": 407,
+            "name": "疾病防治",
+            "order": 2,
+            "parentcode": "H02",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0203",
+            "grade": 3,
+            "id": 408,
+            "name": "家庭急救",
+            "order": 3,
+            "parentcode": "H02",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0204",
+            "grade": 3,
+            "id": 409,
+            "name": "家庭护理",
+            "order": 4,
+            "parentcode": "H02",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0205",
+            "grade": 3,
+            "id": 410,
+            "name": "心理健康",
+            "order": 5,
+            "parentcode": "H02",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0206",
+            "grade": 3,
+            "id": 411,
+            "name": "两性健康",
+            "order": 6,
+            "parentcode": "H02",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0207",
+            "grade": 3,
+            "id": 412,
+            "name": "中医养生",
+            "order": 7,
+            "parentcode": "H02",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0208",
+            "grade": 3,
+            "id": 413,
+            "name": "食疗保健",
+            "order": 8,
+            "parentcode": "H02",
+            "specialcodes": ""
+          }
+        ],
+        "code": "H02",
+        "grade": 2,
+        "id": 82,
+        "name": "健康保健",
+        "order": 2,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "H03",
+        "grade": 2,
+        "id": 83,
+        "name": "生活锦囊",
+        "order": 3,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "H0401",
+            "grade": 3,
+            "id": 414,
+            "name": "科学饮食",
+            "order": 1,
+            "parentcode": "H04",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0402",
+            "grade": 3,
+            "id": 415,
+            "name": "烹饪食谱",
+            "order": 2,
+            "parentcode": "H04",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0403",
+            "grade": 3,
+            "id": 416,
+            "name": "天下美食",
+            "order": 3,
+            "parentcode": "H04",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0404",
+            "grade": 3,
+            "id": 417,
+            "name": "地方小吃",
+            "order": 4,
+            "parentcode": "H04",
+            "specialcodes": ""
+          }
+        ],
+        "code": "H04",
+        "grade": 2,
+        "id": 84,
+        "name": "饮食烹饪",
+        "order": 4,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "H05",
+        "grade": 2,
+        "id": 85,
+        "name": "家庭理财",
+        "order": 5,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "H06",
+        "grade": 2,
+        "id": 86,
+        "name": "家居装饰",
+        "order": 6,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "H0701",
+            "grade": 3,
+            "id": 418,
+            "name": "美容",
+            "order": 1,
+            "parentcode": "H07",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0702",
+            "grade": 3,
+            "id": 419,
+            "name": "服饰",
+            "order": 2,
+            "parentcode": "H07",
+            "specialcodes": ""
+          }
+        ],
+        "code": "H07",
+        "grade": 2,
+        "id": 87,
+        "name": "美容服饰",
+        "order": 7,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "H0801",
+            "grade": 3,
+            "id": 420,
+            "name": "旅行游记",
+            "order": 1,
+            "parentcode": "H08",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0802",
+            "grade": 3,
+            "id": 421,
+            "name": "旅行攻略",
+            "order": 2,
+            "parentcode": "H08",
+            "specialcodes": ""
+          },
+          {
+            "code": "H0803",
+            "grade": 3,
+            "id": 422,
+            "name": "名胜导览",
+            "order": 3,
+            "parentcode": "H08",
+            "specialcodes": ""
+          }
+        ],
+        "code": "H08",
+        "grade": 2,
+        "id": 88,
+        "name": "旅行天下",
+        "order": 8,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "H09",
+        "grade": 2,
+        "id": 89,
+        "name": "体育运动",
+        "order": 9,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "H10",
+        "grade": 2,
+        "id": 90,
+        "name": "休闲娱乐",
+        "order": 10,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "H1101",
+            "grade": 3,
+            "id": 423,
+            "name": "婚姻家庭",
+            "order": 1,
+            "parentcode": "H11",
+            "specialcodes": ""
+          },
+          {
+            "code": "H1102",
+            "grade": 3,
+            "id": 424,
+            "name": "恋爱",
+            "order": 2,
+            "parentcode": "H11",
+            "specialcodes": ""
+          },
+          {
+            "code": "H1103",
+            "grade": 3,
+            "id": 425,
+            "name": "两性关系",
+            "order": 3,
+            "parentcode": "H11",
+            "specialcodes": ""
+          }
+        ],
+        "code": "H11",
+        "grade": 2,
+        "id": 91,
+        "name": "婚姻家庭",
+        "order": 11,
+        "parentcode": "H",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "H1201",
+            "grade": 3,
+            "id": 426,
+            "name": "宠物欣赏",
+            "order": 1,
+            "parentcode": "H12",
+            "specialcodes": ""
+          },
+          {
+            "code": "H1202",
+            "grade": 3,
+            "id": 427,
+            "name": "养育指南",
+            "order": 2,
+            "parentcode": "H12",
+            "specialcodes": ""
+          },
+          {
+            "code": "H1203",
+            "grade": 3,
+            "id": 428,
+            "name": "行为训练",
+            "order": 3,
+            "parentcode": "H12",
+            "specialcodes": ""
+          }
+        ],
+        "code": "H12",
+        "grade": 2,
+        "id": 92,
+        "name": "宠物世界",
+        "order": 12,
+        "parentcode": "H",
+        "specialcodes": ""
+      }
+    ],
+    "code": "H",
+    "grade": 1,
+    "id": 12,
+    "name": "生活休闲",
+    "order": 8,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "code": "I0101",
+            "grade": 3,
+            "id": 429,
+            "name": "母乳喂养",
+            "order": 1,
+            "parentcode": "I01",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0102",
+            "grade": 3,
+            "id": 430,
+            "name": "人工喂养",
+            "order": 2,
+            "parentcode": "I01",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0103",
+            "grade": 3,
+            "id": 431,
+            "name": "辅食进阶",
+            "order": 3,
+            "parentcode": "I01",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0104",
+            "grade": 3,
+            "id": 432,
+            "name": "营养搭配",
+            "order": 4,
+            "parentcode": "I01",
+            "specialcodes": ""
+          }
+        ],
+        "code": "I01",
+        "grade": 2,
+        "id": 93,
+        "name": "喂养指导",
+        "order": 1,
+        "parentcode": "I",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "I0201",
+            "grade": 3,
+            "id": 433,
+            "name": "生长发育",
+            "order": 1,
+            "parentcode": "I02",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0202",
+            "grade": 3,
+            "id": 434,
+            "name": "体格检查",
+            "order": 2,
+            "parentcode": "I02",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0203",
+            "grade": 3,
+            "id": 435,
+            "name": "小儿疾病",
+            "order": 3,
+            "parentcode": "I02",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0204",
+            "grade": 3,
+            "id": 436,
+            "name": "疫苗接种",
+            "order": 4,
+            "parentcode": "I02",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0205",
+            "grade": 3,
+            "id": 437,
+            "name": "起居护理",
+            "order": 5,
+            "parentcode": "I02",
+            "specialcodes": ""
+          }
+        ],
+        "code": "I02",
+        "grade": 2,
+        "id": 94,
+        "name": "健康保健",
+        "order": 2,
+        "parentcode": "I",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "I0301",
+            "grade": 3,
+            "id": 438,
+            "name": "心理解读",
+            "order": 1,
+            "parentcode": "I03",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0302",
+            "grade": 3,
+            "id": 439,
+            "name": "性格培养",
+            "order": 2,
+            "parentcode": "I03",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0303",
+            "grade": 3,
+            "id": 440,
+            "name": "情绪管理",
+            "order": 3,
+            "parentcode": "I03",
+            "specialcodes": ""
+          }
+        ],
+        "code": "I03",
+        "grade": 2,
+        "id": 95,
+        "name": "儿童心理",
+        "order": 3,
+        "parentcode": "I",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "I0401",
+            "grade": 3,
+            "id": 441,
+            "name": "家教方法",
+            "order": 1,
+            "parentcode": "I04",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0402",
+            "grade": 3,
+            "id": 442,
+            "name": "行为习惯",
+            "order": 2,
+            "parentcode": "I04",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0403",
+            "grade": 3,
+            "id": 443,
+            "name": "启蒙教育",
+            "order": 3,
+            "parentcode": "I04",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0404",
+            "grade": 3,
+            "id": 444,
+            "name": "益智游戏",
+            "order": 4,
+            "parentcode": "I04",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0405",
+            "grade": 3,
+            "id": 445,
+            "name": "运动发育",
+            "order": 5,
+            "parentcode": "I04",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0406",
+            "grade": 3,
+            "id": 446,
+            "name": "艺术启蒙",
+            "order": 6,
+            "parentcode": "I04",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0407",
+            "grade": 3,
+            "id": 447,
+            "name": "逻辑思维",
+            "order": 7,
+            "parentcode": "I04",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0408",
+            "grade": 3,
+            "id": 448,
+            "name": "手工制作",
+            "order": 8,
+            "parentcode": "I04",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0409",
+            "grade": 3,
+            "id": 449,
+            "name": "大脑开发",
+            "order": 9,
+            "parentcode": "I04",
+            "specialcodes": ""
+          }
+        ],
+        "code": "I04",
+        "grade": 2,
+        "id": 96,
+        "name": "早教",
+        "order": 4,
+        "parentcode": "I",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "I0501",
+            "grade": 3,
+            "id": 450,
+            "name": "绘本",
+            "order": 1,
+            "parentcode": "I05",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0502",
+            "grade": 3,
+            "id": 451,
+            "name": "儿童文学",
+            "order": 2,
+            "parentcode": "I05",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0503",
+            "grade": 3,
+            "id": 452,
+            "name": "幼儿英语",
+            "order": 3,
+            "parentcode": "I05",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0504",
+            "grade": 3,
+            "id": 453,
+            "name": "声律启蒙",
+            "order": 4,
+            "parentcode": "I05",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0505",
+            "grade": 3,
+            "id": 454,
+            "name": "科学常识",
+            "order": 5,
+            "parentcode": "I05",
+            "specialcodes": ""
+          },
+          {
+            "code": "I0506",
+            "grade": 3,
+            "id": 455,
+            "name": "亲子技巧",
+            "order": 6,
+            "parentcode": "I05",
+            "specialcodes": ""
+          }
+        ],
+        "code": "I05",
+        "grade": 2,
+        "id": 97,
+        "name": "亲子",
+        "order": 5,
+        "parentcode": "I",
+        "specialcodes": ""
+      }
+    ],
+    "code": "I",
+    "grade": 1,
+    "id": 13,
+    "name": "育儿",
+    "order": 9,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "code": "J0101",
+            "grade": 3,
+            "id": 456,
+            "name": "孕前准备",
+            "order": 1,
+            "parentcode": "J01",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0102",
+            "grade": 3,
+            "id": 457,
+            "name": "备孕饮食",
+            "order": 2,
+            "parentcode": "J01",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0103",
+            "grade": 3,
+            "id": 458,
+            "name": "备孕营养",
+            "order": 3,
+            "parentcode": "J01",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0104",
+            "grade": 3,
+            "id": 459,
+            "name": "心理调适",
+            "order": 4,
+            "parentcode": "J01",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0105",
+            "grade": 3,
+            "id": 460,
+            "name": "备孕健康",
+            "order": 5,
+            "parentcode": "J01",
+            "specialcodes": ""
+          }
+        ],
+        "code": "J01",
+        "grade": 2,
+        "id": 98,
+        "name": "备孕",
+        "order": 1,
+        "parentcode": "J",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "J0201",
+            "grade": 3,
+            "id": 461,
+            "name": "孕期检查",
+            "order": 1,
+            "parentcode": "J02",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0202",
+            "grade": 3,
+            "id": 462,
+            "name": "胎儿发育",
+            "order": 2,
+            "parentcode": "J02",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0203",
+            "grade": 3,
+            "id": 463,
+            "name": "孕期健康",
+            "order": 3,
+            "parentcode": "J02",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0204",
+            "grade": 3,
+            "id": 464,
+            "name": "孕期饮食",
+            "order": 4,
+            "parentcode": "J02",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0205",
+            "grade": 3,
+            "id": 465,
+            "name": "孕期营养",
+            "order": 5,
+            "parentcode": "J02",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0206",
+            "grade": 3,
+            "id": 466,
+            "name": "胎教",
+            "order": 6,
+            "parentcode": "J02",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0207",
+            "grade": 3,
+            "id": 467,
+            "name": "心理调适",
+            "order": 7,
+            "parentcode": "J02",
+            "specialcodes": ""
+          }
+        ],
+        "code": "J02",
+        "grade": 2,
+        "id": 99,
+        "name": "孕期",
+        "order": 2,
+        "parentcode": "J",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "J0301",
+            "grade": 3,
+            "id": 468,
+            "name": "分娩前兆",
+            "order": 1,
+            "parentcode": "J03",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0302",
+            "grade": 3,
+            "id": 469,
+            "name": "分娩事项",
+            "order": 2,
+            "parentcode": "J03",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0303",
+            "grade": 3,
+            "id": 470,
+            "name": "产后饮食",
+            "order": 3,
+            "parentcode": "J03",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0304",
+            "grade": 3,
+            "id": 471,
+            "name": "产后恢复",
+            "order": 4,
+            "parentcode": "J03",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0305",
+            "grade": 3,
+            "id": 472,
+            "name": "产后护理",
+            "order": 5,
+            "parentcode": "J03",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0306",
+            "grade": 3,
+            "id": 473,
+            "name": "心理调适",
+            "order": 6,
+            "parentcode": "J03",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0307",
+            "grade": 3,
+            "id": 474,
+            "name": "科学坐月子",
+            "order": 7,
+            "parentcode": "J03",
+            "specialcodes": ""
+          }
+        ],
+        "code": "J03",
+        "grade": 2,
+        "id": 100,
+        "name": "分娩",
+        "order": 3,
+        "parentcode": "J",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "J0401",
+            "grade": 3,
+            "id": 475,
+            "name": "哺乳期禁忌",
+            "order": 1,
+            "parentcode": "J04",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0402",
+            "grade": 3,
+            "id": 476,
+            "name": "哺乳期健康",
+            "order": 2,
+            "parentcode": "J04",
+            "specialcodes": ""
+          },
+          {
+            "code": "J0403",
+            "grade": 3,
+            "id": 477,
+            "name": "心理调适",
+            "order": 3,
+            "parentcode": "J04",
+            "specialcodes": ""
+          }
+        ],
+        "code": "J04",
+        "grade": 2,
+        "id": 101,
+        "name": "哺乳期",
+        "order": 4,
+        "parentcode": "J",
+        "specialcodes": ""
+      }
+    ],
+    "code": "J",
+    "grade": 1,
+    "id": 14,
+    "name": "孕产",
+    "order": 10,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "code": "K01",
+        "grade": 2,
+        "id": 102,
+        "name": "求职面试",
+        "order": 1,
+        "parentcode": "K",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "K02",
+        "grade": 2,
+        "id": 103,
+        "name": "职场礼仪",
+        "order": 2,
+        "parentcode": "K",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "K03",
+        "grade": 2,
+        "id": 104,
+        "name": "人际社交",
+        "order": 3,
+        "parentcode": "K",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "K04",
+        "grade": 2,
+        "id": 105,
+        "name": "职场心理学",
+        "order": 4,
+        "parentcode": "K",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "K05",
+        "grade": 2,
+        "id": 106,
+        "name": "职场故事",
+        "order": 5,
+        "parentcode": "K",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "K06",
+        "grade": 2,
+        "id": 107,
+        "name": "职场智慧",
+        "order": 6,
+        "parentcode": "K",
+        "specialcodes": ""
+      }
+    ],
+    "code": "K",
+    "grade": 1,
+    "id": 15,
+    "name": "职场",
+    "order": 11,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "code": "L01",
+        "grade": 2,
+        "id": 108,
+        "name": "财经评论",
+        "order": 1,
+        "parentcode": "L",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "L02",
+        "grade": 2,
+        "id": 109,
+        "name": "市场营销",
+        "order": 2,
+        "parentcode": "L",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "L03",
+        "grade": 2,
+        "id": 110,
+        "name": "创业指南",
+        "order": 3,
+        "parentcode": "L",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "L04",
+        "grade": 2,
+        "id": 111,
+        "name": "财富故事",
+        "order": 4,
+        "parentcode": "L",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "L05",
+        "grade": 2,
+        "id": 112,
+        "name": "商学院",
+        "order": 5,
+        "parentcode": "L",
+        "specialcodes": ""
+      }
+    ],
+    "code": "L",
+    "grade": 1,
+    "id": 16,
+    "name": "财富",
+    "order": 12,
+    "parentcode": "",
+    "specialcodes": ""
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+          {
+            "code": "M0101",
+            "grade": 3,
+            "id": 478,
+            "name": "动物乐园",
+            "order": 1,
+            "parentcode": "M01",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0102",
+            "grade": 3,
+            "id": 479,
+            "name": "植物大观",
+            "order": 2,
+            "parentcode": "M01",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0103",
+            "grade": 3,
+            "id": 480,
+            "name": "昆虫世界",
+            "order": 3,
+            "parentcode": "M01",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0104",
+            "grade": 3,
+            "id": 481,
+            "name": "水生生物",
+            "order": 4,
+            "parentcode": "M01",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0105",
+            "grade": 3,
+            "id": 482,
+            "name": "奇幻生物",
+            "order": 5,
+            "parentcode": "M01",
+            "specialcodes": ""
+          }
+        ],
+        "code": "M01",
+        "grade": 2,
+        "id": 113,
+        "name": "自然世界",
+        "order": 1,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "M0201",
+            "grade": 3,
+            "id": 483,
+            "name": "生命起源",
+            "order": 1,
+            "parentcode": "M02",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0202",
+            "grade": 3,
+            "id": 484,
+            "name": "细胞",
+            "order": 2,
+            "parentcode": "M02",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0203",
+            "grade": 3,
+            "id": 485,
+            "name": "病毒",
+            "order": 3,
+            "parentcode": "M02",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0204",
+            "grade": 3,
+            "id": 486,
+            "name": "遗传基因",
+            "order": 4,
+            "parentcode": "M02",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0205",
+            "grade": 3,
+            "id": 487,
+            "name": "古生物",
+            "order": 5,
+            "parentcode": "M02",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0206",
+            "grade": 3,
+            "id": 488,
+            "name": "微生物",
+            "order": 6,
+            "parentcode": "M02",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0207",
+            "grade": 3,
+            "id": 489,
+            "name": "人类",
+            "order": 7,
+            "parentcode": "M02",
+            "specialcodes": ""
+          }
+        ],
+        "code": "M02",
+        "grade": 2,
+        "id": 114,
+        "name": "生命奥秘",
+        "order": 2,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "M0301",
+            "grade": 3,
+            "id": 490,
+            "name": "宇宙奥秘",
+            "order": 1,
+            "parentcode": "M03",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0302",
+            "grade": 3,
+            "id": 491,
+            "name": "航空航天",
+            "order": 2,
+            "parentcode": "M03",
+            "specialcodes": ""
+          }
+        ],
+        "code": "M03",
+        "grade": 2,
+        "id": 115,
+        "name": "宇宙探索",
+        "order": 3,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "M0401",
+            "grade": 3,
+            "id": 492,
+            "name": "前沿科技",
+            "order": 1,
+            "parentcode": "M04",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0402",
+            "grade": 3,
+            "id": 493,
+            "name": "新技术",
+            "order": 2,
+            "parentcode": "M04",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0403",
+            "grade": 3,
+            "id": 494,
+            "name": "新产品",
+            "order": 3,
+            "parentcode": "M04",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0404",
+            "grade": 3,
+            "id": 495,
+            "name": "科学史话",
+            "order": 4,
+            "parentcode": "M04",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0405",
+            "grade": 3,
+            "id": 496,
+            "name": "科普人物",
+            "order": 5,
+            "parentcode": "M04",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0406",
+            "grade": 3,
+            "id": 497,
+            "name": "科学探秘",
+            "order": 6,
+            "parentcode": "M04",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0407",
+            "grade": 3,
+            "id": 498,
+            "name": "科学发明",
+            "order": 7,
+            "parentcode": "M04",
+            "specialcodes": ""
+          }
+        ],
+        "code": "M04",
+        "grade": 2,
+        "id": 116,
+        "name": "科技视野",
+        "order": 4,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+          {
+            "code": "M0501",
+            "grade": 3,
+            "id": 499,
+            "name": "地球知识",
+            "order": 1,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0502",
+            "grade": 3,
+            "id": 500,
+            "name": "地质矿产",
+            "order": 2,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0503",
+            "grade": 3,
+            "id": 501,
+            "name": "冰川海洋",
+            "order": 3,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0504",
+            "grade": 3,
+            "id": 502,
+            "name": "河流湖泊",
+            "order": 4,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0505",
+            "grade": 3,
+            "id": 503,
+            "name": "草原湿地",
+            "order": 5,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0506",
+            "grade": 3,
+            "id": 504,
+            "name": "高原山地",
+            "order": 6,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0507",
+            "grade": 3,
+            "id": 505,
+            "name": "森林沙漠",
+            "order": 7,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0508",
+            "grade": 3,
+            "id": 506,
+            "name": "大气环境",
+            "order": 8,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0509",
+            "grade": 3,
+            "id": 507,
+            "name": "自然灾害",
+            "order": 9,
+            "parentcode": "M05",
+            "specialcodes": ""
+          },
+          {
+            "code": "M0510",
+            "grade": 3,
+            "id": 508,
+            "name": "南极北极",
+            "order": 10,
+            "parentcode": "M05",
+            "specialcodes": ""
+          }
+        ],
+        "code": "M05",
+        "grade": 2,
+        "id": 117,
+        "name": "地球故事",
+        "order": 5,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "M06",
+        "grade": 2,
+        "id": 118,
+        "name": "万物之理",
+        "order": 6,
+        "parentcode": "M",
+        "specialcodes": ""
+      },
+      {
+        "childlist": [
+        ],
+        "code": "M07",
+        "grade": 2,
+        "id": 119,
+        "name": "百科知识",
+        "order": 7,
+        "parentcode": "M",
+        "specialcodes": ""
+      }
+    ],
+    "code": "M",
+    "grade": 1,
+    "id": 17,
+    "name": "科普",
+    "order": 13,
+    "parentcode": "",
+    "specialcodes": ""
+  }
+]

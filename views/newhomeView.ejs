@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+    <link rel="stylesheet" type="text/css" href="/css/newhome.css" />
+    <script src="/js/jQuery-v1.11.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/jquery.cycle2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+    <title>
+        <%=title %>
+    </title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="headerWrap">
+            <div class="hl left clearfix">
+                <a class="logo" target="_blank" href="/home">
+                    <img src="/images/indexImages/logo4.png" alt="">
+                </a>
+                <div class="left all dropdown">
+                    <a class="dropdown-toggle" target="_blank" href="/works">全部分类</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a target="_blank" href="/works?classifyId=A&positionX=0">
+                                <img src="/images/indexImages/cate1.png" alt="">
+                                <span>文学</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=B&positionX=1">
+                                <img src="/images/indexImages/cate2.png" alt="">
+                                <span>艺术</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=C&positionX=2">
+                                <img src="/images/indexImages/cate3.png" alt="">
+                                <span>思想文化</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=D&positionX=3">
+                                <img src="/images/indexImages/cate4.png" alt="">
+                                <span>人物</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=E&positionX=4">
+                                <img src="/images/indexImages/cate5.png" alt="">
+                                <span>历史</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=F&positionX=5">
+                                <img src="/images/indexImages/cate6.png" alt="">
+                                <span>军事</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=G&positionX=6">
+                                <img src="/images/indexImages/cate7.png" alt="">
+                                <span>法律</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=H&positionX=7">
+                                <img src="/images/indexImages/cate8.png" alt="">
+                                <span>生活休闲</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=I&positionX=8">
+                                <img src="/images/indexImages/cate9.png" alt="">
+                                <span>育儿</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=J&positionX=9">
+                                <img src="/images/indexImages/cate10.png" alt="">
+                                <span>孕产</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=K&positionX=10">
+                                <img src="/images/indexImages/cate11.png" alt="">
+                                <span>职场</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=L&positionX=11">
+                                <img src="/images/indexImages/cate12.png" alt="">
+                                <span>财富</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=M&positionX=12">
+                                <img src="/images/indexImages/cate13.png" alt="">
+                                <span>科普</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a target="_blank" href="/">首页</a>
+                <a target="_blank" href="/works?classifyId=A&positionX=0">文学</a>
+                <a target="_blank" href="/works?classifyId=B&positionX=1">艺术</a>
+                <a target="_blank" href="/works?classifyId=E&positionX=4">历史</a>
+                <a target="_blank" href="/works?classifyId=D&positionX=3">人物</a>
+                <a target="_blank" href="/works?classifyId=H&positionX=7">生活</a>
+                <a target="_blank" href="/works?classifyId=C&positionX=2">思想文化</a>
+                <!--<a target="_blank" href="/works?classifyId=F&positionX=5">军事</a>-->
+
+            </div>
+            <div class="hr right">
+                <% if(viewModel && viewModel.user.name != null){ %>
+                    <%- include('./components/userOptionMenu', {}) %>
+                        <% }else{ %>
+                            <a href="/temp/userCenter/register">注册</a>
+                            <div class="line"></div>
+                            <a id="login" href="javascript:;">登录</a>
+                            <% } %>
+                                <a href="javascript:;" class="search-icon"></a>
+                                <div class="hrlink clearfix">
+                                    <a target="_blank" href="/appdownload">客户端</a>
+                                    <a target="_blank" href="/mall/home">书城</a>
+                                    <a target="_blank" href="/literature">文献库</a>
+                                    <div class="right discovery dropdown">
+                                        <a class="dropdown-toggle" href="javascript:;">发现</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a target="_blank" href="/discovery">精选</a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" href="/microBook">微刊</a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" href="/kdh">万选号</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="search">
+        <div class="w1200Auto positionR">
+            <div class="search-tab">
+                <span class="selected">全部</span>
+                <span>作品</span>
+                <span>微刊</span>
+                <span>万选号</span>
+                <span>期刊</span>
+                <span>图书</span>
+                <span>文献</span>
+            </div>
+            <div class="search-box">
+                <input class="search-input" type="text" placeholder="请输入关键词搜索">
+                <a class="search-btn" href="javascript:;" data-enter-control="1"></a>
+            </div>
+            <a class="search-box-close" href="javascript:;"></a>
+        </div>
+    </div>
+    <div class="bannerArea">
+        <!-- <div class="transition cycle-slideshow" data-cycle-pause-on-hover="true" data-cycle-slides=".slide" data-cycle-timeout="4000" data-cycle-pager=".slidePager" data-cycle-speed="1000" data-cycle-prev=".cycle-prev" data-cycle-next=".cycle-next">
+        <div class="slide">
+            <a href="/detail/bookDetail/DZ2003110074" target="_blank" class="pic2"></a>
+        </div>
+    </div> -->
+        <div class="slideList"></div>
+        <div class="slidePager"></div>
+    </div>
+    <div class="category clearfix">
+        <a class="category-item" href="/works?classifyId=A&positionX=0" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon1.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon1a.png" alt="">
+            <span>文学</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=B&positionX=1" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon2.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon2a.png" alt="">
+            <span>艺术</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=C&positionX=2" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon3.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon3a.png" alt="">
+            <span>思想文化</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=D&positionX=3" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon4.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon4a.png" alt="">
+            <span>人物</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=E&positionX=4" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon5.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon5a.png" alt="">
+            <span>历史</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=F&positionX=5" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon6.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon6a.png" alt="">
+            <span>军事</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=G&positionX=6" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon7.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon7a.png" alt="">
+            <span>法律</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=I&positionX=8" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon8.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon8a.png" alt="">
+            <span>育儿</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=H&positionX=7" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon9.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon9a.png" alt="">
+            <span>生活休闲</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=J&positionX=9" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon10.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon10a.png" alt="">
+            <span>孕产</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=K&positionX=10" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon11.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon11a.png" alt="">
+            <span>职场</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=L&positionX=11" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon12.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon12a.png" alt="">
+            <span>财富</span>
+        </a>
+    </div>
+    <div class="section s1">
+        <div class="s1-tab">
+            <span class="selected">品读</span>
+            <span>静听</span>
+            <span>视界</span>
+            <span>图话</span>
+        </div>
+        <div class="s1-items" style="display:block;">
+        </div>
+        <div class="s1-items">
+        </div>
+        <div class="s1-items">
+        </div>
+        <div class="s1-items">
+        </div>
+    </div>
+    <div class="section s2">
+        <div class="s2-header clearfix">
+            <div class="s2-header-l clearfix">
+                <span class="s2-title">
+                    <a href="/works?classifyId=A&positionX=0" target="_blank">文学</a> ·
+                    <a href="/works?classifyId=B&positionX=1" target="_blank">艺术</a>
+                </span>
+                <div class="s2-subtitle clearfix">
+                    <a href="/works?classifyId=A03&positionX=0&positionY=2" target="_blank">美文</a>
+                    <a href="/works?classifyId=A01&positionX=0&positionY=0" target="_blank">诗词</a>
+                    <a href="/works?classifyId=A02&positionX=0&positionY=1" target="_blank">小说</a>
+                    <a href="/works?classifyId=A04&positionX=0&positionY=3" target="_blank">故事</a>
+                    <a href="/works?classifyId=B03&positionX=1&positionY=2" target="_blank">书法</a>
+                    <a href="/works?classifyId=B01&positionX=1&positionY=0" target="_blank">绘画</a>
+                    <a href="/works?classifyId=B05&positionX=1&positionY=4" target="_blank">摄影</a>
+                </div>
+            </div>
+            <div class="s2-header-r">
+                <a class="more" href="/works?classifyId=A&positionX=0" target="_blank">查看更多>></a>
+            </div>
+        </div>
+        <div class="s2-body clearfix">
+            <div class="s2-body-l clearfix">
+                <div class="s2-item-first clearfix"></div>
+                <div class="s2-items clearfix">
+                </div>
+            </div>
+            <div class="s2-body-r">
+                <div class="s2-hot">
+                    <div class="s2-hot-title">热读</div>
+                    <div class="s2-hot-body">
+                    </div>
+                </div>
+                <div class="s2-recommend">
+                    <div class="s2-recommend-title">微刊推荐</div>
+                    <div class="s2-recommend-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section s2">
+        <div class="s2-header clearfix">
+            <div class="s2-header-l clearfix">
+                <span class="s2-title">
+                    <a href="/works?classifyId=E&positionX=4" target="_blank">历史</a> ·
+                    <a href="/works?classifyId=D&positionX=3" target="_blank">人物</a>
+                </span>
+                <div class="s2-subtitle clearfix">
+                    <a href="/works?classifyId=E01&positionX=4&positionY=0" target="_blank">中华千年</a>
+                    <a href="/works?classifyId=E02&positionX=4&positionY=1" target="_blank">海外历史</a>
+                    <a href="/works?classifyId=E05&positionX=4&positionY=4" target="_blank">近代历史</a>
+                    <a href="/works?classifyId=E08&positionX=4&positionY=7" target="_blank">历史趣读</a>
+                    <a href="/works?classifyId=D03&positionX=3&positionY=2" target="_blank">历代名臣</a>
+                    <a href="/works?classifyId=D08&positionX=3&positionY=7" target="_blank">科教名人</a>
+                    <a href="/works?classifyId=D06&positionX=3&positionY=5" target="_blank">文艺名家</a>
+                </div>
+            </div>
+            <div class="s2-header-r">
+                <a class="more" href="/works?classifyId=E&positionX=4" target="_blank">查看更多>></a>
+            </div>
+        </div>
+        <div class="s2-body clearfix">
+            <div class="s2-body-l clearfix">
+                <div class="s2-item-first clearfix"></div>
+                <div class="s2-items clearfix"></div>
+            </div>
+            <div class="s2-body-r">
+                <div class="s2-hot">
+                    <div class="s2-hot-title">热读</div>
+                    <div class="s2-hot-body"></div>
+                </div>
+                <div class="s2-recommend">
+                    <div class="s2-recommend-title">微刊推荐</div>
+                    <div class="s2-recommend-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section s2">
+        <div class="s2-header clearfix">
+            <div class="s2-header-l clearfix">
+                <span class="s2-title">
+                    <a href="/works?classifyId=C&positionX=2" target="_blank">思想</a> ·
+                    <a href="/works?classifyId=C&positionX=2" target="_blank">文化</a>
+                </span>
+                <div class="s2-subtitle clearfix">
+                    <a href="/works?classifyId=C11&positionX=2&positionY=10" target="_blank">诸子百家</a>
+                    <a href="/works?classifyId=C10&positionX=2&positionY=9" target="_blank">哲学</a>
+                    <a href="/works?classifyId=C02&positionX=2&positionY=1" target="_blank">语言文字</a>
+                    <a href="/works?classifyId=C03&positionX=2&positionY=2" target="_blank">民俗文化</a>
+                    <a href="/works?classifyId=C04&positionX=2&positionY=3" target="_blank">饮食文化</a>
+                    <a href="/works?classifyId=C14&positionX=2&positionY=13" target="_blank">人文解读</a>
+                    <a href="/works?classifyId=C15&positionX=2&positionY=14" target="_blank">书评</a>
+                </div>
+            </div>
+            <div class="s2-header-r">
+                <a class="more" href="/works?classifyId=C11&positionX=2&positionY=10" target="_blank">查看更多>></a>
+            </div>
+        </div>
+        <div class="s2-body clearfix">
+            <div class="s2-body-l clearfix">
+                <div class="s2-item-first clearfix"></div>
+                <div class="s2-items clearfix"></div>
+            </div>
+            <div class="s2-body-r">
+                <div class="s2-hot">
+                    <div class="s2-hot-title">热文榜单</div>
+                    <div class="s2-hot-body"></div>
+                </div>
+                <div class="s2-recommend">
+                    <div class="s2-recommend-title">微刊推荐</div>
+                    <div class="s2-recommend-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section s2">
+        <div class="s2-header clearfix">
+            <div class="s2-header-l clearfix">
+                <span class="s2-title">
+                    <a href="/works?classifyId=H&positionX=7" target="_blank">生活</a> ·
+                    <a href="/works?classifyId=H&positionX=7" target="_blank">休闲</a>
+                </span>
+                <div class="s2-subtitle clearfix">
+                    <a href="/works?classifyId=H02&positionX=7&positionY=1" target="_blank">健康保健</a>
+                    <a href="/works?classifyId=H03&positionX=7&positionY=2" target="_blank">生活锦囊</a>
+                    <a href="/works?classifyId=H08&positionX=7&positionY=7" target="_blank">旅行天下</a>
+                    <a href="/works?classifyId=I&positionX=8" target="_blank">育儿</a>
+                    <a href="/works?classifyId=H05&positionX=7&positionY=4" target="_blank">家庭理财</a>
+                    <a href="/works?classifyId=H07&positionX=7&positionY=6" target="_blank">美容服饰</a>
+                    <a href="/works?classifyId=H12&positionX=7&positionY=11" target="_blank">宠物世界</a>
+                </div>
+            </div>
+            <div class="s2-header-r">
+                <a class="more" href="/works?classifyId=H&positionX=7" target="_blank">查看更多>></a>
+            </div>
+        </div>
+        <div class="s2-body clearfix">
+            <div class="s2-body-l clearfix">
+                <div class="s2-item-first clearfix"></div>
+                <div class="s2-items clearfix"></div>
+            </div>
+            <div class="s2-body-r">
+                <div class="s2-hot">
+                    <div class="s2-hot-title">热文榜单</div>
+                    <div class="s2-hot-body"></div>
+                </div>
+                <div class="s2-recommend">
+                    <div class="s2-recommend-title">微刊推荐</div>
+                    <div class="s2-recommend-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="s3-wrap">
+        <div class="section s3">
+            <div class="s3-title">书刊商城</div>
+            <div class="s3-body">
+                <div class="s3-book-items clearfix">
+                    <!-- 期刊5条 -->
+                    <!-- <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/singlePeriodDetail/YLYL202006" target="_blank">
+                            <img src="http://c61.cnki.net/CJFD/big/YLYL/YLYL202006.jpg" width="139" height="187"  title="意林">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/singlePeriodDetail/YLYL202006" target="_blank" title="意林">意林</a>
+                        </div>
+                        <div class="s3-book-author">2020年06期</div>
+                    </div> -->
+                    <!-- 图书5条 -->
+                    <!-- <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/bookDetail/DZ2003120028" target="_blank">
+                            <img src="http://qiangguo.cnki.net/Mall/Images/Book/Cover/Big/DZ2003120028.jpg" width="139" height="187"  title="不可思议的色彩能量书">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/bookDetail/DZ2003120028" target="_blank" title="不可思议的色彩能量书">不可思议的色彩能量书</a>
+                        </div>
+                        <div class="s3-book-author">杰米·琳 著</div>
+                    </div> -->
+                </div>
+                <div class="s3-booklist-items">
+                    <!-- <a class="s3-booklist-item" href="/mall/booklistDetail?booklistId=8" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e5c6a77a2a8721f30af371e" width="261" height="102" alt="">
+                    </a> -->
+                </div>
+            </div>
+            <div class="s3-footer">
+                <a class="s3-btn" href="/mall/home" target="_blank">进入书刊商城>></a>
+            </div>
+        </div>
+    </div>
+    <div class="section s4">
+        <div class="s4-title">万选号</div>
+        <div class="s4-body">
+            <!-- <a class="s4-item" href="/kdh/home/kdsc015" target="_blank">
+                <img src="http://wanxuan.cnki.net/org/images/5eb3ca1e119fa71a0071e062" width="90" height="90" alt="">
+                <div class="s4-item-name">腹有诗书</div>
+            </a> -->
+        </div>
+        <div class="s4-footer">
+            <a class="s4-btn" href="/kdh" target="_blank">查看更多>></a>
+        </div>
+    </div>
+    <%- include('./layouts/footerLayout', {}) %>
+    <%- include('./components/rightToolbar', {}) %>
+        <script>
+            $('.header .dropdown').hover(function() {
+                $(this).find('.dropdown-menu').stop().slideToggle();
+            });
+            $('.header .hr .search-icon').click(function(e) {
+                e.stopPropagation();
+                $('.search').stop().slideDown();
+            });
+            $('.search').click(function(e) {
+                e.stopPropagation();
+            });
+            // $('.search').mouseleave(function() {
+            //     $(this).stop().slideUp();
+            // });
+            // 搜索类型切换
+            var type = 0;
+            $('.search-tab span').click(function() {
+                type = $(this).index();
+                $(this).addClass('selected').siblings().removeClass('selected');
+            });
+            //热门榜单切换
+            $('.s2-hot').on('mouseenter', '.s2-hot-item', function() {
+                    $('.s2-hot-item').removeClass('active');
+                    $(this).toggleClass('active');
+                }
+
+            ); //作品类型切换
+            var tabA = $('.s1-tab span');
+            var s1Icon = $('.s1-item-img i');
+            var index = 0;
+            tabA.click(function(e) {
+                    e.stopPropagation();
+                    index = $(this).index();
+                    $(this).addClass('selected').siblings().removeClass('selected');
+                    // if (index > 0) {
+                    //     s1Icon.show().attr('class', '').addClass('s1-item-icon' + index);
+                    // }
+                    $('.s1-items').eq(index).show().siblings('.s1-items').hide();
+                }
+
+            );
+
+            var login = $('#login');
+            login.click(function() {
+                location.href = '/temp/userCenter/login?v=' + Date.now();
+            })
+
+            var searchBtn = $('.search-btn');
+            var enterControl = searchBtn.attr('data-enter-control');
+            searchBtn.on('click', function() {
+                var kd = $(this).siblings('input').val();
+                if (kd.trim().length == 0) {
+                    return;
+                }
+                var typeArr = ['home', 'works', 'microbook', 'kdh', 'period', 'book'];
+                if (type == 6) {
+                    location.href = encodeURI('/literature/literatureResult?topic=' + kd);
+                } else {
+                    location.href = encodeURI('/search/' + typeArr[type] + '?kd=' + kd);
+                }
+
+            })
+            $('.search-box-close').click(function () {
+                $('.search').stop(true).slideUp();
+            })
+            // 回车 提交 enterControl可以区分其他回车需求
+            if (enterControl == 1) {
+                $(document).bind("keydown", function(e) {
+                    if (e.keyCode == 13) {
+                        searchBtn.click();
+                    }
+                })
+            }
+            $(window).scroll(function() {
+                var A = $(window).scrollTop();
+                if (A > 0) {
+                    $('.header').addClass('fixed');
+                } else {
+                    $('.header').removeClass('fixed');
+                }
+            });
+
+            var slideList = $('.bannerArea .slideList');
+
+            getHomeData();
+
+            function getHomeData() {
+                var url = '/getHomeData';
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.code == 0) {
+                            var data = response.data;
+                            // 轮播图
+                            if (data.listlunbo && data.listlunbo.length > 0) {
+                                var carouselStr = '';
+                                for (var i = 0; i < data.listlunbo.length; i++) {
+                                    var item = data.listlunbo[i];
+                                    carouselStr += '<div class="slide"><a href="' + item.jumplink + '" target="_blank" style="background-image: url(' + item.coverpic + ');"></a></div>';
+                                }
+                                slideList.html(carouselStr);
+                                slideList.cycle({
+                                    fx: 'fade',
+                                    timeout: 3000,
+                                    speed: 1000,
+                                    pause: true,
+                                    slides: '.slide',
+                                    pager: '.slidePager'
+                                });
+                            }
+                            // 品读
+                            if (data.listimgtxt && data.listimgtxt.length > 0) {
+                                var imgtxtStr = '';
+                                for (var i = 0; i < data.listimgtxt.length; i++) {
+                                    var item = data.listimgtxt[i];
+                                    // var tagsStr = '';
+                                    var keywordArr = [];
+                                    if (item.keywords) {
+                                        keywordArr = item.keywords.split(' ').slice(0, 3);
+                                    }
+                                    // for (var j = 0; j < keywordArr.length; j++) {
+                                    //     tagsStr += '<span>' + keywordArr[j] + '</span>';
+                                    // }
+                                    imgtxtStr += '<div class="s1-item"><a class="s1-item-img" href = "/detail/workDetail/' + item.foreignkeyid.toString() + '1" target = "_blank"><img src="' + item.coverpic + '" alt = "" title = "' + item.title + '"></a><div class = "s1-title" ><a href = "/detail/workDetail/' + item.foreignkeyid.toString() + '1" title = "' + item.title + '" target = "_blank" >' + item.title + '</a></div><div class="s1-info"><a class="s1-org" href="/kdh/home?orgid=' + item.orgid + '" target="_blank"><img src="' + item.orglogopic + '"  alt = "" ><span class="s1-orgname"> ' + item.orgname + '</span></a></div></div>';
+                                }
+                                $('.s1-items').eq(0).html(imgtxtStr);
+                            }
+                            // 静听
+                            if (data.listaudio && data.listaudio.length > 0) {
+                                var audioStr = '';
+                                for (var i = 0; i < data.listaudio.length; i++) {
+                                    var item = data.listaudio[i];
+                                    // var tagsStr = '';
+                                    var keywordArr = [];
+                                    if (item.keywords) {
+                                        keywordArr = item.keywords.split(' ').slice(0, 3);
+                                    }
+                                    // for (var j = 0; j < keywordArr.length; j++) {
+                                    //     tagsStr += '<span>' + keywordArr[j] + '</span>';
+                                    // }
+                                    audioStr += '<div class="s1-item"><a class="s1-item-img" href = "/detail/workDetail/' + item.foreignkeyid.toString() + '2" target = "_blank"><img src="' + item.coverpic + '" alt = "" title = "' + item.title + '"><i class="s1-item-icon1"></i></a><div class = "s1-title" ><a href = "/detail/workDetail/' + item.foreignkeyid.toString() + '2" title = "' + item.title + '" target = "_blank" >' + item.title + '</a></div><div class="s1-info"><a class="s1-org" href="/kdh/home?orgid=' + item.orgid + '" target="_blank"><img src="' + item.orglogopic + '"  alt = "" ><span class="s1-orgname"> ' + item.orgname + '</span></a></div></div>';
+                                }
+                                $('.s1-items').eq(1).html(audioStr);
+                            }
+                            // 视界
+                            if (data.listvideo && data.listvideo.length > 0) {
+                                var videoStr = '';
+                                for (var i = 0; i < data.listvideo.length; i++) {
+                                    var item = data.listvideo[i];
+                                    // var tagsStr = '';
+                                    var keywordArr = [];
+                                    if (item.keywords) {
+                                        keywordArr = item.keywords.split(' ').slice(0, 3);
+                                    }
+                                    // for (var j = 0; j < keywordArr.length; j++) {
+                                    //     tagsStr += '<span>' + keywordArr[j] + '</span>';
+                                    // }
+                                    videoStr += '<div class="s1-item"><a class="s1-item-img" href = "/detail/workDetail/' + item.foreignkeyid.toString() + '3" target = "_blank"><img src="' + item.coverpic + '" alt = "" title = "' + item.title + '"><i class="s1-item-icon2"></i></a><div class = "s1-title" ><a href = "/detail/workDetail/' + item.foreignkeyid.toString() + '3" title = "' + item.title + '" target = "_blank" >' + item.title + '</a></div><div class="s1-info"><a class="s1-org" href="/kdh/home?orgid=' + item.orgid + '" target="_blank"><img src="' + item.orglogopic + '"  alt = "" ><span class="s1-orgname"> ' + item.orgname + '</span></a></div></div>';
+                                }
+                                $('.s1-items').eq(2).html(videoStr);
+                            }
+                            // 图话
+                            if (data.listpic && data.listpic.length > 0) {
+                                var picStr = '';
+                                for (var i = 0; i < data.listpic.length; i++) {
+                                    var item = data.listpic[i];
+                                    // var tagsStr = '';
+                                    var keywordArr = [];
+                                    if (item.keywords) {
+                                        keywordArr = item.keywords.split(' ').slice(0, 3);
+                                    }
+                                    // for (var j = 0; j < keywordArr.length; j++) {
+                                    //     tagsStr += '<span>' + keywordArr[j] + '</span>';
+                                    // }
+                                    picStr += '<div class="s1-item"><a class="s1-item-img" href = "/detail/workDetail/' + item.foreignkeyid.toString() + '4" target = "_blank"><img src="' + item.coverpic + '" alt = "" title = "' + item.title + '"><i class="s1-item-icon3"></i></a><div class = "s1-title" ><a href = "/detail/workDetail/' + item.foreignkeyid.toString() + '4" title = "' + item.title + '" target = "_blank" >' + item.title + '</a></div><div class="s1-info"><a class="s1-org" href="/kdh/home?orgid=' + item.orgid + '" target="_blank"><img src="' + item.orglogopic + '"  alt = "" ><span class="s1-orgname"> ' + item.orgname + '</span></a></div></div>';
+                                }
+                                $('.s1-items').eq(3).html(picStr);
+                            }
+                            // 书刊商城期刊
+                            if (data.listjournal && data.listjournal.length > 0) {
+                                var magaStr = '';
+                                for (var i = 0; i < data.listjournal.length; i++) {
+                                    if (i < 5) {
+                                        var item = data.listjournal[i];
+                                        magaStr += '<div class="s3-book-item">' +
+                                            '<a class="s3-book-img" href="/detail/singlePeriodDetail/' + item.link + '" target="_blank">' +
+                                            '<img src = "' + item.coverpic + '" width = "139" height = "187" title = "' + item.title + '">' +
+                                            '</a>' +
+                                            '<div class = "s3-book-title" >' +
+                                            '<a href = "/detail/singlePeriodDetail/' + item.link + '" target = "_blank" title = "' + item.title + '">' + item.title + '</a>' +
+                                            '</div>' +
+                                            '<div class = "s3-book-author">' + item.link.substr(4, 4) + '年' + item.link.substr(8, 2) + '期</div>' +
+                                            '</div>';
+                                    }
+                                }
+                                $('.s3-book-items').append(magaStr);
+                            }
+                            // 书刊商城图书
+                            if (data.listbook && data.listbook.length > 0) {
+                                var bookStr = '';
+                                for (var i = 0; i < data.listbook.length; i++) {
+                                    if (i < 5) {
+                                        var item = data.listbook[i];
+                                        bookStr += '<div class="s3-book-item">' +
+                                            '<a class="s3-book-img" href="/detail/bookDetail/' + item.foreignkeyid + '" target="_blank">' +
+                                            '<img src = "' + item.coverpic + '" width = "139" height = "187" title = "' + item.title + '">' +
+                                            '</a>' +
+                                            '<div class = "s3-book-title">' +
+                                            '<a href="/detail/bookDetail/' + item.foreignkeyid + '" target = "_blank" title="' + item.title + '">' + item.title + '</a>' +
+                                            '</div>' +
+                                            '<div class = "s3-book-author">' + item.author + ' 著</div>' +
+                                            '</div>';
+                                    }
+                                }
+                                $('.s3-book-items').append(bookStr);
+                            }
+                            // 书刊商城书单
+                            if (data.listshopshelf && data.listshopshelf.length > 0) {
+                                var bookShelfStr = '';
+                                for (var i = 0; i < data.listshopshelf.length; i++) {
+                                    if (i < 4) {
+                                        var item = data.listshopshelf[i];
+                                        bookShelfStr += '<a class="s3-booklist-item" href="/mall/booklistDetail?booklistId=' + item.foreignkeyid + '" target="_blank" title = "' + item.title + '">' +
+                                            '<img src="' + item.coverpic + '" width="261" height="102" alt="">' +
+                                            '</a>';
+                                    }
+                                }
+                                $('.s3-booklist-items').html(bookShelfStr);
+                            }
+                            // 万选号
+                            if (data.listorg && data.listorg.length > 0) {
+                                var orgStr = '';
+                                for (var i = 0; i < data.listorg.length; i++) {
+                                    var item = data.listorg[i];
+                                    orgStr += '<a class="s4-item" href="/kdh/home?orgid=' + item.foreignkeyid + '" target="_blank"><img src = "' + item.coverpic + '" width="90" height="90"><div class = "s4-item-name" >' + item.title + '</div></a>';
+                                }
+                                $('.s4-body').html(orgStr);
+                            }
+                            // 四个分类
+                            var cateArr = [];
+                            for (var i = 0; i < 4; i++) {
+                                var cateItem = data['listindexcate' + (i + 1)];
+                                cateArr.push(cateItem);
+
+                            }
+
+
+                            for (var i = 1; i <= cateArr.length; i++) {
+                                var cate = cateArr[i - 1];
+                                if (cate) {
+                                    var cateFirstWorksStr = '';
+                                    var cateOtherWorksStr = '';
+                                    var cateHotStr = '';
+                                    var cateMicrobookStr = '';
+                                    var worksData = cate['listindexcate' + i + '_1'];
+                                    var hotData = cate['listindexcate' + i + '_2'];
+                                    var microbookData = cate['listindexcate' + i + '_3'];
+                                    // 作品推荐
+                                    for (var j = 0; j < worksData.length; j++) {
+                                        if (j < 7) {
+                                            var item = worksData[j];
+                                            var badgeArr = ['图文', '音频', '视频', '图集'];
+
+                                            if (j == 0) {
+                                                // var tagsStr = '';
+                                                var keywordArr = [];
+                                                if (item.keywords) {
+                                                    keywordArr = item.keywords.split(' ');
+                                                }
+                                                // for (var k = 0; k < keywordArr.length; k++) {
+                                                //     tagsStr += '<span>' + keywordArr[k] + '</span>';
+                                                // }
+                                                cateFirstWorksStr += '<a class="s2-first-img" href="/detail/workDetail/' + item.foreignkeyid.toString() + item.mediatype + '" target="_blank"><img src ="' + item.coverpic + '" width = "332" height = "186" title = "' + item.title + '"><i class = "s2-first-icon' + item.mediatype + '"></i></a><div class = "s2-first-info"><div class = "s2-first-title"><a href = "/detail/workDetail/' + item.foreignkeyid.toString() + item.mediatype + '" target = "_blank">' + item.title + '</a></div><div class = "s2-first-intro">' + item.memo + '</div><div class = "s2-first-author"><a href = "/kdh/home?orgid=' + item.orgid + '" target = "_blank"><img src = "' + item.orglogopic + '" alt = "">' + item.orgname + '</a></div></div>';
+                                            } else {
+                                                cateOtherWorksStr += '<div class="s2-item"><a class="s2-item-img" href = "/detail/workDetail/' + item.foreignkeyid.toString() + item.mediatype + '" target = "_blank" ><img src ="' + item.coverpic + '" width="230" height="130" title = "' + item.title + '"><span class = "badge" >' + badgeArr[item.mediatype - 1] + '</span></a><div class="s2-item-title"><a href ="/detail/workDetail/' + item.foreignkeyid.toString() + item.mediatype + '" target = "_blank" >' + item.title + '</a></div><div class = "s2-item-author"><a href = "/kdh/home?orgid=' + item.orgid + '" target = "_blank" ><img src = "' + item.orglogopic + '" alt = "">' + item.orgname + '</a></div></div>';
+                                            }
+                                        }
+
+                                    }
+                                    $('.s2').eq(i - 1).find('.s2-item-first').html(cateFirstWorksStr);
+                                    $('.s2').eq(i - 1).find('.s2-items').html(cateOtherWorksStr);
+                                    // 热读
+                                    for (var j = 0; j < hotData.length; j++) {
+                                        if (j < 5) {
+                                            var classNumber = '';
+                                            var item = hotData[j];
+                                            if (j < 3) {
+                                                classNumber = 's2-hot-item-number' + (j + 1);
+                                            }
+                                            var classActive = j == 0 ? 'active' : '';
+                                            cateHotStr += '<div class="s2-hot-item ' + classActive + '"><i class = "s2-hot-item-number ' + classNumber + '">' + (j + 1) + '</i><span class = "s2-hot-item-title"> ' + item.title + ' </span> <div class = "s2-hot-item-detail clearfix"><a class ="s2-hot-detail-img" href = "/detail/workDetail/' + item.foreignkeyid.toString() + item.mediatype + '" title = "' + item.title + ' " target = "_blank" ><img src = "' + item.coverpic + ' " width = "105" height = "59" alt = ""></a><div class = "s2-hot-detail-title"><a href = "/detail/workDetail/' + item.foreignkeyid.toString() + item.mediatype + '" title = "' + item.title + ' " target = "_blank" >' + item.title + ' </a></div></div></div>';
+                                        }
+
+                                    }
+                                    $('.s2').eq(i - 1).find('.s2-hot-body').html(cateHotStr);
+                                    // 微刊推荐
+                                    for (var j = 0; j < microbookData.length; j++) {
+                                        if (j < 2) {
+                                            var item = microbookData[j];
+                                            cateMicrobookStr += '<div class="s2-recommend-item">' +
+                                                '<a href="/detail/microBookDetail?id=' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                '<img class="s2-recommend-img" src="' + item.coverpic + '" width="350" height="157" alt="">' +
+                                                '<div class="s2-recommend-item-title">' + item.title + '</div>' +
+                                                '</a>' +
+                                                '</div>';
+                                        }
+
+                                    }
+                                    $('.s2').eq(i - 1).find('.s2-recommend-body').html(cateMicrobookStr);
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+        </script>
+</body>
+
+</html>
+
+</html>

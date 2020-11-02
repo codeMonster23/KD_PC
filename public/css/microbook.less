@@ -1,0 +1,51 @@
+.banner{height: 163px; background:url(/images/microbook/mbanner.jpg) no-repeat center;}
+@bgcolor:#FAF9F6;
+@width:1190px;
+@border:1px solid #DDDFE3;
+.mwrap{ width: @width;border: @border; background: @bgcolor; margin: -74px auto 0;
+    .choose{
+      height: 55px;
+      margin: 0 30px;
+      border-bottom: 1px solid #E5E5E3;  
+        .select{
+        width: 103px; height: 55px; position: relative; background: url(../images/discovery/dicon1.png) no-repeat 82px center; margin-left: 16px; cursor: pointer;
+            p{padding-left: 8px; font-size: 16px; line-height: 55px;}
+            ul{ display:none;position: absolute; width: 101px; border: 1px solid #E5E0DD; background-color: #ffffff; left: 0; top: 45px; z-index: 100;
+                li{line-height: 30px; padding-left: 7px; font-size: 14px; color: #656565;
+                &:hover{ background-color: #FFECEF; color: #ce0000;}
+                }
+            }
+        }
+        .select1{ width: 80px; background-position: 56px;
+            ul{width: 78px;}
+        }
+    }
+}
+.cardwrap{margin-top:30px; background: url(../images/microbook/mbg1.jpg) repeat-y; overflow: hidden;
+    .ca-box{float: left; width: 534px; height: 382px; margin-left: 30px; margin-right: 30px;
+        .pic{position: relative;
+            .num{ position: absolute; right: 10px; bottom: 10px; width: 150px; height: 36px; background: url(../images/microbook/micon1.png) no-repeat; line-height: 36px; color: #ffffff; font-size: 16px;
+                .s1{ float: left; padding-left: 34px; width:49px; background: url(../images/microbook/micon2.png) no-repeat 9px center;} 
+                .s2{ float: left; padding-left: 26px; background: url(../images/microbook/micon3.png) no-repeat left center;}   
+                }
+            }
+        .name{ line-height: 50px; font-size: 18px;
+             a{ color: #000000;}   
+            }
+          }
+        .info{ height: 21px; line-height: 21px; font-size: 14px;
+            a{ color: #494949;
+                img{ width: 21px; height: 21px; border-radius: 50%; vertical-align: middle; margin-right: 5px;}
+            }
+            .time{color: #007ed3;}    
+        }
+}
+.sp-page{ padding-top:42px; margin-top:-42px; text-align:center; background-color:#FBFAF7;font-family:Arial, Helvetica, sans-serif; color:#333333; margin-bottom:50px;
+    a,span{color: #333333; margin-right: 12px; padding: 8px 12px; text-decoration: none; font-size: 14px; border:1px solid #D1D1D1;}
+    span{padding:8px 11px;}
+    a:hover { color: #ffffff; background-color:#ED5E5A; border-color:#ED5E5A; }
+    a.current { background-color:#ED5E5A; border:1px solid #ED5E5A;color: #fff; margin-right: 12px; padding: 8px 12px;  font-size: 14px; }
+    span.current { background-color:#ED5E5A; border:1px solid #ED5E5A;color: #fff; margin-right: 12px; padding: 8px 12px;  font-size: 14px; }
+    span.disabled { color: #333333; margin-right: 12px; padding: 8px 12px; text-decoration: none; font-size: 14px; border:1px solid #D1D1D1;}
+}
+.mfooter{ text-align: center; padding-top: 30px; height: 20px; height: 72px; color: #6C6C6C; line-height: 20px;}

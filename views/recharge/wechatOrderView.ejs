@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/recharge/recharge.css" />
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current: 3, enterControl:1}) %>
+        <div class="charBody">
+            <h1 class="tit"><span class="left">充值中心</span><a href="#" target="_blank">索取发票</a></h1>
+            <div class="orderWrap">
+                <div class="top">您正在通过 <span>微信支付</span> 进行账户充值，请您确认订单信息 <a href="/charging/charge" target="_blank">选择其他充值方式></a></div>
+                <div class="middle clearfix">
+                    <table class="detail left">
+                        <tr>
+                            <th colspan="2">订单信息</th>
+                        </tr>
+                        <tr>
+                            <td width="164">订单编号</td>
+                            <td>
+                                <div>ALIP201910281543188071</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="164">充值账户</td>
+                            <td>
+                                <div>2357931698</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="164">充值金额</td>
+                            <td>
+                                <div>100.00 元（另赠20元券）</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="164">优惠券立减</td>
+                            <td>
+                                <div>-10.00 元</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="164">应付金额</td>
+                            <td>
+                                <div><span>90.00</span> 元</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="last" colspan="2">系统将为您生成和提交订单，请记住本次充值的订单号和金额，已备核对。</td>
+                        </tr>
+                    </table>
+                    <div class="qrcode wxcode right">
+                        <p class="p1">请使用微信扫一扫, 扫描二维码支付</p>
+                        <div class="code clearfix">
+                            <img class="ewm left" src="/images/chargingCenter/cc-ewmzfb.jpg" />
+                            <img class="right" src="/images/chargingCenter/cc-mobilewx.png" />
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p><img src="/images/chargingCenter/cc-icon9.png">中国知网客服电话：400-819-9993，010-62791813&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/chargingCenter/cc-icon10.png">微信支付客服电话：0571-88156688</p>
+                </div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+            </script>
+</body>
+
+</html>

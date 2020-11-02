@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/mall/header-and-footer.css" />
+        <link rel="stylesheet" type="text/css" href="/css/mall/mall.css" />
+        <script src="/js/jquery.cycle2.js"></script>
+</head>
+
+<body>
+    <%- include('../layouts/mall/navLayout', {current: 0,sublogo:false,enterControl:1}) %>
+        <div class="bannerArea">
+            <div class="slideList"></div>
+            <div class="slidePager"></div>
+        </div>
+        <div class="section s1">
+            <a href="/mall/booklist" target="_blank"><img src="/images/mall/mall_link01.jpg" alt=""></a>
+            <a href="/mall/rank" target="_blank"><img src="/images/mall/mall_link02.jpg" alt=""></a>
+            <a href="/kdh/home?orgid=kdsp019" target="_blank"><img src="/images/mall/mall_link03.jpg" alt=""></a>
+        </div>
+        <div class="section s2">
+            <div class="s2-left">
+                <div class="s-header clearfix">
+                    <span class="s-title">本周必读</span>
+                    <div class="tabnav">
+                        <span class="current">晨读</span>
+                        <span>夜读</span>
+                    </div>
+                </div>
+                <div class="s-body clearfix">
+                    <div class="morningReading">
+                        <div class="book-first">
+                            <!-- <div class="book-first-img">
+                            <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/178x258" alt=""></a>
+                        </div>
+                        <p class="book-first-name"><a href="" title="围城" target="_blank">围城</a></p>
+                        <p class="book-first-author">路易莎·梅·奥...  著</p>
+                        <p class="book-first-abstract">莱昂纳多主演电影原著小说，世界文学史上的“完美之书”。村上春树文学创作的源泉，海明威、塞林格盛赞的经典。酷威文化酷威文化</p> -->
+                        </div>
+                        <div class="book-list clearfix">
+                            <!-- <div class="book-list-item">
+                            <div class="book-item-img">
+                                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/120x167" alt=""></a>
+                            </div>
+                            <p class="book-item-name"><a href="" title="围城" target="_blank">围城</a></p>
+                            <p class="book-item-author">路易莎·梅·奥...  著</p>
+                        </div> -->
+                        </div>
+                    </div>
+                    <div class="eveningReading">
+                        <div class="book-first"></div>
+                        <div class="book-list clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="s2-right">
+                <p class="s2-right-word"></p>
+                <p class="s2-right-source"></p>
+                <div class="s2-right-img"></div>
+            </div>
+        </div>
+        <div class="bgWrap">
+            <div class="bgIcon"></div>
+            <!-- <div class="section s3">
+            <div class="s-title">好书共读</div>
+            <div class="s-body clearfix">
+                <div class="s-item clearfix">
+                    <div class="book-img">
+                        <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/152x220" alt=""></a>
+                    </div>
+                    <div class="book-detail">
+                        <div class="book-name">
+                            <a href="" title="围城" target="_blank">走进西藏</a>
+                        </div>
+                        <div class="book-author">吴伟著</div>
+                        <div class="book-catalog">
+                            <div class="book-catalog-item">
+                                <a class="book-chapter-title" href="" target="_blank">佛心道骨儒为表，悲天悯人《走遍西藏》</a>
+                                <div class="book-chapter-body">
+                                    吴伟先生的新作《走遍西藏》,讲述了线的故事。小说以孙参的成长蜕变、救赎为脉络逐层深入,书写了个人奋斗、城...
+                                    <a href="" target="_blank">【详细】</a>
+                                </div>
+                            </div>
+                            <div class="book-catalog-item">
+                                <a class="book-chapter-title" href="" target="_blank">佛心道骨儒为表，悲天悯人《走遍西藏》</a>
+                            </div>
+                            <div class="book-catalog-item">
+                                <a class="book-chapter-title" href="" target="_blank">佛心道骨儒为表，悲天悯人《走遍西藏》</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+            <!-- <div class="section s4">
+            <div class="s-item">
+                <div class="s-header clearfix">
+                    <span class="s-title">此时此刻 · 必读清单</span>
+                    <a class="s-title-more" href="" target="_blank">查看更多 ></a>
+                </div>
+                <div class="s-body clearfix">
+                    <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                    <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                    <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                    <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                </div>
+            </div>
+            <div class="s-item">
+                <div class="s-header clearfix">
+                    <span class="s-title">此情此景 · 必读清单</span>
+                    <a class="s-title-more" href="" target="_blank">查看更多 ></a>
+                </div>
+                <div class="s-body clearfix">
+                    <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                    <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                    <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                    <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                </div>
+            </div>
+        </div> -->
+            <!-- <div class="section s5">
+            <div class="s-header clearfix">
+                <span class="s-title"><img src="/images/mall/mall_tit01.png" alt=""></span>
+                <a class="s-title-more" href="" target="_blank">查看更多 ></a>
+            </div>
+            <div class="s-body clearfix">
+                <a href="" target="_blank"><img src="http://via.placeholder.com/180x88" alt=""></a>
+                <a href="" target="_blank"><img src="http://via.placeholder.com/180x88" alt=""></a>
+                <a href="" target="_blank"><img src="http://via.placeholder.com/180x88" alt=""></a>
+                <a href="" target="_blank"><img src="http://via.placeholder.com/180x88" alt=""></a>
+                <a href="" target="_blank"><img src="http://via.placeholder.com/180x88" alt=""></a>
+                <a href="" target="_blank"><img src="http://via.placeholder.com/180x88" alt=""></a>
+            </div>
+        </div> -->
+        </div>
+        <div class="section s6">
+            <div class="s-header clearfix">
+                <span class="s-title">新刊速递</span>
+                <a class="s-title-more" href="/mall/category?type=1&sort=new" target="_blank">查看更多 ></a>
+            </div>
+            <div class="s-body clearfix">
+                <!-- <div class="s-item">
+                <a href="" title="围城" target="_blank">
+                    <div class="periodical-img">
+                        <img src="http://via.placeholder.com/151x215" alt="">
+                    </div>
+                    <div class="periodical-name">期刊名</div>
+                    <div class="periodical-date">2019年第15期</div>
+                </a>
+            </div> -->
+            </div>
+        </div>
+        <div class="section s7">
+            <div class="wrap">
+                <div class="s-header clearfix">
+                    <span class="s-title">新书抢鲜</span>
+                    <a class="s-title-more" href="/mall/category?type=2&sort=new" target="_blank">查看更多 ></a>
+                </div>
+                <div class="s-body clearfix">
+                    <!-- <div class="s-item clearfix">
+                    <div class="book-img">
+                        <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/128x185" alt=""></a>
+                    </div>
+                    <div class="book-detail">
+                        <div class="book-name">
+                            <a href="" title="围城" target="_blank">走进西藏</a>
+                        </div>
+                        <div class="book-author">吴伟著</div>
+                        <div class="book-abstract">.</div>
+                        <div class="book-tags">
+                            <span>标签标签</span>
+                            <span>标签</span>
+                        </div>
+                    </div>
+                </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="section s8">
+        <div class="s-title">热门分类</div>
+        <div class="s-body clearfix">
+            <a href="" target="_blank"><img src="/images/mall/mall_link04.jpg" alt=""></a>         
+            <a href="" target="_blank"><img src="/images/mall/mall_link05.jpg" alt=""></a>         
+            <a href="" target="_blank"><img src="/images/mall/mall_link06.jpg" alt=""></a>         
+            <a href="" target="_blank"><img src="/images/mall/mall_link07.jpg" alt=""></a>         
+            <a href="" target="_blank"><img src="/images/mall/mall_link08.jpg" alt=""></a>         
+            <a href="" target="_blank"><img src="/images/mall/mall_link09.jpg" alt=""></a>         
+        </div>
+    </div> -->
+        <div class="section s9">
+            <div class="s-title"><img src="/images/mall/mall_tit02.png" alt=""></div>
+            <div class="s-body clearfix">
+                <!-- <a class="s-item" href="" title="围城" target="_blank">
+                <img src="http://via.placeholder.com/95x95" alt="">
+                <p>中国青年文艺理论出版社</p>
+            </a> -->
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout') %>
+            <script>
+                var slideList = $('.bannerArea .slideList');
+                getMallIndex();
+
+                function getMallIndex(cateid, pageNum) {
+                    var url = '/mall/getMallIndex';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.code == 0) {
+                                for (var i = 0; i < response.data.length; i++) {
+                                    var code = response.data[i].sort;
+                                    switch (code) {
+                                        case 'LBT0100': //轮播图
+                                            var LBTData = response.data[i].value;
+                                            break;
+                                        case 'BJD0100': // 书刊句典
+                                            var BJDData = response.data[i].value;
+                                            break;
+                                        case 'WBD0100': // 本周必读-晨读
+                                            var WBDMData = response.data[i].value;
+                                            break;
+                                        case 'WBD0200': // 本周必读-夜读
+                                            var WBDEData = response.data[i].value;
+                                            break;
+                                        case 'NIE0100': // 新刊速递
+                                            var NIEData = response.data[i].value;
+                                            break;
+                                        case 'NBF0100': // 新书抢鲜 
+                                            var NBFData = response.data[i].value;
+                                            break;
+                                        case 'KDH0100': // 万选号
+                                            var KDHData = response.data[i].value;
+                                            break;
+                                    }
+                                }
+                                // 轮播图
+                                if (LBTData && LBTData.length > 0) {
+                                    var carouselStr = '';
+                                    for (var i = 0; i < LBTData.length; i++) {
+                                        var link = '';
+                                        if (LBTData[i].collectiontype == 'book') {
+                                            link = '/detail/bookDetail/' + LBTData[i].foreignkeyid;
+                                        } else {
+                                            link = '/detail/singlePeriodDetail/' + LBTData[i].foreignkeyid;
+                                        }
+                                        carouselStr += '<div class="slide"><a href="' + link + '" target="_blank" style="background-image: url(' + LBTData[i].pccoverpic + ');"></a></div>';
+                                    }
+                                    slideList.html(carouselStr);
+                                    slideList.cycle({
+                                        fx: 'fade',
+                                        timeout: 3000,
+                                        speed: 1000,
+                                        pause: true,
+                                        slides: '.slide',
+                                        pager: '.slidePager'
+                                    });
+                                }
+                                // 书刊句典
+                                if (BJDData && BJDData.length > 0) {
+                                    $('.s2-right-word').html('<a href="/detail/bookDetail/' + BJDData[0].foreignkeyid + '" target="_blank">' + BJDData[0].memo + '</a>');
+                                    $('.s2-right-source').html('<a href="/detail/bookDetail/' + BJDData[0].foreignkeyid + '" target="_blank">——' + BJDData[0].title + '</a>');
+                                    $('.s2-right-img').html('<a href="/detail/bookDetail/' + BJDData[0].foreignkeyid + '" target="_blank"><img src="' + BJDData[0].coverpic + '" alt=""></a>');
+                                }
+                                // 晨读
+                                if (WBDMData && WBDMData.length > 0) {
+                                    var morningReadFirstStr = '';
+                                    var morningReadOtherStr = '';
+                                    var WBDMAuthor = '';
+                                    for (var i = 0; i < WBDMData.length; i++) {
+                                        if (WBDMData[i].author.indexOf('#') != -1) {
+                                            WBDMAuthor = WBDMData[i].author.split('#').join(' ');
+                                        } else {
+                                            WBDMAuthor = WBDMData[i].author;
+                                        }
+                                        if (i == 0) {
+                                            morningReadFirstStr += '<div class="book-first">' +
+                                                '<div class="book-first-img">' +
+                                                '<a href="/detail/bookDetail/' + WBDMData[i].foreignkeyid + '" title="' + WBDMData[i].title + '" target="_blank"><img src="' + WBDMData[i].coverpic + '" alt=""></a>' +
+                                                '</div>' +
+                                                '<p class="book-first-name"><a href="/detail/bookDetail/' + WBDMData[i].foreignkeyid + '" title="' + WBDMData[i].title + '" target="_blank">' + WBDMData[i].title + '</a></p>' +
+                                                '<p class="book-first-author">' + WBDMAuthor + '  著</p>' +
+                                                '<p class="book-first-abstract">' + WBDMData[i].memo + '</p>' +
+                                                '</div>';
+                                        } else {
+                                            morningReadOtherStr += '<div class="book-list-item">' +
+                                                '<div class="book-item-img">' +
+                                                '<a href="/detail/bookDetail/' + WBDMData[i].foreignkeyid + '" title="' + WBDMData[i].title + '" target="_blank"><img src="' + WBDMData[i].coverpic + '" alt=""></a>' +
+                                                '</div>' +
+                                                '<p class="book-item-name"><a href="/detail/bookDetail/' + WBDMData[i].foreignkeyid + '" title="' + WBDMData[i].title + '" target="_blank">' + WBDMData[i].title + '</a></p>' +
+                                                '<p class="book-item-author">' + WBDMAuthor + '  著</p>' +
+                                                '</div>';
+                                        }
+                                    }
+                                    $('.morningReading .book-first').html(morningReadFirstStr);
+                                    $('.morningReading .book-list').html(morningReadOtherStr);
+                                }
+                                // 夜读
+                                if (WBDEData && WBDEData.length > 0) {
+                                    var eveningReadFirstStr = '';
+                                    var eveningReadOtherStr = '';
+                                    var WBDEAuthor = '';
+                                    for (var i = 0; i < WBDEData.length; i++) {
+                                        if (WBDEData[i].author.indexOf('#') != -1) {
+                                            WBDEAuthor = WBDEData[i].author.split('#').join(' ');
+                                        } else {
+                                            WBDEAuthor = WBDEData[i].author;
+                                        }
+                                        if (i == 0) {
+                                            eveningReadFirstStr += '<div class="book-first">' +
+                                                '<div class="book-first-img">' +
+                                                '<a href="/detail/bookDetail/' + WBDMData[i].foreignkeyid + '" title="' + WBDEData[i].title + '" target="_blank"><img src="' + WBDEData[i].coverpic + '" alt=""></a>' +
+                                                '</div>' +
+                                                '<p class="book-first-name"><a href="/detail/bookDetail/' + WBDMData[i].foreignkeyid + '" title="' + WBDEData[i].title + '" target="_blank">' + WBDEData[i].title + '</a></p>' +
+                                                '<p class="book-first-author">' + WBDEAuthor + '  著</p>' +
+                                                '<p class="book-first-abstract">' + WBDEData[i].memo + '</p>' +
+                                                '</div>';
+                                        } else {
+                                            eveningReadOtherStr += '<div class="book-list-item">' +
+                                                '<div class="book-item-img">' +
+                                                '<a href="/detail/bookDetail/' + WBDMData[i].foreignkeyid + '" title="' + WBDEData[i].title + '" target="_blank"><img src="' + WBDEData[i].coverpic + '" alt=""></a>' +
+                                                '</div>' +
+                                                '<p class="book-item-name"><a href="/detail/bookDetail/' + WBDMData[i].foreignkeyid + '" title="' + WBDEData[i].title + '" target="_blank">' + WBDEData[i].title + '</a></p>' +
+                                                '<p class="book-item-author">' + WBDEAuthor + '  著</p>' +
+                                                '</div>';
+                                        }
+                                    }
+                                    $('.eveningReading .book-first').html(eveningReadFirstStr);
+                                    $('.eveningReading .book-list').html(eveningReadOtherStr);
+                                }
+                                // 新刊速递
+                                if (NIEData && NIEData.length > 0) {
+                                    var newMagaStr = '';
+                                    for (var i = 0; i < NIEData.length; i++) {
+                                        newMagaStr += '<div class="s-item">' +
+                                            '<a href="/detail/singlePeriodDetail/' + NIEData[i].link + '" title="' + NIEData[i].title + '" target="_blank">' +
+                                            '<div class="periodical-img">' +
+                                            '<img src="' + NIEData[i].coverpic + '" alt="">' +
+                                            '</div>' +
+                                            '<div class="periodical-name">' + NIEData[i].title + '</div>' +
+                                            '<div class="periodical-date">' + NIEData[i].link.substr(4, 4) + '年第' + NIEData[i].link.substr(8, 2) + '期</div>' +
+                                            '</a>' +
+                                            '</div>';
+                                    }
+                                    $('.s6 .s-body').html(newMagaStr);
+                                }
+                                // 新书抢鲜
+                                if (NBFData && NBFData.length > 0) {
+                                    var newBookStr = '';
+                                    for (var i = 0; i < NBFData.length; i++) {
+                                        var keywordArr = NBFData[i].keywords.split('；');
+                                        var keywordStr = '';
+                                        var NBFAuthor = '';
+                                        var memo = NBFData[i].memo ? NBFData[i].memo : '';
+                                        for (var j = 0; j < keywordArr.length; j++) {
+                                            if (j < 2) {
+                                                if (keywordArr[j]) {
+                                                    keywordStr += '<span>' + keywordArr[j] + '</span>';
+                                                }
+                                            }
+                                        }
+                                        if (NBFData[i].author.indexOf('#') != -1) {
+                                            NBFAuthor = NBFData[i].author.split('#').join(' ');
+                                        } else {
+                                            NBFAuthor = NBFData[i].author;
+                                        }
+                                        newBookStr += '<div class="s-item clearfix">' +
+                                            '<div class="book-img">' +
+                                            '<a href="/detail/bookDetail/' + NBFData[i].foreignkeyid + '" title="' + NBFData[i].title + '" target="_blank"><img src="' + NBFData[i].coverpic + '" alt=""></a>' +
+                                            '</div>' +
+                                            '<div class="book-detail">' +
+                                            '<div class="book-name">' +
+                                            '<a href="/detail/bookDetail/' + NBFData[i].foreignkeyid + '" title="' + NBFData[i].title + '" target="_blank">' + NBFData[i].title + '</a>' +
+                                            '</div>' +
+                                            '<div class="book-author">' + NBFAuthor + '著</div>' +
+                                            '<div class="book-abstract">' + memo + '</div>' +
+                                            '<div class="book-tags">' + keywordStr + '</div>' +
+                                            '</div>' +
+                                            '</div>';
+                                    }
+                                    $('.s7 .s-body').html(newBookStr);
+                                }
+                                // 万选号
+                                if (KDHData && KDHData.length > 0) {
+                                    var kdhStr = '';
+                                    for (var i = 0; i < 5; i++) {
+                                        kdhStr += '<a class="s-item" href="/kdh/home?orgid=' + KDHData[i].foreignkeyid + '" title="' + KDHData[i].title + '" target="_blank">' +
+                                            '<img src="' + KDHData[i].coverpic + '" alt="">' +
+                                            '<p>' + KDHData[i].title + '</p>' +
+                                            '</a>';
+                                    }
+                                    $('.s9 .s-body').html(kdhStr);
+                                }
+                            }
+                        }
+                    });
+                }
+                $('.s2-left .tabnav span').click(function() {
+                    var index = $(this).index();
+                    $(this).addClass('current').siblings().removeClass('current');
+                    $('.s2-left .s-body').children().eq(index).show().siblings().hide();
+                });
+            </script>
+</body>
+
+</html>

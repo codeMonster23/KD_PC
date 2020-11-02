@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./layouts/headLayout', {}) %>
+
+        <link rel="stylesheet" type="text/css" href="/css/common.css" />
+        <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+        <title></title>
+
+</head>
+
+<body>
+    <div class="error">
+        <div class="w1200pxAuto">
+            <div class="error-header clearfix">
+                <a class="error-logo" href="/home">
+                    <img src="/images/common/logo1.png" alt="">
+                </a>
+                <div class="error-slogan">
+                    <img src="/images/common/slogan.png" alt="">
+                </div>
+            </div>
+            <div class="error-main">
+                <img class="error-img" src="/images/common/404.png" alt="">
+                <div class="error-text">您要访问的页面没有找到，<br>但不要着急哦！</div>
+                <a class="error-btn-backhome" href="/home">返回首页</a>
+            </div>
+            <div class="subottom">
+                <div class="favorite">
+                    <label for="">这些也很不错哦！</label>
+                    <div class="tab left">
+                        <a href="javascript:;" class="cur">作品</a>
+                        <a href="javascript:;">微刊</a>
+                    </div>
+                </div>
+                <!--图文-->
+                <div class="tabcont" style="display: block;">
+                    <ul class="clearfix"></ul>
+                </div>
+                <!--微刊-->
+                <div class="tabcont">
+                    <ul class="clearfix"></ul>
+                </div>
+            </div>
+            <div class="error-footer">
+                <p>出版：《中国学术期刊（光盘版）》电子杂志社有限公司</p>
+                <p>京ICP证040431号 网络出版服务许可证（总）网出证（京）字第271号 京公网安备11010802020460号</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        TableTransition($(".tab a"), $(".tabcont"), "click", "cur");
+        var index = 0; // 1作品 2微刊
+        var tabA = $('.subottom .favorite .tab a');
+        getRecommendList();
+
+        function getRecommendList() {
+            var url = '/getRecommendList?type=' + index;
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "json",
+                success: function(response) {
+                    if (response.code == 0) {
+                        if (index == 0) {
+                            var data = response.data.collectionlist.collectionlist;
+                            if (data && data.length > 0) {
+                                var workStr = '';
+                                for (var i = 0; i < data.length; i++) {
+                                    workStr += '<li><a target="_blank" href="/detail/workDetail/' + data[i].id.toString() + data[i].mediatype + '"><img src="' + data[i].coverpic + '"><span class="icon icon' + data[i].mediatype + '"></span><p>' + data[i].title + '</p></a></li>';
+                                }
+                                $('.subottom .tabcont').eq(index).find('ul').html(workStr);
+                            }
+                        }
+                        if (index == 1) {
+                            var data = response.data.rows;
+                            if (data && data.length > 0) {
+                                var microBookStr = '';
+                                for (var i = 0; i < data.length; i++) {
+                                    microBookStr += '<li><a target="_blank" href="/detail/microBookDetail?id=' + data[i].id + '"><img src="' + data[i].coverpic + '"><p>' + data[i].title + '</p></a></li>';
+                                }
+                                $('.subottom .tabcont').eq(index).find('ul').html(microBookStr);
+                            }
+                        }
+                    }
+
+                }
+            });
+        }
+        tabA.click(function() {
+            index = $(this).index();
+            getRecommendList();
+        });
+    </script>
+</body>
+
+</html>

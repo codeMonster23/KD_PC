@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/details.css"/>
+    <script src="/js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/wordLimit.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body class="bgGrey">
+<%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+<div class="dcont mdcont clearfix">
+    <!--左侧内容-->
+    <div class="dcl left">
+        <div class="card">
+            <img class="img" src="<%= viewModel.data.microBookDetail.coverpic %>"/>
+            <!--作品数、浏览数-->
+            <div class="num"><span class="s1"><%= viewModel.data.microBookDetail.childcollectioncount %></span><span
+                        class="s2"><%= viewModel.data.microBookDetail.viewcount %></span></div>
+
+
+            <div class="text">
+                <h1 id="microBookTitle">
+                    <% if((viewModel.isVip == true || viewModel.isVip == 'true') && viewModel.data.shopprice && viewModel.data.shopprice.memberisfree == 1){ %>
+                    <img class="vip-icon vip-icon-free" src="/images/details/deicon39.png" alt="">
+                    <% } %>
+                    <%= viewModel.data.microBookDetail.title %>
+                </h1>
+                <p>
+                    <%= viewModel.data.microBookDetail.intromemo %>
+                </p>
+
+
+                <!--未登录-->
+                <% if(viewModel.user.name == null){ %>
+                <!--作品免费-->
+                <% if(viewModel.data.microBookDetail.isfree == 1){ %>
+                <% }else{ %>
+                <!--作品收费-->
+                <!--参加促销免费-->
+                <% if(viewModel.data.shopprice && viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime - viewModel.data.shopprice.currenttime > 0){ %>
+                <% }else{ %>
+                <!--不参加促销免费-->
+                <!--参加促销活动 显示促销价-->
+                <% if(viewModel.data.shopprice && viewModel.data.shopprice.issale == 1 && viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime > 0){ %>
+                <div class="price-info clearfix">
+                    <div class="price">
+                        <span class="nowprice">￥<%= viewModel.data.shopprice.saleprice %></span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                           class="btn-buy">立即购买</a>
+                        <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                         data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                        </div>
+                        <script>
+                            // 限时促销倒计时
+                            var timeLeft1 = $('.timeLeft1');
+                            var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                            var timer1 = setInterval(timeToDate, 1000);
+
+                            function timeToDate() {
+                                startTime1 = startTime1 - 1000;
+                                if (startTime1 > 0) {
+                                    let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                    let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                    let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                    let second = parseInt(startTime1 / 1000 % 60);
+                                    timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                                }
+                                else {
+                                    clearInterval(timer1);
+                                }
+
+                            }
+                        </script>
+                    </div>
+                    <% if(viewModel.data.shopprice && viewModel.data.shopprice.memberisfree == 1){ %>
+                    <div class="vip-tip clearfix vip-tip1">
+                        <div target="_blank" class="vip-tip-text" href="/personalCenter/vip">开通VIP会员，该作品专享免费>></div>
+                        <a class="vip-tip-btn" href="/personalCenter/vip" target="_blank">立即开通</a>
+                    </div>
+                    <% }else if(viewModel.data.shopprice && viewModel.data.shopprice.memberisdiscount == 1 && viewModel.data.shopprice.memberdiscountprice < viewModel.data.shopprice.price){ %>
+                    <div class="vip-tip clearfix vip-tip1">
+                        <div target="_blank" class="vip-tip-text" href="/personalCenter/vip">
+                            开通VIP会员，该作品尊享<%= viewModel.data.shopprice.memberdiscount*10 %>折特惠>>
+                        </div>
+                        <a class="vip-tip-btn" href="/personalCenter/vip" target="_blank">立即开通</a>
+                    </div>
+                    <% } %>
+                </div>
+
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                     data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                    </div>
+                    <script>
+                        // 限时促销倒计时
+                        var timeLeft1 = $('.timeLeft1');
+                        var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                        var timer1 = setInterval(timeToDate, 1000);
+
+                        function timeToDate() {
+                            startTime1 = startTime1 - 1000;
+                            if (startTime1 > 0) {
+                                let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                let second = parseInt(startTime1 / 1000 % 60);
+                                timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                            }
+                            else {
+                                clearInterval(timer1);
+                            }
+
+                        }
+                    </script>
+                    <div class="price"><span class="nowprice">￥<%= viewModel.data.shopprice.saleprice %></span><span
+                                class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span></div>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                </div>
+                <% }else{ %>
+                <!--不参加促销活动  显示原价-->
+                <div class="price-info clearfix">
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&coverPic=' + viewModel.data.microBookDetail.coverpic + '&ordertype=18') %>"
+                       class="subscibeBtn">订阅微刊(<%= viewModel.data.microBookDetail.realprice %>元)</a>
+                    <% if(viewModel.data.shopprice && viewModel.data.shopprice.memberisfree == 1){ %>
+                    <div class="vip-tip clearfix">
+                        <a class="vip-tip-btn" href="/personalCenter/vip" target="_blank">立即开通</a>
+                        <div target="_blank" class="vip-tip-text" href="/personalCenter/vip">开通VIP会员，该作品专享免费>></div>
+                    </div>
+                    <% }else if(viewModel.data.shopprice && viewModel.data.shopprice.memberisdiscount == 1 && viewModel.data.shopprice.memberdiscountprice < viewModel.data.shopprice.price){ %>
+                    <div class="vip-tip clearfix">
+                        <a class="vip-tip-btn" href="/personalCenter/vip" target="_blank">立即开通</a>
+                        <div target="_blank" class="vip-tip-text" href="/personalCenter/vip">
+                            开通VIP会员，该作品尊享<%= viewModel.data.shopprice.memberdiscount*10 %>折特惠>>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <div class="price"><span class="nowprice">￥<%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                </div>
+                <% } %>
+                <% } %>
+                <% } %>
+                <!--已登录-->
+                <% }else{ %>
+                <!--已登录-->
+                <!--作品免费 或者已购-->
+                <% if(viewModel.data.microBookDetail.isfree == 1 || viewModel.data.hasRight == 1){ %>
+                <% }else{ %>
+                <!--作品收费-->
+                <!--会员-->
+                <% if(viewModel.isVip == true || viewModel.isVip == 'true'){ %>
+
+                <!-- 支持会员优惠 -->
+                <% if(viewModel.data.shopprice && ((viewModel.data.shopprice.memberisdiscount == 1 && viewModel.data.shopprice.memberdiscountendtime - viewModel.data.shopprice.currenttime > 0) || viewModel.data.shopprice.memberisfree == 1)){ %>
+                <!--会员免费-->
+                <% if(viewModel.data.shopprice.memberisfree == 1){ %>
+                <% }else{ %>
+                <!--会员不免费-->
+                <!--参加促销免费-->
+                <% if(viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime - viewModel.data.shopprice.currenttime > 0){ %>
+                <div class="price-info activity-free clearfix">
+                    <div class="price">
+                        <span class="nowprice">免费</span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                         data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                        </div>
+                        <script>
+                            // 限时促销倒计时
+                            var timeLeft1 = $('.timeLeft1');
+                            var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                            var timer1 = setInterval(timeToDate, 1000);
+
+                            function timeToDate() {
+                                startTime1 = startTime1 - 1000;
+                                if (startTime1 > 0) {
+                                    let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                    let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                    let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                    let second = parseInt(startTime1 / 1000 % 60);
+                                    timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                                }
+                                else {
+                                    clearInterval(timer1);
+                                }
+
+                            }
+                        </script>
+                    </div>
+                </div>
+                <% }else{ %>
+                <!--不参加促销免费-->
+                <!--参加促销活动 对比促销价和会员折扣取最小值-->
+                <% if(viewModel.data.shopprice.issale == 1 && viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime > 0){ %>
+                <!--折扣价小于等于促销价 显示折扣价-->
+                <% if(viewModel.data.shopprice.memberdiscountprice <= viewModel.data.shopprice.price){ %>
+                <div class="price-info clearfix">
+                    <div class="price">
+                        <img class="vip-icon vip-icon-discount" src="/images/details/deicon38.png" alt="">
+                        <span class="nowprice">￥<%= viewModel.data.shopprice.memberdiscountprice %></span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <% if (viewModel.user.isOrg == true){ %>
+                        <a id="buy-now" href="javascript:;" class="btn-buy">立即购买</a>
+                        <script>
+                            $('#buy-now').click(function () {
+                                layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                            })
+                        </script>
+                        <% }else{ %>
+                        <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                           class="btn-buy">立即购买</a>
+                        <% } %>
+                    </div>
+                </div>
+
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <p class="p3">
+                        <img class="vip-icon-discount" src="/images/details/deicon38.png" alt="">
+                        <span class="nowprice">￥<%= viewModel.data.shopprice.memberdiscountprice %></span>
+                    </p>
+                    <p class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></p>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now1" href="javascript:;" class="btn-buy">立即购买</a>
+                    <script>
+                        $('#buy-now1').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                    <% } %>
+                </div>
+                <% }else{ %>
+                <!--折扣价大于促销价 显示促销价-->
+                <div class="price-info clearfix">
+                    <div class="price">
+                        <span class="nowprice">￥<%= viewModel.data.shopprice.price %></span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <% if (viewModel.user.isOrg == true){ %>
+                        <a id="buy-now" href="javascript:;" class="btn-buy">立即购买</a>
+                        <script>
+                            $('#buy-now').click(function () {
+                                layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                            })
+                        </script>
+                        <% }else{ %>
+                        <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                           class="btn-buy">立即购买</a>
+                        <% } %>
+                        <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                         data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                        </div>
+                        <script>
+                            // 限时促销倒计时
+                            var timeLeft1 = $('.timeLeft1');
+                            var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                            var timer1 = setInterval(timeToDate, 1000);
+
+                            function timeToDate() {
+                                startTime1 = startTime1 - 1000;
+                                if (startTime1 > 0) {
+                                    let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                    let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                    let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                    let second = parseInt(startTime1 / 1000 % 60);
+                                    timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                                }
+                                else {
+                                    clearInterval(timer1);
+                                }
+
+                            }
+                        </script>
+                    </div>
+                </div>
+
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                     data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                    </div>
+                    <script>
+                        // 限时促销倒计时
+                        var timeLeft1 = $('.timeLeft1');
+                        var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                        var timer1 = setInterval(timeToDate, 1000);
+
+                        function timeToDate() {
+                            startTime1 = startTime1 - 1000;
+                            if (startTime1 > 0) {
+                                let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                let second = parseInt(startTime1 / 1000 % 60);
+                                timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                            }
+                            else {
+                                clearInterval(timer1);
+                            }
+
+                        }
+                    </script>
+                    <div class="price"><span class="nowprice">￥<%= viewModel.data.shopprice.price %></span><span
+                                class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span></div>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now1" href="javascript:;" class="btn-buy">立即购买</a>
+                    <script>
+                        $('#buy-now1').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                    <% } %>
+                </div>
+                <% } %>
+                <% }else{ %>
+                <!--不参加促销活动  显示会员折扣价-->
+                <div class="price-info clearfix">
+                    <div class="price">
+                        <img class="vip-icon vip-icon-discount" src="/images/details/deicon38.png" alt="">
+                        <span class="nowprice">￥<%= viewModel.data.shopprice.memberdiscountprice %></span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <% if (viewModel.user.isOrg == true){ %>
+                        <a id="buy-now" href="javascript:;" class="btn-buy">立即购买</a>
+                        <script>
+                            $('#buy-now').click(function () {
+                                layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                            })
+                        </script>
+                        <% }else{ %>
+                        <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                           class="btn-buy">立即购买</a>
+                        <% } %>
+                    </div>
+                </div>
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <p class="p3">
+                        <img class="vip-icon-discount" src="/images/details/deicon38.png" alt="">
+                        <span class="nowprice">￥<%= viewModel.data.shopprice.memberdiscountprice %></span>
+                    </p>
+                    <p class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></p>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now1" href="javascript:;" class="btn-buy">立即购买</a>
+                    <script>
+                        $('#buy-now1').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                    <% } %>
+                </div>
+
+                <% } %>
+                <% } %>
+                <% } %>
+                <% }else { %>
+                <!--不支持会员优惠-->
+                <!--参加促销免费-->
+                <% if(viewModel.data.shopprice && viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime - viewModel.data.shopprice.currenttime > 0){ %>
+                <div class="price-info activity-free clearfix">
+                    <div class="price">
+                        <span class="nowprice">免费</span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                         data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                        </div>
+                        <script>
+                            // 限时促销倒计时
+                            var timeLeft1 = $('.timeLeft1');
+                            var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                            var timer1 = setInterval(timeToDate, 1000);
+
+                            function timeToDate() {
+                                startTime1 = startTime1 - 1000;
+                                if (startTime1 > 0) {
+                                    let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                    let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                    let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                    let second = parseInt(startTime1 / 1000 % 60);
+                                    timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                                }
+                                else {
+                                    clearInterval(timer1);
+                                }
+
+                            }
+                        </script>
+                    </div>
+                </div>
+                <% }else{ %>
+                <!--不参加促销免费-->
+                <!--参加促销活动 显示促销价-->
+                <% if(viewModel.data.shopprice && viewModel.data.shopprice.issale == 1 && viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime > 0){ %>
+                <div class="price-info clearfix">
+                    <div class="price">
+                        <span class="nowprice">￥<%= viewModel.data.shopprice.price %></span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <% if (viewModel.user.isOrg == true){ %>
+                        <a id="buy-now" href="javascript:;" class="btn-buy">立即购买</a>
+                        <script>
+                            $('#buy-now').click(function () {
+                                layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                            })
+                        </script>
+                        <% }else{ %>
+                        <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                           class="btn-buy">立即购买</a>
+                        <% } %>
+                        <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                         data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                        </div>
+                        <script>
+                            // 限时促销倒计时
+                            var timeLeft1 = $('.timeLeft1');
+                            var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                            var timer1 = setInterval(timeToDate, 1000);
+
+                            function timeToDate() {
+                                startTime1 = startTime1 - 1000;
+                                if (startTime1 > 0) {
+                                    let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                    let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                    let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                    let second = parseInt(startTime1 / 1000 % 60);
+                                    timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                                }
+                                else {
+                                    clearInterval(timer1);
+                                }
+
+                            }
+                        </script>
+                    </div>
+                </div>
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                     data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                    </div>
+                    <script>
+                        // 限时促销倒计时
+                        var timeLeft1 = $('.timeLeft1');
+                        var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                        var timer1 = setInterval(timeToDate, 1000);
+
+                        function timeToDate() {
+                            startTime1 = startTime1 - 1000;
+                            if (startTime1 > 0) {
+                                let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                let second = parseInt(startTime1 / 1000 % 60);
+                                timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                            }
+                            else {
+                                clearInterval(timer1);
+                            }
+
+                        }
+                    </script>
+                    <div class="price"><span class="nowprice">￥<%= viewModel.data.shopprice.price %></span><span
+                                class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span></div>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now1" href="javascript:;" class="btn-buy">立即购买</a>
+                    <script>
+                        $('#buy-now1').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                    <% } %>
+                </div>
+                <% }else{ %>
+                <!--不参加促销活动  显示原价-->
+                <div class="price-info clearfix">
+                    <div class="price">
+                        <span class="nowprice">￥<%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <% if (viewModel.user.isOrg == true){ %>
+                        <a id="buy-now" href="javascript:;" class="btn-buy">立即购买</a>
+                        <script>
+                            $('#buy-now').click(function () {
+                                layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                            })
+                        </script>
+                        <% }else{ %>
+                        <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                           class="btn-buy">立即购买</a>
+                        <% } %>
+                    </div>
+                </div>
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <div class="price"><span class="nowprice">￥<%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now1" href="javascript:;" class="btn-buy">立即购买</a>
+                    <script>
+                        $('#buy-now1').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                    <% } %>
+                </div>
+                <% } %>
+                <% } %>
+                <% } %>
+                <% }else{ %>
+                <!--非会员-->
+                <!--参加促销免费-->
+                <% if(viewModel.data.shopprice && viewModel.data.shopprice.isfree == 1 && viewModel.data.shopprice.freeendtime - viewModel.data.shopprice.currenttime > 0){ %>
+                <div class="price-info activity-free clearfix">
+                    <div class="price">
+                        <span class="nowprice">免费</span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <div class="countdown">限时免费：剩余<i class="timeLeft1"
+                                                         data-start-time="<%= viewModel.data.shopprice.freeendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.freeendtime - viewModel.data.shopprice.currenttime) %></i>
+                        </div>
+                        <script>
+                            // 限时促销倒计时
+                            var timeLeft1 = $('.timeLeft1');
+                            var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                            var timer1 = setInterval(timeToDate, 1000);
+
+                            function timeToDate() {
+                                startTime1 = startTime1 - 1000;
+                                if (startTime1 > 0) {
+                                    let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                    let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                    let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                    let second = parseInt(startTime1 / 1000 % 60);
+                                    timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                                }
+                                else {
+                                    clearInterval(timer1);
+                                }
+
+                            }
+                        </script>
+                    </div>
+                </div>
+                <% }else{ %>
+                <!--不参加促销免费-->
+                <!--参加促销活动 显示促销价 如果支持会员优惠 且会员免费 显示广告条-->
+                <% if(viewModel.data.shopprice && viewModel.data.shopprice.issale == 1 && viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime > 0){ %>
+                <div class="price-info clearfix">
+                    <div class="price">
+                        <span class="nowprice">￥<%= viewModel.data.shopprice.price %></span>
+                        <span class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <div class="right clearfix">
+                        <% if (viewModel.user.isOrg == true){ %>
+                        <a id="buy-now" href="javascript:;" class="btn-buy">立即购买</a>
+                        <script>
+                            $('#buy-now').click(function () {
+                                layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                            })
+                        </script>
+                        <% }else{ %>
+                        <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                           class="btn-buy">立即购买</a>
+                        <% } %>
+                        <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                         data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                        </div>
+                        <script>
+                            // 限时促销倒计时
+                            var timeLeft1 = $('.timeLeft1');
+                            var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                            var timer1 = setInterval(timeToDate, 1000);
+
+                            function timeToDate() {
+                                startTime1 = startTime1 - 1000;
+                                if (startTime1 > 0) {
+                                    let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                    let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                    let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                    let second = parseInt(startTime1 / 1000 % 60);
+                                    timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                                }
+                                else {
+                                    clearInterval(timer1);
+                                }
+
+                            }
+                        </script>
+                    </div>
+
+                    <% if(viewModel.data.shopprice && viewModel.data.shopprice.memberisfree == 1){ %>
+                    <div class="vip-tip clearfix vip-tip1">
+                        <div target="_blank" class="vip-tip-text" href="/personalCenter/vip">开通VIP会员，该作品专享免费>></div>
+                        <a class="vip-tip-btn" href="/personalCenter/vip" target="_blank">立即开通</a>
+                    </div>
+                    <% }else if(viewModel.data.shopprice && viewModel.data.shopprice.memberisdiscount == 1 && viewModel.data.shopprice.memberdiscountprice < viewModel.data.shopprice.price){ %>
+                    <div class="vip-tip clearfix vip-tip1">
+                        <div target="_blank" class="vip-tip-text" href="/personalCenter/vip">
+                            开通VIP会员，该作品尊享<%= viewModel.data.shopprice.memberdiscount*10 %>折特惠>>
+                        </div>
+                        <a class="vip-tip-btn" href="/personalCenter/vip" target="_blank">立即开通</a>
+                    </div>
+                    <% } %>
+                </div>
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <div class="countdown">限时特惠：剩余<i class="timeLeft1"
+                                                     data-start-time="<%= viewModel.data.shopprice.saleendtime-viewModel.data.shopprice.currenttime %>"><%= ejsFunctions.timeToDate(viewModel.data.shopprice.saleendtime - viewModel.data.shopprice.currenttime) %></i>
+                    </div>
+                    <script>
+                        // 限时促销倒计时
+                        var timeLeft1 = $('.timeLeft1');
+                        var startTime1 = parseInt(timeLeft1.attr('data-start-time'));
+                        var timer1 = setInterval(timeToDate, 1000);
+
+                        function timeToDate() {
+                            startTime1 = startTime1 - 1000;
+                            if (startTime1 > 0) {
+                                let day = parseInt(startTime1 / 1000 / 60 / 60 / 24);
+                                let hour = parseInt(startTime1 / 1000 / 60 / 60 % 24);
+                                let minute = parseInt(startTime1 / 1000 / 60 % 60);
+                                let second = parseInt(startTime1 / 1000 % 60);
+                                timeLeft1.html(day + '天' + hour + '小时' + minute + '分钟' + second + '秒');
+                            }
+                            else {
+                                clearInterval(timer1);
+                            }
+
+                        }
+                    </script>
+                    <div class="price"><span class="nowprice">￥<%= viewModel.data.shopprice.price %></span><span
+                                class="oldprice">原价：￥ <%= viewModel.data.microBookDetail.realprice %></span></div>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now1" href="javascript:;" class="btn-buy">立即购买</a>
+                    <script>
+                        $('#buy-now1').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                    <% } %>
+                    <% if(viewModel.data.shopprice.memberisdiscount == 1 && viewModel.data.shopprice.memberisfree == 1){ %>
+                    <a class="vip-tip" href="/personalCenter/vip" target="_blank">开通VIP会员，该作品专享免费</a>
+                    <% }else if(viewModel.data.shopprice.memberisdiscount == 1 && viewModel.data.shopprice.memberdiscountprice < viewModel.data.shopprice.price){ %>
+                    <a class="vip-tip" href="/personalCenter/vip"
+                       target="_blank">开通VIP会员，该作品尊享<%= viewModel.data.shopprice.memberdiscount*10 %>折特惠&gt;&gt;</a>
+                    <% } %>
+                </div>
+                <% }else{ %>
+                <!--不参加促销活动  显示原价 如果支持会员优惠  显示广告条-->
+                <div class="price-info clearfix">
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now" href="javascript:;"
+                       class="subscibeBtn">订阅微刊(<%= viewModel.data.microBookDetail.realprice %>元)</a>
+                    <script>
+                        $('#buy-now').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&coverPic=' + viewModel.data.microBookDetail.coverpic + '&ordertype=18') %>"
+                       class="subscibeBtn">订阅微刊(<%= viewModel.data.microBookDetail.realprice %>元)</a>
+                    <% } %>
+
+                    <% if(viewModel.data.shopprice && viewModel.data.shopprice.memberisfree == 1){ %>
+                    <div class="vip-tip clearfix">
+                        <a class="vip-tip-btn" href="/personalCenter/vip" target="_blank">立即开通</a>
+                        <div target="_blank" class="vip-tip-text" href="/personalCenter/vip">开通VIP会员，该作品专享免费>></div>
+                    </div>
+                    <% }else if(viewModel.data.shopprice && viewModel.data.shopprice.memberisdiscount == 1 && viewModel.data.shopprice.memberdiscountprice < viewModel.data.shopprice.price){ %>
+                    <div class="vip-tip clearfix">
+                        <a class="vip-tip-btn" href="/personalCenter/vip" target="_blank">立即开通</a>
+                        <div target="_blank" class="vip-tip-text" href="/personalCenter/vip">
+                            开通VIP会员，该作品尊享<%= viewModel.data.shopprice.memberdiscount*10 %>折特惠>>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+
+                <!--弹框-->
+                <div id="layer-mbprice" class="layer-mbprice" style="display: none;">
+                    <a class="close" href="javascript:;"></a>
+                    <p class="p2">购买微刊后，即可阅读微刊内的作品</p>
+                    <div class="price"><span class="nowprice">￥<%= viewModel.data.microBookDetail.realprice %></span>
+                    </div>
+                    <% if (viewModel.user.isOrg == true){ %>
+                    <a id="buy-now1" href="javascript:;" class="btn-buy">立即购买</a>
+                    <script>
+                        $('#buy-now1').click(function () {
+                            layer.msg('当前为机构账号，不支持此操作，请登录个人账号购买');
+                        })
+                    </script>
+                    <% }else{ %>
+                    <a href="<%= ejsFunctions.encodeURL('/payment/checkout?id=' + viewModel.data.microBookDetail.id + '&title=' + viewModel.data.microBookDetail.title + '&ordertype=18&coverPic=' + viewModel.data.microBookDetail.coverpic) %>"
+                       class="btn-buy">立即购买</a>
+                    <% } %>
+                    <% if(viewModel.data.shopprice && viewModel.data.shopprice.memberisdiscount == 1){ %>
+                    <a class="vip-tip" href="/personalCenter/vip"
+                       target="_blank">开通VIP会员，该作品尊享<%= viewModel.data.shopprice.memberdiscount*10 %>折特惠&gt;&gt;</a>
+                    <% } %>
+                </div>
+                <% } %>
+                <% } %>
+                <% } %>
+                <% } %>
+                <% } %>
+            </div>
+
+
+            <div class="bottom">
+                                                            <span class="left"><img src="/images/details/deicon18.png"
+                                                                                    align="absmiddle"><%= viewModel.data.microBookDetail.keyword %></span>
+                <!--<span class="right">作品数：<%= viewModel.data.microBookDetail.childcollectioncount %>
+                    &nbsp;&nbsp;浏览：<%= viewModel.data.microBookDetail.viewcount %>次  </span>-->
+                <a data-is-collected="<%= viewModel.data.microBookDetail.iscollect %>" id="collectA" href="javascript:;"
+                   class="collectA collect <% if(viewModel.data.microBookDetail.iscollect == 1){ %>collected<% } %>"></a>
+                <a href="javascript:;" class="tshare"></a>
+                <%- include('../components/share', {type:2,org:viewModel.data.microBookDetail.orgname, title: viewModel.data.microBookDetail.title, style:'top:32px;right:16px;'}) %>
+                <script>
+                    // 点击下拉分享
+                    $('.tshare').click(function (e) {
+                        var e = window.event || e;
+                        e.stopPropagation();
+                        e.cancelBubble = true;
+                        var type = $(this).attr('data-type');
+                        if (type == 0) {
+                            $('.bdsharebuttonbox').hide();
+                            $(this).attr('data-type', 1);
+                        } else {
+                            $('.bdsharebuttonbox').show();
+                            $(this).attr('data-type', 0);
+                        }
+                    });
+                    $('body').click(function () {
+                        $('.bdsharebuttonbox').hide();
+                        $('.tshare').attr('data-type', 1);
+                    })
+                </script>
+            </div>
+        </div>
+        <div class="mblock">
+            <div class="tab"><a href="javascript:;">详情</a><a class="cur" href="javascript:;">目录</a></div>
+            <div class="tabc xq" style="display: none;">
+                <div class="article">
+                    <%- viewModel.data.microBookDetail.introcontent %>
+                </div>
+            </div>
+            <div class="tabc catalog" style="display: block;">
+                <div id="c-list" class="list">
+                    <% if(viewModel.data.microBookCatalog && viewModel.data.microBookCatalog.length > 0) { %>
+                    <% for(var i = 0;i < viewModel.data.microBookCatalog.length;i++){ %>
+                    <div
+                            class="item clearfix"
+                            data-id="<%= viewModel.data.microBookCatalog[i].id %>"
+                            data-media-type="<%= viewModel.data.microBookCatalog[i].mediatype %>"
+                            data-collection-free="<%= viewModel.data.microBookCatalog[i].collectionfree %>"
+                            data-is-free="<%= viewModel.data.microBookCatalog[i].isfree %>"
+                            data-is-self-sell="<%= viewModel.data.microBookCatalog[i].isselfsell %>"
+                    >
+                        <a href="javascript:;" class="left img"><img
+                                    src="<%= viewModel.data.microBookCatalog[i].coverpic %>"><span
+                                    class="icon i<%= viewModel.data.microBookCatalog[i].mediatype %>"></span>
+                        </a>
+                        <div class="info left">
+                            <h1>
+                                <a href="javascript:;">
+                                    <%= viewModel.data.microBookCatalog[i].title %>
+                                </a>
+                            </h1>
+                            <p>
+                                <%= viewModel.data.microBookCatalog[i].intromemo %>
+                            </p>
+                            <div class="bottom clearfix">
+                                <a href="javascript:;">
+                                    <% if(viewModel.data.microBookCatalog[i].isfree == 1) { %>
+                                    <% if(viewModel.data.microBookCatalog[i].mediatype == 1) { %>
+                                    <span class="tag left">试读</span>
+                                    <% }else if(viewModel.data.microBookCatalog[i].mediatype == 2){ %>
+                                    <span class="tag left">试听</span>
+                                    <% }else if(viewModel.data.microBookCatalog[i].mediatype == 3){ %>
+                                    <span class="tag left">试看</span>
+                                    <% }else if(viewModel.data.microBookCatalog[i].mediatype == 4){ %>
+                                    <span class="tag left">试看</span>
+                                    <% } %>
+                                    <% } %>
+                                </a>
+                                <span class="time right"> <%= ejsFunctions.dateFormat(viewModel.data.microBookCatalog[i].submittime) %></span>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+                <div class="rpage">
+                    <%- viewModel.data.microBookCatalogPageStr %>
+                </div>
+            </div>
+            <script>
+                var tabA = $('.tab a');
+                var tabc = $('.tabc');
+                tabA.click(function () {
+                    var index = $(this).index();
+                    tabA.removeClass('cur');
+                    $(this).addClass('cur');
+                    tabc.css('display', 'none');
+                    tabc.eq(index).show();
+                })
+            </script>
+        </div>
+
+    </div>
+    <!--右侧内容-->
+    <div class="drl left">
+        <!--万选号-->
+        <div id="face" class="face" data-org-id="<%= viewModel.data.microBookDetail.orgid %>">
+            <div class="bg">
+                <img src=""/>
+                <div class="shadow"></div>
+            </div>
+            <div class="info">
+                <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.microBookDetail.orgid %>"><img
+                            class="avatar"></a>
+                <p class="p1">
+                    <a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.microBookDetail.orgid %>"></a>
+                </p>
+                <p class="p2"></p>
+                <p class="p2"></p>
+                <% if(viewModel.user.isOrg == true){ %>
+                <a data-org-id="<%= viewModel.data.microBookDetail.orgid %>" href="javascript:;" class="btn-org">+关注</a>
+                <script>
+                    $('.btn-org').click(function () {
+                        layer.msg("当前为机构账号，不支持此操作，请登录个人账号购买");
+                    })
+                </script>
+                <% }else{ %>
+                <a data-is-concerned="<%= viewModel.data.microBookDetail.isconcern %>"
+                   data-org-id="<%= viewModel.data.microBookDetail.orgid %>" href="javascript:;" class="btn">关注</a>
+                <% } %>
+            </div>
+        </div>
+        <script>
+            // 获取万选号信息
+            var node = $('#face');
+            var orgId = node.attr('data-org-id');
+            var url = '/detail/getOrgIdById/' + orgId;
+            $.ajax({
+                url: url,
+                dataType: "json", //返回格式
+                type: "get",
+                success: function (response) {
+                    if (response.errorCode == 0) {
+                        node.children('.bg').children('img').attr('src', response.data.backgroundpic);
+                        node.children('.info').find('.avatar').attr('src', response.data.logopic);
+                        node.children('.info').children('p').eq(0).children('a').html(response.data.orgname);
+                        node.children('.info').children('p').eq(1).html(response.data.memo);
+                        node.children('.info').children('p').eq(2).html(response.data.totalfans + '粉丝');
+                    } else {
+                        console.log('万选号数据错误！');
+                    }
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        </script>
+
+        <!--微刊推荐-->
+        <div class="aside">
+            <h1>微刊推荐</h1>
+            <ul id="microBookRecommend" class="list1" data-microBook-id="<%= viewModel.data.microBookId %>"></ul>
+        </div>
+        <!--微刊推荐-->
+        <script>
+            // 获取信息
+            var microBookRecommend = $('#microBookRecommend');
+            var microBookTitle = $('#microBookTitle');
+            $('title').html('[微刊]' + microBookTitle.text() + '_知网文化');
+            var microBookId = microBookRecommend.attr('data-microBook-id');
+            var url = '/detail/getMicroBookRecommendMicroBooks/' + microBookId;
+            var imgUrl = microBookRecommend.attr('data-img-url');
+            $.ajax({
+                url: url,
+                dataType: "json", //返回格式
+                type: "get",
+                success: function (response) {
+                    // console.log(response)
+                    if (response.errorCode == 0) {
+                        if (response.data.mircbooklist.length > 0) {
+                            var microBookStr = '';
+                            for (var i = 0; i < (response.data.mircbooklist.length > 2 ? 2 : response.data.mircbooklist.length); i++) {
+                                microBookStr += '<li>' +
+                                    '<a target="_blank" href="/detail/microBookDetail?id=' + response.data.mircbooklist[i].id + '"><img src="' + response.data.mircbooklist[i].coverpic + '"></a>' +
+                                    '<p><a target="_blank" href="/detail/microBookDetail?id=' + response.data.mircbooklist[i].id + '">' + response.data.mircbooklist[i].title + '</a></p>' +
+                                    '</li>';
+                            }
+                            microBookRecommend.html(microBookStr);
+                        } else {
+                            console.log('微刊数据错误！')
+                        }
+                    }
+
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        </script>
+
+        <!--作品推荐-->
+        <div class="aside">
+            <h1>作品推荐</h1>
+            <ul id="worksRecommend" class="list1" data-microBook-id="<%= viewModel.data.microBookId %>"
+                data-img-url="<%= addr.imgServerAddr %>"></ul>
+        </div>
+        <script>
+            // 作品推荐
+            var worksRecommend = $('#worksRecommend');
+            var microBookId = worksRecommend.attr('data-microBook-id');
+            var url = '/detail/getMicroBookRecommendWorks/' + microBookId;
+            var imgUrl = worksRecommend.attr('data-img-url');
+            $.ajax({
+                url: url,
+                dataType: "json", //返回格式
+                type: "get",
+                success: function (response) {
+                    // console.log(response)
+                    if (response.errorCode == 0) {
+                        if (response.data.list.length > 0) {
+                            var str = '';
+                            for (var i = 0; i < (response.data.list.length > 2 ? 2 : response.data.list.length); i++) {
+                                str += '<li>' +
+                                    '<a target="_blank" href="/detail/workDetail/' + response.data.list[i].id.toString() + response.data.list[i].mediatype + '"><img src="' + response.data.list[i].coverpic + '"></a>' +
+                                    '<p><a target="_blank" href="/detail/workDetail/' + response.data.list[i].id.toString() + response.data.list[i].mediatype + '">' + response.data.list[i].title + '</a></p>' +
+                                    '</li>';
+                            }
+                            worksRecommend.html(str);
+                        } else {
+                            console.log('作品数据错误！')
+                        }
+                    }
+
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        </script>
+    </div>
+    <!--小工具-->
+    <!--<div class="tools">-->
+    <!--<a href="javascript:;" class="a1"></a>-->
+    <!--<a href="javascript:;" class="a2"></a>-->
+    <!--<a href="javascript:;" class="a3"></a>-->
+    <!--</div>-->
+</div>
+
+
+<%- include('../layouts/footerLayout', {}) %>
+<div style="display: none;">
+    <input type="hidden" value="<%= viewModel.user.name %>" id="username">
+    <input type="hidden" value="<%= viewModel.data.microBookId %>" id="microBookId">
+    <input type="hidden" value="<%= viewModel.isVip %>" id="isVip">
+    <input type="hidden" value="<%= viewModel.data.microBookDetail.isfree %>" id="isMicroBookFree">
+    <input type="hidden" value="<%= viewModel.data.hasRight %>" id="isPurchased">
+</div>
+
+<script>
+    // 提示框
+    // layer.open({
+    //     type: 1,
+    //     closeBtn: false,
+    //     title: false,
+    //     area: ['415px', ''],
+    //     shadeClose: true,
+    //     content: $('.layer-mbprice')
+    // });
+
+
+    $.divselect($(".select p"), $(".select ul"), $(".select ul li"));
+
+    //点赞
+    $(".bc .part1 .zan").click(function () {
+        $(this).toggleClass("click")
+    })
+    //最后的评论没有边框
+    $(".showArea .block:last").css("border-bottom-width", "0px")
+
+    // 点击收藏
+    $('#collectA').click(function () {
+        var username = $('#username').val();
+        if (username != 'undefined' && username.length > 0) {
+            var id = $('#microBookId').val();
+            var title = $('.mdcont .dcl .card .text h1').html();
+            var index = layer.load(1, {
+                shade: [0.1, '#fff'] //0.1透明度的白色背景
+            });
+            var isCollected = $(this).attr('data-is-collected');
+            if (parseInt(isCollected) == 0) {
+                getCollectedData(1,1,id,title,index);
+            }else{
+                // 取消收藏
+                collectOrNot(id, 1, isCollected, index, $(this), title);
+            }
+        } else {
+            // layer.msg('请先登录！')
+            var collectionPopLayer = layer.open({
+                title: ['', 'height:0; border-top:3px solid #ee8d6d'],
+                type: 1,
+                area: ['274px', '180px'], //宽高
+                content: $('.collectionPopWrap').html(),
+            });
+            $('.b2').click(function(){
+                layer.close(collectionPopLayer);
+            })
+        }
+    })
+
+    // 收藏或者取消收藏方法
+    function collectOrNot(id, typeId, isCollected, index, pointer) {
+        var url = encodeURI('/common/collectOrNot?id=' + id + '&typeId=' + typeId + '&isCollected=' + isCollected);
+
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    pointer.toggleClass('collected');
+                    if (response.data.status == 1) {
+                        pointer.attr('data-is-collected', '1');
+                        layer.msg('收藏成功！');
+                    } else if (response.data.status == 0) {
+                        pointer.attr('data-is-collected', '0');
+                        layer.msg('取消收藏成功！');
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response.msg)
+                } else {
+                    console.log('请检查收藏或者取消收藏方法接口！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+    // 获取收藏数据
+    function getCollectedData(pageNum, typeId,foreignkeyId,foreignName,index) {
+        var url = encodeURI('/pc/singleCollected?pageNum=' + pageNum+'&type=-1');
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    layer.open({
+                        type: 2,
+                        title: ['添加到收藏夹', 'height: 42px; line-height: 42px; padding-left: 15px; color: #ffffff; font-size: 16px; font-weight: normal;background-color: #E64A3C; color:#fff;'],
+                        shade: 0.8,
+                        area: ['430px', '540px'],
+                        content:  '/pc/transfer?typeId='+typeId+'&foreignkeyId='+foreignkeyId+'&foreignName='+foreignName+'&isPersonalCenter=0'
+                    });
+                }
+            }
+        });
+    }
+</script>
+<script>
+    // 关注
+    var concernBtn = $('.mdcont .drl .face .info .btn');
+    var username = $('#username').val();
+    // 关注或取消关注
+    concernBtn.click(function () {
+        if (username == undefined || username == '') {
+            layer.msg('请先登录！');
+            return;
+        }
+        var $this = $(this);
+        var orgid = $this.attr('data-org-id');
+        var index = layer.load(1, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+        var isConcerned = $(this).attr('data-is-concerned');
+        concernOrNot(orgid, 0, isConcerned, index, $this);
+    });
+
+    // 关注或者取消关注方法
+    function concernOrNot(orgid, typeid, isConcerned, index, pointer) {
+        var url = encodeURI('/kdh/addOrCancelConcern?orgid=' + orgid + '&typeid=' + typeid + '&isConcerned=' + isConcerned);
+
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                layer.close(index);
+                if (response.code == 0) {
+                    layer.close(index);
+                    pointer.toggleClass('active');
+                    layer.msg(response.data.info);
+                    if (response.data.status == 1) {
+                        pointer.attr('data-is-concerned', '1').html('已关注');
+
+                    } else if (response.data.status == 0) {
+                        pointer.attr('data-is-concerned', '0').html('关注');
+                    }
+                } else if (response.code == -1) {
+                    layer.msg(response.msg)
+                } else {
+                    console.log('请检查关注或者取消关注方法接口！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+</script>
+<!--微刊目录点击事件-->
+<script>
+    var cList = $('#c-list');
+    var items = $('#c-list .item');
+    var isVip = $('#isVip').val();
+    var username = $('#username').val();
+    var layerFrame = null;
+    var isMicroBookFree = $('#isMicroBookFree').val();
+    var isPurchased = $('#isPurchased').val();
+    items.click(function () {
+        var id = $(this).attr('data-id');
+        var mediaType = $(this).attr('data-media-type');
+        var collectionFree = $(this).attr('data-collection-free'); // 作品免费
+        var isFree = $(this).attr('data-is-free'); // 试听
+        var isSelfSell = $(this).attr('data-is-self-sell');
+
+        // 微刊免费 且 设置为试听试看试读、 直接进入作品详情
+        // if(username=='' && isMicroBookFree==1 || (isFree==1 || collectionFree==1)){
+        if (isFree == 1 || isMicroBookFree == 1) {
+            window.open('/detail/workDetail/' + id.toString() + mediaType);
+        }
+        else {
+            // 微刊付费
+            if (isMicroBookFree == 0) {
+                // 未登录 跳转登录
+                if (username == '') {
+                    location.href = '/temp/userCenter/login';
+                }
+                // 已登录
+                else {
+                    // 已购微刊 作品免费阅读
+                    if (isPurchased == 1) {
+                        window.open('/detail/workDetail/' + id.toString() + mediaType);
+                    }
+                    // 未购微刊 提示订购微刊
+                    else {
+                        var p = $('.price-info');
+                        var nowPrice = p.find('.nowprice').html();
+                        var oldPrice = p.find('.oldprice').html();
+                        var popContent = $('.layer-mbprice');
+
+                        layerFrame = layer.open({
+                            title: '',
+                            type: 1,
+                            skin: 'layui-layer-demo', //样式类名
+                            closeBtn: 0, //不显示关闭按钮
+                            anim: 2,
+                            shadeClose: false, //开启遮罩关闭
+                            area: ['400px'],
+                            content: popContent
+                        });
+                        // 关闭弹窗
+                        $('.layer-mbprice .close').click(function () {
+                            layer.close(layerFrame);
+                        })
+                    }
+                }
+
+            }
+        }
+
+
+    })
+
+
+</script>
+<%- include('../components/collectionPop', { }) %>
+</body>
+
+</html>

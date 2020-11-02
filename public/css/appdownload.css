@@ -1,0 +1,71 @@
+.container{
+    display: block;
+}
+.section{
+    height: 600px;
+    min-width: 1200px;
+    background-position: center center;
+}
+.section1{
+    background-image: url(/images/appdownload/appdownload_01.jpg);
+}
+.section2{
+    background-image: url(/images/appdownload/appdownload_02.jpg);
+}
+.section3{
+    background-image: url(/images/appdownload/appdownload_03.jpg);
+}
+.section4{
+    background-image: url(/images/appdownload/appdownload_04.jpg);
+}
+.section5{
+    background-image: url(/images/appdownload/appdownload_05.jpg);
+}
+.section6{
+    background-image: url(/images/appdownload/appdownload_06.jpg);
+    height: 514px;
+}
+.nav{
+    width: 1200px;
+    margin: 0 auto;
+}
+.nav-item{
+    float: right;
+    color: #333;
+    font-size: 18px;
+    padding-top: 24px;
+}
+.logo{
+    float: left;
+    width: 202px;
+    height: 77px;
+    display: block;
+}
+.subnav{
+    padding-top: 220px;
+    width: 1200px;
+    padding-left: 183px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.subnav .item{
+    width: 62px;
+    height: 60px;
+    float: left;
+    position: relative;
+}
+.scan{
+    position: absolute;
+    top: 45px;
+    left: -49px;
+    display: none;
+}
+.subnav .item:hover .scan{
+    display: block;
+}
+.scan img{
+    display: block;
+}
+.item-weibo{
+    cursor: pointer;
+}

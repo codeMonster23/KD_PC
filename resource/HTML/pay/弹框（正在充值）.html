@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title>充值</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css" />
+    <link rel="stylesheet" type="text/css" href="css/pay.css" />
+    <script src="js/jQuery-v1.11.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="layer-recharge-content" style="display: none;">
+        <p class="p1">请您在新打开的页面完成充值支付！</p>
+        <p class="p2">充值完成前请不要关闭此窗口</p>
+        <div class="btns">
+            <a href="" class="btn1">充值成功</a>
+            <a href="" class="btn2">充值失败，请重新支付</a>            
+        </div>
+    </div>
+    <script>
+        layer.open({
+            type: 1,
+            title: '正在充值，请稍后...',
+            skin: 'layer-recharge',
+            area: ['485px', '255px'],
+            content: $('.layer-recharge-content').html(),
+            shadeClose: true
+        });
+    </script>
+</body>
+
+</html>

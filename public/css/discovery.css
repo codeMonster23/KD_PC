@@ -1,0 +1,307 @@
+@charset "utf-8";
+.banner {
+  height: 123px;
+  background: url(../images/discovery/dbanner.jpg) no-repeat center;
+}
+.dwrap {
+  width: 1200px;
+  background-color: #FDFDFD;
+  margin: -43px auto 78px;
+  border-radius: 6px ;
+}
+.dwrap .dl {
+  width: 898px;
+  background-color: #ffffff;
+  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.1);
+  padding-top: 26px;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.dwrap .dl .choose {
+  height: 53px;
+  margin-left: 32px;
+  border-bottom: 1px solid #E3DEDA;
+  margin-right: 3px;
+  margin-bottom: 30px;
+}
+.dwrap .dl .choose .select {
+  width: 103px;
+  height: 53px;
+  position: relative;
+  background: url(../images/discovery/dicon1.png) no-repeat 82px center;
+  margin-right: 20px;
+  cursor: pointer;
+  z-index: 99;
+}
+.dwrap .dl .choose .select p {
+  padding-left: 8px;
+  font-size: 16px;
+  line-height: 53px;
+}
+.dwrap .dl .choose .select ul {
+  display: none;
+  position: absolute;
+  width: 101px;
+  border: 1px solid #E5E0DD;
+  background-color: #ffffff;
+  left: 0;
+  top: 45px;
+  z-indexRouter: 100;
+}
+.dwrap .dl .choose .select ul li {
+  line-height: 30px;
+  padding-left: 7px;
+  font-size: 14px;
+  color: #656565;
+}
+.dwrap .dl .choose .select ul li:hover {
+  background-color: #FFECEF;
+  color: #ce0000;
+}
+.dwrap .dl .list {
+  padding-left: 37px;
+  padding-right: 45px;
+}
+.dwrap .dl .list .item {
+  padding-left: 4px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #F5E9E0;
+  margin-bottom: 30px;
+}
+.dwrap .dl .list .item .img {
+  margin-right: 31px;
+  position: relative;
+}
+.dwrap .dl .list .item .img img {
+  display: block;
+  border-radius: 6px;
+}
+.dwrap .dl .list .item .img span {
+  position: absolute;
+  width: 37px;
+  height: 35px;
+  right: 10px;
+  bottom: 11px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dwrap .dl .list .item .img span.i1 {
+  background-image: url(../images/discovery/dicon2.png);
+}
+.dwrap .dl .list .item .img span.i2 {
+  background-image: url(../images/discovery/dicon3.png);
+}
+.dwrap .dl .list .item .img span.i3 {
+  background-image: url(../images/discovery/dicon3-03.png);
+}
+.dwrap .dl .list .item .img span.i4 {
+  background-image: url(../images/discovery/dicon4.png);
+}
+.dwrap .dl .list .item .info {
+  width: 476px;
+}
+.dwrap .dl .list .item .info h1 {
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 15px;
+}
+.dwrap .dl .list .item .info h1 a {
+  color: #2f2a25;
+}
+.dwrap .dl .list .item .info p {
+  line-height: 26px;
+  font-size: 14px;
+  color: #585858;
+  margin-bottom: 17px;
+  height: 52px;
+  overflow: hidden;
+}
+.dwrap .dl .list .item .info .tag {
+  height: 25px;
+  margin-bottom: 20px;
+}
+.dwrap .dl .list .item .info .tag span {
+  float: left;
+  width: 63px;
+  text-align: center;
+  height: 23px;
+  line-height: 23px;
+  color: #666666;
+  font-family: simsun;
+  border: 1px solid #DCDCDC;
+  margin-right: 9px;
+  overflow: hidden;
+}
+.dwrap .dl .list .item .info .bottom {
+  height: 22px;
+  line-height: 22px;
+}
+.dwrap .dl .list .item .info .bottom .jg {
+  color: #159c77;
+  font-size: 14px;
+}
+.dwrap .dl .list .item .info .bottom .jg img {
+  border-radius: 50%;
+  margin-right: 9px;
+}
+.dwrap .dl .list .item .info .bottom .time {
+  font-size: 14px;
+  color: #999999;
+}
+.dwrap .dl .more {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  line-height: 33px;
+  margin-bottom: 20px;
+  color: #159C77;
+}
+.dwrap .dl .more img {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.dwrap .dr {
+  width: 302px;
+  padding-top: 32px;
+}
+.dwrap .dr .box {
+  padding: 0 22px;
+  margin-bottom: 15px;
+}
+.dwrap .dr .box h1 {
+  line-height: 40px;
+  font-size: 16px;
+  border-bottom: 3px solid #E64A3C;
+}
+.dwrap .dr .box h1 a {
+  float: right;
+  color: #188EEE;
+  font-size: 14px;
+  font-weight: normal;
+}
+.dwrap .dr .box1 .tagbox {
+  position: relative;
+  padding-top: 20px;
+}
+.dwrap .dr .box1 .tagbox a {
+  float: left;
+  line-height: 30px;
+  border: 1px solid #CBC9C4;
+  border-radius: 4px;
+  background: #F9F9F9;
+  font-size: 14px;
+  color: #575757;
+  text-decoration: none;
+  margin-right: 7px;
+  margin-bottom: 12px;
+  padding: 0 10px;
+}
+.dwrap .dr .box2 .wrap {
+  padding-top: 15px;
+}
+.dwrap .dr .box2 .wrap a {
+  display: block;
+  margin-bottom: 20px;
+  color: #000000;
+}
+.dwrap .dr .box2 .wrap a img {
+  width: 258px;
+  height: 113px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.dwrap .dr .box2 .wrap a p {
+  margin-top: 15px;
+  line-height: 14px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dwrap .dr .box3 .item {
+  padding-top: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #EDEDED;
+}
+.dwrap .dr .box3 .item .person {
+  height: 27px;
+  line-height: 27px;
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+.dwrap .dr .box3 .item .person img {
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.dwrap .dr .box3 .item .person span {
+  color: #354742;
+}
+.dwrap .dr .box3 .item .link {
+  display: block;
+  padding-left: 50px;
+  width: 197px;
+  height: 58px;
+  color: #02805B;
+  line-height: 44px;
+  background: url(../images/discovery/dicon6.png) no-repeat;
+}
+.dwrap .dr .box3 .item.nob {
+  border-bottom: none;
+}
+.dwrap .dr .box4 .item {
+  padding: 16px 0 5px;
+}
+.dwrap .dr .box4 .item .img {
+  margin-right: 15px;
+}
+.dwrap .dr .box4 .item .img img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+.dwrap .dr .box4 .item .info {
+  width: 170px;
+}
+.dwrap .dr .box4 .item .info .p1 {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+}
+.dwrap .dr .box4 .item .info .p1 a {
+  color: #1E1E1E;
+}
+.dwrap .dr .box4 .item .info .p2 {
+  line-height: 20px;
+  color: #696969;
+}
+.dwrap .dr .ewm {
+  margin: 15px 22px 0;
+  height: 87px;
+  padding-top: 5px;
+  padding-left: 6px;
+  background-color: #FEB312;
+}
+.dwrap .dr .ewm img {
+  float: left;
+  padding: 6px;
+  background-color: #ffffff;
+  margin-right: 10px;
+}
+.dwrap .dr .ewm .p1 {
+  padding-top: 20px;
+  line-height: 24px;
+  font-size: 16px;
+}
+.dwrap .dr .ewm .p2 {
+  line-height: 24px;
+  color: #6F5005;
+  padding-left: 5px;
+}
+.dwrap .dl .list .blank {
+  height: 550px;
+  background: #fff url(../../images/kdAccounts/blank.png) no-repeat center 118px;
+}
+/*# sourceMappingURL=discovery.css.map */

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/mall/header-and-footer.css" />
+        <link rel="stylesheet" type="text/css" href="/css/mall/mall-cate.css" />
+</head>
+
+<body>
+    <%- include('../layouts/mall/navLayout', {current: null,sublogo:false,enterControl:1}) %>
+        <div class="cate-banner"></div>
+        <div class="cate-main width1200pxAuto clearfix">
+            <div class="cate-menu">
+                <div class="cate-menu-title"></div>
+                <div class="cate-menu-body"></div>
+            </div>
+            <div class="cate-content">
+                <div class="cate-breadcrumb">
+                    <div class="cate-breadcrumb-title"></div>
+                </div>
+                <div class="cate-handle cate-handle-book clearfix">
+                    <div class="cate-handle-tab clearfix">
+                        <span class="cate-handle-tab-item" data-sort="ViewCount">热门推荐</span>
+                        <span class="cate-handle-tab-item" data-sort="LastestUpdateTime">新书抢鲜</span>
+                    </div>
+                    <div class="cate-handle-total"></div>
+                </div>
+                <!-- 20条 -->
+                <div class="cate-items clearfix"></div>
+                <div class="mall-pages"></div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout') %>
+            <script src="/js/plugin/jquery.methods.js"></script>
+            <script>
+                var paramType = $.kd.getparams("type"); // type 1期刊 2图书
+                var paramSort = $.kd.getparams("sort");
+                var paramCode = $.kd.getparams("code");
+                var paramCateName = $.kd.getparams("catename");
+                var breadcrumbTitle = $('.cate-breadcrumb-title');
+                var handleTabItem = $('.cate-handle-tab-item');
+                var cateMenu = $('.cate-menu');
+                var menuTitle = $('.cate-menu-title');
+                var menuItem = $('.cate-menu-item');
+                var submenu = $('.cate-submenu');
+                var submenuList = $('.cate-submenu-list');
+                var cateItemstTotal = $('.cate-handle-total');
+                var cateItems = $('.cate-items');
+                var mallPages = $('.mall-pages');
+
+                if (paramType == 1) {
+                    menuTitle.html('期刊导航');
+                    handleTabItem.eq(0).attr('data-sort', '');
+                    handleTabItem.eq(1).html('最新更新').attr('data-sort', 'LastestUpdateTime');
+                    $('.cate-banner').addClass('cate-banner-maga');
+                } else {
+                    menuTitle.html('图书导航');
+                    handleTabItem.eq(1).html('新书抢鲜');
+                    $('.cate-banner').addClass('cate-banner-book');
+                }
+                if (paramSort == 'new') {
+                    handleTabItem.eq(1).addClass('active');
+                } else {
+                    handleTabItem.eq(0).addClass('active');
+                }
+                renderInitData();
+
+                function renderInitData() {
+                    getCategory(function(data) {
+                        var initBreadTitleStr = '';
+                        var initCode = paramCode ? paramCode : '';
+                        var initSort = $('.cate-handle-tab-item.active').attr('data-sort');
+                        if (paramCode && paramCode.length > 0) {
+                            if (paramCode.length == 1) {
+                                // 一级分类
+                                initBreadTitleStr = '<span>' + paramCateName + '</span>';
+                                if (paramType == 1) {
+                                    $('title').html(paramCateName + '_期刊_知网文化');
+                                } else {
+                                    $('title').html(paramCateName + '_图书_知网文化');
+                                }
+                            } else {
+                                // 二级分类
+                                $('.cate-submenu-list a').each(function(index, el) {
+                                    var code = $(el).attr('data-code');
+                                    if (code == paramCode) {
+                                        var breadTitleLevel1 = $(el).parent().siblings('.cate-menu-item-title').children('a').text();
+                                        initBreadTitleStr = '<span>' + breadTitleLevel1 + '</span> · <span>' + paramCateName + '</span>';
+                                        if (paramType == 1) {
+                                            $('title').html(paramCateName + '-' + breadTitleLevel1 + '_期刊_知网文化');
+                                        } else {
+                                            $('title').html(paramCateName + '-' + breadTitleLevel1 + '_图书_知网文化');
+                                        }
+                                    }
+                                })
+                            }
+                        } else {
+                            initBreadTitleStr = '<span>全部分类</span>';
+                            if (paramType == 1) {
+                                $('title').html('全部_期刊_知网文化');
+                            } else {
+                                $('title').html('全部_图书_知网文化');
+                            }
+                        }
+
+                        breadcrumbTitle.html(initBreadTitleStr);
+                        breadcrumbTitle.attr('data-code', initCode);
+                        getCateList(initCode, initSort);
+                    });
+                }
+
+                function getCategory(callback) {
+                    var url = '/mall/getCategory?type=' + paramType;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(data) {
+                            if (data && data.length > 0) {
+                                var menuStr = '';
+                                for (var i = 0; i < data.length; i++) {
+                                    var submenuStr = '';
+                                    var submenuListStr = '';
+                                    var submenu = data[i].childlist;
+                                    for (var j = 0; j < submenu.length; j++) {
+                                        submenuStr += '<a href="javascript:;" data-code="' + submenu[j].code + '">' + submenu[j].name + '</a>';
+                                        if (j == submenu.length - 1) {
+                                            submenuListStr += '<a data-code="' + submenu[j].code + '">' + submenu[j].name + '</a>';
+                                        } else {
+                                            submenuListStr += '<a data-code="' + submenu[j].code + '">' + submenu[j].name + '</a><span class="line"></span>';
+                                        }
+                                    }
+                                    menuStr += '<div class="cate-menu-item">' +
+                                        '<div class="cate-menu-item-title"><a href="javascript:;"  data-code="' + data[i].code + '">' + data[i].name + '</a></div>' +
+                                        '<div class="cate-submenu clearfix">' + submenuStr + '</div>' +
+                                        '<div class="cate-submenu-list clearfix">' + submenuListStr + '</div>' +
+                                        '</div>'
+                                }
+                                $('.cate-menu-body').html(menuStr);
+                                callback && callback(data);
+                                $('.cate-submenu').each(function() {
+                                    var submenuHeight = $(this).height();
+                                    if (submenuHeight > 70) {
+                                        $(this).height(70);
+                                    } else if (submenuHeight == 70) {
+                                        $(this).height(35);
+                                    } else if (submenuHeight == 35) {
+                                        $(this).hide();
+                                    }
+                                })
+                            }
+                        }
+                    });
+                }
+
+                function getCateList(code, sort, pageNum) {
+                    if (paramType == 1) {
+                        var url = '/mall/getCateMagaList';
+                    } else {
+                        var url = '/mall/getCateBookList';
+                    }
+                    var limit = 20;
+                    var sort = sort || 'viewcount';
+                    var keyword = keyword || '';
+                    var pageNum = pageNum || 1;
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {
+                            limit: limit,
+                            category: code,
+                            sort: sort, // 热门viewcount 图书最新 AddTime 期刊最新lastestupdatetime
+                            pageNum: pageNum
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.code == 0) {
+                                var data = response.data;
+                                if (data.booklist && data.booklist.list.length > 0) {
+                                    var booklist = data.booklist.list;
+                                    var total = data.booklist.total;
+                                    var booklistStr = '';
+                                    var bookAuthor = '';
+                                    cateItemstTotal.html('共 <strong>' + total + '</strong> 本图书');
+                                    for (var i = 0; i < booklist.length; i++) {
+                                        if (booklist[i].author.indexOf('#') != -1) {
+                                            bookAuthor = booklist[i].author.split('#').join(' ');
+                                        } else {
+                                            bookAuthor = booklist[i].author;
+                                        }
+                                        booklistStr += '<div class="cate-item clearfix">' +
+                                            '<a class="cate-item-img" href="/detail/bookDetail/' + booklist[i].code + '" title="' + booklist[i].title + '" target="_blank">' +
+                                            '<img src="' + booklist[i].coverpic + '" width="168" height="226" alt="">' +
+                                            '</a>' +
+                                            '<p class="cate-item-title"><a href="/detail/bookDetail/' + booklist[i].code + '" title="' + booklist[i].title + '" target="_blank">' + booklist[i].title + '</a></p>' +
+                                            '<p class="cate-item-author">' + bookAuthor + ' 著</p>' +
+                                            '</div>'
+                                    }
+                                    cateItems.html(booklistStr);
+                                    var pageStr = $.kd.outputPager(total, limit, 5, pageNum);
+                                    mallPages.html(pageStr);
+                                }
+                                if (data.magalist && data.magalist.list.length > 0) {
+                                    var magalist = data.magalist.list;
+                                    var total = data.magalist.total;
+                                    var magalistStr = '';
+                                    cateItemstTotal.html('共 <strong>' + total + '</strong> 本期刊');
+                                    for (var i = 0; i < magalist.length; i++) {
+                                        var singlePeriodId = magalist[i].code + magalist[i].lastestyear + magalist[i].lastestperiod;
+                                        magalistStr += '<div class="cate-item clearfix">' +
+                                            '<a class="cate-item-img" href="/detail/singlePeriodDetail/' + singlePeriodId + '" title="' + magalist[i].name + '" target="_blank">' +
+                                            '<img src="' + magalist[i].coverpic + '" width="168" height="226" alt="">' +
+                                            '</a>' +
+                                            '<p class="cate-item-title"><a href="/detail/singlePeriodDetail/' + singlePeriodId + '" title="' + magalist[i].name + '" target="_blank">' + magalist[i].name + '</a></p>' +
+                                            '<p class="cate-item-time">更新至' + magalist[i].lastestyear + '年' + magalist[i].lastestperiod + '期</p>' +
+                                            '</div>';
+                                    }
+                                    cateItems.html(magalistStr);
+                                    var pageStr = $.kd.outputPager(total, limit, 5, pageNum);
+                                    mallPages.html(pageStr);
+                                }
+                            }
+                        }
+                    });
+                }
+                handleTabItem.click(function() {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var code = breadcrumbTitle.attr('data-code');
+                    var sort = $(this).attr('data-sort');
+                    getCateList(code, sort);
+                });
+                cateMenu.on('click', 'a', function() {
+                    var sort = $('.cate-handle-tab-item.active').attr('data-sort');
+                    var code = $(this).attr('data-code');
+                    var catename = $(this).text();
+                    if ($(this).parent().hasClass('cate-menu-item-title')) {
+                        breadcrumbTitle.attr('data-code', code).html('<span>' + catename + '</span>');
+                        if (paramType == 1) {
+                            $('title').html(catename + '_期刊_知网文化');
+                        } else {
+                            $('title').html(catename + '_图书_知网文化');
+                        }
+                    } else {
+                        if ($(this).siblings().length == 0) {
+                            breadcrumbTitle.attr('data-code', code).html('<span>' + catename + '</span>');
+                            if (paramType == 1) {
+                                $('title').html(catename + '_期刊_知网文化');
+                            } else {
+                                $('title').html(catename + '_图书_知网文化');
+                            }
+                        } else {
+                            var parentCatename = $(this).parent().siblings('.cate-menu-item-title').text();
+                            breadcrumbTitle.attr('data-code', code).html('<span>' + parentCatename + '</span> · <span>' + catename + '</span>');
+                            if (paramType == 1) {
+                                $('title').html(catename + '-' + parentCatename + '_期刊_知网文化');
+                            } else {
+                                $('title').html(catename + '-' + parentCatename + '_图书_知网文化');
+                            }
+                        }
+                    }
+                    getCateList(code, sort);
+                });
+                cateMenu.on('mouseenter', '.cate-menu-item', function() {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    $(this).find('.cate-submenu-list').show();
+
+                });
+                cateMenu.on('mouseleave', '.cate-menu-item', function() {
+                    $('.cate-menu-item').removeClass('active');
+                    $('.cate-submenu-list').hide();
+
+                });
+                mallPages.on('click', 'a', function() {
+                    var code = breadcrumbTitle.attr('data-code');
+                    var sort = $('.cate-handle-tab-item.active').attr('data-sort');
+                    var pageNum = $(this).attr('data-page');
+                    getCateList(code, sort, pageNum);
+                });
+            </script>
+</body>
+
+</html>

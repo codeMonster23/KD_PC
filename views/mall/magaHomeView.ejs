@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/mall/header-and-footer.css" />
+        <link rel="stylesheet" type="text/css" href="/css/mall/mall-maga.css" />
+        <script src="/js/jquery.cycle2.js"></script>
+</head>
+
+<body>
+    <%- include('../layouts/mall/navLayout', {current: 1,sublogo:false,enterControl:1}) %>
+        <div class="magahome-banner bannerArea">
+            <div class="slideList"></div>
+            <div class="slidePager"></div>
+        </div>
+        <div class="magahome-category clearfix">
+            <div class="magahome-category-title">期&nbsp;刊<br>分&nbsp;类</div>
+            <div class="magahome-category-body clearfix"></div>
+        </div>
+        <div class="section s1">
+            <!-- 本周推荐-->
+            <div class="s1-recommend">
+                <div class="s1-recommend-title">本周推荐</div>
+                <div class="s1-recommend-body">
+                    <div class="s1-recommend-items clearfix"></div>
+                    <a class="s1-recommend-more" href="/mall/category?type=1&sort=hot" target="_blank">查看更多></a>
+                </div>
+            </div>
+            <!-- 排行榜 -->
+            <div class="s1-rank">
+                <div class="s1-rank-header clearfix">
+                    <span class="s1-rank-title">排行榜</span>
+                    <a class="s1-rank-more" href="/mall/rank?type=1" target="_blank">完整榜单></a>
+                </div>
+                <div class="s1-rank-body">
+                    <div class="s1-rank-tab clearfix"></div>
+                    <div class="s1-rank-items"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 新刊速递 -->
+        <div class="section s2">
+            <div class="s2-new-header clearfix">
+                <span class="s2-new-title"><img src="/images/mall/mall_tit04.png" alt=""></span>
+                <a class="s2-header-more" href="/mall/category?type=1&sort=new" target="_blank">查看更多></a>
+            </div>
+            <div class="s2-new-body clearfix"></div>
+        </div>
+        <div class="section s4">
+            <div class="s4-module s4-module1">
+                <div class="s4-module-title">
+                    <img src="/images/mall/mall_tit05.png" width="224" height="279" alt="">
+                    <span class="s4-module-title-text"></span>
+                    <a class="s4-module-title-more">更多></a>
+                </div>
+                <div class="s4-module-body"></div>
+            </div>
+            <div class="s4-module  s4-module2">
+                <div class="s4-module-title">
+                    <img src="/images/mall/mall_tit06.png" width="224" height="279" alt="">
+                    <span class="s4-module-title-text"></span>
+                    <a class="s4-module-title-more">更多></a>
+                </div>
+                <div class="s4-module-body"></div>
+            </div>
+            <div class="s4-module s4-module3">
+                <div class="s4-module-title">
+                    <img src="/images/mall/mall_tit07.png" width="224" height="279" alt="">
+                    <span class="s4-module-title-text"></span>
+                    <a class="s4-module-title-more">更多></a>
+                </div>
+                <div class="s4-module-body"></div>
+            </div>
+            <div class="s4-module s4-module4">
+                <div class="s4-module-title">
+                    <img src="/images/mall/mall_tit08.png" width="224" height="279" alt="">
+                    <span class="s4-module-title-text"></span>
+                    <a class="s4-module-title-more">更多></a>
+                </div>
+                <div class="s4-module-body"></div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout') %>
+            <script>
+                var cate1 = $('.s4-module1');
+                var cate2 = $('.s4-module2');
+                var cate3 = $('.s4-module3');
+                var cate4 = $('.s4-module4');
+                var slideList = $('.bannerArea .slideList');
+                getMallMagaIndex();
+                getRankList();
+                getMagaCategory();
+
+                function getMagaCategory() {
+                    var url = '/mall/getCategory?type=1';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(data) {
+                            if (data && data.length > 0) {
+                                var str = '';
+                                for (var i = 0; i < data.length; i++) {
+                                    str += '<a class="magahome-category-item" href="/mall/category?type=1&sort=hot&code=' + data[i].code + '&catename=' + data[i].name + '" target="_blank">' + data[i].name + '</a>';
+                                }
+                                $('.magahome-category-body').html(str);
+                            }
+                        }
+                    });
+                }
+
+                function getMallMagaIndex() {
+                    var url = '/mall/getMallMagaIndex';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.code == 0) {
+                                var listweekrecommend = response.data.listweekrecommend;
+                                var listlunbo = response.data.listlunbo;
+                                var listnewjournal = response.data.listnewjournal;
+                                var listcate1 = response.data.listcate1;
+                                var listcate2 = response.data.listcate2;
+                                var listcate3 = response.data.listcate3;
+                                var listcate4 = response.data.listcate4;
+                                $('.s4-module-title-more').show();
+                                // 轮播图
+                                if (listlunbo && listlunbo.length > 0) {
+                                    var carouselStr = '';
+                                    for (var i = 0; i < listlunbo.length; i++) {
+                                        carouselStr += '<div class="slide"><a href="/detail/singlePeriodDetail/' + listlunbo[i].foreignkeyid + '" target="_blank" style="background-image: url(' + listlunbo[i].pccoverpic + ');"></a></div>';
+                                    }
+                                    slideList.html(carouselStr);
+                                    slideList.cycle({
+                                        fx: 'fade',
+                                        timeout: 3000,
+                                        speed: 1000,
+                                        pause: true,
+                                        slides: '.slide',
+                                        pager: '.slidePager'
+                                    });
+                                }
+                                // 本周推荐
+                                if (listweekrecommend && listweekrecommend.length > 0) {
+                                    var recommendStr = '';
+                                    for (var i = 0; i < listweekrecommend.length; i++) {
+                                        var time = listweekrecommend[i].link.substr(4, 4) + '年第' + listweekrecommend[i].link.substr(8, 2) + '期';
+                                        recommendStr += '<div class="s1-recommend-item">' +
+                                            '<a class="s1-recommend-item-img" href="/detail/singlePeriodDetail/' + listweekrecommend[i].link + '" title="' + listweekrecommend[i].title + '" target="_blank">' +
+                                            '<img src="' + listweekrecommend[i].coverpic + '" width="141" height="189" alt="">' +
+                                            '</a>' +
+                                            '<p class="s1-recommend-item-title"><a href="" title="' + listweekrecommend[i].title + '" target="_blank">' + listweekrecommend[i].title + '</a></p>' +
+                                            '<p class="s1-recommend-item-time">' + time + '</p>' +
+                                            '</div>';
+                                    }
+                                    $('.s1-recommend-items').html(recommendStr);
+                                }
+                                // 新刊速递
+                                if (listnewjournal && listnewjournal.length > 0) {
+                                    $('.s4-module1').show();
+                                    var newMagaStr = '';
+                                    for (var i = 0; i < listnewjournal.length; i++) {
+                                        var time = listweekrecommend[i].link.substr(4, 4) + '年第' + listweekrecommend[i].link.substr(8, 2) + '期';
+                                        newMagaStr += '<div class="s2-new-item">' +
+                                            '<a class="s2-new-item-img" href="/detail/singlePeriodDetail/' + listnewjournal[i].link + '" title="' + listnewjournal[i].title + '" target="_blank">' +
+                                            '<img src="' + listnewjournal[i].coverpic + '" width="141" height="189" alt="">' +
+                                            '</a>' +
+                                            '<p class="s2-new-item-title"><a href="/detail/singlePeriodDetail/' + listnewjournal[i].link + '" title="' + listnewjournal[i].title + '" target="_blank">' + listnewjournal[i].title + '</a></p>' +
+                                            '<p class="s2-new-item-time">' + time + '</p>' +
+                                            '</div>';
+                                    }
+                                    $('.s2-new-body').html(newMagaStr);
+                                }
+                                // 分类
+                                if (listcate1 && listcate1.list && listcate1.list.length > 0) {
+                                    cate1.show();
+                                    cate1.find('.s4-module-title').attr('data-code', listcate1.link);
+                                    cate1.find('.s4-module-title').attr('data-name', listcate1.linkname);
+                                    cate1.find('.s4-module-title-text').html(listcate1.displayname);
+                                    var cate1Str = '';
+                                    for (var i = 0; i < listcate1.list.length; i++) {
+                                        if (i < 5) {
+                                            var item = listcate1.list[i];
+                                            var time = item.link.substr(4, 4) + '年第' + item.link.substr(8, 2) + '期';
+                                            cate1Str += '<div class="s4-module-item">' +
+                                                '<a class="s4-module-item-img" href="/detail/singlePeriodDetail/' + item.link + '" title="' + item.title + '" target="_blank">' +
+                                                '<img src="' + item.coverpic + '" width="141" height="189" alt="">' +
+                                                '</a>' +
+                                                '<p class="s4-module-item-title"><a href="/detail/singlePeriodDetail/' + item.link + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                '<p class="s4-module-item-time">' + time + '</p>' +
+                                                '</div>';
+
+                                        }
+                                    }
+                                    cate1.find('.s4-module-body').html(cate1Str);
+                                }
+                                if (listcate2 && listcate2.list && listcate2.list.length > 0) {
+                                    cate2.show();
+                                    cate2.find('.s4-module-title').attr('data-code', listcate2.link);
+                                    cate2.find('.s4-module-title').attr('data-name', listcate2.linkname);
+                                    cate2.find('.s4-module-title-text').html(listcate2.displayname);
+                                    var cate2Str = '';
+                                    for (var i = 0; i < listcate2.list.length; i++) {
+                                        if (i < 5) {
+                                            var item = listcate2.list[i];
+                                            var time = item.link.substr(4, 4) + '年第' + item.link.substr(8, 2) + '期';
+                                            cate2Str += '<div class="s4-module-item">' +
+                                                '<a class="s4-module-item-img" href="/detail/singlePeriodDetail/' + item.link + '" title="' + item.title + '" target="_blank">' +
+                                                '<img src="' + item.coverpic + '" width="141" height="189" alt="">' +
+                                                '</a>' +
+                                                '<p class="s4-module-item-title"><a href="/detail/singlePeriodDetail/' + item.link + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                '<p class="s4-module-item-time">' + time + '</p>' +
+                                                '</div>';
+
+                                        }
+                                    }
+                                    cate2.find('.s4-module-body').html(cate2Str);
+                                }
+                                if (listcate3 && listcate3.list && listcate3.list.length > 0) {
+                                    cate3.show();
+                                    cate3.find('.s4-module-title').attr('data-code', listcate3.link);
+                                    cate3.find('.s4-module-title').attr('data-name', listcate3.linkname);
+                                    cate3.find('.s4-module-title-text').html(listcate3.displayname);
+                                    var cate3Str = '';
+                                    for (var i = 0; i < listcate3.list.length; i++) {
+                                        if (i < 5) {
+                                            var item = listcate3.list[i];
+                                            var time = item.link.substr(4, 4) + '年第' + item.link.substr(8, 2) + '期';
+                                            cate3Str += '<div class="s4-module-item">' +
+                                                '<a class="s4-module-item-img" href="/detail/singlePeriodDetail/' + item.link + '" title="' + item.title + '" target="_blank">' +
+                                                '<img src="' + item.coverpic + '" width="141" height="189" alt="">' +
+                                                '</a>' +
+                                                '<p class="s4-module-item-title"><a href="/detail/singlePeriodDetail/' + item.link + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                '<p class="s4-module-item-time">' + time + '</p>' +
+                                                '</div>';
+
+                                        }
+                                    }
+                                    cate3.find('.s4-module-body').html(cate3Str);
+                                }
+                                if (listcate4 && listcate4.list && listcate4.list.length > 0) {
+                                    cate4.show();
+                                    cate4.find('.s4-module-title').attr('data-code', listcate4.link);
+                                    cate4.find('.s4-module-title').attr('data-name', listcate4.linkname);
+                                    cate4.find('.s4-module-title-text').html(listcate4.displayname);
+                                    var cate4Str = '';
+                                    for (var i = 0; i < listcate4.list.length; i++) {
+                                        if (i < 5) {
+                                            var item = listcate4.list[i];
+                                            var time = item.link.substr(4, 4) + '年第' + item.link.substr(8, 2) + '期';
+                                            cate4Str += '<div class="s4-module-item">' +
+                                                '<a class="s4-module-item-img" href="/detail/singlePeriodDetail/' + item.link + '" title="' + item.title + '" target="_blank">' +
+                                                '<img src="' + item.coverpic + '" width="141" height="189" alt="">' +
+                                                '</a>' +
+                                                '<p class="s4-module-item-title"><a href="/detail/singlePeriodDetail/' + item.link + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                '<p class="s4-module-item-time">' + time + '</p>' +
+                                                '</div>';
+
+                                        }
+                                    }
+                                    cate4.find('.s4-module-body').html(cate4Str);
+                                }
+                            }
+                        }
+                    });
+                }
+
+                function getRankList() {
+                    var url = '/mall/getRankList';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(data) {
+                            if (data && data.length > 0) {
+                                var rankStr = '';
+                                var rankArr = [];
+                                for (var i = 0; i < data.length; i++) {
+                                    if (data[i].rankingType == 'maga') {
+                                        rankArr.push(data[i]);
+                                    }
+                                }
+                                for (var i = 0; i < 4; i++) {
+                                    if (i == 0) {
+                                        rankStr += '<span class="s1-rank-tab-item active" data-code="' + rankArr[i].code + '">' + rankArr[i].title + '</span>';
+                                    } else {
+                                        rankStr += '<span class="s1-rank-tab-item" data-code="' + rankArr[i].code + '">' + rankArr[i].title + '</span>';
+                                    }
+
+                                }
+                                $('.s1-rank-tab').html(rankStr);
+                                var code = $('.s1-rank-tab-item.active').attr('data-code');
+                                getRankingDetail(code);
+                            }
+                        }
+                    });
+                }
+
+                function getRankingDetail(code) {
+                    var url = '/mall/getRankingDetail';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {
+                            type: 'maga',
+                            rankingcode: code
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            console.log(response);
+                            if (response.code == 0) {
+                                var rankDetailList = response.magalist;
+                                var rankDetailStr = '';
+                                var numStr = '';
+                                if (rankDetailList && rankDetailList.length > 0) {
+                                    for (var i = 0; i < rankDetailList.length; i++) {
+                                        if (i < 3) {
+                                            numStr = '<i class="s1-rank-item-number colorRed">' + (i + 1) + '</i>';
+                                        } else {
+                                            numStr = '<i class="s1-rank-item-number">' + (i + 1) + '</i>';
+                                        }
+
+                                        var classActive = i == 0 ? 'active' : '';
+                                        var time = rankDetailList[i].lastestyear + '年第' + rankDetailList[i].lastestperiod + '期';
+                                        var magacode = rankDetailList[i].code + rankDetailList[i].lastestyear + rankDetailList[i].lastestperiod;
+                                        rankDetailStr += '<div class="s1-rank-item ' + classActive + ' clearfix">' + numStr +
+                                            '<div class="s1-rank-item-title">' + rankDetailList[i].name + '<span class="s1-rank-item-time">' + time + '</span></div>' +
+                                            '<div class="s1-rank-item-detail clearfix">' +
+                                            '<a class="s1-rank-detail-img" href="/detail/singlePeriodDetail/' + magacode + '" title="' + rankDetailList[i].name + '" target="_blank">' +
+                                            '<img src="' + rankDetailList[i].coverpic + '" width="89" height="126" alt="">' +
+                                            '</a>' +
+                                            '<div class="s1-rank-detail-info">' +
+                                            '<div class="s1-rank-detail-title">' +
+                                            '<a  href="/detail/singlePeriodDetail/' + magacode + '" title="' + rankDetailList[i].name + '" target="_blank">' + rankDetailList[i].name + '</a>' +
+                                            '</div>' +
+                                            '<div class="s1-rank-detail-time">' + time + '</div>' +
+                                            '</div>' +
+                                            '</div>' +
+                                            '</div>';
+                                    }
+                                    $('.s1-rank-items').html(rankDetailStr);
+                                }
+
+                            }
+                        }
+                    });
+                }
+                $('.s1-rank').on('mouseenter', '.s1-rank-item', function() {
+                    $('.s1-rank-item').removeClass('active');
+                    $(this).toggleClass('active');
+                });
+                $('.s1-rank').on('mouseenter', '.s1-rank-tab-item', function() {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var code = $(this).attr('data-code');
+                    getRankingDetail(code);
+                });
+                $('.s4-module-title-more').on('click', function() {
+                    var code = $(this).parent().attr('data-code');
+                    var catename = $(this).parent().attr('data-name');
+                    window.open('/mall/category?type=1&sort=hot&code=' + code + '&catename=' + catename, '_blank');
+                });
+            </script>
+</body>
+
+</html>

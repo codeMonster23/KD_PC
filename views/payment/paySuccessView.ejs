@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/payment/payment.css" />
+        <!--<script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>-->
+</head>
+
+<body bgcolor="#EBEFF5">
+    <div class="modal psModal">
+        <a href="javascript:;" class="close"></a>
+        <h1>提示</h1>
+        <div class="mbody">
+            <h2>支付成功</h2>
+            <p class="p4">恭喜您成为知网文化VIP会员！</p>
+            <p class="p5">包年会员<i>2020-12-20</i>到期</p>
+        </div>
+        <div class="bottom">
+            <div class="btns">
+                <a href="/" class="a4 left">前往首页</a>
+                <a href="javascript:;" class="a5 right">确定</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        'use strict'
+
+        // JavaScript Document
+        /* 实现页面的点击或鼠标移动的切换
+         * controlNodes为用户点击的节点
+         * displayNodes为用户点击后切换的部分的节点
+         * mode可选择click或者mouseover两种模式
+         * afterClass为用户点击表头样式
+         * beforeClass为表头未点击样式
+         */
+        function TableTransition(controlNodes, displayNodes, mode, afterClass, beforeClass) {
+            if (mode) {
+                if (mode == "click") {
+                    controlNodes.click(function() {
+                        var index = controlNodes.index(this);
+                        channel = controlNodes.eq(index).attr('data-channel'); // 获取支付方式
+                        controlNodes.removeClass(afterClass).addClass(beforeClass);
+                        $(this).removeClass(beforeClass).addClass(afterClass);
+                        if (displayNodes) {
+                            displayNodes.css("display", "none");
+                            displayNodes.eq(index).css("display", "block");
+                        }
+                    })
+                }
+            } else {}
+        }
+
+        var confirmPay = $('#confirmPay');
+        var workId = $('#workId').val();
+        var mediaType = $('#mediaType').val();
+        var channel = 1; // 取值1（余额）12（微信WEB二维码URL）13（支付宝WEB二维码页面）
+        var orderType = $('#orderType').val();
+        var year = $('#year').val();
+        var period = $('#period').val();
+        TableTransition($(".pay-tab a"), $(".pay-cont"), "click", "cur");
+
+        // 确认支付
+        confirmPay.click(function() {
+            var confirmPayUrl = '/payment/confirmPay?id=' + workId + '&channel=' + channel + '&orderType=' + orderType + '&year=' + year + '&period=' + period;
+            $.ajax({
+                url: confirmPayUrl,
+                dataType: "json",
+                type: "get",
+                success: function(response) {
+                    if (response.errorCode == 1) {
+                        location.href = '/payment/success?id=' + workId + '&mediatype=' + mediaType;
+                    } else {
+                        alert(response)
+                    }
+                },
+                error: function(error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        })
+
+        // 查询微信、支付宝支付订单
+
+        var alipayOrder = $('#alipayOrder').val();
+        var wechatOrder = $('#wechatOrder').val();
+        var orderCheckUrl = '';
+        var flag = false;
+
+        // 查询订单支付状态
+        var timer = setInterval(function() {
+            if (!flag) {
+                orderCheckUrl = '/recharge/orderCheck?id=' + alipayOrder + '&payType=alipay';
+            } else {
+                orderCheckUrl = '/recharge/orderCheck?id=' + wechatOrder + '&payType=wechat';
+            }
+            flag = !flag;
+            $.ajax({
+                url: orderCheckUrl,
+                dataType: "json",
+                type: "get",
+                success: function(response) {
+                    if (response.errorCode == 1) {
+                        clearInterval(timer);
+                        // $('#rechargeTime').val(Date.now());
+                        location.href = '/payment/success?id=' + workId + '&mediatype=' + mediaType;
+                    } else {
+                        console.log('暂未查到充值成功反馈');
+                    }
+                    console.log(response)
+                },
+                error: function(error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        }, 2000000);
+    </script>
+
+</body>
+
+</html>

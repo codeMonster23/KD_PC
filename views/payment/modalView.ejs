@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/recharge/recharge.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/payment/payment.css"/>
+    <link rel="stylesheet" href="/lib/layui/css/layui.css" media="all">
+    <script src="/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        .modal {
+            position: relative;
+            width: 560px;
+            /*background-color: #ffffff;*/
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+
+        .modal h1 {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+
+        .modal .h1-failure {
+            height: 52px;
+            background-color: #485162;
+            padding-left: 16px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 52px;
+            font-weight: normal;
+        }
+
+        .modal .p3 {
+            padding-left: 37px;
+            line-height: 24px;
+            margin: 64px 0 64px 139px;
+            font-size: 18px;
+            background: url(../../images/payment/pay-icon16.png) no-repeat left center;
+        }
+
+        .modal .bottom {
+            padding-top: 27px;
+            height: 63px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            background-color: #F1F1F1;
+            position: relative;
+        }
+
+        .modal .bottom .btns {
+            width: 309px;
+            margin: 0 auto;
+            height:auto;
+        }
+
+        .modal .bottom .btns .a1 {
+            display: block;
+            width: 116px;
+            height: 36px;
+            text-align: center;
+            line-height: 36px;
+            font-size: 14px;
+            color: #ffffff;
+            border-radius: 3px;
+            background-color: #F03E3A;
+            margin: 0 auto;
+        }
+
+        .modal .bottom .btns .a2 {
+            width: 180px;
+            height: 34px;
+            text-align: center;
+            line-height: 34px;
+            font-size: 14px;
+            color: #f13e3a;
+            border-radius: 3px;
+            background-color: #ffffff;
+            border: 1px solid #f13e3a;
+        }
+
+        .modal .bottom .btns .a3 {
+            position: absolute;
+            color: #808080;
+            line-height: 34px;
+            top: 27px;
+            right: 20px;
+            text-decoration: underline;
+        }
+
+        .modal .close {
+            top: 16px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="modal chargingmodal payment-modal">
+    <h1>正在支付</h1>
+    <div class="mbody">
+        <div class="mtips">
+            <p class="p1">请您在新打开的页面完成支付后选择：</p>
+            <p class="p2">支付完成前请不要关闭此窗口</p>
+        </div>
+        <div class="btns" id="btns" data-type="<%= viewModel.type %>">
+            <a href="javascript:;" class="a1">支付成功</a>
+            <a href="javascript:;" class="a2">支付失败，请重新支付</a>
+        </div>
+    </div>
+</div>
+<script>
+    $('#btns a').click(function () {
+        var index = $('#btns a').index(this);
+        var order = parent.document.getElementById('unionOrder').value;
+        var order1 = parent.document.getElementById('goalipayOrder').value;
+        var orderType = parent.document.getElementById('orderType').value;
+        var workId = parent.document.getElementById('workId').value;
+        var mediaType = parent.document.getElementById('mediaType').value;
+        var year = parent.document.getElementById('year').value;
+        var period = parent.document.getElementById('period').value;
+        var type = $(this).parent().attr('data-type');
+
+        console.log('order', order);
+        console.log('order1', order1);
+        console.log('orderType', orderType);
+        console.log('workId', workId);
+        console.log('mediaType', mediaType);
+        console.log('year', year);
+        console.log('period', period);
+        console.log('type', type);
+
+        var orderCheckUrl = '';
+        if (type == 'zfb') {
+            orderCheckUrl = '/temp/recharge/orderCheck?id=' + order1 + '&payType=alipay';
+        }
+        else if (type == 'yl') {
+            orderCheckUrl = '/temp/recharge/orderCheck?id=' + order + '&payType=union';
+        }
+        // 订单查询
+        $.ajax({
+            url: orderCheckUrl,
+            dataType: "json",
+            type: "get",
+            success: function (response) {
+                // console.log('支付后查询',response)
+                // 支付成功
+                if (response.errorCode == 1) {
+                    console.log('支付成功：')
+                    // 会员支付成功
+                    if (orderType == 19 || orderType == 20) {
+                        // 查询会员到期时间
+                        $.ajax({
+                            type: "get",
+                            url: "/personalCenter/vipDetail",
+                            dataType: "json",
+                            success: function (response) {
+                                if (response.errorcode == 1) {
+                                    // 会员购买成功弹框
+                                    var vipType = '';
+                                    if (orderType == 19) {
+                                        vipType = '包月会员';
+                                    } else if (orderType == 20) {
+                                        vipType = '包年会员';
+                                    }
+                                    layer.open({
+                                        type: 1,
+                                        title: ['提示', 'height: 42px;background-color: #485162;padding-left: 16px;border-top-left-radius: 6px;border-top-right-radius: 6px;color: #ffffff;font-size: 16px;line-height: 42px;font-weight: normal;'],
+                                        skin: 'layui-layer-demo', //样式类名
+                                        closeBtn: 0, //不显示关闭按钮
+                                        anim: 2,
+                                        area: ['560px', '300px'],
+                                        content: '<div class="modal psModal">' +
+                                        '    <div class="mbody">' +
+                                        '    <h2>支付成功</h2>' +
+                                        '    <p class="p4">恭喜您成为知网文化VIP会员！</p>' +
+                                        '    <p class="p5">' + vipType + '<i>' + response.rows.ExpirationTime.substring(0, 10) + '</i>到期</p>' +
+                                        '    </div>' +
+                                        '    <div class="bottom">' +
+                                        '    <div class="btns">' +
+                                        '    <a href="javascript:;" class="a4 left">前往首页</a>' +
+                                        '    <a href="javascript:;" class="a5 right">确定</a>' +
+                                        '    </div>' +
+                                        '    </div>' +
+                                        '    </div>'
+                                    });
+                                    $('.a4').click(function () {
+                                        parent.window.location = '/';
+                                    })
+                                    $('.a5').click(function () {
+                                        parent.window.location = '/personalCenter/vipRecord';
+                                    })
+                                } else {
+
+                                }
+                            },
+                            error: function (error) {
+                                //请求出错处理
+                                console.log(error);
+                            }
+                        });
+                    }
+                    // 其他支付成功
+                    // 不论点支付成功，还是点支付失败都跳支付成功页
+                    else {
+                        // orderType 0文献  1期刊单期  2期刊年   7品得书院（图书） 17 知网文化作品  18 知网文化微刊 19月会员 20年会员
+                        // 文献不走此处
+                        if (orderType == 17) {
+                            parent.window.location = '/payment/success?id=' + workId + '&orderType=' + orderType + '&mediatype=' + mediaType;
+                        }
+                        else if (orderType == 1 || orderType == 2) {
+                            parent.window.location = '/payment/success?id=' + workId + year + period + '&orderType=' + orderType;
+                        }
+                        else {
+                            parent.window.location = '/payment/success?id=' + workId + '&orderType=' + orderType;
+                        }
+                    }
+                }
+                else {
+                    if (orderType == 19 || orderType == 20) {
+                        layer.open({
+                            type: 1,
+                            // title: ['提示', 'height: 42px;background-color: #485162;padding-left: 16px;border-top-left-radius: 6px;border-top-right-radius: 6px;color: #ffffff;font-size: 16px;line-height: 42px;font-weight: normal;'],
+                            title: false,
+                            skin: 'layui-layer-demo', //样式类名
+                            closeBtn: 0, //不显示关闭按钮
+                            anim: 2,
+                            area: ['560px', '300px'],
+                            content: '<div class="modal m1" style="overflow: hidden;">' +
+                            '    <a href="javascript:;" class="close" onclick="parent.window.location.reload();"></a>' +
+                            '    <h1 class="h1-failure">提示</h1>' +
+                            '    <p class="p3">抱歉，您还没有完成支付！</p>' +
+                            '    <div class="bottom">' +
+                            '    <div class="btns">' +
+                            '    <a id="rePay" href="javascript:;" onclick="parent.window.location.reload();" class="a1">重新支付</a>' +
+                            '    <a target="_blank" href="https://help.cnki.net" class="a3">在线咨询</a>' +
+                            '    </div>' +
+                            '    </div>' +
+                            '    </div>'
+                        });
+                    }
+                    // 支付失败
+                    else {
+                        if (index == 1) {
+                            // 重新支付
+                            // parent.location.href = '/temp/recharge/home';
+                            parent.window.location.reload();
+                        } else {
+                            parent.window.location = '/payment/fail' + parent.window.location.search;
+                        }
+                    }
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    })
+</script>
+
+</body>
+
+</html>

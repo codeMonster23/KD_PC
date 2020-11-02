@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/search/search.css" />
+        <script src="/js/plugin/jquery.methods.js"></script>
+        <script src="/js/search/works.js"></script>
+</head>
+
+<body>
+    <%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+        <%- include('../layouts/search/subnavLayout.ejs', {current: 1}) %>
+            <div class="search-main">
+                <div class="worksWrap w1200Auto clearfix">
+                    <div class="listWrap left">
+                        <div class="handle">
+                            <div id="worksCategory" class="select left worksCategory">
+                                <p>分类</p>
+                                <ul>
+                                    <% for(var i = 0; i < worksCateArr.length; i++){ %>
+                                        <li data-id="<%= worksCateArr[i].code%>">
+                                            <%= worksCateArr[i].name%>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                            </div>
+                            <div id="worksType" class="select left">
+                                <p>类型</p>
+                                <ul>
+                                    <li data-type="9">全部</li>
+                                    <li data-type="2">图文</li>
+                                    <li data-type="3">音频</li>
+                                    <li data-type="4">视频</li>
+                                    <li data-type="5">图集</li>
+                                </ul>
+                            </div>
+                            <div id="newOrHot" class="select left">
+                                <p>最新</p>
+                                <ul>
+                                    <li data-sort="SubmitTime">最新</li>
+                                    <li data-sort="viewcount">最热</li>
+                                </ul>
+                            </div>
+                            <span class="num right">找到<strong></strong>个作品</span>
+                        </div>
+                        <div class="list"></div>
+                        <div class="sp-page" id="sp-page"></div>
+                    </div>
+                    <div class="aside right">
+                        <div class="module wk">
+                            <h1>相关微刊</h1>
+                            <ul class="list"></ul>
+                        </div>
+                        <div class="module period">
+                            <h1>相关期刊</h1>
+                            <ul class="list clearfix"></ul>
+                        </div>
+                        <div class="module book">
+                            <h1>相关图书</h1>
+                            <ul class="list clearfix"></ul>
+                        </div>
+                        <div class="module kdh">
+                            <h1>相关万选号</h1>
+                            <ul class="list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../layouts/footerLayout', {}) %>
+                <input type="hidden" id="mediatype" value="<%=mediatype%>">
+                <script>
+                    $.divselect($(".select p"), $(".select ul"), $(".select ul li"));
+                </script>
+</body>
+
+</html>

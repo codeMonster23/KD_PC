@@ -1,0 +1,207 @@
+@charset "utf-8";
+
+body {
+    background-color: #f8f8f8;
+}
+.footer{
+    font-size: 14px;
+	color: #666666;
+}
+.banner {
+    height: 100px;
+    background: url('../images/banner2.jpg') top center no-repeat;
+}
+
+.banner .logo {
+    margin-top: 21px;
+}
+.banner .btn-invoice {
+    line-height: 100px;
+    margin-right: 76px;
+    padding-right: 24px;
+    background: url('../images/icon28.png') right center no-repeat;
+    font-family: MicrosoftYaHei;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+.download {
+    width: 1052px;
+    margin: 33px auto 0;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.07);
+    border: solid 1px rgba(205, 205, 205, 0.5);
+    border-top: 3px solid #f13e3a;
+    background-color: #fff;
+    font-family: MicrosoftYaHei;
+}
+.download-left{
+    width: 658px;
+    margin: 42px 22px 0 50px;
+}
+.article-title{
+    padding-left: 16px;
+    padding-bottom: 11px;
+    font-weight: bold;
+	font-size: 24px;
+	color: #000000;
+}
+.article-title img{
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.article-title span{
+    vertical-align: middle;
+}
+.article-infos p,.article-details p{
+    font-size: 16px;
+    line-height: 30px;
+    color: #333333;
+}
+.article-infos{
+    padding: 16px 0 16px 50px;
+    border-top: dotted  1px #e6e6e6;
+    border-bottom: dotted  1px #e6e6e6;
+}
+.article-details{
+    padding: 12px 0 12px 45px;    
+}
+.download .btns {
+    text-align: center;
+}
+.download .btn{
+    display: inline-block;
+    width: 200px;
+	height: 42px;
+    line-height: 42px;
+    margin: 0 6px 6px;
+	background-color: #f13e3a;
+    border-radius: 4px;
+    font-weight: bold;
+	font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+}
+.download .btn-download-free{
+	background-color: #2abb06;
+}
+.download .btn-download-disabled{
+    background-color: #d2d2d2;
+    color: #fff;
+}
+.error-tip{
+    margin-bottom: 6px;
+    text-align: center;
+    color: #f13e3a;
+    font-family: SimSun;
+}
+.download-tip{
+    padding: 16px 0 0 50px;
+    border-top: dotted  1px #e6e6e6;
+	font-size: 14px;
+	line-height: 24px;
+	color: #999999;
+}
+.download-tip a{
+	color: #999999;    
+}
+.download-tip a:hover{
+	text-decoration: underline;
+}
+.balance {
+	width: 305px;
+    height: 100px;
+    padding-top: 44px;
+    margin: 12px 0 14px;    
+    background: url('../images/bg2.png') no-repeat;
+	border-radius: 10px;
+}
+.balance-item {
+    position: relative;
+    line-height: 1;
+    margin-bottom: 12px;
+    margin-left: 55px;
+	font-size: 16px;
+	color: #000000;
+}
+.balance-item span {
+	font-family: ArialMT;
+	font-size: 24px;
+	color: #fe1103;
+}
+.balance-item .reload{
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-left: 12px;
+    margin-top: -3px;
+    background: url('../images/icon29.png') no-repeat;
+    cursor: pointer;
+}
+.balance-item .reload-tip {
+    display: none;
+    position: absolute;
+    top: -33px;
+    right: -27px;
+	width: 185px;
+	height: 28px;
+	line-height: 28px;
+	background-color: #ffffff;
+    border: dashed 1px #dcdcdc;
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+    z-index: 10;
+}
+.recharge {
+	width: 305px;
+	height: 302px;
+    background: url('../images/bg3.png') no-repeat;
+	box-shadow: 0px 0px 13px 0px rgba(6, 0, 1, 0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+.recharge-title {
+    line-height: 1;
+    padding: 32px 0 20px;
+    font-weight: bold;
+	font-size: 16px;
+    color: #ffffff;
+}
+.recharge-shortcut-body a {
+    display: inline-block;
+	width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px 10px;
+	background-color: #ffffff;
+	border-radius: 20px;
+}
+.recharge-shortcut-body a img{
+    vertical-align: middle;
+    margin-right: 7px;
+}
+.recharge-card .recharge-title {
+    padding-top: 22px;
+} 
+.recharge-card-body {
+    margin-left: 50px;
+}
+.recharge-card-body a {
+    float: left;
+    width: 120px;
+    margin-bottom: 16px;
+    line-height: 1;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: left;
+}   
+.download-footer{
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+	font-size: 14px;
+    color: #666666;
+    text-align: center;
+}

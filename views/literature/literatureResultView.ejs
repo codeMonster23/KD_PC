@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/literature/literature.css"/>
+    <script src="/js/plugin/jquery.methods.js"></script>
+</head>
+
+<body>
+<!--header-->
+<%- include('../layouts/navLayout', {enterControl:0}) %>
+<% if(viewModel.isAdvancedSearch == 0){ %>
+<%- include('../components/literature/topBanner', {}) %>
+<% } %>
+<div class="resultWrap clearfix">
+    <div class="rl left">
+        <div class="tops">
+            <% if(viewModel.isAdvancedSearch == 1) { %>
+            <!--高级搜索显示方式-->
+            <p>
+                <% if(viewModel.searchWordsStr){ %>
+                <span><%= viewModel.searchWordsStr %> </span>
+                <% } %>
+                <i>的检索结果如下</i></p>
+            <% }else{ %>
+            <!--文献搜索显示方式-->
+            <p>
+                <% if(viewModel.searchWordValue){ %>
+                <span><%= viewModel.searchWordValue %> </span>
+                <% } %>
+                相关文献
+                <%= viewModel.data.total %>篇</p>
+            <% } %>
+
+            <% if(viewModel.prevNextPage){ %>
+            <!--上一页 下一页-->
+            <div class="right" id="prevNextPage">
+                <span id="next"><%- viewModel.prevNextPage.nextPage %></span>
+                <span id="prev"><%- viewModel.prevNextPage.prevPage %></span>
+                <span><span id="currentPage"><%= viewModel.params.pageNum %></span>/<span
+                            id="sumPage"><%= ejsFunctions.ceil(viewModel.data.total / 10) %></span></span>
+            </div>
+            <% } %>
+        </div>
+        <div class="redLine"></div>
+        <% if(viewModel.isAdvancedSearch == 0) { %>
+        <!--分类筛选-->
+        <div class="filtrate" id="filter">
+            <div class="ti">筛选：</div>
+            <div class="itemm" data-selected-item-number="-1" data-filter-type="ztcode">
+                <span class="see1">分类</span>
+                <span class="see2 displayN">分类<img src="/images/literature/licon5c.png" align="absmiddle"></span>
+            </div>
+            <div class="line1"></div>
+            <div class="itemm" data-selected-item-number="-1" data-filter-type="author">
+                <span class="see1">作者</span>
+                <span class="see2 displayN">作者<img src="/images/literature/licon5c.png" align="absmiddle"></span>
+            </div>
+            <div class="line1"></div>
+            <div class="itemm" data-selected-item-number="-1" data-filter-type="unit">
+                <span class="see1">机构</span>
+                <span class="see2 displayN">机构<img src="/images/literature/licon5c.png" align="absmiddle"></span>
+            </div>
+            <div class="line1"></div>
+            <div class="itemm" data-selected-item-number="-1" data-filter-type="source">
+                <span class="see1">来源</span>
+                <span class="see2 displayN">来源<img src="/images/literature/licon5c.png" align="absmiddle"></span>
+            </div>
+            <div class="line1"></div>
+            <div class="itemm long" data-selected-item-number="-1" data-filter-type="year">
+                <span class="see1">发表年度</span>
+                <span class="see2 displayN">发表年度<img src="/images/literature/licon5c.png" align="absmiddle"></span>
+            </div>
+        </div>
+        <!--分类筛选内容-->
+        <div id="pop2Wrap" class="pop2Wrap">
+            <a class="close1 positionA" href="javascript:void(0)"></a>
+            <div class="pop2 clearfix" id="pop2" data-order="0"></div>
+        </div>
+        <div style="display: none;" id="sort"></div>
+        <!--// 筛选-->
+        <% } %>
+        <!--排序-->
+        <div id="px" class="px" data-type-code="null" data-field="null">
+            <div class="ti">排序：</div>
+            <a data-order="0" data-search-word-name="<%= viewModel.searchWordName %>"
+               data-search-word-value="<%= viewModel.searchWordValue %>" href="javascript:;"
+               <% if(viewModel.params.order == 0 ){ %>class="cur"
+                    <% } %>
+            >相关度</a>
+            <a data-order="3" data-search-word-name="<%= viewModel.searchWordName %>"
+               data-search-word-value="<%= viewModel.searchWordValue %>" href="javascript:;"
+               <% if(viewModel.params.order == 3 ){ %>class="cur"
+                    <% } %>
+            >发表时间</a>
+            <a data-order="1" data-search-word-name="<%= viewModel.searchWordName %>"
+               data-search-word-value="<%= viewModel.searchWordValue %>" href="javascript:;"
+               <% if(viewModel.params.order == 1 ){ %>class="cur"
+                    <% } %>
+            >下载次数</a>
+        </div>
+        <div id="list" class="listWrap">
+            <% if(viewModel.data.list && viewModel.data.list.length > 0){ %>
+            <% for(var i = 0, list = viewModel.data.list; i < list.length;i++){ %>
+            <div class="item" data-file-name="<%= viewModel.data.list[i].FileName %>"
+                 data-db-type="<%= ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4) %>"
+                 data-libraryType="<%= ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4).toLowerCase() + 'total' %>"
+                 data-source="<%- ejsFunctions.keywordStyleRed(list[i].PublishName, '~#@', '@#~', viewModel.searchWordName) %>"
+                 data-year="<%= list[i].Year %>"
+                 data-period="<%= list[i].Period %>"
+                 data-page-count="<%= list[i].PageCount %>">
+                <h2>
+                    <a target="_blank"
+                       href="<%= '/literature/literatureDetail/' + viewModel.data.list[i].FileName + ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4) %>">
+                        <%- ejsFunctions.keywordStyleRed(list[i].Title, '~#@', '@#~', viewModel.searchWordValue) %>
+                    </a>
+                    <% if(list[i].ArticleStatus == 2 || list[i].ArticleStatus == 4 || list[i].ArticleStatus == 6 || list[i].ArticleStatus == 8){ %>
+                    <span class="article-status"><%= list[i].ArticleStatusTitle %></span>
+                    <% } %>
+                    <% if(list[i].ArticleStatus != 2 && list[i].ArticleStatus != 8){ %>
+                    <a href="javascript:;" class="orgNoRight"><img src="/images/literature/licon6.png"></a>
+                    <% } %>
+                </h2>
+                <p class="p1">
+                    <% if(list[i].Author && list[i].Author.length > 0) { %>
+                    <%- ejsFunctions.keywordStyleRed(list[i].Author, '~#@', '@#~', viewModel.searchWordName) %>
+                    |
+                    <% } %>
+                    <a class="publishName" target="_blank"
+                       href="/detail/periodDetail/<%= viewModel.data.list[i].PublishPYName %>">《<%- ejsFunctions.keywordStyleRed(list[i].PublishName, '~#@', '@#~', viewModel.searchWordName) %>
+                        》<%= list[i].Year %>年<%= list[i].Period %>期</a>
+                </p>
+                <% if(list[i].ArticleStatus != 8){ %>
+                <p class="p2">
+                    <%- ejsFunctions.keywordStyleRed(ejsFunctions.substring(list[i].Summary, 0, 150), '~#@', '@#~', viewModel.searchWordValue) %>
+                    <% if(list[i].Summary.length > 150){ %>
+                    ...
+                    <% } %><a class="readMore" target="_blank" href="/literature/literatureDetail/<%= viewModel.data.list[i].FileName %><%= ejsFunctions.substring(viewModel.data.list[i].DBName, 0, 4) %>">[阅读全文]</a></p>
+                    <div class="pics"></div>
+                </p>
+                <div class="pics"></div>
+                <% if(viewModel.data.list[i].Keyword && ejsFunctions.trim(viewModel.data.list[i].Keyword).length > 0) { %>
+                <div class="tag"><img src="/images/literature/licon12.gif" align="absmiddle"/>
+                    <% for(var j = 0, keyword = ejsFunctions.stringToArray(viewModel.data.list[i].Keyword);j < keyword.length;j++) {if(j < 5) { %>
+                    <span><a href="<%= ejsFunctions.encodeURL('/literature/literatureResult?&fulltext=' + ejsFunctions.filterKeyword(keyword[j])) %>"><%- ejsFunctions.keywordStyleRed(ejsFunctions.filterKeyword(keyword[j]), '~#@', '@#~', viewModel.searchWordName) %></a></span>
+                    <% }} %>
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+            <% } %>
+            <% } else{ %>
+            <div class="blank"></div>
+            <% } %>
+        </div>
+        <div class="rpage">
+            <%- viewModel.resultPage %>
+        </div>
+    </div>
+    <div class="rr left">
+        <div id="relatedPeriod" class="s s1" style="display: none;">
+            <h1><span class="left">相关期刊</span><a target="_blank"
+                                                 href="/mall/searchResult?kw=<%= ejsFunctions.encodeURL(viewModel.searchWordValue) %>"
+                                                 class="right">更多 ></a></h1>
+            <ul class="clearfix"></ul>
+        </div>
+        <div id="relatedWorksWrap" class="s s4" style="display: none;">
+            <h1><span class="left">相关作品</span><a target="_blank"
+                                                 href="/search/works?kd=<%= ejsFunctions.encodeURL(viewModel.searchWordValue) %>"
+                                                 class="right">更多 ></a></h1>
+            <div id="relatedWorks" class="wrap"></div>
+        </div>
+        <div class="s s2">
+            <h1><span class="left">精选微刊</span><a target="_blank"
+                                                 href="/search/microbook?kd=<%= ejsFunctions.encodeURL(viewModel.searchWordValue) %>"
+                                                 class="right">更多 ></a></h1>
+            <div id="microBooksRecommend" class="wrap"></div>
+        </div>
+        <div id="kdhWrap" class="s s3" style="display: none;">
+            <h1><span class="left">万选号</span><a target="_blank"
+                                                href="/search/kdh?kd=<%= ejsFunctions.encodeURL(viewModel.searchWordValue) %>"
+                                                class="right">更多 ></a></h1>
+            <div id="kdh" class="wrap"></div>
+
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<%- include('../layouts/footerLayout', {}) %>
+
+<div style="display: none">
+    <input type="hidden" id="searchWordValue" value="<%= viewModel.searchWordValue %>">
+    <input type="hidden" id="dbname" value="<%= viewModel.libraryType %>">
+    <input type="hidden" id="album" value="<%= viewModel.album %>">
+    <input type="hidden" id="ztName" value="<%= viewModel.ztName %>">
+    <input type="hidden" id="ztCode" value="<%= viewModel.ztCode %>">
+    <input type="hidden" id="searchWordName" value="<%= viewModel.searchWordName %>">
+    <input type="hidden" id="queryStr" value="<%= viewModel.queryStr %>">
+    <input type="hidden" id="isAdvancedSearch" value="<%= viewModel.isAdvancedSearch %>">
+    <input type="hidden" id="isOrg" value="<%= viewModel.user.isOrg %>">
+    <input type="hidden" id="libRight" value="<%= viewModel.libRightStr %>">
+</div>
+<script>
+    "use strict"
+    // 列表图片加载
+    var items = $('.item');
+    var time = 300;
+    var count = 0;
+    var ajaxRequest = [];
+
+    var kdhWrap = $('#kdhWrap');
+
+    var searchWordName = $('#searchWordName').val();
+    var searchWordValue = $('#searchWordValue').val();
+
+    var dbname = $('#dbname').val();
+    var album = $('#album').val();
+    var ztName = $('#ztName').val();
+    var subject = $('#ztCode').val();
+    var listDom = $('#list');
+    var isAdvancedSearch = $('#isAdvancedSearch').val();
+    var queryStr = $('#queryStr').val();
+    var scrollDis = 0;
+    // 文献搜索与高级搜索滚动到页面的高度不一样
+    if (isAdvancedSearch == 0) {
+        scrollDis = 390;
+    } else {
+        scrollDis = 71
+    }
+    var page = $('.rpage');
+
+    var px = $('#px');
+    var pxItem = $('#px a')
+    getLiteraturePic(handlePics);
+    // 绑定页码事件
+    $('.rpage a,#prev a,#next a').bind('click', function () {
+        $('body,html').animate({
+            scrollTop: scrollDis
+        }, time);
+        var pageNum = $(this).attr('data-page');
+        stopAjaxRequests(ajaxRequest, function () {
+            getDetailList(searchWordName, searchWordValue, pageNum, 1, null, null, queryStr);
+        })
+    })
+
+    //异步请求图片 返回处理
+    function handlePics(imgList) {
+        var picContainer = listDom.children('.item').children('.pics');
+        var imgStr = '';
+        for (var j = 0; j < imgList.length; j++) {
+            if (j < 3) { // 最多只显示3张图片
+                imgStr += '<a target="_blank" href="javascript:;"><img src="' + imgList[j] + '"></a>';
+            }
+        }
+        picContainer.eq(count).html(imgStr);
+        picContainer.eq(count).children('a').attr('href', picContainer.eq(count).siblings('h2').children('a').attr('href'));
+        picContainer.eq(count).slideDown(time);
+    }
+
+    // 获取每个列表下的文献图片
+    function getLiteraturePic(callback) {
+        var literaturePicsUrl = '/literature/getLiteraturePics?filename=' + listDom.children('.item').eq(count).attr('data-file-name');
+        ajaxRequest[count] = $.ajax({
+            url: literaturePicsUrl,
+            dataType: "json",
+            type: "GET",
+            success: function (response) {
+                // console.log(response)
+                if (response.Code == 1) {
+                    var imgList = response.ImgUrls;
+                    // 图片存在
+                    if (imgList && imgList.length > 0) {
+                        callback(imgList);
+                    }
+                    if (count < items.length - 1) {
+                        count++;
+                        getLiteraturePic(handlePics);
+                    } else {
+                        count = 0;
+                    }
+                } else {
+                    console.log('请检查获取文献图片接口！');
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 停止所有ajax请求
+    function stopAjaxRequests(request, callback) {
+        // 停止递归
+        if (request[count]) {
+            request[count].abort();
+            count = 0;
+            callback();
+        }
+    }
+
+    // 根据文献搜索选项
+    function getDetailList(searchWordName, searchWordValue, pageNum, order, filterType, fieldValue, queryStr) {
+
+        var order = order || 0;
+        var filterType = filterType || null;
+        var fieldValue = fieldValue || null;
+        var url = encodeURI('/literature/literatureResult?' + queryStr + '&pageNum=' + pageNum + '&isAsync=1&order=' + order + '&field=' + filterType + '&fieldValue=' + fieldValue);
+        $.ajax({
+            url: url,
+            dataType: "json", //返回格式
+            type: "GET",
+            success: function (response) {
+                // console.log(response)
+                if (response.code == 0) {
+                    var list = response.data.list;
+                    var str = '';
+                    if (list && list.length > 0) {
+                        var str = handleList(list, searchWordValue);
+                        $('.listWrap').html(str);
+                        getLiteraturePic(handlePics);
+
+                        // 页码
+                        var pageStr = $.kd.outputPager(response.data.total, 10, 5, pageNum);
+                        var prevNextPageStr = $.kd.outputPrevNextPager(response.data.total, 10, 5, pageNum);
+                        $('.rpage').html(pageStr);
+                        $('#prev').html(prevNextPageStr.prevPage);
+                        $('#next').html(prevNextPageStr.nextPage);
+                        $('#currentPage').html(pageNum);
+                        $('#sumPage').html(Math.ceil(response.data.total / 10));
+
+                        // 绑定页码事件
+                        $('.rpage a,#prev a,#next a').bind('click', function () {
+                            $('body,html').animate({
+                                scrollTop: scrollDis
+                            }, time);
+                            var pageNum = $(this).attr('data-page');
+                            stopAjaxRequests(ajaxRequest, function () {
+                                getDetailList(searchWordName, searchWordValue, pageNum, order, filterType, fieldValue, queryStr);
+                            })
+                        });
+                        getDownloadRight();
+                    }
+                } else {
+                    console.log('请检查接口是否有数据返回或查看传参是否正确！')
+                }
+                list = null;
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    }
+
+    // 处理异步返回的数据 生成列表
+    function handleList(list, searchWordKeyword) {
+        var str = ''
+        for (var i = 0; i < list.length; i++) {
+            var keywordStr = '';
+            var ellipsis = '';
+            if (list[i].Summary.length > 160) {
+                ellipsis = '...';
+            }
+            // 有关键字
+            if (list[i].Keyword && list[i].Keyword.length > 0) {
+                var keywordArr = $.kd.stringToArray(list[i].Keyword);
+                for (var j = 0; j < keywordArr.length; j++) {
+                    // keywordStr += '<span><a>' + keywordArr[j] + '</a></span>'
+                    if (j < 5) { //最多显示5个
+                        //删除关键词后面带的数字
+                        var tempIndex = keywordArr[j].indexOf(':');
+                        if (tempIndex != -1) {
+                            keywordStr += '<span><a href="' + encodeURI('/literature/literatureResult?fulltext=' + $.kd.keywordStyleRed(keywordArr[j].substring(0, tempIndex), '~#@', '@#~', searchWordKeyword)) + '">' + $.kd.keywordStyleRed(keywordArr[j].substring(0, tempIndex), '~#@', '@#~', searchWordKeyword) + '</a></span>';
+                        } else {
+                            keywordStr += '<span><a href="' + encodeURI('/literature/literatureResult?fulltext=' + $.kd.keywordStyleRed(keywordArr[j], '~#@', '@#~', searchWordKeyword)) + '">' + $.kd.keywordStyleRed(keywordArr[j], '~#@', '@#~', searchWordKeyword) + '</a></span>';
+                        }
+                    }
+                }
+
+                str += '<div class="item aaa" data-page-count="' + list[i].PageCount + '" data-period="' + list[i].Period + '" data-year="' + list[i].Year + '" data-source="' + list[i].PublishName + '" data-file-name="' + list[i].FileName + '" data-db-type="' + list[i].DBName.substring(0, 4) + '" data-libraryType="' + list[i].DBName.substring(0, 4).toLowerCase() + 'total' + '">' +
+                    '       <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + $.kd.keywordStyleRed(list[i].Title, '~#@', '@#~', searchWordKeyword) + '</a>&nbsp;&nbsp;<a class="orgNoRight" href="javascript:;"><img src="/images/literature/licon6.png"></a></h2>' +
+                    '       <p class="p1">' + $.kd.keywordStyleRed(list[i].Author, '~#@', '@#~', searchWordKeyword) + ' ' + $.kd.boundaryOutput(list[i].Author) + '<a class="publishName" target="_blank" href="/detail/periodDetail/' + list[i].PublishPYName + '">《' + $.kd.keywordStyleRed(list[i].PublishName, '~#@', '@#~', searchWordKeyword) + '》' + list[i].Year + '年' + list[i].Period + '期</a></p>' +
+                    '       <p class="p2">' + $.kd.keywordStyleRed(list[i].Summary.substring(0, 160), '~#@', '@#~', searchWordKeyword) + ellipsis + '<a class="readMore" target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">[阅读全文]</a></p>' +
+                    '       <div class="pics"></div>' +
+                    '       <div class="tag"><img src="/images/literature/licon12.gif" align="absmiddle"/>' + keywordStr + '</div>' +
+                    '   </div>';
+            }
+            // 没有关键字
+            else {
+                str += '<div class="item" data-page-count="' + list[i].PageCount + '" data-period="' + list[i].Period + '" data-year="' + list[i].Year + '" data-source="' + list[i].PublishName + '" data-file-name="' + list[i].FileName + '" data-db-type="' + list[i].DBName.substring(0, 4) + '" data-libraryType="' + list[i].DBName.substring(0, 4).toLowerCase() + 'total' + '">' +
+                    '       <h2><a target="_blank" href="/literature/literatureDetail/' + list[i].FileName + list[i].DBName.substring(0, 4) + '">' + $.kd.keywordStyleRed(list[i].Title, '~#@', '@#~', searchWordKeyword) + '</a>&nbsp;&nbsp;<a class="orgNoRight" href="javascript:;"><img src="/images/literature/licon6.png"></a></h2>' +
+                    '       <p class="p1">' + $.kd.keywordStyleRed(list[i].Author, '~#@', '@#~', searchWordKeyword) + ' ' + $.kd.boundaryOutput(list[i].Author) + '<a class="publishName" target="_blank" href="/detail/periodDetail/' + list[i].PublishPYName + '">《' + $.kd.keywordStyleRed(list[i].PublishName, '~#@', '@#~', searchWordKeyword) + '》' + list[i].Year + '年' + list[i].Period + '期</a></p>' +
+                    '       <p class="p2">' + $.kd.keywordStyleRed(list[i].Summary.substring(0, 160), '~#@', '@#~', searchWordKeyword) + ellipsis + '</p>' +
+                    '       <div class="pics"></div>' +
+                    '   </div>';
+            }
+
+        }
+        return str;
+    }
+
+    // 获取筛选数据
+    var filterItem = $("#filter .itemm")
+    filterItem.click(function () {
+
+        // .pop2里面的选中项取消
+        var tempSelectedItemNum = $(this).attr('data-selected-item-number');
+        filterItem.attr('data-selected-item-number', -1);
+        $(this).attr('data-selected-item-number', tempSelectedItemNum);
+
+        $(".filtrate .itemm .see2").css({
+            "display": "none"
+        })
+        $(this).children(".see2").css({
+            "display": "block"
+        })
+        var filterType = $(this).attr('data-filter-type'); // 分类code 如ztcode
+        var selectP = $('.select p');
+        var searchWordName = selectP.attr('data-code'); // 下拉列表code值 如fulltext等
+        var searchWordValue = selectP.html().replace(' ', ''); // 下拉列表文字 如全文
+        var searchWordKeyword = $('#search').attr('data-search-word-value'); // 搜索词
+        var url = encodeURI('/literature/getLiteratureSortList?' + searchWordName + '=' + searchWordKeyword + '&filterType=' + filterType);
+        var $this = $(this);
+
+        $.ajax({
+            url: url,
+            dataType: "json", //返回格式
+            type: "GET",
+            success: function (response) {
+                // console.log(response)
+                if (response.code == 0) {
+                    var list = response.data.list;
+                    var str = '';
+                    if (list && list.length > 0) {
+                        const count1 = 30;
+                        const count2 = 50
+                        // 显示30条，多余的隐藏,最多显示50条
+                        var len = list.length;
+                        if (len > count2) {
+                            len = count2;
+                        }
+                        // 添加全部
+                        str = '<div class="classes">' +
+                            '<span class="wrapT"><a href="javascript:;" data-search-word-name="' + searchWordName + '" data-type-code="null" data-filter-type="null">全部</a><span class="hint displayN"><b></b><i></i></span></span>' +
+                            '</div>';
+                        for (var i = 0; i < len; i++) {
+                            if (i < count1) {
+                                str += '<div class="classes">' +
+                                    '          <span class="wrapT"><a href="javascript:;" data-search-word-name="' + searchWordName + '" data-type-code="' + list[i].TypeCode + '" data-filter-type="' + filterType + '">' + list[i].FilterName + '</a><span class="hint displayN"><b></b><i></i></span></span><span>(' + list[i].ArticleCount + ')</span>' +
+                                    '       </div>';
+                            } else if (i == count1) { // 等于count1时，添加一个展示更多位置
+                                str += '<div class="classes">' +
+                                    '          <span class="wrapT"><a href="javascript:;" data-search-word-name="' + searchWordName + '" data-type-code="' + list[i].TypeCode + '" data-filter-type="' + filterType + '">' + list[i].FilterName + '</a><span class="hint displayN"><b></b><i></i></span></span><span>(' + list[i].ArticleCount + ')</span>' +
+                                    '       </div>' +
+                                    '<div class="cb classes">&gt;&gt;</div>';
+                            } else if (i == len - 1) {
+                                str += '<div class="classes ad">' +
+                                    '          <span class="wrapT"><a href="javascript:;" data-search-word-name="' + searchWordName + '" data-type-code="' + list[i].TypeCode + '" data-filter-type="' + filterType + '">' + list[i].FilterName + '</a><span class="hint displayN"><b></b><i></i></span></span><span>(' + list[i].ArticleCount + ')</span>' +
+                                    '       </div>' +
+                                    '<div class="ad bc classes">&lt;&lt;</div>';
+                            } else {
+                                str += '<div class="classes ad">' +
+                                    '          <span class="wrapT"><a href="javascript:;" data-search-word-name="' + searchWordName + '" data-type-code="' + list[i].TypeCode + '" data-filter-type="' + filterType + '">' + list[i].FilterName + '</a><span class="hint displayN"><b></b><i></i></span></span><span>(' + list[i].ArticleCount + ')</span>' +
+                                    '       </div>';
+                            }
+                        }
+                        $('#pop2').html(str).slideDown('fast');
+                        $('.pop2Wrap .close1').show();
+
+                        // 恢复以选中项目
+                        var selectedItemIndex = $this.attr('data-selected-item-number');
+                        if (selectedItemIndex != -1) {
+                            $('.pop2 .classes a').eq(selectedItemIndex).addClass("soil");
+                        }
+
+                        // 鼠标停留显示提示语
+                        $(".pop2 .classes").each(function () {
+                            // $(this).parent(".pop2").css("display","block")
+                            var Width = $(this).children(".wrapT").width()
+                            var Html = $(this).children(".wrapT").children("a").html()
+                            $(this).children(".wrapT").children(".hint").children("b").width(Width + 200)
+                            $(this).children(".wrapT").children(".hint ").children("b").html("点击显示" + '"' + Html + '"' + "的筛选结果")
+                            $(this).children(".wrapT").children(".hint ").css({
+                                "left": "50%",
+                                "margin-left": -(Width + 200) / 2
+                            })
+                            $(this).children(".wrapT").children(".hint ").children("i").css({
+                                "left": "50%",
+                                "margin-left": "-3px"
+                            })
+                            // $(this).parent(".pop2").css("display","none")
+                        })
+
+                        // 绑定分类数据点击事件 加载列表数据
+                        $(".pop2 .classes a").click(function () {
+                            $(".pop2 .classes a").removeClass("soil")
+                            $(this).addClass("soil");
+                            var fieldValue = $(this).attr('data-type-code');
+                            var order = $(this).parent().parent().parent().attr('data-order');
+                            var filterType = $(this).attr('data-filter-type');
+
+                            // 给排序添加fieldValue和typeCode
+                            px.attr('data-type-code', fieldValue);
+                            px.attr('data-field', $(this).attr('data-filter-type'));
+
+                            // 给fiter itemm 添加当前选中项的序号 方便关闭后再打开记住点击的选项
+                            var index = $(".pop2 .classes a").index($(this));
+                            $this.attr('data-selected-item-number', index);
+                            // 获取详细分类列表
+                            stopAjaxRequests(ajaxRequest, function () {
+                                getDetailList(searchWordName, searchWordKeyword, 1, order, filterType, fieldValue, queryStr);
+                            })
+
+                        })
+
+                        // 点击展示更多或者收起
+                        $('.pop2 .cb').click(function () {
+                            $(this).hide().siblings('.ad').css('display', 'block');
+                            // 鼠标停留显示提示语
+                            $(".pop2 .classes").each(function () {
+                                // $(this).parent(".pop2").css("display","block")
+                                var Width = $(this).children(".wrapT").width()
+                                var Html = $(this).children(".wrapT").children("a").html()
+                                $(this).children(".wrapT").children(".hint").children("b").width(Width + 200)
+                                $(this).children(".wrapT").children(".hint ").children("b").html("点击显示" + '"' + Html + '"' + "的筛选结果")
+                                $(this).children(".wrapT").children(".hint ").css({
+                                    "left": "50%",
+                                    "margin-left": -(Width + 200) / 2
+                                })
+                                $(this).children(".wrapT").children(".hint ").children("i").css({
+                                    "left": "50%",
+                                    "margin-left": "-3px"
+                                })
+                                // $(this).parent(".pop2").css("display","none")
+                            });
+                        })
+                        $('.pop2 .bc').click(function () {
+                            $(this).hide().siblings('.ad').css('display', 'none');
+                            $('.pop2 .cb').show();
+                        })
+
+
+                        $(".classes a").hover(
+                            function () {
+                                $(this).siblings(".hint").show()
+                            },
+                            function () {
+                                $(this).siblings(".hint").hide()
+                            }
+                        )
+                    }
+                } else {
+                    console.log('请坚持获取文献分类、机构、作者等接口！')
+                }
+            },
+            error: function (error) {
+                //请求出错处理
+                console.log(error);
+            }
+        });
+    });
+
+    $(".pop2Wrap .close1").click(function () {
+        $(this).hide();
+        $(".pop2").slideUp(time)
+        $(".filtrate .itemm .see2").css({
+            "display": "none"
+        })
+    })
+
+    // 排序 相关度 发表时间 下载次数
+    pxItem.click(function () {
+        pxItem.removeClass('cur');
+        $(this).addClass('cur');
+
+        var searchWordName = $(this).attr('data-search-word-name');
+        var searchWordValue = $(this).attr('data-search-word-value');
+        var order = $(this).attr('data-order');
+        var pageNum = 1;
+        var field = $(this).parent().attr('data-field');
+        var fieldValue = $(this).parent().attr('data-type-code');
+        $("#pop2").attr('data-order', order);
+        stopAjaxRequests(ajaxRequest, function () {
+            getDetailList(searchWordName, searchWordValue, pageNum, order, field, fieldValue, queryStr);
+        })
+
+    })
+
+    // 右侧展示----------------------------------------------------------------------
+
+    // 相关期刊
+    var keyword = $('#searchWordValue').val();
+    var magaName = $('#searchWordValue').val();
+    var relatedPeriod = $('#relatedPeriod');
+    var relatedPeriodUrl = encodeURI('/mall/getCateMagaList?kd=' + magaName + '&offset=0&limit=4');
+    $.ajax({
+        url: relatedPeriodUrl,
+        dataType: "json", //返回格式
+        type: "get",
+        success: function (response) {
+            // console.log('相关期刊：',response)
+            if (response.code == 0) {
+                if (response.data.magalist.total > 0) {
+                    relatedPeriod.show();
+                    var list = response.data.magalist.list;
+                    var str = '';
+                    for (var i = 0; i < list.length; i++) {
+                        str += '<li>' +
+                            '       <a target="_blank" title="' + list[i].name + '" href="/detail/periodDetail/' + list[i].code + '"><img src="' + list[i].coverpic + '"></a>' +
+                            '       <p><a target="_blank" title="' + list[i].name + '" href="/detail/periodDetail/' + list[i].code + '">' + list[i].name + '</a></p>' +
+                            '   </li>';
+                    }
+                    relatedPeriod.children('ul').html(str);
+                } else {
+                    //
+                }
+            } else {
+                console.log('请检查获取期刊信息列表！');
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+
+    // 相关作品
+    var relatedWorksUrl = encodeURI('/literature/getRelatedWorks?searchTitle=' + keyword);
+    var relatedWorksWrap = $('#relatedWorksWrap');
+    $.ajax({
+        url: relatedWorksUrl,
+        dataType: "json", //返回格式
+        type: "get",
+        success: function (response) {
+            // console.log('相关作品', JSON.parse(response));
+            // var response = JSON.parse(response);
+            if (response && response.length > 0) {
+                relatedWorksWrap.show();
+                var str = '';
+                for (var i = 0; i < response.length; i++) {
+                    str += '<a target="_blank" href="/detail/workDetail/' + response[i].id.toString() + response[i].mediatype + '"><img src="' + response[i].coverpic + '"><p>' + response[i].title + '</p></a>';
+                }
+                $('#relatedWorks').html(str);
+            } else {
+                console.log('相关作品无数据！')
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+    // 精选微刊
+    $.ajax({
+        url: encodeURI('/literature/getSearchRelevantMicroBook?kd=' + keyword + '&limit=3'),
+        dataType: "json", //返回格式
+        type: "get",
+        success: function (response) {
+            // console.log('精选微刊', response)
+            var resData = '';
+            try {
+                resData = JSON.parse(response);
+            } catch (e) {
+                resData = response;
+            }
+            var response = resData;
+            if (response && response.length > 0) {
+                var microBookStr = '';
+                for (var i = 0; i < response.length; i++) {
+                    microBookStr += '<a title="' + response[i].title + '" target="_blank" href="/detail/microBookDetail?id=' + response[i].id + '"><img src="' + response[i].coverpic + '"><p>' + response[i].title + '</p></a>';
+                }
+                $('#microBooksRecommend').html(microBookStr);
+            } else {
+                console.log('精选微刊无数据！')
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+
+    // 万选号
+    $.ajax({
+        url: encodeURI('/literature/getOrgListByKeyword?kd=' + keyword + '&limit=3'),
+        dataType: "json", //返回格式
+        type: "get",
+        success: function (response) {
+            console.log('万选号数据：', response)
+            if (response.rows && response.rows.length > 0) {
+                kdhWrap.show();
+                var kdhStr = '';
+                for (var i = 0; i < response.rows.length; i++) {
+                    kdhStr += '<div class="item clearfix">' +
+                        '                    <a  target="_blank" href="/kdh/home?orgid=' + response.rows[i].orgid + '" class="img left"><img src="' + response.rows[i].logopic + '"></a>' +
+                        '                    <div class="info left">' +
+                        '                        <p class="p1"><a target="_blank" href="/kdh/home?orgid=' + response.rows[i].orgid + '">' + response.rows[i].orgname + '</a></p>' +
+                        '                        <p class="p2">' + response.rows[i].memo + '</p>' +
+                        '                    </div>' +
+                        '                </div>';
+                }
+                $('#kdh').html(kdhStr);
+            } else {
+                console.log('获取万选号列表信息无数据');
+            }
+        },
+        error: function (error) {
+            //请求出错处理
+            console.log(error);
+        }
+    });
+    getDownloadRight();
+
+    function getDownloadRight() {
+        // 点击下载按钮
+        $('.orgNoRight').click(function () {
+            var filename = $(this).parents('.item').attr('data-file-name');
+            var title = $(this).siblings('a').text();
+            var dbType = $(this).parents('.item').attr('data-db-type');
+            var source = $(this).parents('.item').attr('data-source');
+            var year = $(this).parents('.item').attr('data-year');
+            var period = $(this).parents('.item').attr('data-period');
+            var pageCount = $(this).parents('.item').attr('data-page-count');
+            var libraryType = $(this).parents('.item').attr('data-librarytype');
+
+
+            $.ajax({
+                url: encodeURI('/literature/getDownloadRight?fn=' + filename + '&t=' + title + '&libraryType=' + libraryType),
+                dataType: "json", //返回格式
+                type: "GET",
+                success: function (response) {
+                    console.log(response)
+                    // 未登录
+                    if (response.errorCode == -1) {
+                        location.href = '/temp/userCenter/login';
+                    }
+                    // 直接下载
+                    else if (response.errorCode == 1) {
+                        var url = response.data.downloadUrl.substring(1, response.data.downloadUrl.length - 1);
+                        var tempwindow = window.open('_blank');
+                        tempwindow.location = url;
+                    }
+                    // 跳转详情页
+                    else if (response.errorCode == 2) {
+                        var url = '/literature/literatureDetail/' + filename + dbType;
+                        var tempwindow = window.open('_blank');
+                        tempwindow.location = url;
+                    }
+                    // 机构用户没有权限
+                    else if (response.errorCode == 3) {
+                        layer.msg(response.errorMessage);
+                    }
+                    // 已经有权限，为2013年之前的文献
+                    else if (response.errorCode == 4) {
+                        var url = encodeURI('/literature/literatureDownload?title=' + title + '&source=' + source + '&year=' + year + '&period=' + period + '&pageCount=' + pageCount + '&filename=' + filename + '&lt=' + libraryType);
+                        var tempwindow = window.open('_blank');
+                        tempwindow.location = url;
+                    }
+                    // 错误处理
+                    else if (response.errorCode == 0) {
+                        layer.msg(response.errorMessage);
+                    }
+                },
+                error: function (error) {
+                    //请求出错处理
+                    console.log(error);
+                }
+            });
+        })
+    }
+</script>
+
+</body>
+
+</html>

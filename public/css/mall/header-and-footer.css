@@ -1,0 +1,80 @@
+body {
+    background: #ecf0f6;
+}
+
+a {
+    color: #333;
+}
+
+.width1200pxAuto {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.mall-header .phwrap .logoimg {
+    margin-right: 12px;
+    margin-top: 15px;
+    width: 160px;
+    height: 48px;
+}
+
+.mall-header .line {
+    width: 1px;
+    height: 26px;
+    margin: 25px 9px 0 0;
+    background: #696969;
+}
+
+.mall-logoimg {
+    line-height: 71px;
+    margin-right: 52px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.footer {
+    height: 118px;
+    padding-top: 52px;
+    background: #474443;
+    color: #a3a2a1;
+    text-align: center;
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+    line-height: 30px;
+}
+
+.blfooter {
+    color: #6d6d6d;
+}
+
+.mall-pages {
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    margin-bottom: 50px;
+}
+
+.mall-pages a,
+.mall-pages span {
+    color: #333333;
+    margin-right: 12px;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #D1D1D1;
+}
+
+.mall-pages span {
+    padding: 8px 11px;
+}
+
+.mall-pages span.current {
+    background-color: #ED5E5A;
+    border: 1px solid #ED5E5A;
+    color: #fff;
+    margin-right: 12px;
+    padding: 8px 12px;
+    font-size: 14px;
+}

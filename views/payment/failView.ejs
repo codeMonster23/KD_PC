@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/recharge/recharge.css" />
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current: 3, enterControl:1}) %>
+        <div class="charBody">
+            <h1 class="tit"><span class="left">支付中心</span></h1>
+            <div class="resultWrap fail">
+                <h2><img src="/images/chargingCenter/cc-icon15.png">您的支付订单尚未完成付款</h2>
+                <div class="issue">
+                    <h3>可能是以下原因：</h3>
+                    <p>1、如您支付成功仍显示本页面，可能是支付平台通讯延迟问题，请您稍后
+                        <a id="reload" href="javascript:location.reload();"><img src="/images/chargingCenter/cc-icon16.png">刷新</a>本页面。</p>
+                    <p>2、如您未支付成功，请点此
+                        <a href="/payment/checkout<%=viewModel.reloadUrl%>"><img src="/images/chargingCenter/cc-icon17.png">重新支付</a>再尝试一次。</p>
+                    <p>3、若支付后未到帐，请拨打中国知网客服电话：<a href="javascript:;">400-810-9888</a> ，以便我们及时帮您解决问题。</p>
+                </div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                // $('#reload').click(function(){
+                //
+                // })
+            </script>
+</body>
+
+</html>

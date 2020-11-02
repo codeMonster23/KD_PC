@@ -1,0 +1,54 @@
+<div class="ogHeader">
+    <div class="width1198pxAuto">
+        <a href="/institution/<%= viewModel.data.institutionid %>" class="logoimg left"><img src="/images/org/logopic.png" height="54"></a>
+        <a href="/institution/<%= viewModel.data.institutionid %>" class="logoname left"><img src="/images/org/logoname.png" height="71"></a>
+        <div class="ohl left clearfix">
+            <a <% if(current==0 ){ %>class="cur"
+                        <% } %>
+                   href="/institution/<%= viewModel.data.institutionid %>">首页</a>
+            <a <% if(current==1 ){ %>class="cur"
+                        <% } %>
+                   href="/institution/works/<%= viewModel.data.institutionid %>">作品</a>
+            <a <% if(current==2 ){ %>class="cur"
+                        <% } %>
+                   href="/institution/microBook/<%= viewModel.data.institutionid %>">微刊</a>
+            <a <% if(current==3 ){ %>class="cur"
+                        <% } %>
+                   href="/literature/library?dbname=cjfvtotal&ztcode=VN101">文艺库</a>
+            <a <% if(current==4 ){ %>class="cur"
+                        <% } %>
+                   href="/literature/library?dbname=cjfutotal&ztcode=UN101">文化库</a>
+            <a <% if(current==5 ){ %>class="cur"
+                        <% } %>
+                   href="/literature/library?dbname=cjfttotal&ztcode=TN201">科普库</a>
+        </div>
+        <div class="ohr right clearfix">
+            <div class="login right">
+                <% if(viewModel && viewModel.data.orgBaseInfo){ %>
+                    <div class="personal">
+                        <img src="<%= viewModel.data.orgBaseInfo.institution.logopic %>">
+                        <span class="name"><%= viewModel.data.orgBaseInfo.institution.institutionname %></span>
+                        <ul>
+                            <li class="l1"><a href="#">知网文化首页</a></li>
+                            <li class="l2">
+                                <a href="/org">
+                                    <%= viewModel.data.orgBaseInfo.institution.institutionname %>
+                                </a>
+                            </li>
+                            <li class="l3"><a href="#">个人中心</a></li>
+                            <li class="l4"><a href="/userCenter/login">退出登录 </a></li>
+                        </ul>
+                    </div>
+                    <% }else{ %>
+                        <a href="/userCenter/register">注册</a><span>|</span><a href="/userCenter/login">登录</a>
+                        <% } %>
+            </div>
+            <div class="client right"><a href="javascript:;">客户端</a>
+                <div class="ewm">
+                    <p>扫描二维码 前往手机版</p>
+                    <img src="/images/org/o-header-ewm.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

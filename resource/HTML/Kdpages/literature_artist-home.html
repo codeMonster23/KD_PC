@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+       <link rel="stylesheet" type="text/css" href="css/literature-artist.css"/>
+        <script src="js/jQuery-v1.11.1.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jquery.cycle2.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/numberroll.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/imageShow.js" type="text/javascript" charset="utf-8"></script>
+		<title>文艺库</title>
+      
+	</head>
+	<body bgcolor="#EBEFF5">
+	   <!--header-->
+       <div class="aheader">
+       	 <div class="ahwrap">
+       	 	<a href="#" class="logo"><img src="images/literature/lhlogo.gif"height="71"></a>
+       	 	<span class="sort">文艺库</span>
+       	 	<div class="select">
+       	 		<p>文献分类</p>
+       	 		<div class="list">
+       	 			<div class="col left">
+       	 				<a href="#">文艺理论</a>
+       	 				<a href="#">文艺理论</a>
+       	 				<a href="#">文艺理论</a>
+       	 				<a href="#">文艺理论</a>
+       	 				<a href="#">文艺理论</a>
+       	 				<a href="#">文艺理论</a>
+       	 				<a href="#">文艺理论</a>
+       	 			</div>
+       	 			<div class="col left">
+                        <a href="#">文艺理论</a>
+                        <a href="#">文艺理论</a>
+                        <a href="#">文艺理论</a>
+                        <a href="#">文艺理论</a>
+                        <a href="#">文艺理论</a>
+                        <a href="#">文艺理论</a>
+                        <a href="#">文艺理论</a>
+                    </div>
+                    <div class="col left">
+                        <a href="#">文艺理论</a>
+                        <a href="#">文艺理论</a>
+                        <a href="#">文艺理论</a>
+                    </div>
+       	 		</div>
+       	 	</div>
+       	 	<div class="search left">
+       	        <input type="text" id="" value="" />
+       	        <a href="javascript:;" class="btn"></a>
+       	 	</div>
+       	 	<a href="javascript:;">高级搜索</a>
+       	 	<div class="right"><a href="#">看点首页</a><div class="dssb left"><a href="#">看点·文献库</a><ul><li><a href="#">精品文艺</a></li><li><a href="#">精品文化</a></li><li><a href="#">精品科普</a></li></ul></div><a href="#">登录</a><span class="left">|</span><a href="#">注册</a></div>
+       	 </div>
+       </div>
+	   <!--banner-->
+	   <div class="picArea">
+        <div class="transition cycle-slideshow" data-cycle-pause-on-hover="true" data-cycle-slides=".slide" data-cycle-timeout="4000"  data-cycle-pager=".slidePager" data-cycle-speed="1000">
+            <div class="slide"><a href="#" target="_blank" class="pic1"></a></div>
+            <div class="slide"><a href="#" target="_blank" class="pic2"></a></div>
+            <div class="slide"><a href="#" target="_blank" class="pic3"></a></div>
+        </div>
+        <div class="slidePager"></div>
+        <div class="numWrap">
+            <div class="item">
+                <strong class="left">文献</strong>
+                <div class="showNums1">
+                </div>
+                <strong class="left last">篇</strong>
+            </div>
+            <div class="item">
+                <strong class="left">期刊</strong>
+                <div class="showNums2">
+                </div>
+                <strong class="left last">种</strong>
+            </div>
+        </div>
+        
+        <script>
+            $(function(){
+                $(".showNums1").rollNum({
+                    deVal:10300
+                });
+                $(".showNums2").rollNum({
+                    deVal:68859
+                });
+            });
+        </script>
+        </div>
+	   <!--nav-->
+	   <div class="navbg">
+	  	       <div class="navWrap">
+        <div class="label left">
+            <p>文<br/>献<br/>分<br/>类</p>
+        </div>
+        <div class="items">
+            <a href="#" class="item" target="_blank">文艺理论</a>
+            <a href="#" class="item" target="_blank">历史传记</a>
+            <a href="#" class="item" target="_blank">常识</a>
+            <a href="#" class="item" target="_blank">思想文化</a>
+            <a href="#" class="item" target="_blank">民俗文化</a>
+            <a href="#" class="item" target="_blank">生活休闲</a>
+            <a href="#" class="item" target="_blank">生活休闲</a>
+            <a href="#" class="item" target="_blank">生活休闲</a>
+            <a href="#" class="item last" target="_blank">少数民族文学</a>
+            <a href="#" class="item" target="_blank">健康保健</a>
+            <a href="#" class="item" target="_blank">儿童早教</a>
+            <a href="#" class="item" target="_blank">财富创业</a>
+            <a href="#" class="item" target="_blank">史录传记</a>
+            <a href="#" class="item" target="_blank">文学艺术</a>
+            <a href="#" class="item" target="_blank">文学艺术</a>
+            <a href="#" class="item" target="_blank">文学艺术</a>
+            <a href="#" class="item" target="_blank">文学艺术</a>
+        </div>
+       </div>
+
+	  </div>
+	   <div class="contain clearfix">
+	   	 <div class="cl left">
+	   	     <h1>精选文章</h1>
+	   	     <div class="tags clearfix">
+	   	     	<a href="javascript:;" class="cur">武侠小说</a>
+	   	     	<a href="javascript:;">军事小说</a>
+	   	     	<a href="javascript:;">红色小说</a>
+	   	     	<a href="javascript:;">武侠小说</a>
+	   	     	<a href="javascript:;">武侠小说</a>
+	   	     	<a href="javascript:;">武侠小说</a>
+	   	     	<a href="javascript:;">武侠小说</a>
+	   	     	<a href="javascript:;">武侠小说</a>
+	   	     </div>
+	   	     <div class="list">
+	   	     	<div class="item">
+	   	     		<h2><a href="#">天下第一刀</a></h2>
+	   	     		<p class="p1">赵国文 |《上海故事》2017年10期</p>
+	   	     		<p class="p2">自从五年前江小绺被皇帝御封为“天下第一刀”，还御赐一座府邸，江府就再没有安宁过。江湖中来挑战的络绎不绝，既有想出名想疯了的年轻人，也有人到中年功成名就的刀法名家。虽然江湖上对皇帝封的东西不感兴趣，但击败“天下第一刀”却是一件值得高兴的事情。可是从来没有人知道江小绺的刀法究竟厉害到何种程度，因为很少有...</p>
+	   	     		<div class="tag"><img src="images/literature/licon12.gif" align="absmiddle"/><span>小说</span><span>故事</span><span>武侠</span></div>
+	   	     	</div>
+	   	     	<div class="item">
+                    <h2><a href="#">天下第一刀</a></h2>
+                    <p class="p1">赵国文 |《上海故事》2017年10期</p>
+                    <p class="p2">自从五年前江小绺被皇帝御封为“天下第一刀”，还御赐一座府邸，江府就再没有安宁过。江湖中来挑战的络绎不绝，既有想出名想疯了的年轻人，也有人到中年功成名就的刀法名家。虽然江湖上对皇帝封的东西不感兴趣，但击败“天下第一刀”却是一件值得高兴的事情。可是从来没有人知道江小绺的刀法究竟厉害到何种程度，因为很少有...</p>
+                    <div class="tag"><img src="images/literature/licon12.gif" align="absmiddle"/><span>小说</span><span>故事</span><span>武侠</span></div>
+                </div>
+                <div class="item">
+                    <h2><a href="#">天下第一刀</a></h2>
+                    <p class="p1">赵国文 |《上海故事》2017年10期</p>
+                    <p class="p2">自从五年前江小绺被皇帝御封为“天下第一刀”，还御赐一座府邸，江府就再没有安宁过。江湖中来挑战的络绎不绝，既有想出名想疯了的年轻人，也有人到中年功成名就的刀法名家。虽然江湖上对皇帝封的东西不感兴趣，但击败“天下第一刀”却是一件值得高兴的事情。可是从来没有人知道江小绺的刀法究竟厉害到何种程度，因为很少有...</p>
+                    <div class="tag"><img src="images/literature/licon12.gif" align="absmiddle"/><span>小说</span><span>故事</span><span>武侠</span></div>
+                </div>
+                <div class="item">
+                    <h2><a href="#">天下第一刀</a></h2>
+                    <p class="p1">赵国文 |《上海故事》2017年10期</p>
+                    <p class="p2">自从五年前江小绺被皇帝御封为“天下第一刀”，还御赐一座府邸，江府就再没有安宁过。江湖中来挑战的络绎不绝，既有想出名想疯了的年轻人，也有人到中年功成名就的刀法名家。虽然江湖上对皇帝封的东西不感兴趣，但击败“天下第一刀”却是一件值得高兴的事情。可是从来没有人知道江小绺的刀法究竟厉害到何种程度，因为很少有...</p>
+                    <div class="tag"><img src="images/literature/licon12.gif" align="absmiddle"/><span>小说</span><span>故事</span><span>武侠</span></div>
+                </div>
+                <div class="item">
+                    <h2><a href="#">天下第一刀</a></h2>
+                    <p class="p1">赵国文 |《上海故事》2017年10期</p>
+                    <p class="p2">自从五年前江小绺被皇帝御封为“天下第一刀”，还御赐一座府邸，江府就再没有安宁过。江湖中来挑战的络绎不绝，既有想出名想疯了的年轻人，也有人到中年功成名就的刀法名家。虽然江湖上对皇帝封的东西不感兴趣，但击败“天下第一刀”却是一件值得高兴的事情。可是从来没有人知道江小绺的刀法究竟厉害到何种程度，因为很少有...</p>
+                    <div class="tag"><img src="images/literature/licon12.gif" align="absmiddle"/><span>小说</span><span>故事</span><span>武侠</span></div>
+                </div>
+                <div class="item">
+                    <h2><a href="#">天下第一刀</a></h2>
+                    <p class="p1">赵国文 |《上海故事》2017年10期</p>
+                    <p class="p2">自从五年前江小绺被皇帝御封为“天下第一刀”，还御赐一座府邸，江府就再没有安宁过。江湖中来挑战的络绎不绝，既有想出名想疯了的年轻人，也有人到中年功成名就的刀法名家。虽然江湖上对皇帝封的东西不感兴趣，但击败“天下第一刀”却是一件值得高兴的事情。可是从来没有人知道江小绺的刀法究竟厉害到何种程度，因为很少有...</p>
+                     <div class="pics"><a href="#"><img src="imagesTemp/temp.jpg"></a><a href="#"><img src="images/bg10.jpg"></a><a href="#"><img src="imagesTemp/temp.jpg"></a></div>
+                    <div class="tag"><img src="images/literature/licon12.gif" align="absmiddle"/><span>小说</span><span>故事</span><span>武侠</span></div>
+                </div>
+	   	     </div>
+	   	     <a href="javascript:;" class="more">查看更多&nbsp;<img src="images/literature/licon13.gif" align="absmiddle"></a>
+	   	 </div>
+	     <div class="cr left">
+	     	<div class="slogan">
+	     		<img src="images/literature/lewm.jpg">
+	     	</div>
+	     	<div class="aside s1">
+	     		<h1><span>期刊分类</span><a href="#">更多></a></h1>
+	     		<ul class="clearfix">
+	     			<li>
+	     			   <a href="#"><img src="images/literature/licon14.gif"></a>
+	     			   <p><a href="#">文学作品</a></p>
+	     			</li>
+	     			<li>
+                       <a href="#"><img src="images/literature/licon15.gif"></a>
+                       <p><a href="#">文学博览</a></p>
+                    </li>
+                    <li>
+                       <a href="#"><img src="images/literature/licon16.gif"></a>
+                       <p><a href="#">诗歌及韵文</a></p>
+                    </li>
+                    <li>
+                       <a href="#"><img src="images/literature/licon17.gif"></a>
+                       <p><a href="#">小说</a></p>
+                    </li>
+                    <li>
+                       <a href="#"><img src="images/literature/licon18.gif"></a>
+                       <p><a href="#">美术摄影</a></p>
+                    </li>
+                    <li>
+                       <a href="#"><img src="images/literature/licon19.gif"></a>
+                       <p><a href="#">音乐舞蹈</a></p>
+                    </li>
+                    <li>
+                       <a href="#"><img src="images/literature/licon20.gif"></a>
+                       <p><a href="#">工艺美术</a></p>
+                    </li>
+                    <li>
+                       <a href="#"><img src="images/literature/licon21.gif"></a>
+                       <p><a href="#">表演艺术</a></p>
+                    </li>
+	     		</ul>
+	     	</div>
+	        <div class="aside s2">
+	        	<h1><span>好刊推荐</span><a href="#">更多></a></h1>
+	        	<ul class="clearfix">
+	        		<li>
+	        		  <a href="#"><img src="imagesTemp/temp.jpg"></a>
+                      <p><a href="#">如果世界和爱情...</a></p>  
+	        		</li>
+	        		<li>
+                      <a href="#"><img src="imagesTemp/temp.jpg"></a>
+                      <p><a href="#">如果世界和爱情...</a></p>  
+                    </li>
+                    <li>
+                      <a href="#"><img src="imagesTemp/temp.jpg"></a>
+                      <p><a href="#">如果世界和爱情...</a></p>  
+                    </li>
+                    <li>
+                      <a href="#"><img src="imagesTemp/temp.jpg"></a>
+                      <p><a href="#">如果世界和爱情...</a></p>  
+                    </li>
+                    <li>
+                      <a href="#"><img src="imagesTemp/temp.jpg"></a>
+                      <p><a href="#">如果世界和爱情...</a></p>  
+                    </li>
+                    <li>
+                      <a href="#"><img src="imagesTemp/temp.jpg"></a>
+                      <p><a href="#">如果世界和爱情...</a></p>  
+                    </li>
+	        	</ul>
+	        </div>
+	        <div class="aside s3">
+	        	<h1><span>大家都在看</span><a href="#">更多></a></h1>
+	        	<div class="ul">
+	        		<div class="li clearfix">
+	        			<span class="num left">01</span>
+	        			<a href="#" class="img left"><img src="imagesTemp/temp.jpg"></a>
+	        			<div class="info left">
+	        				<p><a href="#">电影史上的天才导演到底做了什么？</a></p>
+	        				<div class="bottom"><img src="imagesTemp/temp.jpg">漓江出版社</div>
+	        			</div>
+	        		</div>
+	        		<div class="li clearfix">
+                        <span class="num left">02</span>
+                        <a href="#" class="img left"><img src="imagesTemp/temp.jpg"></a>
+                        <div class="info left">
+                            <p><a href="#">电影史上的天才导演到底做了什么？</a></p>
+                            <div class="bottom"><img src="imagesTemp/temp.jpg">漓江出版社</div>
+                        </div>
+                    </div>
+                    <div class="li clearfix">
+                        <span class="num left">03</span>
+                        <a href="#" class="img left"><img src="imagesTemp/temp.jpg"></a>
+                        <div class="info left">
+                            <p><a href="#">电影史上的天才导演到底做了什么？</a></p>
+                            <div class="bottom"><img src="imagesTemp/temp.jpg">漓江出版社</div>
+                        </div>
+                    </div>
+                    <div class="li clearfix">
+                        <span class="num bgcolor left">04</span>
+                        <a href="#" class="img left"><img src="imagesTemp/temp.jpg"></a>
+                        <div class="info left">
+                            <p><a href="#">电影史上的天才导演到底做了什么？</a></p>
+                            <div class="bottom"><img src="imagesTemp/temp.jpg">漓江出版社</div>
+                        </div>
+                    </div>
+                     <div class="li clearfix">
+                        <span class="num bgcolor left">05</span>
+                        <a href="#" class="img left"><img src="imagesTemp/temp.jpg"></a>
+                        <div class="info left">
+                            <p><a href="#">电影史上的天才导演到底做了什么？</a></p>
+                            <div class="bottom"><img src="imagesTemp/temp.jpg">漓江出版社</div>
+                        </div>
+                    </div>
+	        	</div>
+	        </div>
+	     </div>
+	   </div>
+	       
+	   <!--footer-->
+	   <div class="pfooter">
+	   	 <p>数字出版：《中国学术期刊（光盘版）》电子杂志社有限公司</p>
+	   	 <p>京ICP证040431号 互联网出版许可证 新出网证(京)字271号 北京市公安局海淀分局 备案号11010802020460</p>
+	   </div>
+	   <script>
+	       //图片尺寸
+        var imgdefereds=[];
+        jQuery('img').each(function(){
+                var dfd=jQuery.Deferred();
+                $(this).bind('load',function(){
+                    dfd.resolve();//load执行代表图片加载完成
+                }).bind('error',function(){
+                    //图片加载错误，加入错误处理
+                    // dfd.resolve();
+                });
+            
+                if(this.complete) {//complete属性为true，代表图片加载完成
+                    dfd.resolve();
+                }
+                imgdefereds.push(dfd);
+            })
+            jQuery.when.apply(null,imgdefereds).done(function(){
+                imgSize($(".pics img"),187,120)
+            });   
+	      $.divselect($(".select p"),$(".select ul"),$(".select ul li")); 
+	      $(".nav a").click(function(){
+	          $(this).addClass("cur").siblings().removeClass("cur")
+	      })
+	   </script>
+	</body>
+</html>

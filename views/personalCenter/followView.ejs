@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+
+        <link rel="stylesheet" type="text/css" href="/css/personalCenter/personal.css" />
+        <script src="/js/divSelect.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/jquery.promptToggle.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/plugin/jquery.methods.js"></script>
+        <script src="/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="#F4F4F4">
+    <%- include('../layouts/navLayout', {current:null, enterControl:1}) %>
+        <div class="personalMain clearfix">
+            <%- include('../layouts/personal/menuLayout', {current:1,active:3}) %>
+                <div class="contentWrap">
+                    <h1 class="gz">
+                        <span>我关注的万选号</span>
+                        <div class="condition">
+                            <!--<a href="javascript:;" class="cur">时间</a>-->
+                            <!--<a href="javascript:;">热门</a>-->
+                        </div>
+                    </h1>
+                    <div class="followList clearfix">
+                        <% for(var i = 0;i < viewModel.data.concernlist.length;i++){ var concernList = viewModel.data.concernlist; %>
+                            <div class="follow" data-org-id="<%= concernList[i].orgid %>">
+                                <a target="_blank" href="/kdh/home?orgid=<%= concernList[i].orgid %>" class="img left">
+                    <img src="<%= concernList[i].logopic %>"/>
+                </a>
+                                <div class="info">
+                                    <p class="name">
+                                        <a target="_blank" href="/kdh/home?orgid=<%= concernList[i].orgid %>">
+                                            <%= concernList[i].orgname %>
+                                        </a>
+                                    </p>
+                                    <p class="p">
+                                        <%= concernList[i].memo %>
+                                    </p>
+                                    <div class="btn">
+                                        <span class="span1">已关注</span><span class="span2">|</span><a href="javascript:;" class="a">取消</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="sp-page">
+                        <%- viewModel.pageStr %>
+                    </div>
+
+                </div>
+        </div>
+        <%- include('../layouts/footerLayout', {}) %>
+            <script>
+                'use strict'
+                //列表大图切换
+                $(".condition a").click(function() {
+                    $(this).addClass("cur").siblings().removeClass("cur")
+                })
+
+                function getFollowedList(pageNum) {
+                    var url = encodeURI('/pc/followed?isAsync=1&pageNum=' + pageNum);
+                    $.ajax({
+                        url: url,
+                        dataType: "json", //返回格式
+                        type: "GET",
+                        success: function(response) {
+                            if (response.code == 0) {
+                                var concernList = response.data.concernlist;
+                                var str = '';
+                                if (concernList && concernList.length > 0) {
+                                    for (var i = 0; i < concernList.length; i++) {
+                                        str += '<div class="follow" data-org-id="' + concernList[i].orgid + '">' +
+                                            '                <a target="_blank" href="/kdh/home?orgid=' + concernList[i].orgid + '" class="img left">' +
+                                            '                    <img src="' + concernList[i].logopic + '"/>' +
+                                            '                </a>' +
+                                            '                <div class="info">' +
+                                            '                    <p class="name"><a  target="_blank" href="/kdh/home?orgid=' + concernList[i].orgid + '">' + concernList[i].orgname + '</a></p>' +
+                                            '                    <p class="p">' + concernList[i].memo + '</p>' +
+                                            '                    <div class="btn">' +
+                                            '                        <span class="span1">已关注</span><span class="span2">|</span><a href="javascript:;"' +
+                                            '                                                                                     class="a">取消</a>' +
+                                            '                    </div>' +
+                                            '                </div>' +
+                                            '            </div>';
+                                    }
+                                    $('.followList').html(str);
+
+                                    // 页码
+                                    var pageStr = $.kd.outputPager(response.data.total, 10, 5, pageNum);
+                                    $('.sp-page').html(pageStr);
+
+                                    // 绑定页码事件
+                                    $('.sp-page a').unbind('click').bind('click', function() {
+                                        $('body,html').animate({
+                                            scrollTop: 0
+                                        }, 300);
+                                        var pageNum = $(this).attr('data-page');
+                                        getFollowedList(pageNum);
+                                    })
+                                }
+                            } else {
+                                console.log('请检查获取关注万选号信息PC端！')
+                            }
+                        },
+                        error: function(error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+                }
+
+                // 翻页
+                $('.sp-page a').click(function() {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 300);
+                    var pageNum = $(this).attr('data-page');
+                    getFollowedList(pageNum);
+                })
+
+                // 取消关注
+                function cancelFollowed(orgid, index) {
+                    var url = encodeURI('/kdh/addOrCancelOrg?otype=1&orgid=' + orgid);
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        type: "GET",
+                        success: function(response) {
+                            layer.close(index);
+                            if (response.code == 0) {
+                                layer.msg('取消关注成功！');
+                                layer.close(index);
+                                location.reload();
+                            } else if (response.code == -1) {
+                                layer.msg(response.msg)
+                            } else {
+                                console.log('请检查取消关注接口！')
+                            }
+                        },
+                        error: function(error) {
+                            //请求出错处理
+                            console.log(error);
+                        }
+                    });
+                }
+
+                // 取消关注
+                $('.follow .btn .a').click(function() {
+                    var orgid = $(this).parent().parent().parent().attr('data-org-id');
+                    var $this = $(this);
+                    var name = $this.parent().siblings('.name').children('a').html();
+                    var index = layer.open({
+                        title: ['', 'height: 34px; border-top: 5px solid #E64A3C; background-color:#fff; border-bottom:0'],
+                        type: 1,
+                        // skin: 'layui-layer-rim', //加上边框
+                        area: ['430px', '254px'], //宽高
+                        content: '<div class="modal cancelfollowmodal">' +
+                            // '        <a href="javascrpt:;" class="close"></a>' +
+                            // '        <h1 class="mtit"></h1>' +
+                            '        <div class="text">确认要取消对' + name + '的关注吗？</div>' +
+                            '    <div class="bottom">' +
+                            '            <div class="btn">' +
+                            '                <a href="javascript:;" class="sure left">确定</a>' +
+                            '                <a href="javascript:;" class="cancel right">取消</a>' +
+                            '            </div>' +
+                            '        </div>' +
+                            '    </div>'
+                    });
+                    $('.modal .btn .sure').unbind('click').bind('click', function() {
+                        var index = layer.load(1, {
+                            shade: [0.1, '#fff'] //0.1透明度的白色背景
+                        });
+                        cancelFollowed(orgid, index)
+                    })
+                    $('.modal .btn .cancel').unbind('click').bind('click', function() {
+                        layer.close(index);
+                    })
+                })
+            </script>
+</body>
+
+</html>

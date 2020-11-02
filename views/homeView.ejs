@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css" />
+    <link rel="stylesheet" type="text/css" href="/css/home.css" />
+    <script src="/js/jQuery-v1.11.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/jquery.cycle2.js" type="text/javascript" charset="utf-8"></script>
+    <title>
+        <%=title %>
+    </title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="headerWrap">
+            <div class="hl left clearfix">
+                <a class="logo" target="_blank" href="/">
+                    <img src="/images/indexImages/logo4.png" alt="">
+                </a>
+                <div class="left all dropdown">
+                    <a class="dropdown-toggle" target="_blank" href="/works">全部分类</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a target="_blank" href="/works?classifyId=A&positionX=0">
+                                <img src="/images/indexImages/cate1.png" alt="">
+                                <span>文学</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=B&positionX=1">
+                                <img src="/images/indexImages/cate2.png" alt="">
+                                <span>艺术</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=C&positionX=2">
+                                <img src="/images/indexImages/cate3.png" alt="">
+                                <span>思想文化</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=D&positionX=3">
+                                <img src="/images/indexImages/cate4.png" alt="">
+                                <span>人物</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=E&positionX=4">
+                                <img src="/images/indexImages/cate5.png" alt="">
+                                <span>历史</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=F&positionX=5">
+                                <img src="/images/indexImages/cate6.png" alt="">
+                                <span>军事</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=G&positionX=6">
+                                <img src="/images/indexImages/cate7.png" alt="">
+                                <span>法律</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=H&positionX=7">
+                                <img src="/images/indexImages/cate8.png" alt="">
+                                <span>生活休闲</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=I&positionX=8">
+                                <img src="/images/indexImages/cate9.png" alt="">
+                                <span>育儿</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=J&positionX=9">
+                                <img src="/images/indexImages/cate10.png" alt="">
+                                <span>孕产</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=K&positionX=10">
+                                <img src="/images/indexImages/cate11.png" alt="">
+                                <span>职场</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=L&positionX=11">
+                                <img src="/images/indexImages/cate12.png" alt="">
+                                <span>财富</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="/works?classifyId=M&positionX=12">
+                                <img src="/images/indexImages/cate13.png" alt="">
+                                <span>科普</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a target="_blank" href="/">首页</a>
+                <a target="_blank" href="/works?classifyId=A&positionX=0">文学</a>
+                <a target="_blank" href="/works?classifyId=B&positionX=1">艺术</a>
+                <a target="_blank" href="/works?classifyId=E&positionX=4">历史</a>
+                <a target="_blank" href="/works?classifyId=D&positionX=3">人物</a>
+                <a target="_blank" href="/works?classifyId=H&positionX=7">生活</a>
+                <a target="_blank" href="/works?classifyId=C&positionX=2">思想文化</a>
+
+            </div>
+            <div class="hr right">
+                <% if(viewModel && viewModel.user.name != null){ %>
+                    <%- include('./components/userOptionMenu', {}) %>
+                        <% }else{ %>
+                            <a href="/temp/userCenter/register">注册</a>
+                            <div class="line"></div>
+                            <a id="login" href="javascript:;">登录</a>
+                            <% } %>
+                                <a href="javascript:;" class="search-icon"></a>
+                                <div class="hrlink clearfix">
+                                    <a target="_blank" href="/appdownload">客户端</a>
+                                    <a target="_blank" href="/mall/home">书城</a>
+                                    <a target="_blank" href="/literature">文献库</a>
+                                    <div class="right discovery dropdown">
+                                        <a class="dropdown-toggle" href="javascript:;">发现</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a target="_blank" href="/discovery">精选</a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" href="/microBook">微刊</a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" href="/kdh">万选号</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="search">
+        <div class="search-tab">
+            <span class="selected">全部</span>
+            <span>作品</span>
+            <span>微刊</span>
+            <span>万选号</span>
+            <span>期刊</span>
+            <span>图书</span>
+            <span>文献</span>
+        </div>
+        <div class="search-box">
+            <input class="search-input" type="text" placeholder="请输入关键词搜索">
+            <a class="search-btn" href="javascript:;" data-enter-control="1"></a>
+        </div>
+    </div>
+    <div class="bannerArea">
+        <div class="transition cycle-slideshow" data-cycle-pause-on-hover="true" data-cycle-slides=".slide" data-cycle-timeout="4000" data-cycle-pager=".slidePager" data-cycle-speed="1000" data-cycle-prev=".cycle-prev" data-cycle-next=".cycle-next">
+            <!--<div class="slide">-->
+            <!--<a href="/mall/booklistDetail?booklistId=23" target="_blank" class="pic1"></a>-->
+            <!--</div>-->
+            <div class="slide">
+                <a href="/detail/bookDetail/DZ2003110074" target="_blank" class="pic2"></a>
+            </div>
+            <div class="slide">
+                <a href="/detail/microBookDetail?id=361" target="_blank" class="pic3"></a>
+            </div>
+            <div class="slide">
+                <a href="/detail/microBookDetail?id=198" target="_blank" class="pic4"></a>
+            </div>
+            <div class="slide">
+                <a href="/detail/bookDetail/DZ1912020071" target="_blank" class="pic5"></a>
+            </div>
+        </div>
+        <div class="slidePager"></div>
+    </div>
+    <div class="category clearfix">
+        <a class="category-item" href="/works?classifyId=A&positionX=0" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon1.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon1a.png" alt="">
+            <span>文学</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=B&positionX=1" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon2.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon2a.png" alt="">
+            <span>艺术</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=C&positionX=2" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon3.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon3a.png" alt="">
+            <span>思想文化</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=D&positionX=3" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon4.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon4a.png" alt="">
+            <span>人物</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=E&positionX=4" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon5.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon5a.png" alt="">
+            <span>历史</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=F&positionX=5" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon6.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon6a.png" alt="">
+            <span>军事</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=G&positionX=6" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon7.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon7a.png" alt="">
+            <span>法律</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=I&positionX=8" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon8.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon8a.png" alt="">
+            <span>育儿</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=H&positionX=7" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon9.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon9a.png" alt="">
+            <span>生活休闲</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=J&positionX=9" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon10.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon10a.png" alt="">
+            <span>孕产</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=K&positionX=10" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon11.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon11a.png" alt="">
+            <span>职场</span>
+        </a>
+        <a class="category-item" href="/works?classifyId=L&positionX=11" target="_blank">
+            <img class="cate-icon" src="/images/indexImages/cate-icon12.png" alt="">
+            <img class="cate-icona" src="/images/indexImages/cate-icon12a.png" alt="">
+            <span>财富</span>
+        </a>
+    </div>
+    <div class="section s1">
+        <div class="s1-tab">
+            <span class="selected">品读</span>
+            <span>静听</span>
+            <span>视界</span>
+            <span>图话</span>
+        </div>
+        <div class="s1-items" style="display:block;">
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8591&mediatype=1" target="_blank">
+                    <img src="https://kandian.cnki.net/org/images/5e9d2e41a2a872253c833688" alt="十五个不可不知的文学典故" title="十五个不可不知的文学典故">
+                    <i></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8591&mediatype=1" title="《易经》：人的一生，只有这三个字" target="_blank">十五个不可不知的文学典故</a>
+                </div>
+                <div class="s1-tags">
+                    <span>文学</span>
+                    <span>典故</span>
+                    <span>故事</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/sw" target="_blank">
+                        <img src="https://wanxuan.cnki.net/org/images/5e4de6e0119fa729dc0fcae8" alt="">
+                        <span class="s1-orgname">思·悟</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8907&mediatype=1" target="_blank">
+                    <img src="https://kandian.cnki.net/org/images/5eb66126119fa71694319fc3" alt="把小事做好的人，生活总不会亏待他" title="把小事做好的人，生活总不会亏待他">
+                    <i></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8907&mediatype=1" title="把小事做好的人，生活总不会亏待他" target="_blank">把小事做好的人，生活总不会亏待他</a>
+                </div>
+                <div class="s1-tags">
+                    <span>生活</span>
+                    <span>小事</span>
+                    <span>生活智慧</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/sj" target="_blank">
+                        <img src="https://wanxuan.cnki.net/org/images/5e605bfda2a8722030cf10e9" alt="">
+                        <span class="s1-orgname">诗教</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8487&mediatype=1" target="_blank">
+                    <img src="https://wanxuan.cnki.net/org/images/5e9fbed0119fa7334c489f99" alt="宋朝的“二维码”" title="宋朝的“二维码”">
+                    <i></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8487&mediatype=1" title="宋朝的“二维码”" target="_blank">宋朝的“二维码”</a>
+                </div>
+                <div class="s1-tags">
+                    <span>宋朝</span>
+                    <span>二维码</span>
+                    <span>出版业</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdwh011" target="_blank">
+                        <img src="https://wanxuan.cnki.net/org/images/5eb3c972119fa71a0071e05a" alt="">
+                        <span class="s1-orgname">文化纵横</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4371&mediatype=1" target="_blank">
+                    <img src="https://kandian.cnki.net/org/images/5de32105a2a8721ab800e30e" alt="改变李鸿章一生的那顿早饭" title="改变李鸿章一生的那顿早饭">
+                    <i></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4371&mediatype=1" title="改变李鸿章一生的那顿早饭" target="_blank">改变李鸿章一生的那顿早饭</a>
+                </div>
+                <div class="s1-tags">
+                    <span>李鸿章</span>
+                    <span>生活智慧</span>
+                    <span>人生哲理</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/sw" target="_blank">
+                        <img src="https://wanxuan.cnki.net/org/images/5e4de6e0119fa729dc0fcae8" alt="">
+                        <span class="s1-orgname">思·悟</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=6122&mediatype=1" target="_blank">
+                    <img src="https://wanxuan.cnki.net/org/images/5e4b55c9119fa71dac63dab9" alt="《诗经》的100种打开方式" title="《诗经》的100种打开方式">
+                    <i></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=6122&mediatype=1" title="《诗经》的100种打开方式" target="_blank">《诗经》的100种打开方式</a>
+                </div>
+                <div class="s1-tags">
+                    <span>诗经</span>
+                    <span>诗词</span>
+                    <span>唯美古诗</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdsc015" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3ca1e119fa71a0071e062" alt="">
+                        <span class="s1-orgname">腹有诗书</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8899&mediatype=1" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5eb646a8119fa71694319c6e" alt="“中国靴子”改写欧洲历史" title="“中国靴子”改写欧洲历史">
+                    <i></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8899&mediatype=1" title="“中国靴子”改写欧洲历史" target="_blank">“中国靴子”改写欧洲历史</a>
+                </div>
+                <div class="s1-tags">
+                    <span>科技史</span>
+                    <span>中国发明</span>
+                    <span>马镫</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/lsdgd" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e4cfc3b119fa729dc0fcac5" alt="">
+                        <span class="s1-orgname">历史的拐点</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8906&mediatype=1" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5eb66163119fa71694319fc9" alt="古人取名：生猛又讲究" title="古人取名：生猛又讲究">
+                    <i></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8906&mediatype=1" title="古人取名：生猛又讲究" target="_blank">古人取名：生猛又讲究</a>
+                </div>
+                <div class="s1-tags">
+                    <span>名字</span>
+                    <span>古人起名</span>
+                    <span>起名学问</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/gdshj" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e4cf7f7119fa729dc0fca94" alt="">
+                        <span class="s1-orgname">古代生活家</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4740&mediatype=1" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5deef642a2a872103c0d63e3" alt="庄子三条鱼，人生三境界" title="庄子三条鱼，人生三境界">
+                    <i></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4740&mediatype=1" title="庄子三条鱼，人生三境界" target="_blank">庄子三条鱼，人生三境界</a>
+                </div>
+                <div class="s1-tags">
+                    <span>庄子</span>
+                    <span>智慧</span>
+                    <span>国学经典</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdmw003" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb8a395119fa71a0071e086" alt="">
+                        <span class="s1-orgname">美读</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+        </div>
+        <div class="s1-items">
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=9186&mediatype=2" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5ebd0faca2a87204d8f38457" alt="修一身静气，人生需要调成静音模式" title="修一身静气，人生需要调成静音模式">
+                    <i class="s1-item-icon1"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=9186&mediatype=2" title="修一身静气，人生需要调成静音模式" target="_blank">修一身静气，人生需要调成静音模式</a>
+                </div>
+                <div class="s1-tags">
+                    <span>修心</span>
+                    <span>人生态度</span>
+                    <span>个人修养</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/mszkkd" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e701f22a2a87221245a9840" alt="">
+                        <span class="s1-orgname">民生周刊</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=3177&mediatype=2" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5dcbc0ed119fa71034325569" alt="鼠疫 01" title="鼠疫 01">
+                    <i class="s1-item-icon1"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=3177&mediatype=2" title="鼠疫 01" target="_blank">鼠疫 01</a>
+                </div>
+                <div class="s1-tags">
+                    <span>荒诞哲学</span>
+                    <span>人性故事</span>
+                    <span>经典文学</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdxs001" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e991adc119fa737b083afba" alt="">
+                        <span class="s1-orgname">万选小说</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=2545&mediatype=2" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5db78d87d294f02328f6460c" alt="士兵的报酬 01" title="士兵的报酬 01">
+                    <i class="s1-item-icon1"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=2545&mediatype=2" title="士兵的报酬 01" target="_blank">士兵的报酬 01</a>
+                </div>
+                <div class="s1-tags">
+                    <span>小说</span>
+                    <span>战争小说</span>
+                    <span>一战</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdxs001" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e991adc119fa737b083afba" alt="">
+                        <span class="s1-orgname">万选小说</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=7902&mediatype=2" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5e8b0daba2a872217cd515d2" alt="高情商的人都有这些共同点" title="高情商的人都有这些共同点">
+                    <i class="s1-item-icon1"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=7902&mediatype=2" title="高情商的人都有这些共同点" target="_blank">高情商的人都有这些共同点</a>
+                </div>
+                <div class="s1-tags">
+                    <span>情商</span>
+                    <span>人生智慧</span>
+                    <span>为人处世</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/mszkkd" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e701f22a2a87221245a9840" alt="">
+                        <span class="s1-orgname">民生周刊</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4207&mediatype=2" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5de0c5c4119fa71aa0c5fe37" alt="拒绝——心理世界的皮肉伤" title="拒绝——心理世界的皮肉伤">
+                    <i class="s1-item-icon1"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4207&mediatype=2" title="拒绝——心理世界的皮肉伤" target="_blank">拒绝——心理世界的皮肉伤</a>
+                </div>
+                <div class="s1-tags">
+                    <span>心理</span>
+                    <span>情绪管理</span>
+                    <span>拒绝</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/qdsfcnki" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5de0b31e119fa7174cdb3d50" alt="">
+                        <span class="s1-orgname">青豆书坊</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8637&mediatype=2" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5ea58324119fa710f4477bc6" alt="一生最好的修行，就藏在这四个字里" title="一生最好的修行，就藏在这四个字里">
+                    <i class="s1-item-icon1"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8637&mediatype=2" title="一生最好的修行，就藏在这四个字里" target="_blank">一生最好的修行，就藏在这四个字里</a>
+                </div>
+                <div class="s1-tags">
+                    <span>修心</span>
+                    <span>个人修养</span>
+                    <span>人生态度</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/mszkkd" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e701f22a2a87221245a9840" alt="">
+                        <span class="s1-orgname">民生周刊</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8021&mediatype=2" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5e8d8abf119fa7237ca5e4af" alt="诗藏在什么地方？" title="诗藏在什么地方？">
+                    <i class="s1-item-icon1"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8021&mediatype=2" title="诗藏在什么地方？" target="_blank">诗藏在什么地方？</a>
+                </div>
+                <div class="s1-tags">
+                    <span>育儿</span>
+                    <span>教育</span>
+                    <span>诗歌</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/qdsfcnki" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5de0b31e119fa7174cdb3d50" alt="">
+                        <span class="s1-orgname">青豆书坊</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8015&mediatype=2" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5e8d8196119fa7237ca5e424" alt="如何说孩子才会听 怎么听孩子才肯说" title="如何说孩子才会听 怎么听孩子才肯说">
+                    <i class="s1-item-icon1"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8015&mediatype=2" title="如何说孩子才会听 怎么听孩子才肯说" target="_blank">如何说孩子才会听 怎么听孩子才肯说</a>
+                </div>
+                <div class="s1-tags">
+                    <span>育儿</span>
+                    <span>家教方法</span>
+                    <span>正面管教</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/qdsfcnki" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5de0b31e119fa7174cdb3d50" alt="">
+                        <span class="s1-orgname">青豆书坊</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+        </div>
+        <div class="s1-items">
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4534&mediatype=3" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5de71326a2a87203fce268fb" alt="《四库全书》与中国传统文化" title="《四库全书》与中国传统文化">
+                    <i class="s1-item-icon2"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4534&mediatype=3" title="《四库全书》与中国传统文化" target="_blank">《四库全书》与中国传统文化</a>
+                </div>
+                <div class="s1-tags">
+                    <span>四库全书</span>
+                    <span>传统文化</span>
+                    <span>国学</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdwh011" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3c972119fa71a0071e05a" alt="">
+                        <span class="s1-orgname">文化纵横</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4523&mediatype=3" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5de8ae11a2a87209c097aacb" alt="叶嘉莹讲诗词 | 01 诗的美感特质" title="叶嘉莹讲诗词 | 01 诗的美感特质">
+                    <i class="s1-item-icon2"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4523&mediatype=3" title="叶嘉莹讲诗词 | 01 诗的美感特质" target="_blank">叶嘉莹讲诗词 | 01 诗的美感特质</a>
+                </div>
+                <div class="s1-tags">
+                    <span>叶嘉莹</span>
+                    <span>诗词</span>
+                    <span>美感</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdsc015" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3ca1e119fa71a0071e062" alt="">
+                        <span class="s1-orgname">腹有诗书</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8229&mediatype=3" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5e956f6a119fa7258888d667" alt="青铜器的世界（上）" title="青铜器的世界（上）">
+                    <i class="s1-item-icon2"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8229&mediatype=3" title="青铜器的世界（上）" target="_blank">青铜器的世界（上）</a>
+                </div>
+                <div class="s1-tags">
+                    <span>青铜器</span>
+                    <span>历史</span>
+                    <span>文化</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdls004" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb4b3b9a2a872256ce65cd5" alt="">
+                        <span class="s1-orgname">经纬历史</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8409&mediatype=3" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5e9d5efda2a872253c83371b" alt="京剧表演艺术之美——花脸行的符号特征" title="京剧表演艺术之美——花脸行的符号特征">
+                    <i class="s1-item-icon2"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8409&mediatype=3" title="京剧表演艺术之美——花脸行的符号特征" target="_blank">京剧表演艺术之美——花脸行的符号特征</a>
+                </div>
+                <div class="s1-tags">
+                    <span>京剧</span>
+                    <span>表演艺术</span>
+                    <span>花脸</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdys010" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb8a5df119fa71a0071e088" alt="">
+                        <span class="s1-orgname">艺术家</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8222&mediatype=3" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5e956b9b119fa7258888d655" alt="横竖看世界（上）" title="横竖看世界（上）">
+                    <i class="s1-item-icon2"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8222&mediatype=3" title="横竖看世界（上）" target="_blank">横竖看世界（上）</a>
+                </div>
+                <div class="s1-tags">
+                    <span>地图</span>
+                    <span>世界地图</span>
+                    <span>图说世界</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdkp007" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3c8d3119fa71a0071e052" alt="">
+                        <span class="s1-orgname">科学有意思</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4654&mediatype=3" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5de9ef6c119fa70eaccfc775" alt="杭州刺绣：一针一线惊艳世界" title="杭州刺绣：一针一线惊艳世界">
+                    <i class="s1-item-icon2"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4654&mediatype=3" title="杭州刺绣：一针一线惊艳世界" target="_blank">杭州刺绣：一针一线惊艳世界</a>
+                </div>
+                <div class="s1-tags">
+                    <span>刺绣</span>
+                    <span>艺术</span>
+                    <span>民俗文化</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdms006" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3c8a5119fa71a0071e050" alt="">
+                        <span class="s1-orgname">民俗</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=9138&mediatype=3" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5ebe52a4a2a872268457aae5" alt="幸福的能力——乐观是一种能力" title="幸福的能力——乐观是一种能力">
+                    <i class="s1-item-icon2"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=9138&mediatype=3" title="幸福的能力——乐观是一种能力" target="_blank">幸福的能力——乐观是一种能力</a>
+                </div>
+                <div class="s1-tags">
+                    <span>幸福</span>
+                    <span>乐观</span>
+                    <span>心理</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdjk009" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3c937119fa71a0071e056" alt="">
+                        <span class="s1-orgname">健康大讲堂</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4546&mediatype=3" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5de7206aa2a87203fce2691a" alt="《红楼梦》与中华文化（上）" title="《红楼梦》与中华文化（上）">
+                    <i class="s1-item-icon2"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4546&mediatype=3" title="《红楼梦》与中华文化（上）" target="_blank">《红楼梦》与中华文化（上）</a>
+                </div>
+                <div class="s1-tags">
+                    <span>红楼梦</span>
+                    <span>中华文化</span>
+                    <span>传统文化</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdwh011" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3c972119fa71a0071e05a" alt="">
+                        <span class="s1-orgname">文化纵横</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+        </div>
+        <div class="s1-items">
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8921&mediatype=4" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5eb8ac03a2a87216f4391380" alt="美轮美奂的中国食品雕刻艺术——让你不忍吃下的美食" title="美轮美奂的中国食品雕刻艺术——让你不忍吃下的美食">
+                    <i class="s1-item-icon3"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8921&mediatype=4" title="美轮美奂的中国食品雕刻艺术——让你不忍吃下的美食" target="_blank">美轮美奂的中国食品雕刻艺术——让你不忍吃下的美食</a>
+                </div>
+                <div class="s1-tags">
+                    <span>美食</span>
+                    <span>食品雕刻</span>
+                    <span>烹饪</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/cnkigjs" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3c866119fa71a0071e04c" alt="">
+                        <span class="s1-orgname">书画馆</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8845&mediatype=4" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5eb4b512a2a87216f4390b48" alt="老期刊：民国时的期刊杂志你见过吗？" title="老期刊：民国时的期刊杂志你见过吗？">
+                    <i class="s1-item-icon3"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8845&mediatype=4" title="老期刊：民国时的期刊杂志你见过吗？" target="_blank">老期刊：民国时的期刊杂志你见过吗？</a>
+                </div>
+                <div class="s1-tags">
+                    <span>老期刊</span>
+                    <span>老杂志</span>
+                    <span>民国</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/ysyys" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e5390eb119fa72218dcc5cd" alt="">
+                        <span class="s1-orgname">艺术有意思</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=6692&mediatype=4" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5e5f39a3119fa71dac63f78f" alt="长安十二时辰　镜头里的千年古都" title="长安十二时辰　镜头里的千年古都">
+                    <i class="s1-item-icon3"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=6692&mediatype=4" title="长安十二时辰　镜头里的千年古都" target="_blank">长安十二时辰　镜头里的千年古都</a>
+                </div>
+                <div class="s1-tags">
+                    <span>长安</span>
+                    <span>西安</span>
+                    <span>古都</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdls004" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb4b3b9a2a872256ce65cd5" alt="">
+                        <span class="s1-orgname">经纬历史</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4504&mediatype=4" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5de61ea6119fa7161056ecbe" alt="镜头下的南浔古镇" title="镜头下的南浔古镇">
+                    <i class="s1-item-icon3"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4504&mediatype=4" title="镜头下的南浔古镇" target="_blank">镜头下的南浔古镇</a>
+                </div>
+                <div class="s1-tags">
+                    <span>南浔古镇</span>
+                    <span>旅游</span>
+                    <span>摄影</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/ysyys" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e5390eb119fa72218dcc5cd" alt="">
+                        <span class="s1-orgname">艺术有意思</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4373&mediatype=4" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5de338e5119fa710f8bc1217" alt="丰子恺漫画古诗文" title="丰子恺漫画古诗文">
+                    <i class="s1-item-icon3"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4373&mediatype=4" title="丰子恺漫画古诗文" target="_blank">丰子恺漫画古诗文</a>
+                </div>
+                <div class="s1-tags">
+                    <span>丰子恺</span>
+                    <span>漫画</span>
+                    <span>古诗词</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdysgykd" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e742feba2a8722180946e1f" alt="">
+                        <span class="s1-orgname">光影万选</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=4300&mediatype=4" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5de218d4119fa716400a2aad" alt="识对形体穿对衣——增高显瘦的穿着建议" title="识对形体穿对衣——增高显瘦的穿着建议">
+                    <i class="s1-item-icon3"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=4300&mediatype=4" title="识对形体穿对衣——增高显瘦的穿着建议" target="_blank">识对形体穿对衣——增高显瘦的穿着建议 </a>
+                </div>
+                <div class="s1-tags">
+                    <span>穿衣指南</span>
+                    <span>穿着建议</span>
+                    <span>着装指南</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdms006" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3c8a5119fa71a0071e050" alt="">
+                        <span class="s1-orgname">民俗</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=8750&mediatype=4" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5eaa2493119fa710f44782a6" alt="古代经络图（典藏版）" title="古代经络图（典藏版）">
+                    <i class="s1-item-icon3"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=8750&mediatype=4" title="古代经络图（典藏版）" target="_blank">古代经络图（典藏版）</a>
+                </div>
+                <div class="s1-tags">
+                    <span>摄影</span>
+                    <span>星空</span>
+                    <span>雪山</span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdlx017" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3ca8b119fa71a0071e066" alt="">
+                        <span class="s1-orgname">去旅行</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+            <div class="s1-item">
+                <a class="s1-item-img" href="/detail/workDetail?id=590&mediatype=4" target="_blank">
+                    <img src="http://wanxuan.cnki.net/org/images/5d40f81051b7f34f60cee70d" alt="图说中国古鸟" title="图说中国古鸟">
+                    <i class="s1-item-icon3"></i>
+                </a>
+                <div class="s1-title">
+                    <a href="/detail/workDetail?id=590&mediatype=4" title="图说中国古鸟" target="_blank">图说中国古鸟</a>
+                </div>
+                <div class="s1-tags">
+                    <span>中国古鸟</span>
+                    <span>鸟类</span>
+                    <span>鸟类进化史 </span>
+                </div>
+                <div class="s1-info">
+                    <a class="s1-org" href="/kdh/home/kdlx017" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5eb3ca8b119fa71a0071e066" alt="">
+                        <span class="s1-orgname">去旅行</span>
+                    </a>
+                    <!--<span class="s1-date">10天前</span>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section s2">
+        <div class="s2-header clearfix">
+            <div class="s2-header-l clearfix">
+                <span class="s2-title">
+                    <a href="/works?classifyId=A&positionX=0" target="_blank">文学</a> ·
+                    <a href="/works?classifyId=B&positionX=1" target="_blank">艺术</a>
+                </span>
+                <div class="s2-subtitle clearfix">
+                    <a href="/works?classifyId=A03&positionX=0&positionY=2" target="_blank">美文</a>
+                    <a href="/works?classifyId=A01&positionX=0&positionY=0" target="_blank">诗词</a>
+                    <a href="/works?classifyId=A02&positionX=0&positionY=1" target="_blank">小说</a>
+                    <a href="/works?classifyId=A04&positionX=0&positionY=3" target="_blank">故事</a>
+                    <a href="/works?classifyId=B03&positionX=1&positionY=2" target="_blank">书法</a>
+                    <a href="/works?classifyId=B01&positionX=1&positionY=0" target="_blank">绘画</a>
+                    <a href="/works?classifyId=B05&positionX=1&positionY=4" target="_blank">摄影</a>
+                </div>
+            </div>
+            <div class="s2-header-r">
+                <a class="more" href="/works?classifyId=A&positionX=0" target="_blank">查看更多>></a>
+            </div>
+        </div>
+        <div class="s2-body clearfix">
+            <div class="s2-body-l clearfix">
+                <div class="s2-item-first clearfix">
+                    <a class="s2-first-img" href="/detail/workDetail?id=1797&mediatype=4" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5d7ed3cfbc65f03e5058d18e" width="332" height="186" title="如画 如诗 如醉——品读大师吴冠中的经典油画" alt="如画 如诗 如醉——品读大师吴冠中的经典油画">
+                        <i class="s2-first-icon1"></i>
+                    </a>
+                    <div class="s2-first-info">
+                        <div class="s2-first-title">
+                            <a href="/detail/workDetail?id=1797&mediatype=4" target="_blank">如画 如诗 如醉——品读大师吴冠中的经典油画</a>
+                        </div>
+                        <div class="s2-first-tags">
+                            <span>吴冠中</span>
+                            <span>油画</span>
+                            <span>名家书画</span>
+                        </div>
+                        <div class="s2-first-intro">吴冠中曾经说过，他的一生就是做两件事：一是油画的民族化，一是中国画的现代化。他觉得自己背负了一种使命，这种使命不仅仅是创作美术作品</div>
+                        <div class="s2-first-author">
+                            <a href="/kdh/home/cnkigjs" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c866119fa71a0071e04c" alt="">名家书画馆</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2-items clearfix">
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=7048&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5e6b2d76a2a87211ac086999" width="230" height="130" title="假如去古代参加“诗词大会”，都可以玩些什么？" alt="假如去古代参加“诗词大会”，都可以玩些什么？">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=7048&mediatype=1" target="_blank">假如去古代参加“诗词大会”，都可以玩些什么？</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/sw" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5e4de6e0119fa729dc0fcae8" alt="">思·悟</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=8306&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5e980841119fa7258888dc0b" width="230" height="130" alt="大唐最后十位诗人：一个个如雷贯耳，带走了整个时代">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=8306&mediatype=1" target="_blank">大唐最后十位诗人：一个个如雷贯耳，带走了整个时代</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdmw003" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb8a395119fa71a0071e086" alt="">美读</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=7281&mediatype=1" target="_blank">
+                            <img src="http://wanxuan.cnki.net/org/images/5e742e95a2a8721b046e1fd5" width="230" height="130" alt="五句被“误读”千年的诗词，真相其实是这样的">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=7281&mediatype=1" target="_blank">五句被“误读”千年的诗词，真相其实是这样的</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/sj" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5e605bfda2a8722030cf10e9" alt="">诗教</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=4958&mediatype=4" target="_blank">
+                            <img src="http://wanxuan.cnki.net/org/images/5df89ea9a2a8720b70afba76" width="230" height="130" alt="崇其性 爱其形——李可染画牛">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=4958&mediatype=4" target="_blank">崇其性 爱其形——李可染画牛</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdsc015" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3ca1e119fa71a0071e062" alt="">腹有诗书</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=6246&mediatype=1" target="_blank">
+                            <img src="http://wanxuan.cnki.net/org/images/5e4e48fb119fa71dac63e529" width="230" height="130" alt="千里江山究竟是哪座山 王希孟《千里江山图》">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=6246&mediatype=1" target="_blank">千里江山究竟是哪座山 王希孟《千里江山图》</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdys010" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb8a5df119fa71a0071e088" alt="">艺术家</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=6354&mediatype=1" target="_blank">
+                            <img src="http://wanxuan.cnki.net/org/images/5e549737119fa71dac63ebd9" width="230" height="130" alt="经典名曲《我和我的祖国》幕后的故事">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=6354&mediatype=1" target="_blank">经典名曲《我和我的祖国》幕后的故事</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/ddyy" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5e539203119fa72218dcc5e3" alt="">懂点音乐</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s2-body-r">
+                <div class="s2-hot">
+                    <div class="s2-hot-title">热读</div>
+                    <div class="s2-hot-body">
+                        <div class="s2-hot-item active">
+                            <i class="s2-hot-item-number s2-hot-item-number1">1</i>
+                            <span class="s2-hot-item-title">一个人的修养，看失意时的善良</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=363&mediatype=1" title="一个人的修养，看失意时的善良" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5d35607151b7f321a402856a" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=363&mediatype=1" title="一个人的修养，看失意时的善良" target="_blank">一个人的修养，看失意时的善良</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number s2-hot-item-number2">2</i>
+                            <span class="s2-hot-item-title">千年宋词，醉了这春夏秋冬的时光</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=1537&mediatype=1" title="千年宋词，醉了这春夏秋冬的时光”" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5d68dc6bbc65f01fa0697e11" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=1537&mediatype=1" title="千年宋词，醉了这春夏秋冬的时光" target="_blank">千年宋词，醉了这春夏秋冬的时光</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number s2-hot-item-number3">3</i>
+                            <span class="s2-hot-item-title">美好和美好才能成为知己</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=3882&mediatype=1" title="美好和美好才能成为知己" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5ddb85f6a2a8720e54407eea" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=3882&mediatype=1" title="美好和美好才能成为知己" target="_blank">美好和美好才能成为知己</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number">4</i>
+                            <span class="s2-hot-item-title">古典名曲《春江花月夜》 画与诗的完美结合</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=6356&mediatype=1" title="古典名曲《春江花月夜》 画与诗的完美结合" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5e54a090119fa71dac63ebfb" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=6356&mediatype=1" title="古典名曲《春江花月夜》 画与诗的完美结合" target="_blank">古典名曲《春江花月夜》 画与诗的完美结合</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number">5</i>
+                            <span class="s2-hot-item-title">传世名画《韩熙载夜宴图》竟然是谍报！</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=6250&mediatype=1" title="传世名画《韩熙载夜宴图》竟然是谍报！" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5e4e532a119fa71dac63e5db" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=6250&mediatype=1" title="传世名画《韩熙载夜宴图》竟然是谍报！" target="_blank">传世名画《韩熙载夜宴图》竟然是谍报！</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2-recommend">
+                    <div class="s2-recommend-title">微刊推荐</div>
+                    <div class="s2-recommend-body">
+                        <div class="s2-recommend-item">
+                            <a href="/detail/microBookDetail?id=172" title="诺贝尔文学奖作家文集·泡影" target="_blank">
+                                <img class="s2-recommend-img" src="http://wanxuan.cnki.net/org/images/5d301e9451b7f30d0c0f8fec" width="350" height="157" alt="">
+                                <div class="s2-recommend-item-title">诺贝尔文学奖作家文集·泡影</div>
+                            </a>
+                        </div>
+                        <div class="s2-recommend-item">
+                            <a href="/detail/microBookDetail?id=357" title="怪在经典——扬州八怪经典作品鉴赏系列" target="_blank">
+                                <img class="s2-recommend-img" src="http://wanxuan.cnki.net/org/images/5e817977119fa729b8b1e51d" width="350" height="157" alt="">
+                                <div class="s2-recommend-item-title">怪在经典——扬州八怪经典作品鉴赏系列</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section s2">
+        <div class="s2-header clearfix">
+            <div class="s2-header-l clearfix">
+                <span class="s2-title">
+                    <a href="/works?classifyId=E&positionX=4" target="_blank">历史</a> ·
+                    <a href="/works?classifyId=D&positionX=3" target="_blank">人物</a>
+                </span>
+                <div class="s2-subtitle clearfix">
+                    <a href="/works?classifyId=E01&positionX=4&positionY=0" target="_blank">中华千年</a>
+                    <a href="/works?classifyId=E02&positionX=4&positionY=1" target="_blank">海外历史</a>
+                    <a href="/works?classifyId=E05&positionX=4&positionY=4" target="_blank">近代历史</a>
+                    <a href="/works?classifyId=E08&positionX=4&positionY=7" target="_blank">历史趣读</a>
+                    <a href="/works?classifyId=D03&positionX=3&positionY=2" target="_blank">历代名臣</a>
+                    <a href="/works?classifyId=D08&positionX=3&positionY=7" target="_blank">科教名人</a>
+                    <a href="/works?classifyId=D06&positionX=3&positionY=5" target="_blank">文艺名家</a>
+                </div>
+            </div>
+            <div class="s2-header-r">
+                <a class="more" href="/works?classifyId=E&positionX=4" target="_blank">查看更多>></a>
+            </div>
+        </div>
+        <div class="s2-body clearfix">
+            <div class="s2-body-l clearfix">
+                <div class="s2-item-first clearfix">
+                    <a class="s2-first-img" href="/detail/workDetail?id=9281&mediatype=4" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5ec49754a2a872268457b7b8" width="332" height="186" alt="">
+                        <i class="s2-first-icon4"></i>
+                    </a>
+                    <div class="s2-first-info">
+                        <div class="s2-first-title">
+                            <a href="/detail/workDetail?id=9281&mediatype=4" target="_blank">梦回大唐——透过陶俑走进大唐盛世</a>
+                        </div>
+                        <div class="s2-first-tags">
+                            <span>唐朝</span>
+                            <span>陶俑</span>
+                            <span>大唐盛世</span>
+                        </div>
+                        <div class="s2-first-intro">唐朝时万国来朝达到鼎盛，向其朝贡之国多达三百余。疆域空前辽阔，极盛时东起日本海、南据安南、西抵咸海、北逾贝加尔湖，是中国自秦以来第一个未修据胡长城的大一统王朝</div>
+                        <div class="s2-first-author">
+                            <a href="/kdh/home/kdls004" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb4b3b9a2a872256ce65cd5" alt="">经纬历史</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2-items clearfix">
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=8953&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5eb921c1119fa7169431a10c" width="230" height="130" alt="历史上有哪些盛世" title="历史上有哪些盛世">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=8953&mediatype=1" target="_blank" title="历史上有哪些盛世">历史上有哪些盛世</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/lsdgd" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5e4cfc3b119fa729dc0fcac5" alt="">历史的拐点</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=7705&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5ec4c61fa2a872268457b887" width="230" height="130" alt="《大宋提刑官》讲的究竟是个什么样的官" title="《大宋提刑官》讲的究竟是个什么样的官">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=7705&mediatype=1" target="_blank" title="《大宋提刑官》讲的究竟是个什么样的官">《大宋提刑官》讲的究竟是个什么样的官</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/jsls" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5e4cfb3d119fa729dc0fcab3" alt="">剧说历史</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=6881&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5e671b15a2a8721f30af42dd" width="230" height="130" alt="“埃菲尔铁塔，你所不知道的历史" title="“埃菲尔铁塔，你所不知道的历史">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=6881&mediatype=1" target="_blank" title="“埃菲尔铁塔，你所不知道的历史">“埃菲尔铁塔，你所不知道的历史</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdgs005" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c88b119fa71a0071e04e" alt="">故事客栈</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=7383&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5e788309a2a8720978afbcc6" width="230" height="130" alt="“那些改变了人类历史的食物" title="“那些改变了人类历史的食物">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=7383&mediatype=1" target="_blank" title="“那些改变了人类历史的食物">“那些改变了人类历史的食物</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/lsdgd" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5e4cfc3b119fa729dc0fcac5" alt="">历史的拐点</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=9226&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5ec1fc22119fa71040646de4" width="230" height="130" alt="“千古一帝”这样选出凌烟阁二十四功臣" title="“千古一帝”这样选出凌烟阁二十四功臣">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=9226&mediatype=1" target="_blank" title="“千古一帝”这样选出凌烟阁二十四功臣">“千古一帝”这样选出凌烟阁二十四功臣</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdrw002" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c7c7119fa71a0071e046" alt="">天下人物</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=161&mediatype=1" target="_blank">
+                            <img src="http://wanxuan.cnki.net/org/images/5d284c1551b7f375501fdd10" width="230" height="130" alt="千年前的古人如何发帖跟帖" title="史上知识付费鼻祖，凭几百字实现了财务自由">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=161&mediatype=1" target="_blank" title="千年前的古人如何发帖跟帖">千年前的古人如何发帖跟帖</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdsc015" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3ca1e119fa71a0071e062" alt="">腹有诗书</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s2-body-r">
+                <div class="s2-hot">
+                    <div class="s2-hot-title">热读</div>
+                    <div class="s2-hot-body">
+                        <div class="s2-hot-item active">
+                            <i class="s2-hot-item-number s2-hot-item-number1">1</i>
+                            <span class="s2-hot-item-title">《资治通鉴》为何只字不提李白</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=8745&mediatype=1" title="《资治通鉴》为何只字不提李白" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5ea959aca2a87209b4214d84" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=8745&mediatype=1" title="《资治通鉴》为何只字不提李白" target="_blank">《资治通鉴》为何只字不提李白</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number s2-hot-item-number2">2</i>
+                            <span class="s2-hot-item-title">传国玉玺失踪之谜</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=2004&mediatype=1" title="传国玉玺失踪之谜" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5d8ac05fbc65f03eb4de6324" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=2004&mediatype=1" title="传国玉玺失踪之谜" target="_blank">传国玉玺失踪之谜</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number s2-hot-item-number3">3</i>
+                            <span class="s2-hot-item-title">“三家分晋”，分出了什么？</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=9016&mediatype=1" title="“三家分晋”，分出了什么？" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5ebbe297a2a87204d8f38411" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=9016&mediatype=1" title="“三家分晋”，分出了什么？" target="_blank">“三家分晋”，分出了什么？</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number">4</i>
+                            <span class="s2-hot-item-title">史上知识付费鼻祖，凭几百字实现了财务自由</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=190&mediatype=1" title="史上知识付费鼻祖，凭几百字实现了财务自由" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5e96cd3fa2a8722b643c17cf" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=190&mediatype=1" title="史上知识付费鼻祖，凭几百字实现了财务自由" target="_blank">史上知识付费鼻祖，凭几百字实现了财务自由</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number">5</i>
+                            <span class="s2-hot-item-title">四场茶叶战争，改变世界历史</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=9012&mediatype=1" title="四场茶叶战争，改变世界历史" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5ebbbb3ea2a87204d8f38407" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=9012&mediatype=1" title="四场茶叶战争，改变世界历史" target="_blank">四场茶叶战争，改变世界历史</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2-recommend">
+                    <div class="s2-recommend-title">微刊推荐</div>
+                    <div class="s2-recommend-body">
+                        <div class="s2-recommend-item">
+                            <a href="/detail/microBookDetail?id=81" title="生活方式史鉴——解锁古人“衣食住行”" target="_blank">
+                                <img class="s2-recommend-img" src="http://wanxuan.cnki.net/org/images/5e870a9ea2a872217cd515bb" width="350" height="157" alt="">
+                                <div class="s2-recommend-item-title">生活方式史鉴——解锁古人“衣食住行”</div>
+                            </a>
+                        </div>
+                        <div class="s2-recommend-item">
+                            <a href="/detail/microBookDetail?id=200&pageNum=2" title="民国的腔调" target="_blank">
+                                <img class="s2-recommend-img" src="http://wanxuan.cnki.net/org/images/5de0d2a6a2a8721ab800e1bb" width="350" height="157" alt="">
+                                <div class="s2-recommend-item-title">民国的腔调</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section s2">
+        <div class="s2-header clearfix">
+            <div class="s2-header-l clearfix">
+                <span class="s2-title">
+                    <a href="/works?classifyId=C&positionX=2" target="_blank">思想</a> ·
+                    <a href="/works?classifyId=C&positionX=2" target="_blank">文化</a>
+                </span>
+                <div class="s2-subtitle clearfix">
+                    <a href="/works?classifyId=C11&positionX=2&positionY=10" target="_blank">诸子百家</a>
+                    <a href="/works?classifyId=C10&positionX=2&positionY=9" target="_blank">哲学</a>
+                    <a href="/works?classifyId=C02&positionX=2&positionY=1" target="_blank">语言文字</a>
+                    <a href="/works?classifyId=C03&positionX=2&positionY=2" target="_blank">民俗文化</a>
+                    <a href="/works?classifyId=C04&positionX=2&positionY=3" target="_blank">饮食文化</a>
+                    <a href="/works?classifyId=C14&positionX=2&positionY=13" target="_blank">人文解读</a>
+                    <a href="/works?classifyId=C15&positionX=2&positionY=14" target="_blank">书评</a>
+                </div>
+            </div>
+            <div class="s2-header-r">
+                <a class="more" href="/works?classifyId=C11&positionX=2&positionY=10" target="_blank">查看更多>></a>
+            </div>
+        </div>
+        <div class="s2-body clearfix">
+            <div class="s2-body-l clearfix">
+                <div class="s2-item-first clearfix">
+                    <a class="s2-first-img" href="/detail/workDetail?id=1268&mediatype=3" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5d5f5de7464f543cf0a2ad00" width="332" height="186" alt="打开四书五经——《大学》篇" title="打开四书五经——《大学》篇">
+                        <i class="s2-first-icon3"></i>
+                    </a>
+                    <div class="s2-first-info">
+                        <div class="s2-first-title">
+                            <a href="/detail/workDetail?id=1268&mediatype=3" title="打开四书五经——《大学》篇">打开四书五经——《大学》篇</a>
+                        </div>
+                        <div class="s2-first-tags">
+                            <span>四书五经</span>
+                            <span>传统文化</span>
+                            <span>《大学》</span>
+                        </div>
+                        <div class="s2-first-intro">“大学之道，在明明德，在亲民，在止于至善。”“四书五经”是中国传统文化的重要组成部分，是儒家思想的核心载体，记载了中华民族思想文化发展史上最活跃时期的史实资料及哲学思想。该系列视频详实地讲解了多部典籍，本视频将讲述《大学》的成书过程、特点、核心思想及在道德规范、人际交流、社会文化等方面对后世的影响。</div>
+                        <div class="s2-first-author">
+                            <a href="/kdh/works/kdwh011" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c972119fa71a0071e05a" alt="">文化纵横</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2-items clearfix">
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=3916&mediatype=1" target="_blank">
+                            <img src="http://wanxuan.cnki.net/org/images/5e54cc4aa2a8721f30af2ab8" width="230" height="130" alt="《春秋》里的微言大义" title="《春秋》里的微言大义">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=3916&mediatype=1" target="_blank" title="《春秋》里的微言大义">《春秋》里的微言大义</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdgx014" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c9f4119fa71a0071e060" alt="">国学金典</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=7966&mediatype=1" target="_blank">
+                            <img src="http://wanxuan.cnki.net/org/images/5e8d3e1ba2a872217cd51807" width="230" height="130" alt="分餐 ，古已有之的中华饮食文化" title="分餐 ，古已有之的中华饮食文化">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=7966&mediatype=1" target="_blank" title="分餐 ，古已有之的中华饮食文化">分餐 ，古已有之的中华饮食文化</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/gdshj" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5e4cf7f7119fa729dc0fca94" alt="">古代生活家</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=6702&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5e5f49cc119fa71dac63f7a1" width="230" height="130" alt="你知道这些“敬辞”的来历吗" title="你知道这些“敬辞”的来历吗">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=6702&mediatype=1" target="_blank" title="你知道这些“敬辞”的来历吗">你知道这些“敬辞”的来历吗</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdgx014" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c9f4119fa71a0071e060" alt="">国学金典</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=4382&mediatype=1" target="_blank">
+                            <img src="http://wanxuan.cnki.net/org/images/5ec4ba45a2a872268457b87f" width="230" height="130" alt="一本《论语》抵得了十万大军！" title="一本《论语》抵得了十万大军！">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=4382&mediatype=1" target="_blank" title="一本《论语》抵得了十万大军！">一本《论语》抵得了十万大军！</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdgx014" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c9f4119fa71a0071e060" alt="">国学金典</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=8873&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5eb504e3a2a87216f4390b9e" width="230" height="130" alt="茶食里的中国范儿" title="茶食里的中国范儿">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=8873&mediatype=1" target="_blank" title="茶食里的中国范儿">茶食里的中国范儿</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdms024" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3cb6a119fa71a0071e076" alt="">美食物语</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=8707&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5ea7f642a2a87209b42146d1" width="230" height="130" alt="一面铜镜，折射出远祖们怎样的生活意趣？" title="一面铜镜，折射出远祖们怎样的生活意趣？">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=8707&mediatype=1" target="_blank" title="一面铜镜，折射出远祖们怎样的生活意趣？">一面铜镜，折射出远祖们怎样的生活意趣？</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdwh011" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c972119fa71a0071e05a" alt="">文化纵横</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s2-body-r">
+                <div class="s2-hot">
+                    <div class="s2-hot-title">热文榜单</div>
+                    <div class="s2-hot-body">
+                        <div class="s2-hot-item active">
+                            <i class="s2-hot-item-number s2-hot-item-number1">1</i>
+                            <span class="s2-hot-item-title">天道高远，人心逍遥——《庄子》中的20个成语</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=1479&mediatype=1" title="天道高远，人心逍遥——《庄子》中的20个成语" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5e4a5d2a119fa71dac63d8df" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=1479&mediatype=1" title="天道高远，人心逍遥——《庄子》中的20个成语" target="_blank">天道高远，人心逍遥——《庄子》中的20个成语</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number s2-hot-item-number2">2</i>
+                            <span class="s2-hot-item-title">没有“普通话”的古人是如何交流的</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=6499&mediatype=1" title="没有“普通话”的古人是如何交流的" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5e586a37119fa71dac63f01b" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=6499&mediatype=1" title="没有“普通话”的古人是如何交流的" target="_blank">没有“普通话”的古人是如何交流的</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number s2-hot-item-number3">3</i>
+                            <span class="s2-hot-item-title">故宫匾上的“门”字为何不带勾</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=7187&mediatype=1" title="故宫匾上的“门”字为何不带勾" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5e719a5a119fa7293087bba0" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=7187&mediatype=1" title="故宫匾上的“门”字为何不带勾" target="_blank">故宫匾上的“门”字为何不带勾</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number">4</i>
+                            <span class="s2-hot-item-title">“贪吃的”巴尔扎克：写食物影响了一代法国作家</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=8760&mediatype=1" title="“贪吃的”巴尔扎克：写食物影响了一代法国作家" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5eaa85e1119fa72b584d8d1e" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=8760&mediatype=1" title="“贪吃的”巴尔扎克：写食物影响了一代法国作家" target="_blank">“贪吃的”巴尔扎克：写食物影响了一代法国作家</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number">5</i>
+                            <span class="s2-hot-item-title">中国人的名、字、号，不能随便叫！这个有讲究</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=4768&mediatype=1" title="中国人的名、字、号，不能随便叫！这个有讲究" target="_blank">
+                                    <img src="http://wanxuan.cnki.net/org/images/5def5043119fa711c081788f" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=4768&mediatype=1" title="中国人的名、字、号，不能随便叫！这个有讲究" target="_blank">中国人的名、字、号，不能随便叫！这个有讲究</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2-recommend">
+                    <div class="s2-recommend-title">微刊推荐</div>
+                    <div class="s2-recommend-body">
+                        <div class="s2-recommend-item">
+                            <a href="/detail/microBookDetail?id=403" title="四书五经：绝唱古今的东方智慧" target="_blank">
+                                <img class="s2-recommend-img" src="http://wanxuan.cnki.net/org/images/5ec3bf5c119fa71040646f4a" width="350" height="157" alt="">
+                                <div class="s2-recommend-item-title">四书五经：绝唱古今的东方智慧</div>
+                            </a>
+                        </div>
+                        <div class="s2-recommend-item">
+                            <a href="/detail/microBookDetail?id=323" title="诗经内外有乾坤：当我们读诗经时，可以读些什么" target="_blank">
+                                <img class="s2-recommend-img" src="http://wanxuan.cnki.net/org/images/5e8e7896a2a8722180552364" width="350" height="157" alt="">
+                                <div class="s2-recommend-item-title">诗经内外有乾坤：当我们读诗经时，可以读些什么</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section s2">
+        <div class="s2-header clearfix">
+            <div class="s2-header-l clearfix">
+                <span class="s2-title">
+                    <a href="/works?classifyId=H&positionX=7" target="_blank">生活</a> ·
+                    <a href="/works?classifyId=H&positionX=7" target="_blank">休闲</a>
+                </span>
+                <div class="s2-subtitle clearfix">
+                    <a href="/works?classifyId=H02&positionX=7&positionY=1" target="_blank">健康保健</a>
+                    <a href="/works?classifyId=H03&positionX=7&positionY=2" target="_blank">生活锦囊</a>
+                    <a href="/works?classifyId=H08&positionX=7&positionY=7" target="_blank">旅行天下</a>
+                    <a href="/works?classifyId=I&positionX=8" target="_blank">育儿</a>
+                    <a href="/works?classifyId=H05&positionX=7&positionY=4" target="_blank">家庭理财</a>
+                    <a href="/works?classifyId=H07&positionX=7&positionY=6" target="_blank">美容服饰</a>
+                    <a href="/works?classifyId=H12&positionX=7&positionY=11" target="_blank">宠物世界</a>
+                </div>
+            </div>
+            <div class="s2-header-r">
+                <a class="more" href="/works?classifyId=H&positionX=7" target="_blank">查看更多>></a>
+            </div>
+        </div>
+        <div class="s2-body clearfix">
+            <div class="s2-body-l clearfix">
+                <div class="s2-item-first clearfix">
+                    <a class="s2-first-img" href="" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5dbb8807d294f072b0ddb0cb" width="332" height="186" alt="最美不过中国风——一生必去的十大中国风旅行地" title="最美不过中国风——一生必去的十大中国风旅行地">
+                        <i class="s2-first-icon4"></i>
+                    </a>
+                    <div class="s2-first-info">
+                        <div class="s2-first-title">
+                            <a href="/detail/workDetail?id=2661&mediatype=4" title="最美不过中国风——一生必去的十大中国风旅行地">最美不过中国风——一生必去的十大中国风旅行地</a>
+                        </div>
+                        <div class="s2-first-tags">
+                            <span>旅行</span>
+                            <span>婺源</span>
+                            <span>南浔古镇</span>
+                            <span>南靖土楼</span>
+                        </div>
+                        <div class="s2-first-intro">说起中国风，你会想到什么呢？是水墨、唐诗、宋词？还是旗袍、唐装、青花瓷？亦或是粉墙黛瓦、四合院？</div>
+                        <div class="s2-first-author">
+                            <a href="http://wanxuan.cnki.net/org/images/5eb3ca8b119fa71a0071e066">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3ca8b119fa71a0071e066" alt="">去旅行</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2-items clearfix">
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=9011&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5ebbb2c0119fa72928637840" width="230" height="130" alt="你是哪种理财思维，决定你能掌控多少财富" title="你是哪种理财思维，决定你能掌控多少财富">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=9011&mediatype=1" target="_blank" title="你是哪种理财思维，决定你能掌控多少财富">你是哪种理财思维，决定你能掌控多少财富</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdcf021" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3cb11119fa71a0071e070" alt="">财富学院</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=5600&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5ec4a0e5a2a872268457b875" width="230" height="130" alt="选鸡蛋，营养和颜色有关吗？" title="选鸡蛋，营养和颜色有关吗？">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=5600&mediatype=1" target="_blank" title="选鸡蛋，营养和颜色有关吗？">选鸡蛋，营养和颜色有关吗？</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdjj023" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3cb4c119fa71a0071e074" alt="">居家宝典</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=6788&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5e60c7baa2a8721f30af4002" width="230" height="130" alt="吃对才会赢：9种最佳健身食品" title="吃对才会赢：9种最佳健身食品">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=6788&mediatype=1" target="_blank" title="吃对才会赢：9种最佳健身食品">吃对才会赢：9种最佳健身食品</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdjk009" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c937119fa71a0071e056" alt="">健康大讲堂</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=2487&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5db68418d294f06abc56c96c" width="230" height="130" alt="怎样给孩子选择“好”绘本" title="怎样给孩子选择“好”绘本">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=2487&mediatype=1" target="_blank" title="怎样给孩子选择“好”绘本">怎样给孩子选择“好”绘本</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdye008" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c90e119fa71a0071e054" alt="">育儿大百科</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=1223&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5d5b9fc5464f543cf0a2a3f8" width="230" height="130" alt="早餐大PK，牛奶、豆浆和粥怎么选" title="早餐大PK，牛奶、豆浆和粥怎么选">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=1223&mediatype=1" target="_blank" title="早餐大PK，牛奶、豆浆和粥怎么选">早餐大PK，牛奶、豆浆和粥怎么选</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/detail/workDetail?id=1223&mediatype=1" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3c937119fa71a0071e056" alt="">健康大讲堂</a>
+                        </div>
+                    </div>
+                    <div class="s2-item">
+                        <a class="s2-item-img" href="/detail/workDetail?id=8763&mediatype=1" target="_blank">
+                            <img src="http://kandian.cnki.net/org/images/5eaa907f119fa72b584d8d35" width="230" height="130" alt="热情西班牙之冷门玩法" title="热情西班牙之冷门玩法">
+                            <span class="badge">图文</span>
+                        </a>
+                        <div class="s2-item-title">
+                            <a href="/detail/workDetail?id=8763&mediatype=1" target="_blank" title="热情西班牙之冷门玩法">热情西班牙之冷门玩法</a>
+                        </div>
+                        <div class="s2-item-author">
+                            <a href="/kdh/home/kdlx017" target="_blank">
+                                <img src="http://wanxuan.cnki.net/org/images/5eb3ca8b119fa71a0071e066" alt="">去旅行</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s2-body-r">
+                <div class="s2-hot">
+                    <div class="s2-hot-title">热文榜单</div>
+                    <div class="s2-hot-body">
+                        <div class="s2-hot-item active">
+                            <i class="s2-hot-item-number s2-hot-item-number1">1</i>
+                            <span class="s2-hot-item-title">和孩子一起“玩”数学</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=6816&mediatype=1" title="和孩子一起“玩”数学" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5e620ccc119fa71dac63fb4f" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=6816&mediatype=1" title="和孩子一起“玩”数学" target="_blank">和孩子一起“玩”数学</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number s2-hot-item-number2">2</i>
+                            <span class="s2-hot-item-title">怎样辨别食物是寒性还是热性</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=6520&mediatype=1" title="怎样辨别食物是寒性还是热性" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5e58b5a4a2a8721f30af34c6" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=6520&mediatype=1" title="怎样辨别食物是寒性还是热性" target="_blank">怎样辨别食物是寒性还是热性</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number s2-hot-item-number3">3</i>
+                            <span class="s2-hot-item-title">怎样和毛孔粗大说byebye</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=8064&mediatype=1" title="怎样和毛孔粗大说byebye" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5e8ed209119fa72ecc552dac" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=8064&mediatype=1" title="怎样和毛孔粗大说byebye" target="_blank">怎样和毛孔粗大说byebye</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number">4</i>
+                            <span class="s2-hot-item-title">“运动圈”的传说，你追逐过吗</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=8059&mediatype=1" title="“运动圈”的传说，你追逐过吗" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5e8ec958119fa72ecc552d87" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=8059&mediatype=1" title="“运动圈”的传说，你追逐过吗" target="_blank">“运动圈”的传说，你追逐过吗</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s2-hot-item">
+                            <i class="s2-hot-item-number">5</i>
+                            <span class="s2-hot-item-title">剩饭剩菜怎么处理才好</span>
+                            <div class="s2-hot-item-detail clearfix">
+                                <a class="s2-hot-detail-img" href="/detail/workDetail?id=8365&mediatype=1" title="剩饭剩菜怎么处理才好" target="_blank">
+                                    <img src="http://kandian.cnki.net/org/images/5e997030119fa7258888e488" width="105" height="59" alt="">
+                                </a>
+                                <div class="s2-hot-detail-title">
+                                    <a href="/detail/workDetail?id=8365&mediatype=1" title="剩饭剩菜怎么处理才好" target="_blank">剩饭剩菜怎么处理才好</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s2-recommend">
+                    <div class="s2-recommend-title">微刊推荐</div>
+                    <div class="s2-recommend-body">
+                        <div class="s2-recommend-item">
+                            <a href="/detail/microBookDetail?id=199" title="情绪急救：应对各种日常心理伤害的策略与方法" target="_blank">
+                                <img class="s2-recommend-img" src="http://wanxuan.cnki.net/org/images/5de0c3ad119fa7174c72953f" width="350" height="157" alt="">
+                                <div class="s2-recommend-item-title">情绪急救：应对各种日常心理伤害的策略与方法</div>
+                            </a>
+                        </div>
+                        <div class="s2-recommend-item">
+                            <a href="/detail/microBookDetail?id=197" title="抱怨的艺术：不委屈自己、不伤害他人的说话之道" target="_blank">
+                                <img class="s2-recommend-img" src="http://wanxuan.cnki.net/org/images/5de0bd61119fa7174c72952d" width="350" height="157" alt="">
+                                <div class="s2-recommend-item-title">抱怨的艺术：不委屈自己、不伤害他人的说话之道</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="s3-wrap">
+        <div class="section s3">
+            <div class="s3-title">书刊商城</div>
+            <div class="s3-body">
+                <div class="s3-book-items clearfix">
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/singlePeriodDetail/YLYL202006" target="_blank">
+                            <img src="http://c61.cnki.net/CJFD/big/YLYL/YLYL202006.jpg" width="139" height="187" alt="意林" title="意林">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/singlePeriodDetail/YLYL202006" target="_blank" title="意林">意林</a>
+                        </div>
+                        <div class="s3-book-author">2020年06期</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/singlePeriodDetail/SWZF202004" target="_blank">
+                            <img src="http://c61.cnki.net/CJFD/big/SWZF/SWZF202004.jpg" width="139" height="187" alt="思维与智慧" title="思维与智慧">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/singlePeriodDetail/SWZF202004" target="_blank" title="思维与智慧">思维与智慧</a>
+                        </div>
+                        <div class="s3-book-author">2020年04期</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/singlePeriodDetail/HQDL202001" target="_blank">
+                            <img src="http://c61.cnki.net/CJFD/big/HQDL/HQDL202001.jpg" width="139" height="187" alt="环球人文地理" title="环球人文地理">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/singlePeriodDetail/HQDL202001" target="_blank" title="环球人文地理">环球人文地理</a>
+                        </div>
+                        <div class="s3-book-author">2020年01期</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/periodDetail/FMBD" target="_blank">
+                            <img src="http://c61.cnki.net/CJFD/big/FMBD.jpg" width="139" height="187" alt="父母必读" title="父母必读">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/periodDetail/FMBD" target="_blank" title="父母必读">父母必读</a>
+                        </div>
+                        <div class="s3-book-author">2020年03期</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/periodDetail/DDAA" target="_blank">
+                            <img src="http://c61.cnki.net/CJFD/big/DDAA.jpg" width="139" height="187" alt="当代" title="当代">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/periodDetail/DDAA" target="_blank" title="当代">当代</a>
+                        </div>
+                        <div class="s3-book-author">2020年02期</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/bookDetail/DZ2003120028" target="_blank">
+                            <img src="http://qiangguo.cnki.net/Mall/Images/Book/Cover/Big/DZ2003120028.jpg" width="139" height="187" alt="不可思议的色彩能量书" title="不可思议的色彩能量书">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/bookDetail/DZ2003120028" target="_blank" title="不可思议的色彩能量书">不可思议的色彩能量书</a>
+                        </div>
+                        <div class="s3-book-author">杰米·琳 著</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/bookDetail/DZ1912060037" target="_blank">
+                            <img src="http://qiangguo.cnki.net/Mall/Images/Book/Cover/Big/DZ1912060037.jpg" width="139" height="187" alt="负向思考力：通往胜利的消极路线" title="负向思考力：通往胜利的消极路线">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/bookDetail/DZ1912060037" target="_blank" title="负向思考力：通往胜利的消极路线">负向思考力：通往胜利的消极路线</a>
+                        </div>
+                        <div class="s3-book-author">鲍勃·奈特 著</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/bookDetail/DZ1911130006" target="_blank">
+                            <img src="http://qiangguo.cnki.net/Mall/Images/Book/Cover/Big/DZ1911130006.jpg" width="139" height="187" alt="像曾国藩那样思维" title="像曾国藩那样思维">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/bookDetail/DZ1911130006" target="_blank" title="像曾国藩那样思维">像曾国藩那样思维</a>
+                        </div>
+                        <div class="s3-book-author">路秀儒 著</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/bookDetail/DZ2003200075" target="_blank">
+                            <img src="http://qiangguo.cnki.net/Mall/Images/Book/Cover/Big/DZ2003200075.jpg" width="139" height="187" alt="李斯传：从一介布衣到帝国宰相" title="李斯传：从一介布衣到帝国宰相">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/bookDetail/DZ2003200075" target="_blank" title="李斯传：从一介布衣到帝国宰相">李斯传：从一介布衣到帝国宰相</a>
+                        </div>
+                        <div class="s3-book-author">朱耀辉 著</div>
+                    </div>
+                    <div class="s3-book-item">
+                        <a class="s3-book-img" href="/detail/bookDetail/DZ2002150010" target="_blank">
+                            <img src="http://qiangguo.cnki.net/Mall/Images/Book/Cover/Big/DZ2002150010.jpg" width="139" height="187" alt="终身学习：领导力篇" title="终身学习：领导力篇">
+                        </a>
+                        <div class="s3-book-title">
+                            <a href="/detail/bookDetail/DZ2002150010" target="_blank" title="终身学习：领导力篇">终身学习：领导力篇</a>
+                        </div>
+                        <div class="s3-book-author">托德•亨利 著</div>
+                    </div>
+                </div>
+                <div class="s3-booklist-items">
+                    <a class="s3-booklist-item" href="/mall/booklistDetail?booklistId=8" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e5c6a77a2a8721f30af371e" width="261" height="102" alt="">
+                    </a>
+                    <a class="s3-booklist-item" href="/mall/booklistDetail?booklistId=30" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e8edba4119fa72ecc552df3" width="261" height="102" alt="">
+                    </a>
+                    <a class="s3-booklist-item" href="/mall/booklistDetail?booklistId=29" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e8edab4119fa72ecc552df1" width="261" height="102" alt="">
+                    </a>
+                    <a class="s3-booklist-item" href="/mall/booklistDetail?booklistId=10" target="_blank">
+                        <img src="http://wanxuan.cnki.net/org/images/5e5c6ab7a2a8721f30af3722" width="261" height="102" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="s3-footer">
+                <a class="s3-btn" href="/mall/home" target="_blank">进入书刊商城>></a>
+            </div>
+        </div>
+    </div>
+    <div class="section s4">
+        <div class="s4-title">万选号</div>
+        <div class="s4-body">
+            <a class="s4-item" href="/kdh/home/kdsc015" target="_blank">
+                <img src="http://wanxuan.cnki.net/org/images/5eb3ca1e119fa71a0071e062" width="90" height="90" alt="">
+                <div class="s4-item-name">腹有诗书</div>
+            </a>
+            <a class="s4-item" href="/kdh/home/kdysms" target="_blank">
+                <img src="http://wanxuan.cnki.net/org/images/5e5f47afa2a8722030cf10e0" width="90" height="90" alt="">
+                <div class="s4-item-name">美书</div>
+            </a>
+            <a class="s4-item" href="/kdh/home/kdls004" target="_blank">
+                <img src="http://wanxuan.cnki.net/org/images/5eb4b3b9a2a872256ce65cd5" width="90" height="90" alt="">
+                <div class="s4-item-name">经纬历史</div>
+            </a>
+            <a class="s4-item" href="/kdh/home/cnkigjs" target="_blank">
+                <img src="http://wanxuan.cnki.net/org/images/5ec5e3ff119fa727d4b07266" width="90" height="90" alt="">
+                <div class="s4-item-name">名家书画馆</div>
+            </a>
+            <a class="s4-item" href="/kdh/home/kdgx014" target="_blank">
+                <img src="http://wanxuan.cnki.net/org/images/5eb3c9f4119fa71a0071e060" width="90" height="90" alt="">
+                <div class="s4-item-name">国学金典</div>
+            </a>
+            <a class="s4-item" href="/kdh/home/zc001" target="_blank">
+                <img src="http://wanxuan.cnki.net/org/images/5e4cf892119fa729dc0fca9c" width="90" height="90" alt="">
+                <div class="s4-item-name">职场第一课</div>
+            </a>
+        </div>
+        <div class="s4-footer">
+            <a class="s4-btn" href="/kdh" target="_blank">查看更多>></a>
+        </div>
+    </div>
+    <%- include('./layouts/footerLayout', {}) %>
+        <script>
+            $('.header .dropdown').hover(function() {
+                $(this).find('.dropdown-menu').stop().slideToggle();
+            });
+            $('.header .hr .search-icon').click(function(e) {
+                e.stopPropagation();
+                $('.search').stop().slideDown();
+            });
+            $('.search').click(function(e) {
+                e.stopPropagation();
+            });
+            $('.search').mouseleave(function() {
+                $(this).stop().slideUp();
+            });
+            // 搜索类型切换
+            var type = 0;
+            $('.search-tab span').click(function() {
+                type = $(this).index();
+                $(this).addClass('selected').siblings().removeClass('selected');
+            });
+            //热门榜单切换
+            $('.s2-hot').on('mouseenter', '.s2-hot-item', function() {
+                    $('.s2-hot-item').removeClass('active');
+                    $(this).toggleClass('active');
+                }
+
+            ); //作品类型切换
+            var tabA = $('.s1-tab span');
+            var s1Icon = $('.s1-item-img i');
+            var index = 0;
+            tabA.click(function(e) {
+                    e.stopPropagation();
+                    index = $(this).index();
+                    $(this).addClass('selected').siblings().removeClass('selected');
+                    // if (index > 0) {
+                    //     s1Icon.show().attr('class', '').addClass('s1-item-icon' + index);
+                    // }
+                    $('.s1-items').eq(index).show().siblings('.s1-items').hide();
+                }
+
+            );
+
+            var login = $('#login');
+            login.click(function() {
+                location.href = '/temp/userCenter/login?v=' + Date.now();
+            })
+
+            var searchBtn = $('.search-btn');
+            var enterControl = searchBtn.attr('data-enter-control');
+            searchBtn.on('click', function() {
+                    var keyword = $(this).siblings('input').val();
+                    if (keyword.trim().length == 0) {
+                        return;
+                    }
+                    var typeArr = ['home', 'works', 'microbook', 'kdh', 'period', 'book'];
+                    if (type == 6) {
+                        location.href = encodeURI('/literature/literatureResult?fulltext=' + keyword);
+                    } else {
+                        location.href = encodeURI('/search/' + typeArr[type] + '?keyword=' + keyword);
+                    }
+
+                })
+                // 回车 提交 enterControl可以区分其他回车需求
+            if (enterControl == 1) {
+                $(document).bind("keydown", function(e) {
+                    if (e.keyCode == 13) {
+                        searchBtn.click();
+                    }
+                })
+            }
+            $(window).scroll(function() {
+                var A = $(window).scrollTop();
+                if (A > 0) {
+                    $('.header').addClass('fixed');
+                } else {
+                    $('.header').removeClass('fixed');
+                }
+            });
+        </script>
+</body>
+
+</html>

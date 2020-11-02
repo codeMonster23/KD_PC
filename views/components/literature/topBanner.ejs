@@ -1,0 +1,65 @@
+<div class="topBanner">
+    <div class="searchBox">
+        <div class="nav clearfix">
+            <a href="javascript:;" class="cur">全部</a>
+            <div class="line"></div>
+            <a target="_blank" href="/literature/library?dbname=cjfvtotal&ztcode=VN101">文艺库</a>
+            <div class="line"></div>
+            <a target="_blank" href="/literature/library?dbname=cjfutotal&ztcode=UN101">文化库</a>
+            <div class="line"></div>
+            <a target="_blank" href="/literature/library?dbname=cjfttotal&ztcode=TN201">科普库</a>
+        </div>
+        <div class="searchArea clearfix">
+            <div class="searchWrap left clearfix">
+                <div class="select left">
+                    <% if(viewModel.searchWordName){ %>
+                    <p data-code="<%= viewModel.searchWordName %>"><%= viewModel.dropdownList[viewModel.searchWordName] %></p>
+                    <%}else{%>
+                    <p data-code="topic">主 题</p>
+                    <%}%>
+                    <ul style="display: none">
+                        <li data-code="fulltext">全 文</li>
+                        <li data-code="topic">主 题</li>
+                        <li data-code="title">篇 名</li>
+                        <li data-code="kd">关键词</li>
+                        <li data-code="ar">作 者</li>
+                        <li data-code="source">来 源</li>
+                    </ul>
+                </div>
+                <script>
+                    // 下拉列表
+                    $.divselect($(".select p"), $(".select ul"), $(".select ul li"));
+                    // $(".nav a").click(function () {
+                    //     $(this).addClass("cur").siblings().removeClass("cur")
+                    // })
+                </script>
+                <input type="text" id="input" value="<%=viewModel.searchWordValue%>" />
+                <a data-search-word-value="<%=viewModel.searchWordValue%>" id="search" href="javascript:;" class="left btn">搜索</a>
+                <script>
+                    // 搜索
+                    var search = $('#search');
+                    var input = $('#input');
+                    search.click(function () {
+                        var value = input.val();
+                        if(value.trim()){
+                            var code = $(".select p").attr('data-code');
+                            var url = '/literature/literatureResult?' + code + '=' + value;
+                            location.href = encodeURI(url);
+                        }else{
+                            location.href = '/literature';
+                        }
+                    })
+
+
+                    // 回车 提交
+                    $(document).bind("keydown",function(e){
+                        if(e.keyCode==13) {
+                            $('#search').click();
+                        }
+                        })
+                </script>
+            </div>
+            <a href="/literature/advancedSearch" class="sbtn">高级搜索</a>
+        </div>
+    </div>
+</div>

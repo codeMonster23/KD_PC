@@ -1,0 +1,2665 @@
+﻿[
+  {
+    "childlist": [
+    ],
+    "grade": 1,
+    "ztCode": "VN101",
+    "ztName": "文艺理论"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10201",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10202",
+        "ztName": "诗歌集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10203",
+        "ztName": "爱情诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10204",
+        "ztName": "励志诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10205",
+        "ztName": "借景抒情诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10206",
+        "ztName": "即事感怀诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10207",
+        "ztName": "咏史怀古诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10208",
+        "ztName": "旅行/怀乡诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10209",
+        "ztName": "咏物言志诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10210",
+        "ztName": "哲理诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10211",
+        "ztName": "山水田园诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10212",
+        "ztName": "赠友送别诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10213",
+        "ztName": "军旅诗"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN102",
+    "ztName": "诗歌、韵文"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10301",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10302",
+        "ztName": "戏剧文学集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10303",
+        "ztName": "歌剧与歌舞剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10304",
+        "ztName": "广播剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10305",
+        "ztName": "电影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10306",
+        "ztName": "电视剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10307",
+        "ztName": "话剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10308",
+        "ztName": "哑剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10309",
+        "ztName": "小品剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10310",
+        "ztName": "京剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10311",
+        "ztName": "评剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10312",
+        "ztName": "蒙古戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10313",
+        "ztName": "二人转"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10314",
+        "ztName": "秦腔"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10315",
+        "ztName": "陇剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10316",
+        "ztName": "沪剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10317",
+        "ztName": "吕剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10318",
+        "ztName": "豫剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10319",
+        "ztName": "越剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10320",
+        "ztName": "昆剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10321",
+        "ztName": "黄梅戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10322",
+        "ztName": "高甲戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10323",
+        "ztName": "粤剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10324",
+        "ztName": "琼剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10325",
+        "ztName": "桂剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10326",
+        "ztName": "川剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10327",
+        "ztName": "河北梆子"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10328",
+        "ztName": "汉剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10329",
+        "ztName": "其他地方戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10330",
+        "ztName": "杂剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10331",
+        "ztName": "传奇"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10332",
+        "ztName": "诗剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10333",
+        "ztName": "快板剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10334",
+        "ztName": "皮影戏与木偶戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10335",
+        "ztName": "弹词"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10336",
+        "ztName": "鼓词"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10337",
+        "ztName": "河南坠子、道情与渔鼓"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10338",
+        "ztName": "琴书"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10339",
+        "ztName": "曲词"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10340",
+        "ztName": "快书与快板"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10341",
+        "ztName": "相声与独脚戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10342",
+        "ztName": "评书"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN103",
+    "ztName": "戏剧文学"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10401",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10402",
+        "ztName": "小说集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10403",
+        "ztName": "红色小说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10404",
+        "ztName": "军事小说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10405",
+        "ztName": "史传小说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10406",
+        "ztName": "经济政治小说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10407",
+        "ztName": "科学科幻小说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10408",
+        "ztName": "惊险推理小说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10409",
+        "ztName": "社会与言情小说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10410",
+        "ztName": "武侠小说"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN104",
+    "ztName": "小说"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10501",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10502",
+        "ztName": "散文集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10503",
+        "ztName": "抒情写意散文"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10504",
+        "ztName": "写景状物散文"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10505",
+        "ztName": "记人叙事散文"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10506",
+        "ztName": "议论随笔散文"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10507",
+        "ztName": "电视散文"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10508",
+        "ztName": "访谈类散文"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN105",
+    "ztName": "散文"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10601",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10602",
+        "ztName": "对联"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10603",
+        "ztName": "匾额"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10604",
+        "ztName": "挽词与悼词"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN106",
+    "ztName": "杂著"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10801",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10802",
+        "ztName": "民间文学集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10803",
+        "ztName": "民间歌谣"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10804",
+        "ztName": "民间故事与民间传说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10805",
+        "ztName": "寓言"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10806",
+        "ztName": "神话"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10807",
+        "ztName": "谚语"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10808",
+        "ztName": "谜语、笑话与幽默"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN108",
+    "ztName": "民间文学"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10901",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10902",
+        "ztName": "儿童文学集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10903",
+        "ztName": "儿童诗歌与童谣"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10904",
+        "ztName": "儿童小说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10905",
+        "ztName": "儿童散文"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10906",
+        "ztName": "童话与寓言故事"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10907",
+        "ztName": "成语故事"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10908",
+        "ztName": "儿童故事"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN10909",
+        "ztName": "神话故事"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN109",
+    "ztName": "儿童文学"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11001",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11002",
+        "ztName": "民族文学集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11003",
+        "ztName": "神话"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11004",
+        "ztName": "传说"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11005",
+        "ztName": "故事"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11006",
+        "ztName": "歌谣"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11007",
+        "ztName": "英雄史诗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11008",
+        "ztName": "谚语"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11009",
+        "ztName": "谜语、笑话与幽默"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN110",
+    "ztName": "少数民族文学"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11101",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11102",
+        "ztName": "报告文学集"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "VN1110301",
+            "ztName": "中国"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1110302",
+            "ztName": "外国"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "VN11103",
+        "ztName": "回忆录"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11104",
+        "ztName": "企业史"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11105",
+        "ztName": "村史"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11106",
+        "ztName": "家史"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "VN1110701",
+            "ztName": "政治与法律"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1110702",
+            "ztName": "军事与国防建设"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1110703",
+            "ztName": "经济"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1110704",
+            "ztName": "文化、教育与体育"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1110705",
+            "ztName": "文学与艺术"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1110706",
+            "ztName": "科学与工程技术"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1110707",
+            "ztName": "社会生活与社会问题"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1110708",
+            "ztName": "其他"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "VN11107",
+        "ztName": "通讯、特写与专题报道"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11108",
+        "ztName": "人物"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN111",
+    "ztName": "报告文学"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11201",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11202",
+        "ztName": "国际歌与国歌"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11203",
+        "ztName": "流行歌曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11204",
+        "ztName": "民歌精选"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11205",
+        "ztName": "影视金曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11206",
+        "ztName": "少儿歌曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11207",
+        "ztName": "情歌对唱"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11208",
+        "ztName": "校园歌曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11209",
+        "ztName": "军旅歌曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11210",
+        "ztName": "宗教歌曲"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "VN1121101",
+            "ztName": "京剧音乐"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121102",
+            "ztName": "歌剧与歌舞剧音乐"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121103",
+            "ztName": "舞剧音乐"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121104",
+            "ztName": "话剧音乐"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121105",
+            "ztName": "地方剧音乐"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "VN11211",
+        "ztName": "戏剧乐曲"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "VN1121201",
+            "ztName": "电影配乐"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121202",
+            "ztName": "广播配乐"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121203",
+            "ztName": "电视配乐"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121204",
+            "ztName": "杂剧配乐"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121205",
+            "ztName": "杂技配乐"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "VN11212",
+        "ztName": "配乐音乐乐曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11213",
+        "ztName": "曲艺音乐乐曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11214",
+        "ztName": "说唱乐曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11215",
+        "ztName": "器乐曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11216",
+        "ztName": "中国民乐"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11217",
+        "ztName": "外国民乐"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11218",
+        "ztName": "宗教乐曲"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "VN1121901",
+            "ztName": "集体舞曲"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121902",
+            "ztName": "民族舞曲"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121903",
+            "ztName": "儿童舞曲"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121904",
+            "ztName": "古典舞曲"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121905",
+            "ztName": "现代舞曲"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121906",
+            "ztName": "芭蕾舞曲"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1121907",
+            "ztName": "交际舞曲"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "VN11219",
+        "ztName": "热门舞曲"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11220",
+        "ztName": "乐器"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11221",
+        "ztName": "歌词欣赏"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN112",
+    "ztName": "音乐"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11301",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11302",
+        "ztName": "集体舞"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "VN1130301",
+            "ztName": "秧歌舞"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130302",
+            "ztName": "花鼓舞与花灯舞"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130303",
+            "ztName": "高跷舞"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130304",
+            "ztName": "龙舞"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130305",
+            "ztName": "狮子舞"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130306",
+            "ztName": "腰鼓舞"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "VN11303",
+        "ztName": "中国民间舞蹈"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11304",
+        "ztName": "外国民族与民间舞蹈"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "VN1130501",
+            "ztName": "汉族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130502",
+            "ztName": "蒙古族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130503",
+            "ztName": "回族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130504",
+            "ztName": "藏族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130505",
+            "ztName": "维吾尔族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130506",
+            "ztName": "苗族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130507",
+            "ztName": "彝族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130508",
+            "ztName": "壮族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130509",
+            "ztName": "朝鲜族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130510",
+            "ztName": "满族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130511",
+            "ztName": "达斡尔族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130512",
+            "ztName": "鄂温克族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130513",
+            "ztName": "鄂伦春族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130514",
+            "ztName": "赫哲族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130515",
+            "ztName": "土族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130516",
+            "ztName": "撒拉族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130517",
+            "ztName": "东乡族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130518",
+            "ztName": "保安族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130519",
+            "ztName": "裕固族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130520",
+            "ztName": "哈萨克族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130521",
+            "ztName": "柯尔克孜族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130522",
+            "ztName": "乌孜别克族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130523",
+            "ztName": "塔吉克族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130524",
+            "ztName": "塔塔尔族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130525",
+            "ztName": "锡伯族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130526",
+            "ztName": "俄罗斯族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130527",
+            "ztName": "瑶族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130528",
+            "ztName": "白族（民家）"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130529",
+            "ztName": "傣族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130530",
+            "ztName": "哈尼族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130531",
+            "ztName": "佤族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130532",
+            "ztName": "傈僳族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130533",
+            "ztName": "纳西族（么些）"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130534",
+            "ztName": "拉祜族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130535",
+            "ztName": "景颇族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130536",
+            "ztName": "布朗族（濮曼）"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130537",
+            "ztName": "阿昌族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130538",
+            "ztName": "怒族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130539",
+            "ztName": "德昂族（崩龙）"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130540",
+            "ztName": "独龙族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130541",
+            "ztName": "普米族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130542",
+            "ztName": "门巴族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130543",
+            "ztName": "布依族（仲家）"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130544",
+            "ztName": "水族（水家）"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130545",
+            "ztName": "仡佬族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130546",
+            "ztName": "侗族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130547",
+            "ztName": "土家族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130548",
+            "ztName": "羌族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130549",
+            "ztName": "佬族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130550",
+            "ztName": "毛南族（毛难）"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130551",
+            "ztName": "珞巴族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130552",
+            "ztName": "基诺族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130553",
+            "ztName": "黎族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130554",
+            "ztName": "京族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130555",
+            "ztName": "畲族"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130556",
+            "ztName": "高山族"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "VN11305",
+        "ztName": "中国民族舞蹈"
+      },
+      {
+        "childlist": [
+          {
+            "grade": 3,
+            "ztCode": "VN1130601",
+            "ztName": "祭祀舞"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130602",
+            "ztName": "傩舞"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130603",
+            "ztName": "图腾舞"
+          },
+          {
+            "grade": 3,
+            "ztCode": "VN1130604",
+            "ztName": "巫舞"
+          }
+        ],
+        "grade": 2,
+        "ztCode": "VN11306",
+        "ztName": "原始宗教舞蹈"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11307",
+        "ztName": "儿童舞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11308",
+        "ztName": "古典舞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11309",
+        "ztName": "芭蕾舞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11310",
+        "ztName": "现代舞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11311",
+        "ztName": "歌舞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11312",
+        "ztName": "交际舞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11313",
+        "ztName": "街舞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11314",
+        "ztName": "踢踏舞"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11315",
+        "ztName": "民族舞剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11316",
+        "ztName": "儿童舞剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11317",
+        "ztName": "芭蕾舞剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11318",
+        "ztName": "现代派舞剧"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN113",
+    "ztName": "舞蹈"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11401",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11402",
+        "ztName": "歌剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11403",
+        "ztName": "歌舞剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11404",
+        "ztName": "话剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11405",
+        "ztName": "哑剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11406",
+        "ztName": "小品剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11407",
+        "ztName": "京剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11408",
+        "ztName": "评剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11409",
+        "ztName": "蒙古戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11410",
+        "ztName": "二人转"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11411",
+        "ztName": "秦腔"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11412",
+        "ztName": "陇剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11413",
+        "ztName": "沪剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11414",
+        "ztName": "吕剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11415",
+        "ztName": "豫剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11416",
+        "ztName": "越剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11417",
+        "ztName": "昆剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11418",
+        "ztName": "黄梅戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11419",
+        "ztName": "高甲戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11420",
+        "ztName": "粤剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11421",
+        "ztName": "琼剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11422",
+        "ztName": "桂剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11423",
+        "ztName": "川剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11424",
+        "ztName": "河北梆子"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11425",
+        "ztName": "汉剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11426",
+        "ztName": "其他中国地方戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11427",
+        "ztName": "外国地方剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11428",
+        "ztName": "杂剧与传奇"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11429",
+        "ztName": "诗剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11431",
+        "ztName": "快板剧"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11432",
+        "ztName": "皮影戏与木偶戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11433",
+        "ztName": "弹词"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11434",
+        "ztName": "鼓词"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11435",
+        "ztName": "河南坠子、道情与渔鼓"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11436",
+        "ztName": "琴书"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11437",
+        "ztName": "曲词"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11438",
+        "ztName": "快书与快板"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11439",
+        "ztName": "相声与独脚戏"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11440",
+        "ztName": "评书"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11441",
+        "ztName": "杂技"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN114",
+    "ztName": "戏剧"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11501",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11502",
+        "ztName": "影视集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11503",
+        "ztName": "惊险片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11504",
+        "ztName": "爱情片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11505",
+        "ztName": "战争片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11506",
+        "ztName": "恐怖片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11507",
+        "ztName": "喜剧片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11508",
+        "ztName": "悲剧片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11509",
+        "ztName": "武侠片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11510",
+        "ztName": "历史片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11511",
+        "ztName": "生活片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11512",
+        "ztName": "纪录片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11513",
+        "ztName": "科教片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11514",
+        "ztName": "科幻片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11515",
+        "ztName": "戏曲片"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11516",
+        "ztName": "动画片"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN115",
+    "ztName": "影视"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11601",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11602",
+        "ztName": "书画作品集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11603",
+        "ztName": "中国画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11604",
+        "ztName": "油画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11605",
+        "ztName": "漆画与涂料画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11606",
+        "ztName": "素描与速写"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11607",
+        "ztName": "水彩画与水粉画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11608",
+        "ztName": "粉画与蜡笔画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11609",
+        "ztName": "版画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11610",
+        "ztName": "宣传画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11611",
+        "ztName": "漫画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11612",
+        "ztName": "年画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11613",
+        "ztName": "连环画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11614",
+        "ztName": "组画与插图画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11615",
+        "ztName": "壁画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11616",
+        "ztName": "动画（卡通）"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11617",
+        "ztName": "立体画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11618",
+        "ztName": "甲骨文"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11619",
+        "ztName": "金文"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11620",
+        "ztName": "篆书"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11621",
+        "ztName": "隶书"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11622",
+        "ztName": "楷书"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11623",
+        "ztName": "草书"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11624",
+        "ztName": "行书"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11625",
+        "ztName": "外文书法"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11626",
+        "ztName": "篆刻"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN116",
+    "ztName": "书画篆刻"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11701",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11702",
+        "ztName": "摄影作品集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11703",
+        "ztName": "室内摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11704",
+        "ztName": "广告摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11705",
+        "ztName": "人像摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11706",
+        "ztName": "时装摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11707",
+        "ztName": "风光摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11708",
+        "ztName": "舞台摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11709",
+        "ztName": "动体摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11710",
+        "ztName": "夜间摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11711",
+        "ztName": "空中摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11712",
+        "ztName": "水下摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11713",
+        "ztName": "新闻摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11714",
+        "ztName": "建筑摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11715",
+        "ztName": "动物与植物摄影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11716",
+        "ztName": "摄影器材"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN117",
+    "ztName": "摄影"
+  },
+  {
+    "childlist": [
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11801",
+        "ztName": "研究与评论"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11802",
+        "ztName": "雕塑作品集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11803",
+        "ztName": "木雕与木刻"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11804",
+        "ztName": "石雕与石刻"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11805",
+        "ztName": "金属雕刻"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11806",
+        "ztName": "竹雕与竹刻"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11807",
+        "ztName": "漆雕"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11808",
+        "ztName": "泥塑与塑像"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11809",
+        "ztName": "陶艺"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11810",
+        "ztName": "工艺美术作品集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11811",
+        "ztName": "图案集"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11812",
+        "ztName": "纺织"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11813",
+        "ztName": "印染"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11814",
+        "ztName": "地毯与挂毯"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11815",
+        "ztName": "编织"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11816",
+        "ztName": "服装"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11817",
+        "ztName": "刺绣"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11818",
+        "ztName": "产品与商品装潢"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11819",
+        "ztName": "包装"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11820",
+        "ztName": "广告"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11821",
+        "ztName": "商标"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11822",
+        "ztName": "室内陈设"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11823",
+        "ztName": "橱窗"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11824",
+        "ztName": "家具"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11825",
+        "ztName": "工业设计"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11826",
+        "ztName": "玉器"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11827",
+        "ztName": "首饰"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11828",
+        "ztName": "金银器"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11829",
+        "ztName": "景泰蓝"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11830",
+        "ztName": "珐琅"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11831",
+        "ztName": "像章"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11832",
+        "ztName": "徽章"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11833",
+        "ztName": "纪念币"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11834",
+        "ztName": "铁画"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11835",
+        "ztName": "搪瓷"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11836",
+        "ztName": "料器"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11837",
+        "ztName": "玻璃"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11838",
+        "ztName": "琉璃"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11839",
+        "ztName": "漆器"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11840",
+        "ztName": "剪纸与刻纸"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11841",
+        "ztName": "折纸、扎纸与绒绢"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11842",
+        "ztName": "木偶、面具与皮影"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11843",
+        "ztName": "面塑"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11844",
+        "ztName": "木、竹、棕、草编织"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11845",
+        "ztName": "风筝"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11846",
+        "ztName": "灯彩"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11847",
+        "ztName": "烟鼻壶"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11848",
+        "ztName": "中国结"
+      },
+      {
+        "childlist": [
+        ],
+        "grade": 2,
+        "ztCode": "VN11849",
+        "ztName": "其他"
+      }
+    ],
+    "grade": 1,
+    "ztCode": "VN118",
+    "ztName": "工艺美术"
+  }
+]

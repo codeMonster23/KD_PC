@@ -1,0 +1,146 @@
+@charset "utf-8";
+.carousel {
+  width: 1198px;
+  height: 295px;
+  position: relative;
+}
+.carousel .images {
+  width: 1198px;
+  overflow: hidden;
+  height: 295px;
+  position: relative;
+}
+.carousel .images ul {
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+.carousel .images ul li {
+  position: absolute;
+  background: #fff;
+  overflow: hidden;
+}
+.carousel .images ul li a {
+  display: block;
+}
+.carousel .images ul li.waiting {
+  display: none;
+}
+.carousel .images ul li.no0 {
+  width: 653px;
+  height: 230px;
+  left: 0px;
+  top: 35px;
+  /*opacity: 0;*/
+  display: none;
+}
+.carousel .images ul li.no1 {
+  width: 513px;
+  height: 230px;
+  left: 0;
+  top: 35px;
+  z-index: 888;
+}
+.carousel .images ul li.no2 {
+  width: 653px;
+  height: 293px;
+  border: 1px solid #fff;
+  left: 274px;
+  top: 0px;
+  z-index: 999;
+}
+.carousel .images ul li.no3 {
+  width: 513px;
+  height: 230px;
+  right: 0px;
+  top: 35px;
+  z-index: 777;
+}
+.carousel .images ul li.no4 {
+  width: 653px;
+  height: 230px;
+  right: 0px;
+  top: 35px;
+  /*opacity: 0;*/
+  display: none;
+}
+.carousel .images ul li img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+.carousel .desc {
+  position: absolute;
+  top: 0;
+  right: -360px;
+  width: 300px;
+  font: 16px/30px "Microsoft Yahei";
+  color: #664e3a;
+}
+.carousel .desc .item {
+  display: none;
+}
+.carousel .desc .item.cur {
+  display: block;
+}
+.carousel .desc .title {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.carousel .desc .title a {
+  color: #664e3a;
+}
+.carousel .desc .author {
+  padding: 10px 0;
+}
+.carousel .circles {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  width: 128px;
+  margin-left: -64px;
+}
+.carousel .circles ol li {
+  float: left;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 3px;
+}
+.carousel .circles ol li.cur {
+  background: none;
+}
+.carousel .mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*background-color: black;*/
+  /*opacity: 0.6;*/
+  background: rgba(0, 0, 0, 0.6);
+  /*firefox、chrome*/
+  background: #000 \9;
+  /*IE*/
+  filter: alpha(opacity=60);
+  /*IE*/
+}
+.c-direction {
+  position: absolute;
+  width: 95px;
+  height: 230px;
+  z-index: 1000;
+  top: 35px;
+  cursor: pointer;
+}
+.c-prev {
+  left: -135px;
+  background: url("../images/indexImages/kd1-carousel9-left.png") center center no-repeat;
+}
+.c-next {
+  right: -135px;
+  background: url("../images/indexImages/kd1-carousel9-right.png") center center no-repeat;
+}

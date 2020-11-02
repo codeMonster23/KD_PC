@@ -1,0 +1,126 @@
+.k-banner {
+  height: 123px;
+  background: #99D6DC url(../images/kdh/k-banner.jpg) no-repeat center;
+}
+.kcont {
+  width: 1200px;
+  margin: -40px auto 0;
+  background-color: #ffffff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.kcont .handle {
+  padding: 40px 46px 26px;
+  height: 28px;
+}
+.kcont .handle .choose a {
+  float: left;
+  width: 70px;
+  text-align: center;
+  height: 26px;
+  line-height: 26px;
+  font-size: 16px;
+  color: #000;
+  border: 1px solid #D1D1D1;
+  margin-right: 10px;
+}
+.kcont .handle .choose a.cur {
+  color: #FF3003;
+  border-color: #FF3003;
+}
+.kcont .list {
+  padding-left: 46px;
+}
+.kcont .list li {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  width: 260px;
+  height: 316px;
+  border: 1px solid #E8E2DC;
+  text-align: center;
+  transition: all .2s linear;
+}
+.kcont .list li .link {
+  display: block;
+  height: 265px;
+  color: #000000;
+}
+.kcont .list li .link .cover {
+  width: 260px;
+  height: 125px;
+}
+.kcont .list li .link .logo {
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  margin: -57px auto 0;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+.kcont .list li .link h1 {
+  line-height: 33px;
+  font-size: 16px;
+}
+.kcont .list li .link .p1 {
+  font-size: 14px;
+  font-family: simsun;
+  line-height: 28px;
+}
+.kcont .list li .follow {
+  display: block;
+  width: 74px;
+  height: 33px;
+  text-align: center;
+  line-height: 33px;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0 auto;
+  background-color: #FF3003;
+  border-radius: 2px;
+}
+.kcont .list li:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.kcont .sp-page {
+  padding-top: 20px;
+  margin-top: 20px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  padding-bottom: 50px;
+}
+.kcont .sp-page a,
+.kcont .sp-page span {
+  color: #333333;
+  margin-right: 12px;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid #D1D1D1;
+}
+.kcont .sp-page span {
+  padding: 8px 11px;
+}
+.kcont .sp-page a:hover {
+  color: #ffffff;
+  background-color: #5AC360;
+  border-color: #5AC360;
+}
+.kcont .sp-page span.current {
+  background-color: #5AC360;
+  border: 1px solid #5AC360;
+  color: #fff;
+  margin-right: 12px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.kcont .sp-page span.disabled {
+  color: #333333;
+  margin-right: 12px;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid #D1D1D1;
+}

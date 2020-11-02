@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+    <link rel="stylesheet" type="text/css" href="/css/newpublic.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/payment/payment.css"/>
+    <script src="/js/jquery-tableMenu.js" type="text/javascript" charset="utf-8"></script>
+    <title>支付</title>
+
+</head>
+
+<body bgcolor="#EBEFF5">
+<%- include('../layouts/navLayout', {current: null, enterControl:1}) %>
+<div class="payBg">
+    <div class="swrap">
+        <div class="sutop">
+            <p class="p">支付成功</p>
+            <div class="btns">
+                <!--// 0文献  1期刊单期  2期刊年   7品得书院（图书） 17 知网文化作品  18 知网文化微刊 19月会员 20年会员-->
+                <% if(viewModel.orderType == 17) { %>
+                <a href="/detail/workDetail/<%= viewModel.workId %><%= viewModel.mediaType %>"
+                   class="a1 left">开始阅读</a>
+                <% }else if(viewModel.orderType == 18){ %>
+                <a href="/detail/microBookDetail?id=<%= viewModel.workId %>" class="a1 left">开始阅读</a>
+                <% }else if(viewModel.orderType == 19 || viewModel.orderType == 20){ %>
+                <a href="/personalCenter/vipRecord" class="a1 left">会员中心</a>
+                <% }else if(viewModel.orderType == 1) { %>
+                <a href="https://zwwh.cnki.net/onlineread/culture/index?sourceid=10&fName=<%= viewModel.workId %>&uid=<%= viewModel.uid %>&openid=<%= viewModel.openId %>" class="a1 left">开始阅读</a>
+                <% }else if(viewModel.orderType == 2) { %>
+                <a href="/detail/periodDetail/<%= viewModel.workId %>" class="a1 left">开始阅读</a>
+                <% }else if(viewModel.orderType == 7) { %>
+                <a href="https://zwwh.cnki.net/onlineread/culture/index?sourceid=20&fName=<%= viewModel.workId %>&uid=<%= viewModel.uid %>&openid=<%= viewModel.openId %>" class="a1 left">开始阅读</a>
+                <% } %>
+                <a href="/" class="a2 right">返回首页</a>
+            </div>
+        </div>
+        <!--// 作品-->
+        <% if(viewModel.orderType == 17) { %>
+        <div class="subottom">
+            <div class="favorite">
+                <label for="">猜你喜欢</label>
+                <div class="tab left">
+                    <a href="javascript:;" class="cur">图文</a>
+                    <a href="javascript:;">音频</a>
+                    <a href="javascript:;">视频</a>
+                    <a href="javascript:;">图集</a>
+                    <a href="javascript:;">微刊</a>
+                </div>
+            </div>
+            <!--图文-->
+            <div class="tabcont" style="display: block;">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.imagetextlist.length; i++){ %>
+                    <li>
+                        <a target="_blank"
+                           href="/detail/workDetail/<%= viewModel.data.imagetextlist[i].id %><%= viewModel.data.imagetextlist[i].mediatype %>">
+                            <img src="<%= viewModel.data.imagetextlist[i].coverpic %>"/>
+                            <span class="icon icon1"></span>
+                            <p><%= viewModel.data.imagetextlist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!--音频-->
+            <div class="tabcont">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.audiolist.length; i++){ %>
+                    <li>
+                        <a target="_blank"
+                           href="/detail/workDetail/<%= viewModel.data.audiolist[i].id %><%= viewModel.data.audiolist[i].mediatype %>">
+                            <img src="<%= viewModel.data.audiolist[i].coverpic %>"/>
+                            <span class="icon icon3"></span>
+                            <p><%= viewModel.data.audiolist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!--视频-->
+            <div class="tabcont">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.vediolist.length; i++){ %>
+                    <li>
+                        <a target="_blank"
+                           href="/detail/workDetail/<%= viewModel.data.vediolist[i].id %><%= viewModel.data.vediolist[i].mediatype %>">
+                            <img src="<%= viewModel.data.vediolist[i].coverpic %>"/>
+                            <span class="icon icon4"></span>
+                            <p><%= viewModel.data.vediolist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!--图集-->
+            <div class="tabcont">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.piclist.length; i++){ %>
+                    <li>
+                        <a target="_blank"
+                           href="/detail/workDetail/<%= viewModel.data.piclist[i].id %><%= viewModel.data.piclist[i].mediatype %>">
+                            <img src="<%= viewModel.data.piclist[i].coverpic %>"/>
+                            <span class="icon icon2"></span>
+                            <p><%= viewModel.data.piclist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!--微刊-->
+            <div class="tabcont">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.microbooklist.length; i++){ %>
+                    <% var num; num = Math.floor(Math.random() * 5) + 1 %>
+                    <li>
+                        <a target="_blank" href="/detail/microBookDetail?id=<%= viewModel.data.microbooklist[i].id %>">
+                            <img src="<%= viewModel.data.microbooklist[i].coverpic %>"/>
+                            <span class="icon"></span>
+                            <p><%= viewModel.data.microbooklist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!--// 微刊-->
+        <% }else if(viewModel.orderType == 18){ %>
+        <div class="subottom">
+            <div class="favorite">
+                <label for="">猜你喜欢</label>
+                <div class="tab left">
+                    <a href="javascript:;">图文</a>
+                    <a href="javascript:;">音频</a>
+                    <a href="javascript:;">视频</a>
+                    <a href="javascript:;">图集</a>
+                    <a href="javascript:;" class="cur">微刊</a>
+                </div>
+            </div>
+            <!--图文-->
+            <div class="tabcont">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.imagetextlist.length; i++){ %>
+                    <li>
+                        <a target="_blank"
+                           href="/detail/workDetail/<%= viewModel.data.imagetextlist[i].id %><%= viewModel.data.imagetextlist[i].mediatype %>">
+                            <img src="<%= viewModel.data.imagetextlist[i].coverpic %>"/>
+                            <span class="icon icon1"></span>
+                            <p><%= viewModel.data.imagetextlist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!--音频-->
+            <div class="tabcont">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.audiolist.length; i++){ %>
+                    <li>
+                        <a target="_blank"
+                           href="/detail/workDetail/<%= viewModel.data.audiolist[i].id %><%= viewModel.data.audiolist[i].mediatype %>">
+                            <img src="<%= viewModel.data.audiolist[i].coverpic %>"/>
+                            <span class="icon icon3"></span>
+                            <p><%= viewModel.data.audiolist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!--视频-->
+            <div class="tabcont">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.vediolist.length; i++){ %>
+                    <li>
+                        <a target="_blank"
+                           href="/detail/workDetail/<%= viewModel.data.vediolist[i].id %><%= viewModel.data.vediolist[i].mediatype %>">
+                            <img src="<%= viewModel.data.vediolist[i].coverpic %>"/>
+                            <span class="icon icon4"></span>
+                            <p><%= viewModel.data.vediolist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!--图集-->
+            <div class="tabcont">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.piclist.length; i++){ %>
+                    <li>
+                        <a target="_blank"
+                           href="/detail/workDetail/<%= viewModel.data.piclist[i].id %><%= viewModel.data.piclist[i].mediatype %>">
+                            <img src="<%= viewModel.data.piclist[i].coverpic %>"/>
+                            <span class="icon icon2"></span>
+                            <p><%= viewModel.data.piclist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!--微刊-->
+            <div class="tabcont" style="display: block;">
+                <ul class="clearfix">
+                    <% for(var i = 0;i < viewModel.data.microbooklist.length; i++){ %>
+                    <% var num; num = Math.floor(Math.random() * 5) + 1 %>
+                    <li>
+                        <a target="_blank" href="/detail/microBookDetail?id=<%= viewModel.data.microbooklist[i].id %>">
+                            <img src="<%= viewModel.data.microbooklist[i].coverpic %>"/>
+                            <span class="icon"></span>
+                            <p><%= viewModel.data.microbooklist[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!--期刊或者期刊年-->
+        <% }else if(viewModel.orderType == 1 || viewModel.orderType == 2){ %>
+        <div class="subottom">
+            <div class="favorite">
+                <label for="">猜你喜欢</label>
+            </div>
+            <div class="tabcont" style="display: block;">
+                <ul class="clearfix periodical">
+                    <% for(var i = 0;i < viewModel.data.recommend.length; i++){ %>
+                    <li>
+                        <a target="_blank" href="/detail/periodDetail/<%= viewModel.data.recommend[i].code %>">
+                            <img src="<%= viewModel.data.recommend[i].coverpic %>"/>
+                            <!--<span class="icon icon1"></span>-->
+                            <p><%= viewModel.data.recommend[i].name %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!--图书-->
+        <% }else if(viewModel.orderType == 7){ %>
+        <div class="subottom">
+            <div class="favorite">
+                <label for="">猜你喜欢</label>
+            </div>
+            <div class="tabcont" style="display: block;">
+                <ul class="clearfix periodical">
+                    <% for(var i = 0;i < viewModel.data.bookrecommend.length; i++){ %>
+                    <li>
+                        <a title="<%= viewModel.data.bookrecommend[i].title %>" target="_blank"
+                           href="/detail/bookDetail/<%= viewModel.data.bookrecommend[i].sku %>">
+                            <img src="<%= viewModel.data.bookrecommend[i].coverpic %>"/>
+                            <!--<span class="icon icon1"></span>-->
+                            <p><%= viewModel.data.bookrecommend[i].title %></p>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <% } %>
+
+    </div>
+</div>
+<%- include('../layouts/footerLayout', {}) %>
+<script>
+    TableTransition($(".tab a"), $(".tabcont"), "click", "cur")
+</script>
+</body>
+
+</html>
+
+<!--https://zwwh.cnki.net/onlineread/culture/index?sourceid=10&fName=ZMNT202006&uid=WEEvREcwSlJHSldTTEYzU3FBN2wrMTA0UDRBWjVSZnlrLzMzbmlmS0Q5TT0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&openid=57c82a500faa3fab3d4fe418065f0bc82695fd1f6515f288406f0a4ca3d333f2ba6dd9e54111d402e56448f159a899e54062dce8da1a70e1-->
+
+<!--https://zwwh.cnki.net/onlineread/culture/index?sourceid=10&fName=ZMNT&uid=WEEvREcwSlJHSldTTEYzU3FBN2wrMTA0UDRBWjVSZnlrLzMzbmlmS0Q5TT0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&openid=57c82a500faa3fab3d4fe418065f0bc82695fd1f6515f288406f0a4ca3d333f2ba6dd9e54111d402e56448f159a899e54062dce8da1a70e1-->

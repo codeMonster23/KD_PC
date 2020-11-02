@@ -1,0 +1,67 @@
+<div class="userSelect">
+    <% if(viewModel.user.isOrg == false) { %>
+    <p class="username"><a class="avatar" href="javascript:;"><img
+                    src="https://kdjk.cnki.net/resource/pic/avatar/<%= viewModel.user.name %>"></a><a
+                href="/personalCenter/home" class="name"><%= viewModel.user.name %></a></p>
+    <ul class="clearfix">
+        
+        <li><a class="icon10" href="/personalCenter/home">个人中心</a></li>
+        <li class="sep"></li>
+        <li><a class="icon5" href="/personalCenter/myAccount">我的账户</a></li>
+        <li><a class="icon6" href="/temp/recharge/home">充值中心</a></li>
+        <li><a class="icon11" href="/personalCenter/vip">VIP会员</a></li>
+        <li class="sep"></li>
+        <li><a class="icon2" href="/pc/purchased">我的已购</a></li>
+        <li><a class="icon1" href="/pc/collected">我的收藏</a></li>
+        <li><a class="icon12" href="/pc/followed">我的关注</a></li>
+        <li class="sep"></li>
+        <li><a class="icon8" href="/personalCenter/personalInfo">账号设置</a></li>
+        <!--<li><a class="icon3" href="/personalCenter/home">我的朗读</a></li>-->
+        <!--<li><a class="icon4" href="/personalCenter/follow">我的机构</a></li>-->
+        <!--<li><a class="icon7" href="/personalCenter/message">消息中心</a></li>-->
+        <li><a id="quit" class="icon9" href="javascript:;">退出登录</a></li>
+    </ul>
+    <% }else{ %>
+    <p class="username"><a class="avatar" href="javascript:;"><img
+                    src="https://kdjk.cnki.net/resource/pic/avatar/<%= viewModel.user.name %>"></a><a
+                href="javascript:;" class="name"><%= viewModel.user.name %></a></p>
+    <ul class="clearfix">
+        <li><a id="quit" class="icon9" href="javascript:;">退出登录</a></li>
+    </ul>
+    <% } %>
+</div>
+<script>
+    (function () {
+        var time = 200;
+        var usp = $('.userSelect p');
+        var usul = $('.userSelect ul');
+        var uss = $('.userSelect')
+        var quit = $('#quit');
+        quit.click(function () {
+            location.href = '/temp/userCenter/loginOut?v=' + Date.now();
+        })
+        uss.hover(function (e) {
+            var event = e || window.event;
+            event.stopPropagation();
+            event.cancelable = true;
+            $(this).find('ul').slideDown(time);
+        }, function () {
+            $(this).find('ul').slideUp(time)
+        })
+        // usp.click(function(){
+        //     location.href = '/personalCenter/home';
+        // })
+        usul.hover(function () {
+            //$(this).css('display','block');
+        }, function () {
+            //$(this).slideUp(time);
+        })
+        usul.children('li').click(function () {
+            $(this).parent('ul').slideUp(time);
+        })
+        $('.pheader').click(function () {
+            usul.slideUp(time);
+        })
+
+    })()
+</script>

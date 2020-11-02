@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/mall/header-and-footer.css" />
+        <link rel="stylesheet" type="text/css" href="/css/mall/mall-book.css" />
+        <script src="/js/jquery.cycle2.js"></script>
+</head>
+
+<body>
+    <%- include('../layouts/mall/navLayout', {current: 2,sublogo:false,enterControl:1}) %>
+        <div class="bookhome-banner">
+            <div class="bannerArea">
+                <div class="slideList"></div>
+                <div class="slidePager"></div>
+            </div>
+            <div class="bookhome-category">
+                <div class="bookhome-category-title">图书分类</div>
+                <div class="bookhome-category-body clearfix"></div>
+            </div>
+        </div>
+        <div class="section s1">
+            <!-- 本周推荐-->
+            <div class="s1-recommend">
+                <div class="s1-recommend-header clearfix">
+                    <span class="s1-recommend-title bookhome-recommend-title">本周推荐</span>
+                    <a class="s1-recommend-more bookhome-recommend-more" href="/mall/category?type=2&sort=hot" target="_blank">查看更多></a>
+                </div>
+                <div class="s1-recommend-body">
+                    <div class="s1-recommend-first clearfix"></div>
+                    <div class="s1-recommend-items clearfix"></div>
+                </div>
+            </div>
+            <!-- 排行榜 -->
+            <div class="s1-rank">
+                <div class="s1-rank-header clearfix">
+                    <span class="s1-rank-title">排行榜</span>
+                    <a class="s1-rank-more" href="/mall/rank?type=2" target="_blank">完整榜单></a>
+                </div>
+                <div class="s1-rank-body">
+                    <div class="s1-rank-tab clearfix"></div>
+                    <div class="s1-rank-items">
+                        <!-- <div class="s1-rank-item active clearfix">
+                        <i class="s1-rank-item-number colorRed">1</i>
+                        <span class="s1-rank-item-title">凯叔讲故事</span>
+                        <div class="s1-rank-item-detail clearfix">
+                            <a class="s1-rank-detail-img" href="" title="" target="_blank">
+                                <img src="http://via.placeholder.com/89x126" width="89" height="126" alt="">
+                            </a>
+                            <div class="s1-rank-detail-info">
+                                <div class="s1-rank-detail-title">
+                                    <a href="" title="标题" target="_blank">标题</a>
+                                </div>
+                                <div class="s1-rank-detail-author">作者 著</div>
+                            </div>
+                        </div>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 新书速递 -->
+        <div class="section s2">
+            <div class="s2-new-header clearfix">
+                <span class="s2-new-title"><img src="/images/mall/mall_tit03.png" alt=""></span>
+                <a class="s2-header-more" href="/mall/category?type=2&sort=new" target="_blank">查看更多></a>
+            </div>
+            <div class="s2-new-body clearfix"></div>
+        </div>
+        <!-- 热门书单 热门分类 -->
+        <!-- <div class="section s3">
+        <div class="s3-item">
+            <div class="s3-header clearfix">
+                <span class="s3-title">热门书单</span>
+                <a class="s3-header-more" href="" target="_blank">查看更多 ></a>
+            </div>
+            <div class="s3-body clearfix">
+                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+            </div>
+        </div>
+        <div class="s3-item">
+            <div class="s3-header clearfix">
+                <span class="s3-title">热门分类</span>
+                <a class="s3-header-more" href="" target="_blank">查看更多 ></a>
+            </div>
+            <div class="s3-body clearfix">
+                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+                <a href="" title="围城" target="_blank"><img src="http://via.placeholder.com/253x98" alt=""></a>
+            </div>
+        </div>
+    </div> -->
+        <div class="section s4">
+            <div class="inner">
+                <div class="s4-module s4-module1">
+                    <div class="s4-module-header clearfix">
+                        <span class="s4-module-title"></span>
+                        <a class="s4-header-more" target="_blank">查看更多 ></a>
+                    </div>
+                    <div class="s4-module-body clearfix">
+                        <div class="s4-module-item-first"></div>
+                        <div class="s4-module-items clearfix"></div>
+                    </div>
+                </div>
+                <div class="s4-module s4-module2">
+                    <div class="s4-module-header clearfix">
+                        <span class="s4-module-title"></span>
+                        <a class="s4-header-more" target="_blank">查看更多 ></a>
+                    </div>
+                    <div class="s4-module-body clearfix">
+                        <div class="s4-module-item-first"></div>
+                        <div class="s4-module-items clearfix"></div>
+                    </div>
+                </div>
+                <div class="s4-module s4-module3">
+                    <div class="s4-module-header clearfix">
+                        <span class="s4-module-title"></span>
+                        <a class="s4-header-more" target="_blank">查看更多 ></a>
+                    </div>
+                    <div class="s4-module-body clearfix">
+                        <div class="s4-module-item-first"></div>
+                        <div class="s4-module-items clearfix"></div>
+                    </div>
+                </div>
+                <div class="s4-module s4-module4">
+                    <div class="s4-module-header clearfix">
+                        <span class="s4-module-title">财经管理</span>
+                        <a class="s4-header-more" target="_blank">查看更多 ></a>
+                    </div>
+                    <div class="s4-module-body clearfix">
+                        <div class="s4-module-item-first"></div>
+                        <div class="s4-module-items clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../layouts/footerLayout') %>
+            <script>
+                var cate1 = $('.s4-module1');
+                var cate2 = $('.s4-module2');
+                var cate3 = $('.s4-module3');
+                var cate4 = $('.s4-module4');
+                var slideList = $('.bannerArea .slideList');
+                getMallBookIndex();
+                getRankList();
+                getBookCategory();
+
+                function getBookCategory() {
+                    var url = '/mall/getCategory?type=2';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(data) {
+                            if (data && data.length > 0) {
+                                var str = '';
+                                for (var i = 0; i < 9; i++) {
+                                    str += '<a class="bookhome-category-item" href="/mall/category?type=2&sort=hot&code=' + data[i].code + '&catename=' + data[i].name + '" target="_blank"><img src="/images/mall/mallbook_icon' + (i + 1) + '.png" alt="">' + data[i].name + '</a>'
+                                }
+                                str += '<a class="bookhome-category-item" href="/mall/category?type=2&sort=hot" target="_blank"><img src="/images/mall/mallbook_icon' + (i + 1) + '.png" alt="">更多</a>';
+                                $('.bookhome-category-body').html(str);
+                            }
+                        }
+                    });
+                }
+
+                function getMallBookIndex() {
+                    var url = '/mall/getMallBookIndex';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(response) {
+                            console.log(response);
+                            if (response.code == 0) {
+                                var listweekrecommend = response.data.listweekrecommend;
+                                var listlunbo = response.data.listlunbo;
+                                var listnewbook = response.data.listnewbook;
+                                var listcate1 = response.data.listcate1;
+                                var listcate2 = response.data.listcate2;
+                                var listcate3 = response.data.listcate3;
+                                var listcate4 = response.data.listcate4;
+                                // 轮播图
+                                if (listlunbo && listlunbo.length > 0) {
+                                    var carouselStr = '';
+                                    for (var i = 0; i < listlunbo.length; i++) {
+                                        carouselStr += '<div class="slide"><a href="/detail/bookDetail/' + listlunbo[i].foreignkeyid + '" target="_blank" style="background-image: url(' + listlunbo[i].pccoverpic + ');"></a></div>';
+                                    }
+                                    slideList.html(carouselStr);
+                                    slideList.cycle({
+                                        fx: 'fade',
+                                        timeout: 3000,
+                                        speed: 1000,
+                                        pause: true,
+                                        slides: '.slide',
+                                        pager: '.slidePager'
+                                    });
+                                }
+                                // 本周推荐
+                                if (listweekrecommend && listweekrecommend.length > 0) {
+                                    var recommendFirstStr = '';
+                                    var recommendOtherStr = '';
+                                    var recommendMemoStr = '';
+                                    var recommendAuthor = '';
+                                    for (var i = 0; i < listweekrecommend.length; i++) {
+                                        if (listweekrecommend[i].author.indexOf('#') != -1) {
+                                            recommendAuthor = listweekrecommend[i].author.split('#').join(' ');
+                                        } else {
+                                            recommendAuthor = listweekrecommend[i].author;
+                                        }
+                                        if (i == 0) {
+                                            if (listweekrecommend[i].memo) {
+                                                recommendMemoStr = '<div class="s1-recommend-first-intro"><span class="triangle"></span><span class="text">' + listweekrecommend[i].memo + '</span></div>';
+                                            }
+                                            recommendFirstStr = '<a class="s1-recommend-first-img" href="/detail/bookDetail/' + listweekrecommend[i].foreignkeyid + '" title="' + listweekrecommend[i].title + '" target="_blank">' +
+                                                '<img src="' + listweekrecommend[i].coverpic + '" width="165" height="221" alt="">' +
+                                                '</a>' +
+                                                '<div class="s1-recommend-first-info">' +
+                                                '<div class="s1-recommend-first-title">' +
+                                                '<a href="/detail/bookDetail/' + listweekrecommend[i].foreignkeyid + '" title="' + listweekrecommend[i].title + '" target="_blank">' + listweekrecommend[i].title + '</a>' +
+                                                '</div>' +
+                                                '<div class="s1-recommend-first-author">作者：&nbsp;<span>' + recommendAuthor + '</span>&nbsp;著</div>' + recommendMemoStr +
+                                                '</div>';
+                                        } else {
+                                            recommendOtherStr += '<div class="s1-recommend-item">' +
+                                                '<a class="s1-recommend-item-img" href="/detail/bookDetail/' + listweekrecommend[i].foreignkeyid + '" title="' + listweekrecommend[i].title + '" target="_blank">' +
+                                                '<img src="' + listweekrecommend[i].coverpic + '" width="141" height="189" alt="">' +
+                                                '</a>' +
+                                                '<p class="s1-recommend-item-title"><a href="/detail/bookDetail/' + listweekrecommend[i].foreignkeyid + '" title="' + listweekrecommend[i].title + '" target="_blank">' + listweekrecommend[i].title + '</a></p>' +
+                                                '<p class="s1-recommend-item-author">' + recommendAuthor + ' 著</p>' +
+                                                '</div>';
+                                        }
+                                    }
+                                    $('.s1-recommend-first').html(recommendFirstStr);
+                                    $('.s1-recommend-items').html(recommendOtherStr);
+                                }
+                                // 新书速递
+                                if (listnewbook && listnewbook.length > 0) {
+                                    $('.s4-module1').show();
+                                    var newbookStr = '';
+                                    var newbookAuthor = '';
+                                    for (var i = 0; i < listnewbook.length; i++) {
+                                        if (listnewbook[i].author.indexOf('#') != -1) {
+                                            newbookAuthor = listnewbook[i].author.split('#').join(' ');
+                                        } else {
+                                            newbookAuthor = listnewbook[i].author;
+                                        }
+                                        newbookStr += '<div class="s2-new-item">' +
+                                            '<a class="s2-new-item-img" href="/detail/bookDetail/' + listnewbook[i].foreignkeyid + '" title="' + listnewbook[i].title + '" target="_blank">' +
+                                            '<img src="' + listnewbook[i].coverpic + '" width="141" height="189" alt="">' +
+                                            '</a>' +
+                                            '<p class="s2-new-item-title"><a href="/detail/bookDetail/' + listnewbook[i].foreignkeyid + '" title="' + listnewbook[i].title + '" target="_blank">' + listnewbook[i].title + '</a></p>' +
+                                            '<p class="s2-new-item-author">' + newbookAuthor + ' 著</p>' +
+                                            '</div>';
+                                    }
+                                    $('.s2-new-body').html(newbookStr);
+                                }
+                                // 分类
+                                if (listcate1 && listcate1.list && listcate1.list.length > 0) {
+                                    cate1.show();
+                                    cate1.find('.s4-header-more').attr('data-code', listcate1.link);
+                                    cate1.find('.s4-header-more').attr('data-name', listcate1.linkname);
+                                    var cate1FirstStr = '';
+                                    var cate1OtherStr = '';
+                                    var cate1Author = '';
+                                    for (var i = 0; i < listcate1.list.length; i++) {
+                                        if (i < 5) {
+                                            var item = listcate1.list[i];
+                                            if (item.author.indexOf('#') != -1) {
+                                                cate1Author = item.author.split('#').join(' ');
+                                            } else {
+                                                cate1Author = item.author;
+                                            }
+                                            if (i == 0) {
+                                                cate1FirstStr += '<div class="s4-module-first-img">' +
+                                                    '<a  href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                    '<img src="' + item.coverpic + '" width="165" height="221" alt="">' +
+                                                    '</a>' +
+                                                    '</div>' +
+                                                    '<p class="s4-module-first-title"><a href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                    '<p class="s4-module-first-author">' + cate1Author + ' 著</p>';
+                                            } else {
+                                                cate1OtherStr += '<div class="s4-module-item">' +
+                                                    '<a class="s4-module-item-img" href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                    '<img src="' + item.coverpic + '" width="102" height="137" alt="">' +
+                                                    '</a>' +
+                                                    '<p class="s4-module-item-title"><a href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                    '<p class="s4-module-item-author">' + cate1Author + ' 著</p>' +
+                                                    '</div>';
+                                            }
+                                        }
+
+                                    }
+                                    cate1.find('.s4-module-item-first').html(cate1FirstStr);
+                                    cate1.find('.s4-module-items').html(cate1OtherStr);
+                                    cate1.find('.s4-module-title').html(listcate1.displayname);
+                                }
+
+                                if (listcate2 && listcate2.list && listcate2.list.length > 0) {
+                                    cate2.show();
+                                    cate2.find('.s4-header-more').attr('data-code', listcate2.link);
+                                    cate2.find('.s4-header-more').attr('data-name', listcate2.linkname);
+                                    var cate2FirstStr = '';
+                                    var cate2OtherStr = '';
+                                    var cate2Author = '';
+                                    for (var i = 0; i < listcate2.list.length; i++) {
+                                        if (i < 5) {
+                                            var item = listcate2.list[i];
+                                            if (item.author.indexOf('#') != -1) {
+                                                cate2Author = item.author.split('#').join(' ');
+                                            } else {
+                                                cate2Author = item.author;
+                                            }
+                                            if (i == 0) {
+                                                cate2FirstStr += '<div class="s4-module-first-img">' +
+                                                    '<a  href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                    '<img src="' + item.coverpic + '" width="165" height="221" alt="">' +
+                                                    '</a>' +
+                                                    '</div>' +
+                                                    '<p class="s4-module-first-title"><a href="/detail/bookDetail/' + listnewbook[i].foreignkeyid + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                    '<p class="s4-module-first-author">' + cate2Author + ' 著</p>';
+                                            } else {
+                                                cate2OtherStr += '<div class="s4-module-item">' +
+                                                    '<a class="s4-module-item-img" href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                    '<img src="' + item.coverpic + '" width="102" height="137" alt="">' +
+                                                    '</a>' +
+                                                    '<p class="s4-module-item-title"><a href="/detail/bookDetail/' + listnewbook[i].foreignkeyid + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                    '<p class="s4-module-item-author">' + cate2Author + ' 著</p>' +
+                                                    '</div>';
+                                            }
+                                        }
+                                    }
+                                    cate2.find('.s4-module-item-first').html(cate2FirstStr);
+                                    cate2.find('.s4-module-items').html(cate2OtherStr);
+                                    cate2.find('.s4-module-title').html(listcate2.displayname);
+                                }
+                                if (listcate3 && listcate3.list && listcate3.list.length > 0) {
+                                    cate3.show();
+                                    cate3.find('.s4-header-more').attr('data-code', listcate3.link);
+                                    cate3.find('.s4-header-more').attr('data-name', listcate3.linkname);
+                                    var cate3FirstStr = '';
+                                    var cate3OtherStr = '';
+                                    var cate3Author = '';
+                                    for (var i = 0; i < listcate3.list.length; i++) {
+                                        if (i < 5) {
+                                            var item = listcate3.list[i];
+                                            if (item.author.indexOf('#') != -1) {
+                                                cate3Author = item.author.split('#').join(' ');
+                                            } else {
+                                                cate3Author = item.author;
+                                            }
+                                            if (i == 0) {
+                                                cate3FirstStr += '<div class="s4-module-first-img">' +
+                                                    '<a  href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                    '<img src="' + item.coverpic + '" width="165" height="221" alt="">' +
+                                                    '</a>' +
+                                                    '</div>' +
+                                                    '<p class="s4-module-first-title"><a href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                    '<p class="s4-module-first-author">' + cate3Author + ' 著</p>';
+                                            } else {
+                                                cate3OtherStr += '<div class="s4-module-item">' +
+                                                    '<a class="s4-module-item-img" href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                    '<img src="' + item.coverpic + '" width="102" height="137" alt="">' +
+                                                    '</a>' +
+                                                    '<p class="s4-module-item-title"><a href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                    '<p class="s4-module-item-author">' + cate3Author + ' 著</p>' +
+                                                    '</div>';
+                                            }
+                                        }
+                                    }
+                                    cate3.find('.s4-module-item-first').html(cate3FirstStr);
+                                    cate3.find('.s4-module-items').html(cate3OtherStr);
+                                    cate3.find('.s4-module-title').html(listcate3.displayname);
+                                }
+
+                                if (listcate4 && listcate4.list && listcate4.list.length > 0) {
+                                    cate4.show();
+                                    cate4.find('.s4-header-more').attr('data-code', listcate4.link);
+                                    cate4.find('.s4-header-more').attr('data-name', listcate4.linkname);
+                                    var cate4FirstStr = '';
+                                    var cate4OtherStr = '';
+                                    var cate4Author = '';
+                                    for (var i = 0; i < listcate4.list.length; i++) {
+                                        if (i < 5) {
+                                            var item = listcate4.list[i];
+                                            if (item.author.indexOf('#') != -1) {
+                                                cate4Author = item.author.split('#').join(' ');
+                                            } else {
+                                                cate4Author = item.author;
+                                            }
+                                            if (i == 0) {
+                                                cate4FirstStr += '<div class="s4-module-first-img">' +
+                                                    '<a  href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                    '<img src="' + item.coverpic + '" width="165" height="221" alt="">' +
+                                                    '</a>' +
+                                                    '</div>' +
+                                                    '<p class="s4-module-first-title"><a href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                    '<p class="s4-module-first-author">' + cate4Author + ' 著</p>';
+                                            } else {
+                                                cate4OtherStr += '<div class="s4-module-item">' +
+                                                    '<a class="s4-module-item-img" href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' +
+                                                    '<img src="' + item.coverpic + '" width="102" height="137" alt="">' +
+                                                    '</a>' +
+                                                    '<p class="s4-module-item-title"><a href="/detail/bookDetail/' + item.foreignkeyid + '" title="' + item.title + '" target="_blank">' + item.title + '</a></p>' +
+                                                    '<p class="s4-module-item-author">' + cate4Author + ' 著</p>' +
+                                                    '</div>';
+                                            }
+                                        }
+                                    }
+
+                                    cate4.find('.s4-module-item-first').html(cate4FirstStr);
+                                    cate4.find('.s4-module-items').html(cate4OtherStr);
+                                    cate4.find('.s4-module-title').html(listcate4.displayname);
+                                }
+                            }
+                        }
+                    });
+                }
+
+                function getRankList() {
+                    var url = '/mall/getRankList';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        success: function(data) {
+                            if (data && data.length > 0) {
+                                var rankStr = '';
+                                var rankArr = [];
+                                for (var i = 0; i < data.length; i++) {
+                                    if (data[i].rankingType == 'book') {
+                                        rankArr.push(data[i]);
+                                    }
+                                }
+                                for (var i = 0; i < 4; i++) {
+                                    if (i == 0) {
+                                        rankStr += '<span class="s1-rank-tab-item active" data-code="' + rankArr[i].code + '">' + rankArr[i].title + '</span>';
+                                    } else {
+                                        rankStr += '<span class="s1-rank-tab-item" data-code="' + rankArr[i].code + '">' + rankArr[i].title + '</span>';
+                                    }
+
+                                }
+                                $('.s1-rank-tab').html(rankStr);
+                                var code = $('.s1-rank-tab-item.active').attr('data-code');
+                                getRankingDetail(code);
+                            }
+                        }
+                    });
+                }
+
+                function getRankingDetail(code) {
+                    var url = '/mall/getRankingDetail';
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {
+                            type: 'book',
+                            rankingcode: code
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            // console.log(response);
+                            if (response.code == 0) {
+                                var rankDetailList = response.booklist;
+                                var rankDetailStr = '';
+                                var numStr = '';
+                                var rankAuthor = '';
+                                if (rankDetailList && rankDetailList.length > 0) {
+                                    for (var i = 0; i < rankDetailList.length; i++) {
+                                        if (i < 3) {
+                                            numStr = '<i class="s1-rank-item-number colorRed">' + (i + 1) + '</i>';
+                                        } else {
+                                            numStr = '<i class="s1-rank-item-number">' + (i + 1) + '</i>';
+                                        }
+                                        if (rankDetailList[i].author.indexOf('#') != -1) {
+                                            rankAuthor = rankDetailList[i].author.split('#').join(' ');
+                                        } else {
+                                            rankAuthor = rankDetailList[i].author;
+                                        }
+
+                                        var classActive = i == 0 ? 'active' : '';
+                                        rankDetailStr += '<div class="s1-rank-item ' + classActive + ' clearfix">' + numStr +
+                                            '<span class="s1-rank-item-title">' + rankDetailList[i].title + '</span>' +
+                                            '<div class="s1-rank-item-detail clearfix">' +
+                                            '<a class="s1-rank-detail-img" href="/detail/bookDetail/' + rankDetailList[i].sku + '" title="' + rankDetailList[i].title + '" target="_blank">' +
+                                            '<img src="' + rankDetailList[i].coverpic + '" width="89" height="126" alt="">' +
+                                            '</a>' +
+                                            '<div class="s1-rank-detail-info">' +
+                                            '<div class="s1-rank-detail-title">' +
+                                            '<a href="/detail/bookDetail/' + rankDetailList[i].sku + '" title="' + rankDetailList[i].title + '" target="_blank">' + rankDetailList[i].title + '</a>' +
+                                            '</div>' +
+                                            '<div class="s1-rank-detail-author">' + rankAuthor + ' 著</div>' +
+                                            '</div>' +
+                                            '</div>' +
+                                            '</div>';
+                                    }
+                                    $('.s1-rank-items').html(rankDetailStr);
+                                }
+
+                            }
+                        }
+                    });
+                }
+                $('.s1-rank').on('mouseenter', '.s1-rank-item', function() {
+                    $('.s1-rank-item').removeClass('active');
+                    $(this).toggleClass('active');
+                });
+                $('.s1-rank').on('mouseenter', '.s1-rank-tab-item', function() {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var code = $(this).attr('data-code');
+                    getRankingDetail(code);
+                });
+                $('.s4-header-more').on('click', function() {
+                    var code = $(this).attr('data-code');
+                    var catename = $(this).attr('data-name');
+                    window.open('/mall/category?type=2&sort=hot&code=' + code + '&catename=' + catename, '_blank');
+                });
+            </script>
+</body>
+
+</html>

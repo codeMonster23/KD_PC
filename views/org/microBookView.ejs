@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <%- include('../layouts/headLayout', {}) %>
+        <link rel="stylesheet" type="text/css" href="/css/microbook.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/org/orgstyle.css"/>
+	</head>
+	<body bgcolor="#EBEFF5">
+        <%- include('../layouts/org/navLayout', {current: 2}) %>
+        <%- include('../layouts/org/bannerLayout') %>
+	    <div class="mwrap">
+            <div class="choose" id="choose">
+                <div class="tags left">
+                    <a <% if(sort == 'updatetime'){ %>class="cur"
+                            <% } %> 
+                            data-code="updatetime" href="javascript:;">最新</a>
+                    <a <% if(sort == 'viewcount'){ %>class="cur"
+                            <% } %>
+                            data-code="viewcount" href="javascript:;">最热</a>
+                </div>
+                <div class="num">共<span>2555</span>个微刊</div>
+            </div>
+            <div class="cardwrap clearfix">
+                <% for(var i = 0; i < viewModel.data.microBooks.length;i++){ %>
+                <div class="ca-box">
+                    <div class="pic"><a target="_blank" href="<%= '/detail/microBookDetail?id='+ viewModel.data.microBooks[i].id %>"><img src="<%= viewModel.data.microBooks[i].coverpic %>" width="534" height="239"></a>
+                        <div class="num"><span class="s1"><%= viewModel.data.microBooks[i].childcollectioncount %></span><span class="s2"><%= viewModel.data.microBooks[i].viewcount %></span></div>
+                    </div>
+                    <div class="name">
+                        <span class="text"><a target="_blank" href="<%= '/detail/microBookDetail?id='+ viewModel.data.microBooks[i].id %>"><%= viewModel.data.microBooks[i].title %></a></span>
+                    </div>
+                    <div class="info"><a target="_blank" href="/kdh/home?orgid=<%= viewModel.data.microBooks[i].orgid %>" class="left"><img src="<%= viewModel.data.microBooks[i].logopic %>"><%= viewModel.data.microBooks[i].orgname %></a><span class="right time"><%= ejsFunctions.dateFormat(viewModel.data.microBooks[i].updatatime) %></span>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div id="sp-page" class="sp-page" ref="page"><%- viewModel.data.pageStr %></div>
+        </div>
+	   <%- include('../layouts/footerLayout', {}) %>
+	   <script>
+            $('#choose .tags a').click(function(){
+                var sort = $(this).attr('data-code');
+                window.location = '/org/microBook/?pageNum='+ 1 +'&sort='+ sort;
+            })
+            $('#sp-page').children('a').click(function(){
+                var pageNum = $(this).attr('data-page');
+                var sort = $('#choose a.cur').attr('data-code');
+                window.location = '/org/microBook/?pageNum='+ pageNum +'&sort='+ sort;
+            })
+	   </script>
+	</body>
+</html>
